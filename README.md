@@ -1,4 +1,4 @@
 idheas
 ======
 
-i(dh)eas v. Gendo Ikari.
+i(dh)eas V. Gendo Ikari.
