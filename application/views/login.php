@@ -35,7 +35,7 @@
 				
 		<?php echo validation_errors(); ?>
 
-		<?php echo form_open('formC'); ?>
+		<?php echo form_open('form_c'); ?>
 					<H2>Usuario</H2>
 					<input id="usuario" type="text" name="usuario" value="<?php echo set_value('usuario'); ?>" placeholder="usuario" required pattern="Admin"/>
 					<?php echo br(2);?>

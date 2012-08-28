@@ -32,7 +32,6 @@ class Form_c extends CI_Controller {
 	{
 	
 		$this->load->helper('html');
-		$this->load->helper('formC');
 		$this->load->library('form_validation');
 				$this->load->helper('html');
 
