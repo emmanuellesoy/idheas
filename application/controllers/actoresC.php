@@ -23,11 +23,11 @@ class ActoresC extends CI_Controller {
 		 * un nuevo actor.
 		 */
 		 
-		foreach($_POST as $nombre_campo => $valor){ 
+		/*foreach($_POST as $nombre_campo => $valor){ 
    		
 			$datos[$nombre_campo] = $valor; 
 		
-		}
+		}*/
 		
 		print_r($datos);
 		 
