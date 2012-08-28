@@ -28,15 +28,17 @@
 		
 		public function mAgregarActor($datosActor){
 			
-			foreach($datosActor['tablas']['actores'] as $key => $value){
-		
-				echo $key.' => '.$value;
-		
+			if($datosActor['tipoActorId'] == 1){
+			
+				$this->db->insert('actores', $datosActor['tablas']['actores']);
+				$this->db->select_max('actorId');
+				$ultimoActorId = $this->db->get('actores');
+				
 			}
 			
+			/*Antes
 			$this->db->insert('actores', $datosActor);
-			$this->db->select_max('actorId');
-			$ultimoActorId = $this->db->get('actores');
+			*/
 			
 			
 		}
