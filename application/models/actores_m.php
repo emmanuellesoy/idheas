@@ -31,8 +31,13 @@
 			if($datosActor['tipoActorId'] == 1){
 			
 				$this->db->insert('actores', $datosActor['tablas']['actores']);
+				
 				$this->db->select_max('actorId');
 				$ultimoActorId = $this->db->get('actores');
+				
+				$this->db->insert('datosDeNacimiento',$datosActor['tablas']['datosDeNacimiento']);
+				
+				$this->db->insert('infoContacto',$datosActor['tablas']['infoContacto']);
 				
 			}
 			
