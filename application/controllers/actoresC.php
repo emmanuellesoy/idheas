@@ -22,8 +22,6 @@ class ActoresC extends CI_Controller {
 		 * funcion mAgregarActor que se encarga de insertar en la base de datos
 		 * un nuevo actor.
 		 */
-		
-		
 		 
 		foreach($_POST as $nombre_campo => $valor){ 
    		
@@ -36,9 +34,6 @@ class ActoresC extends CI_Controller {
 		$this->load->model('actores_m', 'am');
 		 
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
-		 
-		 
-		
 	}
 }
 

@@ -2,7 +2,7 @@
 <html >
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome to CodeIgniter</title>
+		<title>Login Ideas</title>
 		<?php $link = array(
 			'href' => 'CSS/login.css',
 			'rel' => 'stylesheet',
@@ -35,7 +35,7 @@
 				
 		<?php echo validation_errors(); ?>
 
-		<?php echo form_open('form'); ?>
+		<?php echo form_open('formC'); ?>
 					<H2>Usuario</H2>
 					<input id="usuario" type="text" name="usuario" value="<?php echo set_value('usuario'); ?>" placeholder="usuario" required pattern="Admin"/>
 					<?php echo br(2);?>
