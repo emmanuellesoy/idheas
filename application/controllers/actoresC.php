@@ -35,6 +35,8 @@ class ActoresC extends CI_Controller {
 		 
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
 	}
+	
+	
 }
 
 /* End of file welcome.php */
