@@ -161,7 +161,8 @@ border-radius: 5px;
 
 .tabs {
     position: relative;   
-    height: 1000px;
+    height: 750px;
+    height: 750px;
     width:98%;
     display: block;
     border: 12px solid red;
@@ -296,14 +297,14 @@ h3{
 	#Imagen{margin: 5% 0% 0% 0%;}
 	#lista{height:60px;}
 	#Nombre{margin: 15% 0% 0% 0%;}
-	.tabs{height: 850px}
+	.tabs{height: 750px}
 }
 /* 800px*/
 @media screen and (max-width: 800px){
 	p {font-size: 80%;}
 	#lista{height:60px;}
 	#Imagen{margin: 20% 0% 0% 0%;
-	.tabs{height: 950px}
+	.tabs{height: 800px}
 	}
 }
 /* 400px*/
@@ -313,5 +314,5 @@ h3{
 			width:20%;}
 	#Imagen{margin: 25% 0% 0% 0%;}
 	h1 {display: none; visibility: hidden; }
-	.tabs{height: 1000px}
+	.tabs{height: 900px}
 }

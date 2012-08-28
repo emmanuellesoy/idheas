@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Login Ideas</title>
 		<?php $link = array(
-			'href' => 'CSS/login.css',
+			'href' => 'statics/CSS/login.css',
 			'rel' => 'stylesheet',
 			'type' => 'text/css',
 			);
