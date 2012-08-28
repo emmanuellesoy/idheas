@@ -21,7 +21,9 @@ class Form_c extends CI_Controller {
 				$DatosGenerales['estadoCivil']= array('Clean House', 'Call Mom', 'Run Errands');
 				$DatosGenerales['id']= 'id="ActorIndv" ';
 				
-				$data['formulario'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales , true);
+				$data['colectivo'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales , true);
+				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
+				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
 				$this->load->view('menu',$data);
 		}

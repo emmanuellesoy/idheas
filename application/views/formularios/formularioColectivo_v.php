@@ -12,7 +12,7 @@
 									 </p>
 									 <p>
 									<label for="siglas">Siglas:</label>
-										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required/>
+										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="40" maxlength="60" required/>
 									</p>
 									
 									 <p>
