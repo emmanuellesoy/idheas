@@ -25,7 +25,7 @@ class Form_c extends CI_Controller {
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
-				$this->load->view('menu_v',$data);
+				$this->load->view('menu',$data);
 		}
 	}
 
