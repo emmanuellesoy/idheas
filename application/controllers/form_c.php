@@ -1,11 +1,10 @@
 <?php
 
-class formC extends CI_Controller {
+class Form_c extends CI_Controller {
 
 	function index()
 	{
 		$this->load->helper('html');
-		$this->load->helper('formC');
 						
 		$this->load->library('form_validation');
 
