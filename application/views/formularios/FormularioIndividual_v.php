@@ -1,13 +1,13 @@
 
 
-							<?php echo validation_errors(); ?>
-							<?$hidden = array('Tipoactor' => 'Individual');?>
-							
-							<?php echo form_open('form/menu','', $hidden); ?>
+				<?php echo validation_errors(); ?>
+					<?php echo form_open('actores_c/agregarActor'); ?>
+						<?$hidden = array('tipoActorId' => '1');?>
 							
 						<div	id="Actores" >
 								<fieldset>
 									  <legend>Información general</legend>
+									<div class="six columns">
 									 
 									  <p>
 										<label for="nombre">Nombre</label>
@@ -25,14 +25,23 @@
 										<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" required/>
 									  
 									  </p>
+									  
+									  </div>
+									  
+									<div class="six columns">
+									  
+									<div class="six columns">
 									 
 									  <p>
 										<label for="genero">Género</label>
-										<input type="radio" name="InfoGralActor_generoid" value="<?php echo set_value('Hombre'); ?>" /> Hombre
+										<input type="radio" name="InfoGralActor_generoid" checked="checked" value="<?php echo set_value('Hombre'); ?>" /> Hombre
 										<input type="radio" name="InfoGralActor_generoid" value="<?php echo set_value('Mujer'); ?>" /> Mujer
 									
 									  </p>
-									 
+									</div>
+									
+									<div class="six columns">
+									  
 									  <p>
 										<label for="edad">Edad</label>
 										<select>						
@@ -41,11 +50,12 @@
 										<?php endforeach;?>
 										</select>
 									  </p>
+									</div>
 									 
 									  <p>
 										<label for="estadoCivil">Estado Civil</label>
 										<select>						
-										<?php foreach($nacionalidad as $item):?> <!--muestra todas las nacionalidades-->
+										<?php foreach($estadoCivil as $item):?> <!--muestra los estados civiles-->
 													<option name="InfoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
@@ -60,22 +70,34 @@
 										</select>
 									  </p>
 									
-									 
+									</div> 
 								</fieldset>	<!--Termina información general-->
 								<?php echo br(3);?>
 								
 								<fieldset>
 									  <legend>Detalles</legend>
+									<div class="six columns">
 								 
-									 
+									 <div class="six columns">
 									  <p>
-									<label for="hijos">Hijos</label>
-										<select>						
-										<?php foreach($edad as $item):?> 
-													<option name="InfoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
-										</select>
+											<label for="hijos">Hijos</label>
+											<select>						
+											<?php foreach($edad as $item):?> 
+														<option name="InfoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
+											<?php endforeach;?>
+											</select>
 									  </p>
+									 </div>
+									  
+									 <div class="six columns">									
+									   <p>			
+										<label for="genero">¿Habla español?</label>
+										<input type="radio" name="InfoGralActor_espaniol" checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
+										<input type="radio" name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
+										
+									  </p>
+									 </div>
+									
 									 
 									  <p>
 									<label for="grupoIndigena">Grupo Indígena</label>
@@ -86,6 +108,11 @@
 										</select>
 										
 									  </p>
+							
+									    
+									</div>
+									<div class="six columns">
+									  
 									 
 									  <p>
 										<label for="nivelEscolaridad">Nivel de Escolaridad</label>
@@ -107,14 +134,7 @@
 										
 									  </p>
 									 
-									  <p>			
-										<label for="genero">¿Habla español?</label>
-										<input type="radio" name="InfoGralActor_espaniol" value="<?php echo set_value('Si'); ?>" /> Si
-										<input type="radio" name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
-										
-									  </p>
-									 
-										
+									</div>	
 								</fieldset><!--Termina Detalles-->
 								
 								
@@ -122,6 +142,7 @@
 								
 								<fieldset>
 									  <legend>Datos de Nacimiento</legend>
+									<div class="six columns">
 									 
 									  <p>
 										<label for="pais">País</label>
@@ -142,6 +163,8 @@
 										</select>
 										
 									  </p>
+									  </div>
+									<div class="six columns">
 									 
 									  <p>
 										<label for="municipio">Municipio</label>
@@ -160,13 +183,14 @@
 										
 									  </p>
 									  									  
-									  
+									</div>  
 								</fieldset><!--Termina datos de nacimiento-->
 								
 								<?php echo br(3);?>
 								
 								<fieldset>
 									  <legend>Información de contacto</legend>
+									<div class="six columns">
 									 
 									  <p>
 									<label for="telefono">Teléfono</label>
@@ -179,18 +203,21 @@
 										<input type="text"  name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" required/>
 									 
 									  </p>
+									  </div>
+									<div class="six columns">
 									  
 									  <p>
 									<label for="correo">Correo electrónico</label>
 										<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  required/>
 									  </p>
-									  
+									</div>  
 								</fieldset><!--Termina información del contacto-->
 								
 								<?php echo br(3);?>
 								
 								<fieldset>
 									  <legend>Dirección</legend>
+									<div class="six columns">
 									  
 									  <p>
 										<label for="tipoDir">Tipo de dirección</label>
@@ -204,6 +231,16 @@
 										<label for="ubicacion">Ubicación</label>
 											<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  required/>
 									 </p>
+									 
+									 
+									<p>
+										<label for="codigoPos">Código Postal</label>
+											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  required/>
+									 </p>
+									 
+									</div>
+									<div class="six columns">
+									
 
 									<p>
 										<label for="paisdir">País</label>
@@ -232,17 +269,13 @@
 											</select>
 									</p>	
 									
-									<p>
-										<label for="codigoPos">Código Postal</label>
-											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  required/>
-									 </p>
 									 
 										
 										
-									 
-										
+									</div>
 								</fieldset><!--Termina datos dirección-->
 									
-							<input type="submit" />
+							<input class="large button" type="submit" />
 							</div>
+							<?php echo br(1);?>
 							</form>	

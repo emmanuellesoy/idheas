@@ -1,0 +1,10 @@
+ .PruebaScorll{
+		width:100%;
+       height: 1024px; /* sets max-height value for all standards-compliant browsers */
+       overflow:scroll;
+       overflow-x:hidden;
+}
+
+ .CajaLista{
+		width:100%;
+}

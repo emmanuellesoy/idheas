@@ -1,13 +1,48 @@
 	
-		<div id="ListasActores" name="ListasActores">
-			<?php foreach($todo_list as $item):?> <!--muestra cada elemento de la lista-->
-				<div id="lista" name="lista">
-					<div id="Imagen" name="Imagen">
-					<?php echo img($imagen);?>
-					</div>
-					<div id="Nombre" name="Nombre">
-						<?=$item?>
-					</div>
+		<div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
+			<?php echo form_open('form_c/menu'); ?> 
+	
+			<!--buscador de la lista de actores--->
+				<div class="eight columns">
+					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
 				</div>
-			<?php endforeach;?>
-		</div> <!--Termina lista de los actores-->
+				<div class="four columns">
+					<input  type="button" class="small button" value="Buscar" title="Buscar" />
+				</div><!--termina buscador de la lista de actores--->
+			</form>	
+			
+			<?php echo br(2);?>	
+			<div class="twelve columns">
+				<b><div class="six columns">Foto</div>
+				<div class="six columns">Nombre</div></b>
+			<?php echo br(2);?>	
+			</div>
+
+
+			
+			<div  class="PruebaScorll">		
+					<?php foreach($todo_list as $index => $item):?> <!--muestra cada elemento de la lista-->
+					
+							<div class="twelve columns">
+								<div class="five columns"><!--imprimo imagenes-->
+									<?php echo img($item['url']);?>
+								</div>
+								
+								<div class="seven columns"><!--Imprimo nombres-->
+										<?=$item['nombre']?>
+								</div>
+			<?php echo br(2);?>	
+							</div>
+							
+					<?php endforeach;?><!--Termina lista de los actores-->
+			</div>
+					
+			
+			
+			<div class="six columns">
+			<a href="#" class="[tiny, small, medium, large] button">Button Text</a>
+			</div>
+			<div class="six columns">
+			<a href="#" class="[tiny, small, medium, large] button">Button Text</a>
+			</div>
+		</div> 

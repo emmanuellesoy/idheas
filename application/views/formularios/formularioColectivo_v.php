@@ -6,6 +6,8 @@
 						<div	id="Actores" >
 										<fieldset >
 									  <legend>Información general</legend>
+									  
+									<div class="six columns">
 									  <p>
 										<label for="nombre">Nombre</label>
 										<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required/>
@@ -15,6 +17,9 @@
 										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="40" maxlength="60" required/>
 									</p>
 									
+									</div>
+									  
+									<div class="six columns">
 									 <p>
 									<label for="tipoActor">Tipo de actor colectivo</label>
 										<select>						
@@ -32,12 +37,16 @@
 										<?php endforeach;?>
 										</select>									
 									 </p>
+									  
+							<div class="six columns">
+								
 								</fieldset>	<!--Termina Información general-->
-								<?php echo br(3);?>
+								<?php echo br(2);?>
 								
 								<fieldset>
 									  <legend>Dirección</legend>
 									  
+									<div class="six columns">  
 									 <p>
 										<label for="ubicacion">Ubicación</label>
 											<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  required/>
@@ -61,6 +70,9 @@
 											</select>
 									</p>
 									
+								  </div>
+									  
+								<div class="six columns">
 									<p>
 										<label for="municipiodir">Municipio</label>
 											<select>						
@@ -74,14 +86,18 @@
 										<label for="codigoPos">Código Postal</label>
 											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  required/>
 									 </p>
-									 
+								
+								</div>
+									  	 
 										
 								</fieldset><!--Termina dirección-->
 								
-								<?php echo br(3);?>
+								<?php echo br(2);?>
 								<fieldset>
 									
 									  <legend>Información de contacto</legend>
+									  
+									<div class="six columns">
 									 <p>
 										<label for="telefono">Teléfono</label>
 											<input type="text"  name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30"  required/>
@@ -92,6 +108,10 @@
 											<input type="text"  name="infoContacto_fax" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" required/>
 									</p>
 									
+									</div>
+									  
+									<div class="six columns">
+										
 									<p>
 										<label for="correo">Correo electrónico</label>
 											<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="30"  required/>
@@ -101,14 +121,15 @@
 										<label for="paginaPersonal">Página web</label>
 											<input type="text"  name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
 									 </p>
+									 
+									 </div>
 									  
 								</fieldset><!--Termina información de contacto-->
-								
-								<?php echo br(3);?>
-								
-									<button type=submit>Guardar</button>
+																
+									<input class="large button" type="submit" />
 
 							</div>
+							<?php echo br(1);?>
 							</form>	
 							
 							
