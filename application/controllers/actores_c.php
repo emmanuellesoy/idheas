@@ -36,6 +36,11 @@ class Actores_c extends CI_Controller {
 		$datos['agregado'] = $this->am->mAgregarActor();
 	}
 	
+	/* 
+	 * Este clase lista los actores dependiendo del tipo de actor (individual, transmigrante, colectivo)
+	 * @param tipoActorId
+	 * */
+	
 	public function listarActores(){
 		
 		$this->load->model('actores_m', 'am');
@@ -46,6 +51,20 @@ class Actores_c extends CI_Controller {
 		
 	}
 	
+	/* 
+	 * Este trae todos los datos de un actor
+	 * @param actorId, tipoActorId
+	 * */
+	
+	public function TraeDatosActores(){
+		
+		$this->load->model('actores_m', 'am');
+		
+		$datos = $this->am->mTraeDatosActores();
+		
+		print_r($datos);
+		
+	}
 	
 }
 
