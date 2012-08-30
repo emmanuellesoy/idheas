@@ -16,6 +16,24 @@ class Agregar_catalogos_m extends CI_Model {
         
     }
     
+    public function agregarEstadosPaisesM($datos){
+        
+        $result = $this->db->insert_batch('estadosCatalogo', $datos);
+        
+        if($result == 1){
+            
+            $result = 'Consulta Exitosa';
+            
+        } else {
+            
+            $result = 'Consulta no exitosa';
+            
+        }
+        
+        return $result;
+        
+    }
+    
     public function agregarEstatusPerpretadorM($datos) {
         
         $this->db->insert_batch('estatusPerpetradorCatalogo', $datos); 

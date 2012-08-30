@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class AgregarCatalogos extends CI_Controller {
+class Agregar_catalogos_c extends CI_Controller {
     
     public function __construct() {
         
@@ -31,7 +31,7 @@ class AgregarCatalogos extends CI_Controller {
             
             if(isset($obtener_datos[0]) || $obtener_datos[0] != ''){
                 
-                $query[] = array('nombre' => $obtener_datos[0]);
+                $query[] = array('nombre' => trim($obtener_datos[0]));
                 
             }
         }
@@ -44,6 +44,31 @@ class AgregarCatalogos extends CI_Controller {
         
     }
     
+    public function agregarEstadosPaisC(){
+        
+        $string = read_file('statics/catalogos/estadosPaises.csv');
+        
+        $rows = explode(';', $string);
+        
+        //print_r($rows);
+        
+        foreach ($rows as $row){
+            
+            $obtener_datos= explode('|', $row);
+            
+            $query[] = array('nombre' => trim($obtener_datos[1]), 'paises_paisId' => trim($obtener_datos[0]));
+            
+        }
+        
+        $this->load->model('agregar_catalogos_m');
+        
+        $result = $this->agregar_catalogos_m->agregarEstadosPaisesM($query);
+        
+        print_r($result);
+        
+    }
+
+
     /*
      * @name: agrgegar_paises
      * @param: no_aplica
