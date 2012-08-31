@@ -69,4 +69,4 @@ class Actores_c extends CI_Controller {
 }
 
 /* End of file welcome.php */
-/* Location: ./application/controllers/cActores.php */
+/* Location: ./application/controllers/actores_c.php */

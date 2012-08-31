@@ -206,6 +206,15 @@
 
 		} /* Fin de mTraeDatosActores() */
 		
+		/* Este modelo busca a un actor por nombre o apellidosSiglas 
+	 	* @param cadena 
+	 	*/
+	
+		public function buscarActores(){
+			
+			
+		}
+		
 	}
 	
 ?>
