@@ -17,8 +17,13 @@
 	    
 	    }
 		
-		public function mAgregarActor(){
+		/* Este modelo agrega un actor
+		 * @param $datosActor
+		 */
+		
+		public function mAgregarActor($datosActor){
 			
+			/*
 			$datosActorDummy = array(
 				'tipoActorId' => '1',
 				'tablas' => array(
@@ -58,7 +63,7 @@
 		                        'infoGralActores' => array('tipoActorColectivoId' => 1, 'actividad' => 'Seguridad Publica', 'paginaWeb' => 'http://www.algoasi.com.mx')
 				)
 			);
-			
+			*/
 
 			/* inserta el array actores en la tabla actores de la BD */
 			$this->db->insert('actores', $datosActor['tablas']['actores']);
@@ -91,16 +96,18 @@
 				}
 			}
 			/*	$this->db->insert('datosDeNacimiento',$datosActor['tablas']['datosDeNacimiento']); */
-		}
+			
+		}/* Fin de mAgregarActor*/
 
+		
 		/* 
 		 * Este modelo hace la consulta para traer todos los actores dependiendo del tipo de actor (individual, transmigrante, colectivo)
-		 * @param actorId, tipoActorId
+		 * @param tipoActorId
 		 * */
 
-		public function mListaActores(){
+		public function mListaActores($tipoActorId){
 			
-			$tipoActorId = 3;
+			//$tipoActorId = 3;
 
 			$this->db->select('actorId, nombre');
 			$this->db->from('actores');
@@ -115,6 +122,7 @@
 				}
 			}
 			
+			/* Regresa la cadena al controlador */
 			return $listaActores;
 			
 		}
@@ -124,10 +132,10 @@
 		 * @param actorId, tipoActorId
 		 * */
 		
-		public function mTraeDatosActores(){
+		public function mTraeDatosActores($actorId,$tipoActorId){
 			
-			$actorId = 13;
-			$tipoActorId = 1;
+			//$actorId = 13;
+			//$tipoActorId = 1;
 			
 			
 			switch ($tipoActorId) {
@@ -150,6 +158,7 @@
 							$datos[$row['actorId']] = $row;
 						}
 						
+						/* Regresa la cadena al controlador*/
 						return $datos;
 						
 					break;
@@ -170,7 +179,8 @@
 						foreach ($consulta->result_array() as $row) {
 							$datos[$row['actorId']] = $row;
 						}
-					
+						
+						/* Regresa la cadena al controlador*/
 						return $datos;
 					
 					break;
@@ -190,7 +200,8 @@
 						foreach ($consulta->result_array() as $row) {
 							$datos[$row['actorId']] = $row;
 						}
-					
+						
+						/* Regresa la cadena al controlador*/
 						return $datos;
 						
 					break;
@@ -206,14 +217,29 @@
 
 		} /* Fin de mTraeDatosActores() */
 		
-		/* Este modelo busca a un actor por nombre o apellidosSiglas 
+		
+		/* Este modelo busca a un actor por nombre, apellidosSiglas o inicial 
 	 	* @param cadena 
 	 	*/
-	
-		public function buscarActores(){
+		public function mBuscarActoresNombre($cadena){
 			
+			//$cadena = 'a';
 			
-		}
+			$this->db->select('actorId,nombre');
+			$this->db->from('actores');
+			$this->db->like('nombre', $cadena);
+			$consulta = $this->db->get();
+			
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $key => $value) {
+				$datos[$value['actorId']] = $value;
+			}
+			
+			/* Regresa la cadena al controlador*/
+			return $datos;
+
+			
+		}/* Fin de mBuscarActores() */
 		
 	}
 	
