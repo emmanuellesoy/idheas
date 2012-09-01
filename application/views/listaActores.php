@@ -26,12 +26,13 @@
 							<div class="twelve columns">
 								<div class="five columns"><!--imprimo imagenes-->
 									<?php echo img($item['url']);?>
+			<?php echo br(2);?>	
 								</div>
 								
 								<div class="seven columns"><!--Imprimo nombres-->
 										<?=$item['nombre']?>
-								</div>
 			<?php echo br(2);?>	
+								</div>
 							</div>
 							
 					<?php endforeach;?><!--Termina lista de los actores-->

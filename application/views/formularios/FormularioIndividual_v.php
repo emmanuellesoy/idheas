@@ -11,18 +11,18 @@
 									 
 									  <p>
 										<label for="nombre">Nombre</label>
-										<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required/>
+										<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required />
 									  </p>
 									 
 									  <p>
 										<label for="apellidos">Apellidos</label>
-										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required/>
+										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required />
 									 
 									  </p>
 									 
 									  <p>
 										<label for="alias">Alias</label>
-										<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" required/>
+										<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" />
 									  
 									  </p>
 									  
@@ -34,8 +34,8 @@
 									 
 									  <p>
 										<label for="genero">Género</label>
-										<input type="radio" name="InfoGralActor_generoid" checked="checked" value="<?php echo set_value('Hombre'); ?>" /> Hombre
-										<input type="radio" name="InfoGralActor_generoid" value="<?php echo set_value('Mujer'); ?>" /> Mujer
+										<input type="radio" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+										<input type="radio" name="infoGralActor_generoid" value="2" /> Mujer
 									
 									  </p>
 									</div>
@@ -46,7 +46,8 @@
 										<label for="edad">Edad</label>
 										<select>						
 										<?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
-													<option name="InfoGralActor_edad" value="<?=$item?>"><?=$item?></option>
+										
+													<option name="infoGralActor_edad" value="<?=$item?>"> <?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -56,7 +57,7 @@
 										<label for="estadoCivil">Estado Civil</label>
 										<select>						
 										<?php foreach($estadoCivil as $item):?> <!--muestra los estados civiles-->
-													<option name="InfoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"><?=$item?></option>
+													<option name="infoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"> <?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -65,7 +66,7 @@
 										<label for="nacionalidad">Nacionalidad</label>
 										<select>						
 										<?php foreach($nacionalidad as $item):?> <!--muestra todas las nacionalidades-->
-													<option name="InfoGralActor_nacionalidad" value="<?=$item?>"><?=$item?></option>
+													<option name="infoGralActor_nacionalidad" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -83,7 +84,7 @@
 											<label for="hijos">Hijos</label>
 											<select>						
 											<?php foreach($edad as $item):?> 
-														<option name="InfoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
+														<option name="infoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
 											<?php endforeach;?>
 											</select>
 									  </p>
@@ -92,8 +93,8 @@
 									 <div class="six columns">									
 									   <p>			
 										<label for="genero">¿Habla español?</label>
-										<input type="radio" name="InfoGralActor_espaniol" checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
-										<input type="radio" name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
+										<input type="radio" name="infoGralActor_espaniol" checked="checked" value="1" /> Si
+										<input type="radio" name="infoGralActor_espaniol" value="2" /> No
 										
 									  </p>
 									 </div>
@@ -103,7 +104,7 @@
 									<label for="grupoIndigena">Grupo Indígena</label>
 										<select>						
 										<?php foreach($grupoIndigena as $item):?> 
-													<option name="InfoGralActor_grupoIndigena" value="<?=$item?>"><?=$item?></option>
+													<option name="infoGralActor_grupoIndigena" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -118,7 +119,7 @@
 										<label for="nivelEscolaridad">Nivel de Escolaridad</label>
 										<select>						
 										<?php foreach($escolaridad as $item):?> 
-													<option name="InfoGralActor_escolaridad" value="<?=$item?>"><?=$item?></option>
+													<option name="infoGralActor_escolaridad" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									 
@@ -128,7 +129,7 @@
 										<label for="UltimaOcupacion">Última Ocupación</label>
 										<select>						
 										<?php foreach($ultimaOcupacion as $item):?> 
-													<option name="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid" value="<?=$item?>"><?=$item?></option>
+													<option name="infoGralActor_ocupacionesCatalogo_ultimalOcupacionid" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -179,7 +180,7 @@
 									  <p>
 										<label for="fechaNacimiento">Fecha de nacimiento</label>
 									
-										<input type="date"  name="datosDeNacimiento_fechaNacimiento" value="<?php echo set_value('fechaNacimiento'); ?>" size="50" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" placeholder="MM/DD/AAAA"required/>
+										<input type="date"  name="datosDeNacimiento_fechaNacimiento" value="<?php echo set_value('fechaNacimiento'); ?>" size="50" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" placeholder="MM/DD/AAAA"/>
 										
 									  </p>
 									  									  
@@ -194,13 +195,13 @@
 									 
 									  <p>
 									<label for="telefono">Teléfono</label>
-										<input type="text"  name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" required/>
+										<input type="text"  name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
 									 
 									  </p>
 									  
 									  <p>
 									<label for="telefonomovil">Teléfono móvil</label>
-										<input type="text"  name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" required/>
+										<input type="text"  name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
 									 
 									  </p>
 									  </div>
@@ -208,7 +209,7 @@
 									  
 									  <p>
 									<label for="correo">Correo electrónico</label>
-										<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  required/>
+										<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  />
 									  </p>
 									</div>  
 								</fieldset><!--Termina información del contacto-->
@@ -229,13 +230,13 @@
 									 
 									 <p>
 										<label for="ubicacion">Ubicación</label>
-											<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  required/>
+											<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
 									 </p>
 									 
 									 
 									<p>
 										<label for="codigoPos">Código Postal</label>
-											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  required/>
+											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
 									 </p>
 									 
 									</div>

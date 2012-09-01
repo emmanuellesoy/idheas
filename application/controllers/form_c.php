@@ -22,7 +22,7 @@ class Form_c extends CI_Controller {
 						   		 'nombre'   => 'Choi Siwon', 
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
-						'2'=>array(
+						'42'=>array(
 								'nombre'   => 'Suzy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
@@ -122,14 +122,16 @@ class Form_c extends CI_Controller {
 								'nombre'   => 'Suzy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							));
+
+
 				
 				///TERMINA INFORMACIÓN DE LA LISTA DE ACTORES
 				
 				/*************************************************************************************/
 				//DATOS PARA LOS FORMULARIOS
 				$DatosGenerales['edad']= range(1,100);
-				$DatosGenerales['hijos']= range(1,20);
-				$DatosGenerales['intentos']= range(1,20);
+				$DatosGenerales['hijos']= range(0,20);
+				$DatosGenerales['intentos']= range(0,20);
 				$DatosGenerales['estadoCivil']= array('Casado', 'Soltero', 'viudo'); 
 				$DatosGenerales['nacionalidad']= array('narniano', 'salvadoreño', 'gnomo', 'mordoriano','gondoriano'); 
 				$DatosGenerales['grupoIndigena']= array('totonaca', 'otomi', 'maya', 'zapoteca'); 

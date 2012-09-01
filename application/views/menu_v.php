@@ -8,7 +8,7 @@
 		
 		  <!-- Estilo de la página CSS-->
 		<?php $link = array(
-			'href' => 'statics/foundationCSS/stylesheets/foundation.min.css',
+			'href' => 'statics/stylesheets/foundation.min.css',
 			'rel' => 'stylesheet',
 			);
 			echo link_tag($link); 
@@ -16,7 +16,7 @@
 		
 				
 		<?php $link = array(
-			'href' => 'statics/foundationCSS/stylesheets/foundation.css',
+			'href' => 'statics/stylesheets/foundation.css',
 			'rel' => 'stylesheet',
 			'type' => 'text/css',
 			);
@@ -25,7 +25,7 @@
 		
 				
 		<?php $link = array(
-			'href' => 'statics/foundationCSS/stylesheets/app.css',
+			'href' => 'statics/stylesheets/app.css',
 			'rel' => 'stylesheet',
 			'type' => 'text/css',
 			);
@@ -40,9 +40,15 @@
 			echo link_tag($link); 
 		?>  
 		<!--Scripts foundation-->
-		<script src="<?php echo base_url(); ?>statics/foundationCSS/javascripts/modernizr.foundation.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/foundationCSS/javascripts/foundation.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/foundationCSS/javascripts/app.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
+<script>
+function myFunction()
+{
+
+}
+</script>
 
 	</head>
 	
