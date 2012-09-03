@@ -888,15 +888,15 @@ dl.tabs dt:first-child { padding: 0 9px 0 0; }
 dl.tabs dd { display: block; float: left; padding: 0; margin: 0; }
 dl.tabs dd a { color: #6f6f6f; display: block; font-size: 14px; height: 40px; line-height: 40px; padding: 0px 23.8px; }
 dl.tabs dd a:focus { font-weight: bold; color: #2ba6cb; }
-dl.tabs dd.active { border-top: 3px solid #2ba6cb; margin-top: -3px; }
+dl.tabs dd.active { border-top: 3px solid #e32500; margin-top: -3px; }
 dl.tabs dd.active a { cursor: default; color: #3c3c3c; background: #fff; border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6; font-weight: bold; }
 dl.tabs dd:first-child { margin-left: 0; }
-dl.tabs.vertical { height: auto; border-bottom: 1px solid #e6e6e6; }
+dl.tabs.vertical { height: auto; border-bottom: 1px solid #e32500; }
 dl.tabs.vertical dt, dl.tabs.vertical dd { float: none; height: auto; }
 dl.tabs.vertical dd { border-left: 3px solid #cccccc; }
 dl.tabs.vertical dd a { background: #f2f2f2; border: none; border: 1px solid #e6e6e6; border-width: 1px 1px 0 0; color: #555; display: block; font-size: 14px; height: auto; line-height: 1; padding: 15px 20px; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
 dl.tabs.vertical dd.active { margin-top: 0; border-top: 1px solid #4d4d4d; border-left: 4px solid #1a1a1a; }
-dl.tabs.vertical dd.active a { background: #4d4d4d; border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
+dl.tabs.vertical dd.active a { background: #606060; border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
 dl.tabs.vertical dd:first-child a.active { margin: 0; }
 dl.tabs.pill { border-bottom: none; margin-bottom: 10px; }
 dl.tabs.pill dd { margin-right: 10px; }
