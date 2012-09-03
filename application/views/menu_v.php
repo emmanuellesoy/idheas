@@ -43,12 +43,12 @@
 		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
-<script>
-function myFunction()
-{
-
-}
-</script>
+		
+		<!--Scripts jquery-->		
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
+		
+		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
 
 	</head>
 	
@@ -76,7 +76,7 @@ function myFunction()
 			<div class="ten columns">
 				<ul class="tabs-content">
 				
-				  <li class="active" id="vertical1"><!--Pestaña Actores Individuales--->
+				  <li class="active" id="vertical1Tab"><!--Pestaña Actores Individuales--->
 					
 					<dl class="tabs"><!--Pestañas de Actores-->
 						<dd class="active"><a href="#simple1">Actor individual</a></dd>
@@ -93,8 +93,10 @@ function myFunction()
 								
 								
 								<div class="nine columns">
-									 
-											<?php echo $individual;?>
+									
+								<div id="formCargInd"><?php echo $individualVista;?></div>
+								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
+								
 								</div>
 								
 							<!--Termina contenido de la pestaña Actor individual-->
@@ -106,7 +108,7 @@ function myFunction()
 						  <!---Contenido de la pestaña Actor transmigrante--->
 								<div class="three columns">
 									
-									<p>Lista de actores</p>
+									
 										<?php echo $listaActores;?> <!---Se llama a listaActores--->
 									</div>
 								
@@ -124,8 +126,10 @@ function myFunction()
 						  <!---Contenido de la pestaña Actor Colectivo--->
 								<div class="three columns">
 									
-									<p>Lista de actores</p>
-										<?php echo $listaActores;?> <!---Se llama a listaActores--->
+									
+										<?php 
+										
+										echo $listaActores;?> <!---Se llama a listaActores--->
 									</div>
 								
 								

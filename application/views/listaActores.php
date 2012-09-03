@@ -23,15 +23,15 @@
 			<div  class="PruebaScorll">		
 					<?php foreach($todo_list as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
-							<div class="twelve columns">
+							<div class="twelve columns" onclick="mostarDatosListaElem()">
 								<div class="five columns"><!--imprimo imagenes-->
 									<?php echo img($item['url']);?>
-			<?php echo br(2);?>	
+									<?php echo br(2);?>	
 								</div>
 								
 								<div class="seven columns"><!--Imprimo nombres-->
 										<?=$item['nombre']?>
-			<?php echo br(2);?>	
+										<?php echo br(2);?>	
 								</div>
 							</div>
 							
@@ -41,9 +41,9 @@
 			
 			
 			<div class="six columns">
-			<a href="#" class="[tiny, small, medium, large] button">Button Text</a>
+				<input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> 
 			</div>
 			<div class="six columns">
-			<a href="#" class="[tiny, small, medium, large] button">Button Text</a>
+				<input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> 
 			</div>
 		</div> 

@@ -1,3 +1,4 @@
+<!---Script para que funcione el date picker-->
 
 
 				<?php echo validation_errors(); ?>
@@ -11,18 +12,18 @@
 									 
 									  <p>
 										<label for="nombre">Nombre</label>
-										<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required />
+										<input type="text" id="actores_nombre" name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required />
 									  </p>
 									 
 									  <p>
 										<label for="apellidos">Apellidos</label>
-										<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required />
+										<input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required />
 									 
 									  </p>
 									 
 									  <p>
 										<label for="alias">Alias</label>
-										<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" />
+										<input type="text" id="alias_alias" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" />
 									  
 									  </p>
 									  
@@ -34,8 +35,8 @@
 									 
 									  <p>
 										<label for="genero">Género</label>
-										<input type="radio" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
-										<input type="radio" name="infoGralActor_generoid" value="2" /> Mujer
+										<input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+										<input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
 									
 									  </p>
 									</div>
@@ -47,7 +48,7 @@
 										<select>						
 										<?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
 										
-													<option name="infoGralActor_edad" value="<?=$item?>"> <?=$item?></option>
+													<option id="infoGralActor_edad" name="infoGralActor_edad" value="<?=$item?>"> <?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -57,7 +58,7 @@
 										<label for="estadoCivil">Estado Civil</label>
 										<select>						
 										<?php foreach($estadoCivil as $item):?> <!--muestra los estados civiles-->
-													<option name="infoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"> <?=$item?></option>
+													<option id="infoGralActor_estadoCivil_estadoCivil" name="infoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"> <?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -66,7 +67,7 @@
 										<label for="nacionalidad">Nacionalidad</label>
 										<select>						
 										<?php foreach($nacionalidad as $item):?> <!--muestra todas las nacionalidades-->
-													<option name="infoGralActor_nacionalidad" value="<?=$item?>"><?=$item?></option>
+													<option id="infoGralActor_nacionalidad" name="infoGralActor_nacionalidad" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -84,7 +85,7 @@
 											<label for="hijos">Hijos</label>
 											<select>						
 											<?php foreach($edad as $item):?> 
-														<option name="infoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
+														<option id="infoGralActor_hijos" name="infoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
 											<?php endforeach;?>
 											</select>
 									  </p>
@@ -93,8 +94,8 @@
 									 <div class="six columns">									
 									   <p>			
 										<label for="genero">¿Habla español?</label>
-										<input type="radio" name="infoGralActor_espaniol" checked="checked" value="1" /> Si
-										<input type="radio" name="infoGralActor_espaniol" value="2" /> No
+										<input type="radio" id="infoGralActor_espaniol" name="infoGralActor_espaniol" checked="checked" value="1" /> Si
+										<input type="radio" id="infoGralActor_espaniol" name="infoGralActor_espaniol" value="2" /> No
 										
 									  </p>
 									 </div>
@@ -104,7 +105,7 @@
 									<label for="grupoIndigena">Grupo Indígena</label>
 										<select>						
 										<?php foreach($grupoIndigena as $item):?> 
-													<option name="infoGralActor_grupoIndigena" value="<?=$item?>"><?=$item?></option>
+													<option id="infoGralActor_grupoIndigena" name="infoGralActor_grupoIndigena" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -119,7 +120,7 @@
 										<label for="nivelEscolaridad">Nivel de Escolaridad</label>
 										<select>						
 										<?php foreach($escolaridad as $item):?> 
-													<option name="infoGralActor_escolaridad" value="<?=$item?>"><?=$item?></option>
+													<option id="infoGralActor_escolaridad" name="infoGralActor_escolaridad" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									 
@@ -129,7 +130,7 @@
 										<label for="UltimaOcupacion">Última Ocupación</label>
 										<select>						
 										<?php foreach($ultimaOcupacion as $item):?> 
-													<option name="infoGralActor_ocupacionesCatalogo_ultimalOcupacionid" value="<?=$item?>"><?=$item?></option>
+													<option id="infoGralActor_ocupacionesCatalogo_ultimalOcupacionid" name="infoGralActor_ocupacionesCatalogo_ultimalOcupacionid" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -149,7 +150,7 @@
 										<label for="pais">País</label>
 										<select>						
 										<?php foreach($pais as $item):?> 
-													<option name="datosDeNacimiento_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
+													<option id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -159,7 +160,7 @@
 										<label for="estado">Estado</label>
 										<select>						
 										<?php foreach($estado as $item):?>
-													<option name="datosDeNacimiento_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
+													<option id="datosDeNacimiento_estadosCatalogo_estadoId" name="datosDeNacimiento_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 										
@@ -171,7 +172,7 @@
 										<label for="municipio">Municipio</label>
 										<select>						
 										<?php foreach($municipio as $item):?> 
-													<option name="datosDeNacimiento_municipiosCatalogo_municipioId" value="<?=$item?>"><?=$item?></option>
+													<option id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									 
@@ -179,8 +180,7 @@
 									 
 									  <p>
 										<label for="fechaNacimiento">Fecha de nacimiento</label>
-									
-										<input type="date"  name="datosDeNacimiento_fechaNacimiento" value="<?php echo set_value('fechaNacimiento'); ?>" size="50" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" placeholder="MM/DD/AAAA"/>
+										<input type="text" id="datepicker"name="datosDeNacimiento_fechaNacimiento" value="<?php echo set_value('fechaNacimiento'); ?>" placeholder="AAAA-MM-DD" />
 										
 									  </p>
 									  									  
@@ -195,13 +195,13 @@
 									 
 									  <p>
 									<label for="telefono">Teléfono</label>
-										<input type="text"  name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
+										<input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
 									 
 									  </p>
 									  
 									  <p>
 									<label for="telefonomovil">Teléfono móvil</label>
-										<input type="text"  name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
+										<input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
 									 
 									  </p>
 									  </div>
@@ -209,7 +209,7 @@
 									  
 									  <p>
 									<label for="correo">Correo electrónico</label>
-										<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  />
+										<input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  />
 									  </p>
 									</div>  
 								</fieldset><!--Termina información del contacto-->
@@ -224,19 +224,19 @@
 										<label for="tipoDir">Tipo de dirección</label>
 										<select>						
 										<?php foreach($tipoDir as $item):?> 
-													<option name="direccionActor_tipoDireccionId" value="<?=$item?>"><?=$item?></option>
+													<option id="direccionActor_tipoDireccionId" name="direccionActor_tipoDireccionId" value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									 
 									 <p>
 										<label for="ubicacion">Ubicación</label>
-											<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
+											<input type="text" id="direccionActor_direccion" name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
 									 </p>
 									 
 									 
 									<p>
 										<label for="codigoPos">Código Postal</label>
-											<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
+											<input type="text" id="actores_codigoPostal" name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
 									 </p>
 									 
 									</div>
@@ -247,25 +247,50 @@
 										<label for="paisdir">País</label>
 											<select>						
 											<?php foreach($pais as $item):?> 
-														<option name="direccionActor_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
+														<option id="direccionActor_paisesCatalogo_paisId" name="direccionActor_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
 											<?php endforeach;?>
 											</select>
 									</p>
-										
+<!----/**************************************************************/---->										
+
 									<p>
-										<label for="estadodir">Estado</label>
-											<select>						
-											<?php foreach($estado as $item):?>
-														<option name="direccionActor_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
-											<?php endforeach;?>
-											</select>
-									</p>
 									
+										<label for="estadodir">Estado</label>
+										<div class="six columns">
+
+												<select id="listaEstadodir">						
+												<?php foreach($estado as $item):?>
+															<option id="direccionActor_estadosCatalogo_estadoId" name="direccionActor_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
+												<?php endforeach;?>
+												</select>	
+
+										</div>	
+									
+									<div class="six columns">
+										<input id="mostrarEstadodir" type='button' onclick="mostarEstadodirfunc()" value='Agregar Campo'>
+			
+										<div class="Escondido" id="showEstadodir">
+											<div class="seven columns">
+											<input  type='text' id="opcionTipoDir" >	
+											</div>
+											
+											<input  type="button" onclick="AgrearEstadodir()" value='+'  >
+											
+											<input  type='button' onclick="QuitarEstadodir()" value='-'  >
+										</div>
+
+									</div>
+									
+									</p>
+	
+<!----/**************************************************************/---->									
+									
+
 									<p>
 										<label for="municipiodir">Municipio</label>
 											<select>						
 											<?php foreach($municipio as $item):?> 
-														<option name="direccionActor_municipiosCatalogo_municipioId" value="<?=$item?>"><?=$item?></option>
+														<option id="direccionActor_municipiosCatalogo_municipioId" name="direccionActor_municipiosCatalogo_municipioId" value="<?=$item?>"><?=$item?></option>
 											<?php endforeach;?>
 											</select>
 									</p>	
@@ -280,3 +305,5 @@
 							</div>
 							<?php echo br(1);?>
 							</form>	
+
+

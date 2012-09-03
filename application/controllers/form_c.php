@@ -23,7 +23,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'42'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'3'=>array(
@@ -31,7 +31,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'4'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'5'=>array(
@@ -39,7 +39,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'6'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'7'=>array(
@@ -47,7 +47,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'8'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'9'=>array(
@@ -55,7 +55,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'10'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'3'=>array(
@@ -63,7 +63,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'4'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'5'=>array(
@@ -71,7 +71,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'6'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'7'=>array(
@@ -79,7 +79,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'8'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'9'=>array(
@@ -87,7 +87,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'10'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'13'=>array(
@@ -95,7 +95,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'14'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'15'=>array(
@@ -103,7 +103,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'16'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'17'=>array(
@@ -111,7 +111,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'18'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							),
 						'19'=>array(
@@ -119,7 +119,7 @@ class Form_c extends CI_Controller {
 								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
 							),
 						'11'=>array(
-								'nombre'   => 'Suzy', 
+								'nombre'   => 'Sujy', 
 								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
 							));
 
@@ -146,6 +146,7 @@ class Form_c extends CI_Controller {
 				$DatosGenerales['tipoActor']= array('agencia', 'institucion publica', 'institucion privada', ); 
 				$DatosGenerales['actividad']= array('alimentar gatitos', 'agencia de mercenarios', 'no tengo idea', ); 
 				$DatosGenerales['id']= 'id="ActorIndv" ';
+				$Lista['vista'] = "0";
 				//TERMINA INFORMACIÓN DE DATOS PARA LOS FORMULARIOS
 				
 				/*************************************************************************************/
@@ -157,6 +158,7 @@ class Form_c extends CI_Controller {
 				/*************************************************************************************/
 				//CARGA DE VISTAS
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
+				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', ' ' , true);
 				
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);
