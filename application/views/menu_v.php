@@ -49,6 +49,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 
 	</head>
 	

@@ -279,9 +279,9 @@
 								<input  type='text' id="opcionTipoDir" >	
 								</div>
 								
-								<input  type="button" onclick="AgrearEstadodir()" value='+'  >
+								<input  type='button' onclick="QuitarEstadodir()" value='-'  />
+								<input  type="button" onclick="AgrearEstadodir()" value='+'  />
 								
-								<input  type='button' onclick="QuitarEstadodir()" value='-'  >
 							</div>
 
 						</div>
