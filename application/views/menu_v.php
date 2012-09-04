@@ -150,6 +150,8 @@
 				  
 									<p>Contenido de casos</p>
 									<?php echo $casos?>
+									<?php echo $casosNucleo?>
+									<?php echo $infoAdicional?>
 				  
 				  </li><!--Termina Pestaña Actores transmigrantes--->
 				  

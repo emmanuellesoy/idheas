@@ -154,6 +154,8 @@ class Form_c extends CI_Controller {
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
 				$data['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
+				$data['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
+				$data['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
 				//TERMINA CARGA DE FORMULARIOS
 				
 				/*************************************************************************************/
@@ -166,7 +168,7 @@ class Form_c extends CI_Controller {
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
 				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasos , true);
 				
-				$data['casosMenu'] = $this->load->view('formulariosCargados/casos_v', ' ' , true);
+				$data['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);
 		}

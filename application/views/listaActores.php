@@ -1,7 +1,10 @@
 	
 		<div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 			<?php echo form_open('form_c/menu'); ?> 
-	
+	<ul class="button-group">
+		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
+		<li><input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
+  </ul>
 			<!--buscador de la lista de actores--->
 				<div class="eight columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
@@ -38,12 +41,6 @@
 					<?php endforeach;?><!--Termina lista de los actores-->
 			</div>
 					
+  
 			
-			
-			<div class="six columns">
-				<input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> 
-			</div>
-			<div class="six columns">
-				<input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> 
-			</div>
 		</div> 

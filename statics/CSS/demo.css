@@ -1,5 +1,5 @@
 #demo {
-    background: none repeat scroll 0 0 #ddd;
+    background: none repeat scroll 0 0 #fff;
     margin-bottom: 20px;
     overflow: hidden;
 }
@@ -24,7 +24,7 @@
     padding: 10px;
 }
 #demo1 {
-    background: none repeat scroll 0 0 #efefef;
+    background: none repeat scroll 0 0 #fff;
     margin-bottom: 20px;
     overflow: hidden;
 }
