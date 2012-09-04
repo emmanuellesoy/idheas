@@ -228,6 +228,7 @@
 			$this->db->select('actorId,nombre');
 			$this->db->from('actores');
 			$this->db->like('nombre', $cadena);
+			$this->db->or_like('apellidosSiglas', $cadena);
 			$consulta = $this->db->get();
 			
 			/* Pasa la consulta a un cadena */
