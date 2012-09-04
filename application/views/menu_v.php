@@ -159,6 +159,7 @@
 				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes--->  
 				  
 									<p>Contenido de casos</p>
+									<?php echo $casos?>
 				  
 				  </li><!--Termina Pestaña Actores transmigrantes--->
 				  

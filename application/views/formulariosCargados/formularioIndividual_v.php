@@ -222,7 +222,6 @@
 
                         <div class="Escondido" id="showEstadodir">
                                 <div class="ten columns">
-										<?php echo $casosMenu;?>
                                 </div>
                         </div>
 
