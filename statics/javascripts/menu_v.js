@@ -2,10 +2,10 @@
 	$(function() {
 		$( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd",
 		changeYear: true });
-	var cont=1;
+    
 	});
 
-    
+
     
 function mostrarFormlulario() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	

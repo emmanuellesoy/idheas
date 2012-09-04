@@ -2,7 +2,7 @@
 
 
 							<?php echo validation_errors(); ?>
-							<?php echo form_open('form/menu'); ?> 
+							<?php echo form_open('actores_c/agregarActor'); ?> 
 						<div	id="Actores" >
 										<fieldset >
 									  <legend>Información general</legend>
@@ -22,19 +22,19 @@
 									<div class="six columns">
 									 <p>
 									<label for="tipoActor">Tipo de actor colectivo</label>
-										<select>						
-										<?php foreach($tipoActor as $item):?> 
-													<option name="InfoGralActores_tipoActorColectivoId" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActores_tipoActorColectivoId" id="InfoGralActores_tipoActorColectivoId">
+											<?php foreach($tipoActor as $key => $item):?>
+																	<option value="<?=$item?>"><?=$key?></option>
+											<?php endforeach;?>
 										</select>									
 									 </p>
 										 
 									 <p>
 									<label for="actividad">Actividad</label>
-										<select>						
-										<?php foreach($actividad as $item):?> <!--muestra todos los estados civiles-->
-													<option name="InfoGralActores_actividad" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActores_actividad" id="InfoGralActores_actividad">
+                                        <?php foreach($actividad as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>									
 									 </p>
 									  
@@ -54,19 +54,19 @@
 
 									<p>
 										<label for="paisdir">País</label>
-											<select>						
-											<?php foreach($pais as $item):?> 
-														<option name="direccionActor_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
-											<?php endforeach;?>
+											<select name="direccionActor_paisesCatalogo_paisId" id="direccionActor_paisesCatalogo_paisId">
+                                        <?php foreach($pais as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 											</select>
 									</p>
 										
 									<p>
 										<label for="estadodir">Estado</label>
-											<select>						
-											<?php foreach($estado as $item):?>
-														<option name="direccionActor_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
-											<?php endforeach;?>
+											<select name="direccionActor_estadosCatalogo_estadoId" >
+												<?php foreach($estado as $key => $item):?>
+																		<option value="<?=$item?>"><?=$key?></option>
+												<?php endforeach;?>
 											</select>
 									</p>
 									
@@ -74,11 +74,11 @@
 									  
 								<div class="six columns">
 									<p>
-										<label for="municipiodir">Municipio</label>
-											<select>						
-											<?php foreach($municipio as $item):?> 
-														<option name="direccionActor_municipiosCatalogo_municipioId" value="<?=$item?>"><?=$item?></option>
-											<?php endforeach;?>
+										<label for="direccionActor_municipiosCatalogo_municipioId">Municipio</label>
+											<select name="direccionActor_municipiosCatalogo_municipioId" id="direccionActor_municipiosCatalogo_municipioId">
+												<?php foreach($municipio as $key => $item):?>
+																		<option value="<?=$item?>"><?=$key?></option>
+												<?php endforeach;?>						
 											</select>
 									</p>	
 									

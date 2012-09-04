@@ -34,19 +34,19 @@
 																	 
 									  <p>
 										<label for="estadoCivil">Estado Civil</label>
-										<select>						
-										<?php foreach($estadoCivil as $item):?> <!--muestra todas las nacionalidades-->
-													<option name="InfoGralActor_estadoCivil_estadoCivil" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select>
+                                        <?php foreach($estadoCivil as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 									 
 									  <p>
 										<label for="nacionalidad">Nacionalidad</label>
-										<select>						
-										<?php foreach($nacionalidad as $item):?> <!--muestra todas las nacionalidades-->
-													<option name="InfoGralActor_nacionalidad" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActor_nacionalidad" id="InfoGralActor_nacionalidad">
+                                        <?php foreach($nacionalidad as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 									 
@@ -62,9 +62,9 @@
 									<div class="six columns">
 									  <p>
 										<label for="edad">Edad</label>
-										<select>						
+										<select name="InfoGralActor_edad" id="InfoGralActor_edad">						
 										<?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
-													<option name="InfoGralActor_edad" value="<?=$item?>"><?=$item?></option>
+													<option  value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -84,19 +84,19 @@
 									 
 									  <p>
 									<label for="hijos">Hijos</label>
-										<select>						
+										<select name="InfoGralActor_hijos" id="InfoGralActor_hijos" >						
 										<?php foreach($hijos as $item):?> 
-													<option name="InfoGralActor_hijos" value="<?=$item?>"><?=$item?></option>
+													<option value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
 									 
 									  <p>
 									<label for="grupoIndigena">Grupo Indígena</label>
-										<select>						
-										<?php foreach($grupoIndigena as $item):?> 
-													<option name="InfoGralActor_grupoIndigena" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActor_grupoIndigena" id="InfoGralActor_grupoIndigena">
+                                        <?php foreach($grupoIndigena as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 										
 									  </p>
@@ -104,8 +104,8 @@
 									 
 									  <p>			
 										<label for="genero">¿Habla español?</label>
-										<input type="radio" name="InfoGralActor_espaniol" checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
-										<input type="radio" name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
+										<input type="radio" id="InfoGralActor_grupoIndigena" name="InfoGralActor_grupoIndigena"  checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
+										<input type="radio" id="InfoGralActor_grupoIndigena"name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
 										
 									  </p>
 									  
@@ -114,20 +114,20 @@
 									 
 									  <p>
 										<label for="nivelEscolaridad">Nivel de Escolaridad</label>
-										<select>						
-										<?php foreach($escolaridad as $item):?> 
-													<option name="InfoGralActor_escolaridad" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActor_escolaridad" id="InfoGralActor_escolaridad">
+                                        <?php foreach($escolaridad as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									 
 									  </p>
 									 
 									  <p>						
 										<label for="UltimaOcupacion">Última Ocupación</label>
-										<select>						
-										<?php foreach($ultimaOcupacion as $item):?> 
-													<option name="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid" id="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid">
+                                        <?php foreach($ultimaOcupacion as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 										
 									  </p>
@@ -151,9 +151,9 @@
 											<div class="four columns">		
 												  <p>		
 												<label for="pais">País</label>
-													<select>						
-													<?php foreach($pais as $item):?> 
-																<option name="datosDeNacimiento_paisesCatalogo_paisId" value="<?=$item?>"><?=$item?></option>
+													<select>
+													<?php foreach($pais as $key => $item):?>
+																			<option value="<?=$item?>"><?=$key?></option>
 													<?php endforeach;?>
 													</select>
 												  </p>
@@ -162,10 +162,10 @@
 											<div class="four columns">
 												  <p>		
 												<label for="estado">Estado</label>
-													<select>						
-													<?php foreach($estado as $item):?>
-																<option name="datosDeNacimiento_estadosCatalogo_estadoId" value="<?=$item?>"><?=$item?></option>
-													<?php endforeach;?>
+													<select name="datosDeNacimiento_estadosCatalogo_estadoId">
+														<?php foreach($estado as $key => $item):?>
+																				<option value="<?=$item?>"><?=$key?></option>
+														<?php endforeach;?>
 													</select>
 												  </p>
 											</div>
@@ -173,10 +173,10 @@
 											<div class="four columns">
 											  <p>										
 												<label for="municipio">Municipio</label>
-													<select>						
-													<?php foreach($municipio as $item):?> 
-																<option name="datosDeNacimiento_municipiosCatalogos_municipiosId" value="<?=$item?>"><?=$item?></option>
-													<?php endforeach;?>
+													<select id="datosDeNacimiento_municipiosCatalogos_municipiosId" name="datosDeNacimiento_municipiosCatalogos_municipiosId">
+														<?php foreach($municipio as $key => $item):?>
+																				<option value="<?=$item?>"><?=$key?></option>
+														<?php endforeach;?>
 													</select>
 											  </p>
 											</div>
@@ -188,28 +188,28 @@
 								<div class="six columns">
 								  <p>
 									<label for="paistrans">País de tránsito</label>
-										<select>						
-										<?php foreach($pais as $item):?> 
-													<option name="infoMigratoria_paisTransitoId" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="infoMigratoria_paisTransitoId" id="infoMigratoria_paisTransitoId">
+                                        <?php foreach($pais as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 																				
 									  <p>
 									<label for="paisdest">País destino</label>
-										<select>						
-										<?php foreach($pais as $item):?> 
-													<option name="infoMigratoria_paisDestinoId" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="infoMigratoria_paisDestinoId" id="infoMigratoria_paisDestinoId">
+                                        <?php foreach($pais as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 										
 									
 									  <p>
 									<label for="intcrucespaistran">Intentos de cruce por el país de tránsito</label>
-										<select>						
+										<select name="infoMigratoria_IntCrucesTransito" id="infoMigratoria_IntCrucesTransito" >						
 										<?php foreach($intentos as $item):?> 
-													<option name="infoMigratoria_IntCrucesTransito" value="<?=$item?>"><?=$item?></option>
+													<option value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -224,9 +224,9 @@
 									
 									  <p>
 									<label for="expulpaisdest">Expulsiones del país de destino</label>
-										<select>						
+										<select name="infoMigratoria_expCruceDestino" id="infoMigratoria_expCruceDestino">						
 										<?php foreach($intentos as $item):?> 
-													<option name="infoMigratoria_expCruceDestino" value="<?=$item?>"><?=$item?></option>
+													<option  value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
@@ -234,20 +234,20 @@
 										
 									  <p>
 									<label for="motivoViaje">Motivo del viaje</label>
-										<select>						
-										<?php foreach($motivos as $item):?> 
-													<option name="infoMigratoria_motivoViaje" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="infoMigratoria_motivoViaje" id="infoMigratoria_motivoViaje">
+                                        <?php foreach($motivos as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 										
 										
 									  <p>
 									<label for="tipoEstancia">Tipo de estancia</label>
-										<select>						
-										<?php foreach($estancia as $item):?> 
-													<option name="infoMigratoria_tipoEstanciaId" value="<?=$item?>"><?=$item?></option>
-										<?php endforeach;?>
+										<select name="infoMigratoria_tipoEstanciaId" id="infoMigratoria_tipoEstanciaId">
+                                        <?php foreach($estancia as $key => $item):?>
+                                                                <option value="<?=$item?>"><?=$key?></option>
+                                        <?php endforeach;?>
 										</select>
 									  </p>
 										
@@ -262,18 +262,18 @@
 										
 									  <p>								
 									<label for="intcrucespaisdets">Intentos de cruce al país destino</label>
-										<select>						
+										<select name="infoMigratoria_IntCrucesDest" id="infoMigratoria_IntCrucesDest" >						
 										<?php foreach($intentos as $item):?> 
-													<option name="infoMigratoria_IntCrucesDest" value="<?=$item?>"><?=$item?></option>
+													<option value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>
 										
 									  <p>
 									<label for="expulpaistrans">Expulsiones del país de tránsito</label>
-										<select>						
+										<select name="infoMigratoria_expCruceTransito">						
 										<?php foreach($intentos as $item):?> 
-													<option name="infoMigratoria_expCruceTransito" value="<?=$item?>"><?=$item?></option>
+													<option  value="<?=$item?>"><?=$item?></option>
 										<?php endforeach;?>
 										</select>
 									  </p>

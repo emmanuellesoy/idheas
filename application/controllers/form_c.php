@@ -129,36 +129,41 @@ class Form_c extends CI_Controller {
 				
 				/*************************************************************************************/
 				//DATOS PARA LOS FORMULARIOS
-				$DatosGenerales['edad']= range(1,100);
+				$DatosGenerales['edad']= range(0,100);
 				$DatosGenerales['hijos']= range(0,20);
 				$DatosGenerales['intentos']= range(0,20);
-				$DatosGenerales['estadoCivil']= array('Casado', 'Soltero', 'viudo'); 
-				$DatosGenerales['nacionalidad']= array('narniano', 'salvadoreño', 'gnomo', 'mordoriano','gondoriano'); 
-				$DatosGenerales['grupoIndigena']= array('totonaca', 'otomi', 'maya', 'zapoteca'); 
-				$DatosGenerales['escolaridad']= array('primaria', 'secundaria', 'preparatoria', 'carrera'); 
-				$DatosGenerales['ultimaOcupacion']= array('sicario', 'presidente', 'candidato presidencial', 'corredor de bolsa'); 
-				$DatosGenerales['pais']= array('Mexico', 'Salvador', 'chile', 'korea'); 
-				$DatosGenerales['estado']= array('DF', 'chiapas', 'morelia', 'cuernavaca'); 
-				$DatosGenerales['municipio']= array('tlahuac', 'iztapalapa', 'nose', 'se acabo mi creatividad'); 
-				$DatosGenerales['motivos']= array('negocios', 'trabajo', 'nose', 'se acabo mi creatividad'); 
-				$DatosGenerales['estancia']= array('vacaional', 'largo tiempo', 'nose', 'permanente'); 
-				$DatosGenerales['tipoDir']= array('casa', 'departamento', 'hostal', 'hotel'); 
-				$DatosGenerales['tipoActor']= array('agencia', 'institucion publica', 'institucion privada', ); 
-				$DatosGenerales['actividad']= array('alimentar gatitos', 'agencia de mercenarios', 'no tengo idea', ); 
+				$DatosGenerales['estadoCivil']= array('Casado' => 1, 'Soltero' => 2, 'Viudo' => 3); 
+				$DatosGenerales['nacionalidad']= array('narniano' => 1, 'salvadoreño' => 2, 'gnomo' => 3, 'mordoriano' => 4,'gondoriano' => 5); 
+				$DatosGenerales['grupoIndigena']= array('Totonaca' => 1, 'Otomi' => 2, 'Maya' => 3, 'Zapoteca' => 4); 
+				$DatosGenerales['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5); 
+				$DatosGenerales['ultimaOcupacion']= array('Sicario' => 1, 'Presidente' => 2, 'Candidato presidencial' => 3, 'Corredor de bolsa' => 4);
+				$DatosGenerales['pais']= array('Mexico' => 1, 'Salvador' => 2, 'Chile' => 3, 'Korea' => 4); 
+				$DatosGenerales['estado']= array('Distrito Federal' => 1, 'Chiapas' => 2, 'Morelia' => 3, 'Cuernavaca' => 4); 
+				$DatosGenerales['municipio']= array('Tlahuac' => 1, 'Iztapalapa' => 2, 'No se' => 3, 'Se acabo mi creatividad' => 4); 
+				$DatosGenerales['motivos']= array('Negocios' => 1, 'Trabajo' => 2, 'No se' => 3, 'Se acabo mi creatividad' => 4); 
+				$DatosGenerales['estancia']= array('Vacaional' => 1, 'Largo tiempo' => 2, 'No se' => 3, 'Permanente' => 4); 
+				$DatosGenerales['tipoDir']= array('Casa', 'Departamento', 'Hostal', 'Hotel'); 
+				$DatosGenerales['tipoActor']= array('Agencia' => 1, 'Institucion publica' => 2, 'Institucion privada' => 3); 
+				$DatosGenerales['actividad']= array('Alimentar gatitos' => 1, 'Agencia de mercenarios' => 2, 'No tengo idea' => 3); 
 				$DatosGenerales['id']= 'id="ActorIndv" ';
 				$Lista['vista'] = "0";
 				//TERMINA INFORMACIÓN DE DATOS PARA LOS FORMULARIOS
-				
 				/*************************************************************************************/
 				//CARGA DE FORMULARIOS
 				$data['colectivo'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales  , true);
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
 				//TERMINA CARGA DE FORMULARIOS
+				
+				/*************************************************************************************/
+				//AGREGAR VISTAS A CASOS USOS
+				$VistasCasos['casosMenu'] = $this->load->view('formulariosCargados/casos_v', ' ' , true);
+				
+				
 				/*************************************************************************************/
 				//CARGA DE VISTAS
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
-				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', ' ' , true);
+				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasos , true);
 				
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);
