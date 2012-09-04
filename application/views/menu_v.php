@@ -13,16 +13,6 @@
 			);
 			echo link_tag($link); 
 		?>
-		
-				
-		<?php $link = array(
-			'href' => 'statics/stylesheets/foundation.css',
-			'rel' => 'stylesheet',
-			'type' => 'text/css',
-			);
-			echo link_tag($link); 
-		?>
-		
 				
 		<?php $link = array(
 			'href' => 'statics/stylesheets/app.css',
