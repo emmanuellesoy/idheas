@@ -225,7 +225,7 @@
 			
 			//$cadena = 'a';
 			
-			$this->db->select('actorId,nombre');
+			$this->db->select('actorId, nombre, apellidosSiglas');
 			$this->db->from('actores');
 			$this->db->like('nombre', $cadena);
 			$this->db->or_like('apellidosSiglas', $cadena);

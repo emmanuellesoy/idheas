@@ -194,15 +194,14 @@
                 <div class="six columns"><!--Primer mitad de información de contacto--->
 
                     <p>
-                <label for="telefono">Teléfono</label>
+                    <label for="telefono">Teléfono</label>
                         <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
 
                     </p>
 
                     <p>
-                <label for="telefonomovil">Teléfono móvil</label>
+                    <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
                         <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
-
                     </p>
                     </div><!--Termina primer mitad de la nformación de contacto--->
 

@@ -34,14 +34,13 @@ class Actores_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
-                
-                //*print_r($datos);
 		 
 		$this->load->model('actores_m', 'am');
 		 
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
-                print_r(json_encode($this->am->mTraeDatosActores(3, 1)));
+                print_r($datos);
+                
 	}
 	
 	/* 
