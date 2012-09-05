@@ -217,17 +217,14 @@
 				<?php echo br(1);?>
 				
 				
-				<div class="twelve columns">
-                        <input id="mostrarEstadodir" type='button' onclick="mostarEstadodirfunc()" value='Agregar Campo'>
+                        <input id="mostrarEstadodir" type='button' onclick="mostarEstadodirfunc()" value='Mostrar casos'>
 
                         <div class="Escondido" id="showEstadodir">
-                                <div class="ten columns">
+                                <div class="twelve columns">
 									<?php echo $casosMenu?>
                                 </div>
                         </div>
 
                 </div>
 
-				
-				</div>
 				

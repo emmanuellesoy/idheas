@@ -5,8 +5,8 @@
 }
 #demo h2 a {
     background: url("sprite.png") no-repeat scroll 15px 13px transparent;
-    border-bottom: 5px solid purple;
-    color: violet;
+    border-bottom: 3px solid #e32500;
+    color: #333;
     display: block;
     font-size: 18px;
     font-weight: normal;
@@ -34,8 +34,8 @@
 }
 #demo1 h3 a {
     background: url("sprite.png") no-repeat scroll 15px 13px transparent;
-    border-bottom: 5px solid purple;
-    color: violet;
+    border-bottom: 5px solid #e32500;
+    color: #333;
     display: block;
     font-size: 18px;
     font-weight: normal;

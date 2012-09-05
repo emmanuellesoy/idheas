@@ -124,7 +124,32 @@ class Form_c extends CI_Controller {
 							));
 
 
-				
+/*******************************************************************************************/
+				$Lista['lista_casos'] = array(
+						'1'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'2'=>array(
+								'nombre'   => 'Joon lee', 
+								 'url'   => 'http://24.media.tumblr.com/tumblr_m065d3a4Nu1r7m3tvo5_r1_250.jpg',
+							),
+						'3'=>array(
+						   		 'nombre'   => 'fei', 
+								 'url'   => 'http://images4.wikia.nocookie.net/__cb20111031210505/drama/es/images/f/f3/Min_miss_a_362840.jpg',
+							),
+						'4'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'5'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'6'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							));
 				///TERMINA INFORMACIÓN DE LA LISTA DE ACTORES
 				
 				/*************************************************************************************/
