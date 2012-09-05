@@ -160,7 +160,7 @@ class Form_c extends CI_Controller {
 				
 				/*************************************************************************************/
 				//AGREGAR VISTAS A CASOS USOS
-				$VistasCasos['casosMenu'] = $this->load->view('formulariosCargados/casos_v', ' ' , true);
+				$VistasCasos['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
 				
 				
 				/*************************************************************************************/
@@ -168,7 +168,6 @@ class Form_c extends CI_Controller {
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
 				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasos , true);
 				
-				$data['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);
 		}
