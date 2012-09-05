@@ -60,7 +60,7 @@
 	  			</div>
 	  			  
 	  		</div>
-	  	</div><!--fin acordeon lugares-->
+	  	</div><!--fin acordeon Seguimiento del caso-->
 	</div>
 	  
 </div><!--fin acordeon información general-->
