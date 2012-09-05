@@ -12,7 +12,7 @@ function mostrarFormlulario() {///Muestra el formulario cuando se quiere agregar
     $("#formCargInd").hide("slow");
     $("#formInd").show("slow");
     };
-    
+
 /************Funciones que te permiten agregar/eliminar un nuevo campo a Estado del formulario Actor Individual********************/
 
 function mostarEstadodirfunc() {///Muestra/Esconde las opciones para agregar/quitar campo
@@ -46,9 +46,9 @@ function mostarDatosListaElem() {
 	var datosActor=new Array("Siwon","Choi","Horse","hombre");
     $("#formInd").hide("slow");
     $("#formCargInd").show("slow");
-	$('#actores_nombreV').append(datosActor[0]); 
-	$('#actores_apellidosSiglasV').append(datosActor[1]); 
-	$('#alias_aliasV').append(datosActor[2]); 
-	$('#infoGralActor_generoidV').append(datosActor[3]); 
+	$('#actores_nombreV').html(datosActor[0]); 
+	$('#actores_apellidosSiglasV').html(datosActor[1]); 
+	$('#alias_aliasV').html(datosActor[2]); 
+	$('#infoGralActor_generoidV').html(datosActor[3]); 
     };
 /*******************************************************************/

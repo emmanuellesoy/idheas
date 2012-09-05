@@ -23,10 +23,10 @@
 			</div>
 
 
-<!------------Lista ind-------------------->
+<!------------Lista transmigrante-------------------->
 			
-			<div  id="listaActorIndiv" class="PruebaScorll">	
-					<?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
+			<div id="listaActorTrans" class="PruebaScorll Escondido">		
+					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
 								<div class="five columns"><!--imprimo imagenes-->
@@ -42,5 +42,8 @@
 							
 					<?php endforeach;?><!--Termina lista de los actores-->
 			</div>
+					
+
+   
 			
-	</div> 
+		</div> 

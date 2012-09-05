@@ -1,6 +1,6 @@
 <?php echo validation_errors(); ?>
-<?php echo form_open('actores_c/agregarActor'); ?>
-<?$hidden = array('tipoActorId' => '1');?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<input type="hidden" value="1" name="actores_tipoActorId" />
 
 <div	id="Actores" >
     <fieldset>
@@ -25,7 +25,7 @@
             </div><!----Termina primer mitad de información general---->
             <div class="six columns"><!----Segunda mitad de información general---->
 
-                <div class="six columns">
+                <div class="four columns">
 
                     <p>
                         <label for="genero">Género</label>
@@ -35,7 +35,7 @@
                     </p>
                 </div>
 
-                <div class="six columns">
+                <div class="two columns">
 
                     <p>
                         <label for="edad">Edad</label>
@@ -48,7 +48,12 @@
                     </p>
 
                 </div>
-
+				
+				<div class="six columns">	
+				
+					<label >Foto </label>
+					<input type="file" name="actores_foto"/>
+				</div>
                     <p>
                         <label for="estadoCivil">Estado Civil</label>
                         <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						

@@ -79,9 +79,9 @@
 				  <li class="active" id="vertical1Tab"><!--Pestaña Actores Individuales--->
 					
 					<dl class="tabs"><!--Pestañas de Actores-->
-						<dd class="active"><a href="#simple1">Actor individual</a></dd>
-						<dd><a href="#simple2">Actor transmigrante</a></dd>
-						<dd><a href="#simple3">Actor colectivo</a></dd>
+						<dd class="active" onclick="mostrarListaActorInd()"><a href="#simple1">Actor individual</a></dd>
+						<dd onclick="mostrarListaActorTrans()" ><a href="#simple2">Actor transmigrante</a></dd>
+						<dd onclick="mostrarListaActorCol()" ><a href="#simple3">Actor colectivo</a></dd>
 					</dl>
 
 					<ul class="tabs-content">
@@ -103,13 +103,11 @@
 					  </li>
 					  
 					  
-					  <li id="simple2Tab">
+					  <li id="simple2Tab"  >
 						  
 						  <!---Contenido de la pestaña Actor transmigrante--->
-								<div class="three columns">
-									
-									
-										<?php echo $listaActores;?> <!---Se llama a listaActores--->
+								<div class="three columns">									
+										<?php echo $listaActoresTransmigrante;?> <!---Se llama a listaActores--->
 									</div>
 								
 								
@@ -121,7 +119,7 @@
 						  
 						</li>
 						
-					  <li id="simple3Tab">
+					  <li id="simple3Tab" onclick="mostrarListaActorCol()">
 						
 						  <!---Contenido de la pestaña Actor Colectivo--->
 								<div class="three columns">
@@ -129,7 +127,7 @@
 									
 										<?php 
 										
-										echo $listaActores;?> <!---Se llama a listaActores--->
+										echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
 									</div>
 								
 								
