@@ -22,48 +22,6 @@
 		 */
 		
 		public function mAgregarActor($datosActor){
-			
-			/*
-			$datosActorDummy = array(
-				'tipoActorId' => '1',
-				'tablas' => array(
-					'actores' => array('nombre' => 'Jon', 'apellidosSiglas' => 'Hernandez Martinez', 'tipoActorId' => '1', 'codigoPostal' => '10000'),
-					'datosDeNacimiento' => array('fechaNacimiento' => '1985-12-24', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1' ),
-					'infoContacto' => array('telefono' => '58565856', 'telefonoMovil' => '0445558565856', 'correoE' => 'ejemplo@ejemplo.com', 'fax' => '')
-				)
-			);
-			
-			$datosActorIndividual = array(
-				'tipoActorId' => '1',
-				'tablas' => array(
-					'actores' => array('nombre' => 'Pepito', 'apellidosSiglas' => 'Sirio Martinez', 'tipoActorId' => '1', 'codigoPostal' => '10000'),
-					'datosDeNacimiento' => array('fechaNacimiento' => '24-12-1985', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1' ),
-					'infoContacto' => array('telefono' => '58565856', 'telefonoMovil' => '0445558565856', 'correoE' => 'ejemplo@ejemplo.com', 'fax' => ''),
-		                        'direccionActor' => array('direccion' => 'Calle: Desconocida Esq Lo que sea, Colonia: La otra, Delegación, Otra cosa Nada, Solo porprobar. Juguemos Zombie Island','paisesCatalogo_paisId' => '1','estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1'),
-		                        'infoGralActor' => array('generoId' => '1', 'edad' => 21, 'nacionalidad' => 'Ingles', 'hijos' => 4, 'escolaridad' => 'primaria', 'espaniol' => 'Si', 'estadoCivil_estadoCivilId' => 1, 'ocupacionesCatalogo_ultimaOcupacionId' => 1, 'gruposIndigenas_grupoIndigenaId' => 1)
-				)
-			);
-        
-	        $datosActorTransmigrante = array(
-				'tipoActorId' => '2',
-				'tablas' => array(
-					'actores' => array('nombre' => 'Joan', 'apellidosSiglas' => 'Hernandez Martinez', 'tipoActorId' => '2', 'codigoPostal' => '10000'),
-					'datosDeNacimiento' => array('fechaNacimiento' => '24-12-1985', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1' ),
-		                        'infoMigratoria' => array('paisTransitoId' => 1, 'paisDestinoId' => 1, 'intCruceDestino' => 1, 'intCruceTransito' => 1, 'expCruceDestino' => 1, 'expCruceTransito' => 1, 'motivoViaje' => 'Ganar más dinero', 'tipoEstanciaId' => 1, 'realizaViaje' => 'Solo', 'comentarios' => 'No sabe escribir.'),
-		                        'infoGralActor' => array('generoId' => '1', 'edad' => 21, 'nacionalidad' => 'Ingles', 'hijos' => 4, 'escolaridad' => 'primaria', 'espaniol' => 'Si', 'estadoCivil_estadoCivilId' => 1, 'ocupacionesCatalogo_ultimaOcupacionId' => 1, 'gruposIndigenas_grupoIndigenaId' => 1)
-				)
-			);
-        
-	        $datosActorColectivo = array(
-				'tipoActorId' => '3',
-				'tablas' => array(
-					'actores' => array('nombre' => 'Jan', 'apellidosSiglas' => 'Hernandez Martinez', 'tipoActorId' => '3', 'codigoPostal' => '10000'),
-					'infoContacto' => array('telefono' => '58565856', 'telefonoMovil' => '0445558565856', 'correoE' => 'ejemplo@ejemplo.com', 'fax' => ''),
-		                        'direccionActor' => array('direccion' => 'Calle: Desconocida Esq Lo que sea, Colonia: La otra, Delegación, Otra cosa Nada, Solo porprobar. Juguemos Zombie Island','paisesCatalogo_paisId' => '1','estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1'),
-		                        'infoGralActores' => array('tipoActorColectivoId' => 1, 'actividad' => 'Seguridad Publica', 'paginaWeb' => 'http://www.algoasi.com.mx')
-				)
-			);
-			*/
 
 			/* inserta el array actores en la tabla actores de la BD */
 			$this->db->insert('actores', $datosActor['tablas']['actores']);
@@ -241,6 +199,49 @@
 
 			
 		}/* Fin de mBuscarActores() */
+		
+		/* Este método trae los actores en arreglos organizados por tipo (individual, transigrante, colectivo)*/
+		
+		public function mTraerActores(){
+			
+			$this->db->select('actorId, tipoActorId,nombre, foto');
+			$this->db->from('actores');
+			
+			$consulta= $this->db->get();	
+			
+			foreach ($consulta->result_array() as $key => $value) {
+				switch ($value['tipoActorId']) {
+					
+					case '1':
+						
+						$datos['individual'][$value['actorId']] = $value;
+							
+						break;
+						
+					case '2':
+						
+						$datos['transmigrante'][$value['actorId']] = $value;
+						
+						break;
+					
+					case '3':
+					
+						$datos['colectivo'][$value['actorId']] = $value;
+					
+						break;
+						
+					default:
+						
+						$datos = 'No se pudo hacer la consulta';
+						
+						break;
+				}/* fin del switch */
+				
+			}/* fin foreach */
+			
+			return $datos;
+			
+		}/* fin de traerActores */
 		
 	}
 	
