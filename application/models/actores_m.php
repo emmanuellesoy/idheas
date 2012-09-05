@@ -207,7 +207,9 @@
 			$this->db->select('actorId, tipoActorId,nombre, foto');
 			$this->db->from('actores');
 			
-			$consulta= $this->db->get();	
+			$consulta= $this->db->get();
+			
+			print_r($consulta);	
 			
 			foreach ($consulta->result_array() as $key => $value) {
 				switch ($value['tipoActorId']) {
