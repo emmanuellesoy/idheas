@@ -49,10 +49,12 @@ class Actores_c extends CI_Controller {
 	 * */
 	
 	public function listarActores(){
+            
+                $tipoActorId = $this->input->post('tipoActorId');
 		
 		$this->load->model('actores_m', 'am');
 		
-		$datos = $this->am->mListaActores();
+		$datos = $this->am->mListaActores($tipoActorId);
 		
 		print_r($datos);
 		
@@ -67,7 +69,7 @@ class Actores_c extends CI_Controller {
 		
 		$this->load->model('actores_m', 'am');
 		
-		$datos = $this->am->mTraeDatosActores();
+		$datos = $this->am->mTraerActores();
 		
 		print_r($datos);
 		

@@ -5,9 +5,9 @@ class Form_c extends CI_Controller {
 	function index()
 	{
 		//CARGA DE LAS LIBRERIAS
-		$this->load->helper('html');
-		$this->load->helper('url');						
+		$this->load->helper(array('html', 'url'));					
 		$this->load->library('form_validation');
+                $this->load->model('actores_m');
 		// TERMINA CARGA DE LAS LIBRERIAS
 
 		if ($this->form_validation->run('login') == FALSE) //SI ES FALSA LA VALIDACION DEL LOGUEO 
@@ -15,113 +15,9 @@ class Form_c extends CI_Controller {
 			$this->load->view('login');
 		}
 		else
-		{
-				///INFORMACIÓN DE LA LISTA DE ACTORES
-				$Lista['todo_list'] = array(
-						'1'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'42'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'3'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'4'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'5'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'6'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'7'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'8'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'9'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'10'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'3'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'4'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'5'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'6'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'7'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'8'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'9'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'10'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'13'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'14'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'15'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'16'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'17'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'18'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							),
-						'19'=>array(
-						   		 'nombre'   => 'Choi Siwon', 
-								 'url'   => 'http://4.bp.blogspot.com/_p0CXJ3C8MF8/TMfCrRuFL9I/AAAAAAAAABw/7vPcLNz_j6E/s1600/18.jpg',
-							),
-						'11'=>array(
-								'nombre'   => 'Sujy', 
-								 'url'   => 'http://c1.vingle.net/card_images/69853/original/Miss-A_Suzy-Miss-A_k-pop.jpg',
-							));
+		{       
+                    
+                        $Lista['listaActores'] = $this->actores_m->mTraerActores();
 
 
 /*******************************************************************************************/

@@ -207,40 +207,40 @@
 			$this->db->select('actorId, tipoActorId,nombre, foto');
 			$this->db->from('actores');
 			
-			$consulta= $this->db->get();
+			$consulta= $this->db->get();	
 			
-			print_r($consulta);	
-			
-			foreach ($consulta->result_array() as $key => $value) {
-				switch ($value['tipoActorId']) {
-					
+			foreach ($consulta->result_array() as $value) {
+                            
+				switch (trim($value['tipoActorId'])) {
+                                    
 					case '1':
-						
+                                            
 						$datos['individual'][$value['actorId']] = $value;
 							
 						break;
 						
 					case '2':
-						
+                                            
 						$datos['transmigrante'][$value['actorId']] = $value;
 						
 						break;
 					
 					case '3':
-					
+                                            
 						$datos['colectivo'][$value['actorId']] = $value;
 					
 						break;
 						
 					default:
-						
+                                            
+                                            
 						$datos = 'No se pudo hacer la consulta';
 						
 						break;
 				}/* fin del switch */
 				
 			}/* fin foreach */
-			
+                        
 			return $datos;
 			
 		}/* fin de traerActores */
