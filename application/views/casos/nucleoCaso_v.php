@@ -5,13 +5,26 @@
 	  		<h2>Derechos afectados y actos</h2>
 	  		<div>
 	  			<div>
-	  				<ul id="lugares" class="block-grid mobile five-up">
-						<li>Derecho humano</li>
-	  					<li>Acto</li>
-	  					<li>Fecha inicio</li>
-	  					<li>Fecha de termino</li>
-						<li><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></li>
-	  				</ul>
+	  				<table>
+			            <thead>
+			              <tr>
+			                <th>Derecho humano</th>
+			                <th>Acto</th>
+			                <th>Fecha inicio</th>
+			                <th>Fecha término</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td>Content</td>
+			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			              </tr>
+			            </tbody>
+			          </table>
 	  			</div>
 	  			  
 	  		</div>
@@ -20,13 +33,26 @@
 	  		<h2>Intervenciones</h2>
 	  		<div>
 	  			<div>
-	  				<ul id="lugares" class="block-grid mobile five-up">
-						<li>Receptor</li>
-	  					<li>Interventor</li>
-	  					<li>Tipo de Intervencion</li>
-	  					<li>Fecha</li>
-						<li><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></li>
-	  				</ul>
+	  				<table>
+			            <thead>
+			              <tr>
+			                <th>Receptor</th>
+			                <th>Interventor</th>
+			                <th>Tipo de intervención</th>
+			                <th>Fecha</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td>Content</td>
+			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			              </tr>
+			            </tbody>
+			          </table>
 	  			</div>
 	  			  
 	  		</div>

@@ -18,13 +18,24 @@
 	  		<h2>Lugares</h2>
 	  		<div>
 	  			<div>
-	  				<ul id="lugares" class="block-grid mobile five-up">
-						<li>País</li>
-	  					<li>Estado</li>
-	  					<li>Municipio</li>
-	  					<li>Accion(es)</li>
-						<li><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></li>
-	  				</ul>
+	  				<table>
+			            <thead>
+			              <tr>
+			                <th>País</th>
+			                <th>Estado</th>
+			                <th>Municipio</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			              </tr>
+			            </tbody>
+			          </table>
 	  			</div>
 	  			  
 	  		</div>
@@ -51,12 +62,24 @@
 	  		<h2>Seguimiento del caso</h2>
 	  		<div>
 	  			<div>
-	  				<ul id="lugares" class="block-grid mobile four-up">
-						<li>Id</li>
-	  					<li>Título</li>
-	  					<li>Fecha de recibo</li>
-						<li><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></li>
-	  				</ul>
+	  				<table>
+			            <thead>
+			              <tr>
+			                <th>Id</th>
+			                <th>Título</th>
+			                <th>Fecha de recibo</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			              </tr>
+			            </tbody>
+			          </table>
 	  			</div>
 	  			  
 	  		</div>
