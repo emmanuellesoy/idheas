@@ -204,7 +204,7 @@
 		
 		public function mTraerActores(){
 			
-			$this->db->select('actorId, tipoActorId,nombre, foto');
+			$this->db->select('actorId, tipoActorId, nombre, foto');
 			$this->db->from('actores');
 			
 			$consulta= $this->db->get();	
