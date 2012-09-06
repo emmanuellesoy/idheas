@@ -73,6 +73,9 @@ class Casos_m extends CI_Model {
 		$this->db->join('fichas','fichas.casos_casoId = casos.casoId','left');
 		$this->db->join('lugares','lugares.casos_casoId = casos.casoId','left');
 		$this->db->join('nucleoCaso','nucleoCaso.casos_casoId = casos.casoId','left');
+		$this->db->join('relacionCasos','relacionCasos.casos_casoId = casos.casoId','left');
+		$this->db->join('intervenciones','intervenciones.casos_casoId = casos.casoId','left');
+		$this->db->join('actos','actos.casos_casoId = casos.casoId','left');
 		$this->db->where('casoId',$casoId);
 		
 		$consulta = $this->db->get();
