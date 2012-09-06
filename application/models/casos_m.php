@@ -59,5 +59,30 @@ class Casos_m extends CI_Model {
 		
 	}/* Fin de mAgregarCaso() */
 	
+	/* Este modelo trae los datos de un actor dependiendo de su id
+	 * @Param idCaso
+	 * */
 	
+	public function mTraerDatosCaso(){
+		$casoId = 1;
+		
+		$this->db->select('*');
+		$this->db->from('casos');
+		$this->db->join('infoCaso','infoCaso.casos_casoId = casos.casoId', 'left');
+		$this->db->join('infoAdicional','infoAdicional.casos_casoId = casos.casoId','left');
+		$this->db->join('fichas','fichas.casos_casoId = casos.casoId','left');
+		$this->db->join('lugares','lugares.casos_casoId = casos.casoId','left');
+		$this->db->join('nucleoCaso','nucleoCaso.casos_casoId = casos.casoId','left');
+		$this->db->where('casoId',$casoId);
+		
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos[$row['casoId']] = $row;
+		}
+		
+		/* Regresa la cadena al controlador*/
+		return $datos;
+	}
 }
