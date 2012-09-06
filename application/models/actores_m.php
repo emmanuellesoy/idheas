@@ -36,7 +36,8 @@
             		$ultimoActorId = $row['actorId'];
         		}
         	}
-			/* Agrego el actorId al arreglo en el campo actores_actorId en las tablas...*/
+			
+			/* Agrega el actorId al arreglo en el campo actores_actorId en las tablas...*/
 			
 			foreach($datosActor['tablas'] as $key => $value){
 				if($key != 'actores'){
