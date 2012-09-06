@@ -19,20 +19,6 @@ class Form_c extends CI_Controller {
                     
                         $Lista['listaActores'] = $this->actores_m->mTraerActores();
 
-            // Crear una imagen en blanco y añadir algún texto
-            
-            // Establecer la cabecera de tipo de contenido - en este caso image/jpeg
-            header('Content-Type: image/jpeg');
-
-            foreach ($Lista['listaActores']['individual'] as $img){
-                print_r($img['foto']);
-            // Imprimir la imagen
-            imagejpg($img['foto']);
-                
-            }
-
-            // Liberar memoria
-            //imagedestroy($im);
 
 /*******************************************************************************************/
 				$Lista['lista_casos'] = array(
