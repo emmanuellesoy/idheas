@@ -18,6 +18,16 @@ class Casos_c extends CI_Controller {
            
        }
        
+       public function cTraerDatosCaso(){
+           
+           $expression = $this->casos_m->mTraerDatosCaso();
+           
+           print_r($expression);
+           
+       }
+       
+       
+       
        
     
 }
