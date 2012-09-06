@@ -5,18 +5,18 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span for="nombre">Nombre:   </span>
+							<span >Nombre:   </span>
 							<span id="actores_nombreV"></span>
 						  </p>
 						 
 						  <p>
-							<span for="apellidos">Apellidos:  </span>
+							<span >Apellidos:  </span>
 							<span id="actores_apellidosSiglasV"></span>
 						 
 						  </p>
 						 
 						  <p>
-							<span for="alias">Alias:   </span>
+							<span >Alias:   </span>
 							<span id="alias_aliasV"></span> 
 						  
 						  </p>
@@ -28,7 +28,7 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span for="genero">Género:   </span>
+							<span >Género:   </span>
 							<span id="infoGralActor_generoidV"></span>
 						
 						  </p>
@@ -37,18 +37,18 @@
 						<div class="six columns">
 						  
 						  <p>
-							<span for="edad">Edad:   </span>
+							<span >Edad:   </span>
 							<span id="infoGralActor_edadV"></span>
 						  </p>
 						</div>
 						 
 						  <p>
-							<span for="estadoCivil">Estado Civil:   </span>
+							<span >Estado Civil:   </span>
 							<span id="infoGralActor_estadoCivil_estadoCivilV"></span>
 						  </p>
 						 
 						  <p>
-							<span for="nacionalidad">Nacionalidad:   </span>
+							<span >Nacionalidad:   </span>
 							 <span id="infoGralActor_nacionalidadV"></span>
 						  </p>
 						
@@ -62,21 +62,21 @@
 					 
 						 <div class="six columns">
 						  <p>
-								<span for="hijos">Hijos:   </span>
+								<span >Hijos:   </span>
 								<span id="infoGralActor_hijosV" ></span>
 						  </p>
 						 </div>
 						  
 						 <div class="six columns">									
 						   <p>			
-							<span for="genero">¿Habla español?:   </span>
+							<span >¿Habla español?:   </span>
 							<span id="infoGralActor_espaniolV"></span>
 						  </p>
 						 </div>
 						
 						 
 						  <p>
-							<span for="grupoIndigena">Grupo Indígena:   </span>
+							<span >Grupo Indígena:   </span>
 								<span id="infoGralActor_grupoIndigenaV"></span>
 						  </p>
 				
@@ -86,12 +86,12 @@
 						  
 						 
 						  <p>
-							<span for="nivelEscolaridad">Nivel de Escolaridad:   </span>
+							<span >Nivel de Escolaridad:   </span>
 							<span id="infoGralActor_escolaridadV"></span>									 
 						  </p>
 						 
 						  <p>						
-							<span for="UltimaOcupacion">Última Ocupación:   </span>
+							<span >Última Ocupación:   </span>
 							<span id="infoGralActor_ocupacionesCatalogo_ultimalOcupacionidV"></span>
 							
 						  </p>
@@ -107,12 +107,12 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span for="pais">País:   </span>
+							<span >País:   </span>
 							<span id="datosDeNacimiento_paisesCatalogo_paisIdV"></span>										
 						  </p>
 						 
 						  <p>
-							<span for="estado">Estado:   </span>
+							<span >Estado:   </span>
 							<span id="datosDeNacimiento_estadosCatalogo_estadoIdV"></span>
 							
 						  </p>
@@ -120,13 +120,13 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span for="municipio">Municipio:   </span>
+							<span >Municipio:   </span>
 							<span id="datosDeNacimiento_municipiosCatalogo_municipioIdV"></span>
 						 
 						  </p>
 						 
 						  <p>
-							<span for="fechaNacimiento">Fecha de nacimiento:   </span>
+							<span >Fecha de nacimiento:   </span>
 							<span id="datosDeNacimiento_fechaNacimientoV"></span>
 						  </p>
 															  
@@ -140,19 +140,19 @@
 						<div class="six columns">
 						 
 						  <p>
-						<span for="telefono">Teléfono:   </span>
+						<span >Teléfono:   </span>
 							<span id="infoContacto_telefonoV"></span>
 						  </p>
 						  
 						  <p>
-						<span for="telefonomovil">Teléfono móvil:   </span>
+						<span >Teléfono móvil:   </span>
 							<span id="infoContacto_telefonoMovilV"></span> 
 						  </p>
 						  </div>
 						<div class="six columns">
 						  
 						  <p>
-						<span for="correo">Correo electrónico:   </span>
+						<span >Correo electrónico:   </span>
 							<span id="infoContacto_correoEV"></span>
 						  </p>
 						</div>  
@@ -165,19 +165,19 @@
 						<div class="six columns"> 
 						  
 						 <p>
-							<span for="tipoDir">Tipo de dirección:   </span>
+							<span>Tipo de dirección:   </span>
 							<span id="direccionActor_tipoDireccionIdV"></span>
 						 
 						 </p>
 						 <p>
 							 
-							<span for="ubicacion">Ubicación:   </span>
+							<span>Ubicación:   </span>
 								<span id="direccionActor_direccionV"></span>
 						 </p>
 						 
 						 
 						<p>
-							<span for="codigoPos">Código Postal:   </span>
+							<span>Código Postal:   </span>
 								<span id="actores_codigoPostalV"></span>
 						 </p>
 						 
@@ -187,13 +187,13 @@
 						
 
 						<p>
-							<span for="paisdir">País:   </span>
+							<span>País:   </span>
 								<span id="direccionActor_paisesCatalogo_paisIdV"></span>
 						</p>				
 
 						<p>
 						
-							<span for="estadodir">Estado:   </span>
+							<span>Estado:   </span>
 
 									<span id="direccionActor_estadosCatalogo_estadoIdV"></span>
 						
@@ -203,7 +203,7 @@
 						
 
 						<p>
-							<span for="municipiodir">Municipio:   </span>
+							<span>Municipio:   </span>
 								<span id="direccionActor_municipiosCatalogo_municipioIdV"></span>
 						</p>	
 						
@@ -217,9 +217,9 @@
 				<?php echo br(1);?>
 				
 				
-                        <input id="mostrarEstadodir" type='button' onclick="mostarEstadodirfunc()" value='Mostrar casos'>
+                        <input id="mostrarEstadodir" class="[tiny, small, medium, large] button"   type='button' onclick="mostrarfuncInd()" value='Mostrar casos'>
 
-                        <div class="Escondido" id="showEstadodir">
+                        <div class="Escondido" id="mostrarCasosIndividual">
                                 <div class="twelve columns">
 									<?php echo $casosMenu?>
                                 </div>

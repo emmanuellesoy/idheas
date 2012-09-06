@@ -50,10 +50,12 @@
                 </div>
 				
 				<div class="six columns">	
-				
+					<p>
 					<label >Foto </label>
 					<input type="file" name="actores_foto"/>
+					</p>
 				</div>
+				
                     <p>
                         <label for="estadoCivil">Estado Civil</label>
                         <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						
@@ -201,14 +203,14 @@
                     <p>
                     <label for="telefono">Teléfono</label>
                         <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
-
-                    </p>
+                   </p>
 
                     <p>
                     <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
                         <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
                     </p>
-                    </div><!--Termina primer mitad de la nformación de contacto--->
+                    
+                </div><!--Termina primer mitad de la nformación de contacto--->
 
                 <div class="six columns"><!--Segunda mitad de nformación de contacto--->
 
@@ -234,6 +236,8 @@
                         <?php endforeach;?>
                         </select>
 
+                    </p>
+                    
                     <p>
                         <label for="direccionActor_direccion">Ubicación</label>
                                 <input type="text" id="direccionActor_direccion" name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
@@ -257,41 +261,48 @@
                                 <?php endforeach;?>
                                 </select>
                 </p>
+
+
+
+
+
+
 <!----/**************************************************************/---->										
 
                 <p>
 
-                        <label for="estadodir">Estado</label>
-                        <div class="six columns">
+						<div class="six columns">
+							<label for="estadodir">Estado</label>
+										<select id="direccionActor_estadosCatalogo_estadoId" name="direccionActor_estadosCatalogo_estadoId">						
+										<?php foreach($estado as $key => $item):?>
+																<option value="<?=$item?>"><?=$key?></option>
+										<?php endforeach;?>
+										</select>	
 
-                                        <select id="listaEstadodir direccionActor_estadosCatalogo_estadoId" name="direccionActor_estadosCatalogo_estadoId">						
-                                        <?php foreach($estado as $key => $item):?>
-                                                                <option value="<?=$item?>"><?=$key?></option>
-                                        <?php endforeach;?>
-                                        </select>	
+						</div>	
 
-                        </div>	
+						<div class="six columns">
+							<label >Agregar</label>
+									<input  type='button' onclick="agregarQuitar()" value='Agregar Campo'>
+									<div class="Escondido" id="mostrarEstadodirInd">
+									
+									<div class="seven columns">
+											<input  type='text' id="opcionTipoDirInd" >	
+				
+									</div>
+									<div class="five columns">
+											<input  type="button" onclick="AgrearEstadodirInd()" value='+'  >
 
-                <div class="six columns">
-                        <input id="mostrarEstadodir" type='button' onclick="mostarEstadodirfunc()" value='Agregar Campo'>
-
-                        <div class="Escondido" id="showEstadodir">
-                                <div class="seven columns">
-                                <input  type='text' id="opcionTipoDir" >	
-                                </div>
-
-                                <input  type="button" onclick="AgrearEstadodir()" value='+'  >
-
-                                <input  type='button' onclick="QuitarEstadodir()" value='-'  >
-                        </div>
-
-                </div>
+											<input  type='button' onclick="QuitarEstadodirInd()" value='-'  >
+									</div>
+								</div>
+						</div>
 
                 </p>
 
 <!----/**************************************************************/---->									
 
-
+				<?php echo br(1);?>
                 <p>
                         <label for="municipiodir">Municipio</label>
                                 <select id="direccionActor_municipiosCatalogo_municipioId" name="direccionActor_municipiosCatalogo_municipioId">						
@@ -302,14 +313,13 @@
                 </p>	
 
 
-
-
                 </div>
         </fieldset><!--Termina datos dirección-->
 
+				<?php echo br(1);?>
 <input class="large button" type="submit" />
+<?php echo br(2);?>
 </div>
-<?php echo br(1);?>
 </form>	
 
 
