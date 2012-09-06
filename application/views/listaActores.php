@@ -30,12 +30,16 @@
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
 								<div class="five columns"><!--imprimo imagenes-->
-									<?php echo img($item['actorId']);?>
+                                                                    	<?php echo $item['foto'];?>
 									<?php echo br(2);?>	
 								</div>
 								
 								<div class="seven columns"><!--Imprimo nombres-->
-										<?=$item['nombre']?>
+										<?php 
+                                                                                if($item['foto'] != ''){
+                                                                                    header("Content-type:image/jpeg");
+                                                                                }
+                                                                                ?>
 										<?php echo br(2);?>	
 								</div>
 							</div>

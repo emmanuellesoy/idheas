@@ -1,5 +1,5 @@
 <?php echo validation_errors(); ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<?php $config=array('enctype'=>'multipart/form-data'); echo form_open('actores_c/agregarActor'); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
 
 <div	id="Actores" >
