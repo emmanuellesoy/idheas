@@ -87,5 +87,5 @@ class Casos_m extends CI_Model {
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;
-	}
+	}/* Fin de mTraer DatosCaso*/
 }
