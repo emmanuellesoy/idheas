@@ -43,6 +43,14 @@ class Catalogos_c extends CI_Controller {
         
     }
     
+    public function cTraerDatosCatalogoTipoLugar(){
+        
+        $datos = $this->catalogos_m->mTraerDatosCatalogoTipoLugar();
+        
+        print_r($datos);
+        
+    }
+    
 }
 
 ?>

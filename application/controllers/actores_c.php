@@ -35,7 +35,9 @@ class Actores_c extends CI_Controller {
                         
                 }
                 
+                //echo $_FILES['actores_foto']['size'];
                 
+                //print_r($_POST['actores_foto']['size']);
 		 
 		$this->load->model('actores_m', 'am');
 		 
