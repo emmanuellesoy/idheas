@@ -57,8 +57,6 @@ class Catalogos_c extends CI_Controller {
         
         print_r($datos);
         
-        a
-        
     }
     
 }
