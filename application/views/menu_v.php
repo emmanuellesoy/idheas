@@ -32,7 +32,7 @@
 		
 <!---------Acordion css -------->		
 		<?php $link = array(
-			'href' => 'statics/CSS/demo.css',
+			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
 			);
 			echo link_tag($link); 
@@ -112,7 +112,9 @@
 								
 								
 									<div class="nine columns">
-												<?php echo $transmigrante;?>
+								<div id="formCargTrans"><?php echo $transmigranteVista;?></div>
+								<div id="formTrans"class="Escondido" ><?php echo $transmigrante;?></div>
+												
 									</div>
 								
 							<!--Termina contenido de la pestaña Actor transmigrante-->
@@ -132,7 +134,9 @@
 								
 								
 									<div class="nine columns">
-												<?php echo $colectivo;?>
+								<div id="formCargCol"><?php echo $colectivoVista;?></div>
+								<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
+												
 									</div>
 								
 							<!--Termina contenido de la pestaña Actor Colectivo-->

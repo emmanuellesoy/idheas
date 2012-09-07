@@ -5,7 +5,7 @@ body{
 #container{
 		position:absolute;
 		background-color:#fff;
-		margin:20% 0% 20% 30%;
+		margin:10% 0% 0% 30%;
 		width:40%;
 		height:60%;
 	border: 2px solid #333;
@@ -17,20 +17,20 @@ body{
 		border-radius: 29px;
 }
 #bienvenido{
-		width:30%;
+		width:25%;
 		float:right;
-		margin:0% 13% 0% 0%; 
+		margin:10% 5% 0% 0%; 
 	}
 
 #texto{
-		background-color:#e33;
+		background-color:#e32500 ;
 		height:5%;
 		margin-top:-1%;
 		
 	}
 
 #logo{
-		width:30%;
+		width:40%;
 		margin-left: 4%;
 	}
 	
@@ -38,21 +38,21 @@ body{
 		margin:7% 20% 0% 20%;
 	}
 
-#usuario, #contrasenia{
+#usuario, #contrasenia,#contenidoLogin{
 	width:90%;
 	}
 
-img{
+.img{
 		width:120%;
 	}
 	
-H2{
+.h2{
 	margin:0% 0% 0% 0%;
 	font-family: 'Source Sans Pro', sans-serif;
 	}
 
 
-H1{
+.h1{
 	font-family: 'Source Sans Pro', sans-serif;
 	color:#131313;
 	}
@@ -63,30 +63,36 @@ input:invalid { border: 2px solid #F00; }
 .submit input {  
     width: auto;  
     padding: 9px 15px;  
-    background: #F33;  
+    background: #e32500 ;  
     border: 2px;  
     font-size: 16px;  
-    color: #Faa;  
+    color: #fff;  
     }  
     
  
 
 /* 1280px*/
-@media screen and (max-width: 1280px){
-	h1 {font-size: 230%;}
-	bienvenido {width: 120%;}
-	img	{width: 150%;}
+@media screen and (max-width: 2400px){
+	h1 {font-size: 300%;}
+	#bienvenido{
+		margin:12% 15% 0% 0%; }
+	img{width: 130%;}
+	#usuario, #contrasenia{
+    font-size: 24px; 
+	}
 }
 
 /* 1024px*/
-@media screen and (max-width: 1024px){
-	h1 {font-size: 180%;}
-	bienvenido {width: 90%;}
+@media screen and (max-width: 1600px){
+	h1 {font-size: 250%;}
+	#bienvenido {
+		margin:10% 17% 0% 0%;}
 	img	{width: 120%;}
 }
+
 /* 800px*/
-@media screen and (max-width: 800px){
-	img	{width: 150%;}
+@media screen and (max-width: 1280px){
+	img	{width: 170%;}
 	h1 {display: none; visibility: hidden; }
 	
 }

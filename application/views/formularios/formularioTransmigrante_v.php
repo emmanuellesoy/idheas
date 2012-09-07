@@ -1,7 +1,7 @@
-			<?php echo validation_errors(); ?>
-
-			<?php echo form_open('form/menu','', $hidden); ?>
-			<input type="hidden" value="2" name="actores_tipoActorId" />
+<?php echo validation_errors(); ?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<input type="hidden" value="2" name="actores_tipoActorId" />
+			
 		<div id="Actores" >
 				
 				
@@ -22,17 +22,43 @@
 					 
 					  <p>
 						<label for="alias">Alias</label>
-						<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" required/>
+						<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20"/>
 					  
 					  </p>
 					 
 					  
 					</div>
 					<div class="six columns">
-													 
+					 
+					<div class="four columns">
+					  <p>
+						<label for="genero">Género</label>
+						<input type="radio" name="infoGralActor_generoid" checked="checked" value="<?php echo set_value('Hombre'); ?>" /> Hombre
+						<input type="radio" name="infoGralActor_generoid" value="<?php echo set_value('Mujer'); ?>" /> Mujer
+					
+					  </p>
+					  </div>
+					 
+					<div class="two columns">
+					  <p>
+						<label for="edad">Edad</label>
+						<select name="infoGralActor_edad" id="infoGralActor_edad">						
+						<?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+									<option  value="<?=$item?>"><?=$item?></option>
+						<?php endforeach;?>
+						</select>
+					  </p>
+					</div>
+					
+				<div class="six columns">	
+					<p>
+					<label >Foto </label>
+					<input type="file" name="actores_foto"/>
+					</p>
+				</div>								 
 					  <p>
 						<label for="estadoCivil">Estado Civil</label>
-						<select>
+						<select id="infoGralActor_estadoCivil_estadoCivilId"  name="infoGralActor_estadoCivil_estadoCivilId">
 						<?php foreach($estadoCivil as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -41,32 +67,12 @@
 					 
 					  <p>
 						<label for="nacionalidad">Nacionalidad</label>
-						<select name="InfoGralActor_nacionalidad" id="InfoGralActor_nacionalidad">
+						<select name="infoGralActor_nacionalidad" id="InfoGralActor_nacionalidad">
 						<?php foreach($nacionalidad as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
 						</select>
 					  </p>
-					 
-					  <p>
-					<div class="six columns">
-						<label for="genero">Género</label>
-						<input type="radio" name="InfoGralActor_generoid" checked="checked" value="<?php echo set_value('Hombre'); ?>" /> Hombre
-						<input type="radio" name="InfoGralActor_generoid" value="<?php echo set_value('Mujer'); ?>" /> Mujer
-					
-					  </p>
-					  </div>
-					 
-					<div class="six columns">
-					  <p>
-						<label for="edad">Edad</label>
-						<select name="InfoGralActor_edad" id="InfoGralActor_edad">						
-						<?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
-									<option  value="<?=$item?>"><?=$item?></option>
-						<?php endforeach;?>
-						</select>
-					  </p>
-					</div>
 					
 					</div>
 					 
@@ -82,7 +88,7 @@
 					 
 					  <p>
 					<label for="hijos">Hijos</label>
-						<select name="InfoGralActor_hijos" id="InfoGralActor_hijos" >						
+						<select name="infoGralActor_hijos" id="infoGralActor_hijos" >						
 						<?php foreach($hijos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -91,7 +97,7 @@
 					 
 					  <p>
 					<label for="grupoIndigena">Grupo Indígena</label>
-						<select name="InfoGralActor_grupoIndigena" id="InfoGralActor_grupoIndigena">
+						<select name="infoGralActor_gruposIndigenas_grupoIndigenaId" id="infoGralActor_gruposIndigenas_grupoIndigenaId">
 						<?php foreach($grupoIndigena as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -102,8 +108,8 @@
 					 
 					  <p>			
 						<label for="genero">¿Habla español?</label>
-						<input type="radio" id="InfoGralActor_grupoIndigena" name="InfoGralActor_grupoIndigena"  checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
-						<input type="radio" id="InfoGralActor_grupoIndigena"name="InfoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
+						<input type="radio" id="infoGralActor_espaniol" name="infoGralActor_espaniol"  checked="checked" value="<?php echo set_value('Si'); ?>" /> Si
+						<input type="radio" id="infoGralActor_espaniol" name="infoGralActor_espaniol" value="<?php echo set_value('No'); ?>" /> No
 						
 					  </p>
 					  
@@ -112,7 +118,7 @@
 					 
 					  <p>
 						<label for="nivelEscolaridad">Nivel de Escolaridad</label>
-						<select name="InfoGralActor_escolaridad" id="InfoGralActor_escolaridad">
+						<select name="infoGralActor_escolaridad" id="infoGralActor_escolaridad">
 						<?php foreach($escolaridad as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -122,7 +128,7 @@
 					 
 					  <p>						
 						<label for="UltimaOcupacion">Última Ocupación</label>
-						<select name="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid" id="InfoGralActor_ocupacionesCatalogo_ultimalOcupacionid">
+						<select name="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid" id="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid">
 						<?php foreach($ultimaOcupacion as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -149,7 +155,7 @@
 							<div class="four columns">		
 								  <p>		
 								<label for="pais">País</label>
-									<select>
+									<select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">
 									<?php foreach($pais as $key => $item):?>
 															<option value="<?=$item?>"><?=$key?></option>
 									<?php endforeach;?>
@@ -171,7 +177,7 @@
 							<div class="four columns">
 							  <p>										
 								<label for="municipio">Municipio</label>
-									<select id="datosDeNacimiento_municipiosCatalogos_municipiosId" name="datosDeNacimiento_municipiosCatalogos_municipiosId">
+									<select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">
 										<?php foreach($municipio as $key => $item):?>
 																<option value="<?=$item?>"><?=$key?></option>
 										<?php endforeach;?>
@@ -204,8 +210,8 @@
 						
 					
 					  <p>
-					<label for="intcrucespaistran">Intentos de cruce por el país de tránsito</label>
-						<select name="infoMigratoria_IntCrucesTransito" id="infoMigratoria_IntCrucesTransito" >						
+					<label for="intcrucepaistran">Intentos de cruce por el país de tránsito</label>
+						<select name="infoMigratoria_intCruceTransito" id="infoMigratoria_intCruceTransito" >						
 						<?php foreach($intentos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -213,9 +219,7 @@
 					  </p>
 						
 				<label for="comentario">Comentarios</label>
-				  <textarea rows="10" cols="100" name="infoMigratoria_comentarios" wrap="hard">
-					  Escribir algun comentario
-					</textarea>
+				  <textarea  placeholder="Escribir algun comentario" rows="10" cols="100" name="infoMigratoria_comentarios" id="infoMigratoria_comentarios" wrap="hard" ></textarea>
 					
 					</div>
 					<div class="six columns">
@@ -260,7 +264,7 @@
 						
 					  <p>								
 					<label for="intcrucespaisdets">Intentos de cruce al país destino</label>
-						<select name="infoMigratoria_IntCrucesDest" id="infoMigratoria_IntCrucesDest" >						
+						<select name="infoMigratoria_intCruceDestino" id="infoMigratoria_intCruceDestino" >						
 						<?php foreach($intentos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -279,10 +283,12 @@
 				</div>
 					
 				</fieldset><!--Termina datos de nacimiento-->
+				
+				<?php echo br(1);?>
 			<input class="large button" type="submit" />
+				<?php echo br(2);?>
 			</div>
 			
-				<?php echo br(2);?>
 				
 			
 			</form>	

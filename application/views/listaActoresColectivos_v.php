@@ -1,7 +1,7 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
+		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlularioCol()" /> </li>
 		<li><input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 

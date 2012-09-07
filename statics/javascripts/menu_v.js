@@ -6,33 +6,58 @@
 	});
 
 
+function agregarQuitar() {///Muestra/Esconde las opciones 
+    $("#mostrarEstadodirInd").toggle("slow");
+    };
+
     
 function mostrarFormlulario() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
     $("#formCargInd").hide("slow");
     $("#formInd").show("slow");
     };
-
-/************Funciones que te permiten agregar/eliminar un nuevo campo a Estado del formulario Actor Individual********************/
-
-function mostarEstadodirfunc() {///Muestra/Esconde las opciones para agregar/quitar campo
-    $("#showEstadodir").toggle("slow");
+function mostrarFormlularioTrans() {///Muestra el formulario cuando se quiere agregar un nuevo actor
+	
+    $("#formCargTrans").hide("slow");
+    $("#formTrans").show("slow");
     };
     
+function mostrarFormlularioCol() {///Muestra el formulario cuando se quiere agregar un nuevo actor
+	
+    $("#formCargCol").hide("slow");
+    $("#formCol").show("slow");
+    };
+
+function mostrarfuncInd() {///Muestra/Esconde las opciones de casos de actor individual
+    $("#mostrarCasosIndividual").toggle("slow");
+    };
+
+function mostrarfuncTrans() {///Muestra/Esconde las opciones de casos de actor transmigrante
+    $("#mostrarCasosTrans").toggle("slow");
+    };
+     
   
+
+function mostrarfuncCol() {///Muestra/Esconde las opciones de casos de actor Colectivo
+    $("#mostrarCasosCol").toggle("slow");
+    };
+     
+  
+
+/************Funciones que te permiten agregar/eliminar un nuevo campo a Estado del formulario Actor Individual********************/
     
-function AgrearEstadodir() {///Agrega Campo nuevo
-	var index = $('#listaEstadodir option').length + 1;
-	var index2 = $("#opcionTipoDir").val();
+function AgrearEstadodirInd() {///Agrega Campo nuevo
+	var index = $('#direccionActor_estadosCatalogo_estadoId').length + 1;
+	var index2 = $("#opcionTipoDirInd").val();
 	if(index2=="" || index2==" " || index2=="  "){///Si esta vacio manda un alert
 		alert("El campo esta vacio")
 		}
 	else{
-	$('#listaEstadodir').append('<option id="nuevolisEdo" value="' + index + '" selected="selected">' + index2 + '</option>'); }
+	$('#direccionActor_estadosCatalogo_estadoId').append('<option id="nuevolisEdo" value="' + index + '" selected="selected">' + index2 + '</option>'); }
  
     };
     
-function QuitarEstadodir() {///Elimina la opcion por su id
+function QuitarEstadodirInd() {///Elimina la opcion por su id
 	$("#nuevolisEdo").remove();
  
     };

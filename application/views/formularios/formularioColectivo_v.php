@@ -1,6 +1,7 @@
 		<?php echo validation_errors(); ?>
-		<?php echo form_open('actores_c/agregarActor'); ?> 
+		<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
 		<input type="hidden" value="3" name="actores_tipoActorId" />
+		
 	<div	id="Actores" >
 					<fieldset >
 				  <legend>Información general</legend>
@@ -20,7 +21,7 @@
 				<div class="six columns">
 				 <p>
 				<label for="tipoActor">Tipo de actor colectivo</label>
-					<select name="InfoGralActores_tipoActorColectivoId" id="InfoGralActores_tipoActorColectivoId">
+					<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
 						<?php foreach($tipoActor as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -29,7 +30,7 @@
 					 
 				 <p>
 				<label for="actividad">Actividad</label>
-					<select name="InfoGralActores_actividad" id="InfoGralActores_actividad">
+					<select name="infoGralActores_actividad" id="infoGralActores_actividad">
 					<?php foreach($actividad as $key => $item):?>
 											<option value="<?=$item?>"><?=$key?></option>
 					<?php endforeach;?>
@@ -47,7 +48,7 @@
 				<div class="six columns">  
 				 <p>
 					<label for="ubicacion">Ubicación</label>
-						<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  required/>
+						<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
 				 </p>
 
 				<p>
@@ -61,7 +62,7 @@
 					
 				<p>
 					<label for="estadodir">Estado</label>
-						<select name="direccionActor_estadosCatalogo_estadoId" >
+						<select name="direccionActor_estadosCatalogo_estadoId"  id="direccionActor_estadosCatalogo_estadoId" >
 							<?php foreach($estado as $key => $item):?>
 													<option value="<?=$item?>"><?=$key?></option>
 							<?php endforeach;?>
@@ -82,7 +83,7 @@
 				
 				<p>
 					<label for="codigoPos">Código Postal</label>
-						<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  required/>
+						<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
 				 </p>
 			
 			</div>
@@ -98,12 +99,12 @@
 				<div class="six columns">
 				 <p>
 					<label for="telefono">Teléfono</label>
-						<input type="text"  name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30"  required/>
+						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30"  />
 				</p>
 				 
 				 <p>
 					<label for="fax">Fax</label>
-						<input type="text"  name="infoContacto_fax" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" required/>
+						<input type="text" id="infoContacto_fax" name="infoContacto_fax" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
 				</p>
 				
 				</div>
@@ -112,22 +113,23 @@
 					
 				<p>
 					<label for="correo">Correo electrónico</label>
-						<input type="email"  name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="30"  required/>
+						<input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="30"  />
 				</p> 
 				
 				<p>
 					<label for="paginaPersonal">Página web</label>
-						<input type="text"  name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
+						<input type="text" id="infoGralActores_paginaWeb" name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
 				 </p>
 				 
 				 </div>
 				  
 			</fieldset><!--Termina información de contacto-->
-											
+						
+				<?php echo br(1);?>					
 				<input class="large button" type="submit" />
+		<?php echo br(2);?>
 
 		</div>
-		<?php echo br(1);?>
 		</form>	
 		
 		
