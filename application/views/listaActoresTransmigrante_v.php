@@ -26,7 +26,7 @@
 <!------------Lista transmigrante-------------------->
 			
 			<div id="listaActorTrans" class="PruebaScorll">		
-
+                            <?php if(isset($listaActores['transmigrante'])){ ?>
 					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
@@ -42,6 +42,7 @@
 							</div>
 							
 					<?php endforeach;?><!--Termina lista de los actores-->
+                                        <?php } ?>
 			</div>
 					
 

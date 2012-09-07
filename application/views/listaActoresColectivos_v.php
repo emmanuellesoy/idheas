@@ -25,7 +25,8 @@
 
 <!------------Lista colectivo-------------------->
 			
-			<div id="listaActorColect" class="PruebaScorll">		
+			<div id="listaActorColect" class="PruebaScorll">
+                            <?php if(isset($listaActores['colectivo'])){ ?>
 					<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
@@ -41,6 +42,7 @@
 							</div>
 							
 					<?php endforeach;?><!--Termina lista de los actores-->
+                                        <?php } ?>
 			</div>
 					
    

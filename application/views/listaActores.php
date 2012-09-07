@@ -25,8 +25,9 @@
 
 <!------------Lista ind-------------------->
 			
-			<div  id="listaActorIndiv" class="PruebaScorll">	
-					<?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
+			<div  id="listaActorIndiv" class="PruebaScorll">
+					<?php if($listaActores['individual']){ ?>
+                                                <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
 								<div class="five columns"><!--imprimo imagenes-->
@@ -41,6 +42,7 @@
 							</div>
 							
 					<?php endforeach;?><!--Termina lista de los actores-->
+                                           <?php } ?>
 			</div>
 			
 	</div> 
