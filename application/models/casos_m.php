@@ -64,7 +64,7 @@ class Casos_m extends CI_Model {
 	 * */
 	
 	public function mTraerDatosCaso(){
-		$casoId = 1;
+		$casoId = 4;
 		
 		$this->db->select('*');
 		$this->db->from('casos');
