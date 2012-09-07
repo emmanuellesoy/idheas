@@ -51,9 +51,9 @@ class Catalogos_c extends CI_Controller {
         
     }
     
-    public function cTraerDatosCatalogosPaises(){
+    public function cTraerDatosCatalogoPaises(){
         
-        $datos = $this->catalogos_m->mTraerDatosCatalogosPaises();
+        $datos = $this->catalogos_m->mTraerDatosCatalogoPaises();
         
         print_r($datos);
         
