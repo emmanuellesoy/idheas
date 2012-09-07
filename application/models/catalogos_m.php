@@ -86,7 +86,54 @@ class Catalogos_m extends CI_Model {
 		
 	}/* Fin de mTraerDatosCatalogoActos*/
 	
+	/* Este modelo trae los datos de los catálogos DerechosAfectados */
 	
+	public function mTraerDatosCatalogoDerechosAfectados(){
+		
+		/* Trae todos los daos de derechosAfactadosN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('derechosAfactadosN1Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['derechosAfactadosN1Catalogos'] = $row;
+		}
+		
+		/* Trae todos los daos de derechosAfactadosN2Catalogo */
+		$this->db->select('*');
+		$this->db->from('derechosAfactadosN2Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['derechosAfactadosN2Catalogos'] = $row;
+		}
+		
+		/* Trae todos los daos de derechosAfactadosN3Catalogo */
+		$this->db->select('*');
+		$this->db->from('derechosAfactadosN3Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['derechosAfactadosN3Catalogos'] = $row;
+		}
+		
+		/* Trae todos los daos de derechosAfactadosN4Catalogo */
+		$this->db->select('*');
+		$this->db->from('derechosAfactadosN4Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['derechosAfactadosN4Catalogos'] = $row;
+		}
+		
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	} /* fin de mTraerDatosCatalogoDerechosAfectados */
 	
 	
 }
