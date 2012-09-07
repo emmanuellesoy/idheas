@@ -1,8 +1,8 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
+		<li><input type="button" class="button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
+		<li><input type="button" class="button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 
 			<?php echo form_open('form_c/menu'); ?> 
@@ -30,16 +30,12 @@
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
 								<div class="five columns"><!--imprimo imagenes-->
-                                                                    	<?php echo $item['foto'];?>
+									<?php echo img($item['actorId']);?>
 									<?php echo br(2);?>	
 								</div>
 								
 								<div class="seven columns"><!--Imprimo nombres-->
-										<?php 
-                                                                                if($item['foto'] != ''){
-                                                                                    
-                                                                                }
-                                                                                ?>
+										<?=$item['nombre']?>
 										<?php echo br(2);?>	
 								</div>
 							</div>

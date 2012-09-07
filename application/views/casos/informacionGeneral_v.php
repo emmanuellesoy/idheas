@@ -1,4 +1,4 @@
-<div id="demo" data-collapse>
+<div id="pestania" data-collapse>
 	<h2>Información general</h2><!--título de la sub-pestaña--->  
 	<div>
 		<div id="casos_nombre">
@@ -14,7 +14,7 @@
 	  		<p>Fecha término:</p>
 	  	</div>
 	  	
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Lugares</h2>
 	  		<div>
 	  			<div>
@@ -40,7 +40,7 @@
 	  			  
 	  		</div>
 	  	</div><!--fin acordeon lugares-->
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Descripción</h2>
 	  		<div>
 	  			<div id="infoCaso_descripcion" class="panel">
@@ -49,7 +49,7 @@
 	  		</div>
 	  	</div><!--fin acordeon descripción-->
 	  	
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Obsevaciones</h2>
 	  		<div>
 	  			<div id="infoCaso_descripcion" class="panel">
@@ -58,7 +58,7 @@
 	  		</div>
 	  	</div><!--fin acordeon observaciones-->
 	  	
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Seguimiento del caso</h2>
 	  		<div>
 	  			<div>

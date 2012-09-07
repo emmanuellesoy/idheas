@@ -1,8 +1,8 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlularioCol()" /> </li>
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
+		<li><input type="button" class="button" value="Agregar Actor" onclick="mostrarFormlularioCol()" /> </li>
+		<li><input type="button" class="button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 
 			<?php echo form_open('form_c/menu'); ?> 
@@ -25,7 +25,7 @@
 
 <!------------Lista colectivo-------------------->
 			
-			<div id="listaActorColect" class="PruebaScorll Escondido">		
+			<div id="listaActorColect" class="PruebaScorll">		
 					<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
