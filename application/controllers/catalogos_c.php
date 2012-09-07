@@ -35,6 +35,14 @@ class Catalogos_c extends CI_Controller {
         
     }
     
+    public function cTraerDatosCatalogoTipoIntervencion(){
+        
+        $datos = $this->catalogos_m->mTraerDatosCatalogoTipoIntervencion();
+        
+        print_r($datos);
+        
+    }
+    
 }
 
 ?>
