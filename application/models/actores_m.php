@@ -109,6 +109,7 @@
 						$this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
+						$this->db->where('estadoActivo',1);
 						
 						$consulta = $this->db->get();
 						
@@ -131,6 +132,7 @@
 						$this->db->join('infoMigratoria','infoMigratoria.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
+						$this->db->where('estadoActivo',1);
 						
 						$consulta = $this->db->get();
 						
@@ -152,6 +154,7 @@
 						$this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActores','infoGralActores.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
+						$this->db->where('estadoActivo',1);
 						
 						$consulta = $this->db->get();
 						
@@ -207,6 +210,7 @@
 			
 			$this->db->select('actorId, tipoActorId, nombre, foto');
 			$this->db->from('actores');
+			$this->db->where('estadoActivo',1);
 			
 			$consulta= $this->db->get();	
 			
@@ -245,6 +249,11 @@
 			return $datos;
 			
 		}/* fin de traerActores */
+		
+		public function mActualizaDatosActor()
+		{
+			
+		}
 		
 	}
 	

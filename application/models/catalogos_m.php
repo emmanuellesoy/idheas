@@ -30,8 +30,6 @@ class Catalogos_m extends CI_Model {
 		/* Regresa la cadena al controlador*/
 		return $datos;
 		
-		
-		
 	}/* Fin de mTraerDatosCatalogoNombre*/
 	
 	
@@ -39,7 +37,7 @@ class Catalogos_m extends CI_Model {
 	
 	public function mTraerDatosCatalogoActos(){
 		 		
-		/* Trae todos los daos de actosN1Catalogo*/
+		/* Trae todos los datos de actosN1Catalogo*/
 		$this->db->select('*');
 		$this->db->from('actosN1Catalogo');
 		$consulta = $this->db->get();
@@ -49,7 +47,7 @@ class Catalogos_m extends CI_Model {
 			$datos['actosN1Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de actosN2Catalogo*/
+		/* Trae todos los datos de actosN2Catalogo*/
 		$this->db->select('*');
 		$this->db->from('actosN2Catalogo');
 		$consulta = $this->db->get();
@@ -59,7 +57,7 @@ class Catalogos_m extends CI_Model {
 			$datos['actosN2Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de actosN3Catalogo*/
+		/* Trae todos los datos de actosN3Catalogo*/
 		$this->db->select('*');
 		$this->db->from('actosN3Catalogo');
 		$consulta = $this->db->get();
@@ -69,7 +67,7 @@ class Catalogos_m extends CI_Model {
 			$datos['actosN3Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de actosN4Catalogo*/
+		/* Trae todos los datos de actosN4Catalogo*/
 		$this->db->select('*');
 		$this->db->from('actosN4Catalogo');
 		$consulta = $this->db->get();
@@ -81,8 +79,6 @@ class Catalogos_m extends CI_Model {
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;
-		
-		
 		
 	}/* Fin de mTraerDatosCatalogoActos*/
 	
@@ -100,7 +96,7 @@ class Catalogos_m extends CI_Model {
 			$datos['derechosAfactadosN1Catalogos'] = $row;
 		}
 		
-		/* Trae todos los daos de derechosAfactadosN2Catalogo */
+		/* Trae todos los datos de derechosAfactadosN2Catalogo */
 		$this->db->select('*');
 		$this->db->from('derechosAfactadosN2Catalogo');
 		$consulta = $this->db->get();
@@ -110,7 +106,7 @@ class Catalogos_m extends CI_Model {
 			$datos['derechosAfactadosN2Catalogos'] = $row;
 		}
 		
-		/* Trae todos los daos de derechosAfactadosN3Catalogo */
+		/* Trae todos los datos de derechosAfactadosN3Catalogo */
 		$this->db->select('*');
 		$this->db->from('derechosAfactadosN3Catalogo');
 		$consulta = $this->db->get();
@@ -120,7 +116,7 @@ class Catalogos_m extends CI_Model {
 			$datos['derechosAfactadosN3Catalogos'] = $row;
 		}
 		
-		/* Trae todos los daos de derechosAfactadosN4Catalogo */
+		/* Trae todos los datos de derechosAfactadosN4Catalogo */
 		$this->db->select('*');
 		$this->db->from('derechosAfactadosN4Catalogo');
 		$consulta = $this->db->get();
@@ -140,7 +136,7 @@ class Catalogos_m extends CI_Model {
 	
 	public function mTraerDatosCatalogoTipoIntervencion(){
 		
-		/* Trae todos los daos de tipoIntervenciónN1Catalogo */
+		/* Trae todos los datos de tipoIntervenciónN1Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN1Catalogo');
 		$consulta = $this->db->get();
@@ -160,7 +156,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoIntervencionN2Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de tipoIntervenciónN3Catalogo */
+		/* Trae todos los datos de tipoIntervenciónN3Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN3Catalogo');
 		$consulta = $this->db->get();
@@ -170,7 +166,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoIntervencionN3Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de tipoIntervenciónN4Catalogo */
+		/* Trae todos los datos de tipoIntervenciónN4Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN4Catalogo');
 		$consulta = $this->db->get();
@@ -184,9 +180,11 @@ class Catalogos_m extends CI_Model {
 		return $datos;	
 	}/* Fin de mTraerDatosCatalogoTipoIntervencion*/
 	
+	/* Este modelo trae los datos de los catálogos TipoLugar */
+	
 	public function mTraerDatosCatalogoTipoLugar(){
 		
-		/* Trae todos los daos de tipoLugarN1Catalogo */
+		/* Trae todos los datos de tipoLugarN1Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoLugarN1Catalogo');
 		$consulta = $this->db->get();
@@ -196,7 +194,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoLugarN1Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de tipoLugarN2Catalogo */
+		/* Trae todos los datos de tipoLugarN2Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoLugarN2Catalogo');
 		$consulta = $this->db->get();
@@ -206,7 +204,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoLugarN2Catalogo'] = $row;
 		}
 		
-		/* Trae todos los daos de tipoLugarN3Catalogo */
+		/* Trae todos los datos de tipoLugarN3Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoLugarN3Catalogo');
 		$consulta = $this->db->get();
@@ -220,4 +218,43 @@ class Catalogos_m extends CI_Model {
 		return $datos;
 		
 	}/* Fin de mTraerDatosCatalogoTipoLugar*/
+	
+	/* Este modelo trae los datos de los catálogos Paises-Estados-Municipios */
+	
+	public function mTraerDatosCatalogoPaises(){
+		
+		/* Trae todos los datos de paisesCatalogo */
+		$this->db->select('*');
+		$this->db->from('paisesCatalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['paisesCatalogo'] = $row;
+		}
+		
+		/* Trae todos los datos de estadosCatalogo */
+		$this->db->select('*');
+		$this->db->from('estadosCatalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['estadosCatalogo'] = $row;
+		}
+		
+		/* Trae todos los datos de municipiosCatalogo */
+		$this->db->select('*');
+		$this->db->from('municipiosCatalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['municipiosCatalogo'] = $row;
+		}
+		
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	}/* Fin de mTraerDatosCatalogoPaises */
 }
