@@ -27,6 +27,14 @@ class Catalogos_c extends CI_Controller {
         
     }
     
+    public function cTraerDatosCatalogoDerechosAfectados(){
+        
+        $datos = $this->mTraerDatosCatalogoDerechosAfectados();
+        
+        print_r($datos);
+        
+    }
+    
 }
 
 ?>

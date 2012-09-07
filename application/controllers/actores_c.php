@@ -34,6 +34,8 @@ class Actores_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
+                
+                
 		 
 		$this->load->model('actores_m', 'am');
 		 
