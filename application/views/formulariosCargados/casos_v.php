@@ -1,4 +1,4 @@
-<div id="demo" data-collapse>	
+<div id="pestania" data-collapse>	
 	<h2>Casos</h2><!--título de la pestaña--->  
 	<div>
 		<div id="subPestanias" data-collapse>	

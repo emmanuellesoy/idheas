@@ -49,6 +49,7 @@
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
 		<!---script que hace posible el acordion--->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 
 	</head>
 	
@@ -79,9 +80,9 @@
 				  <li class="active" id="vertical1Tab"><!--Pestaña Actores Individuales--->
 					
 					<dl class="tabs"><!--Pestañas de Actores-->
-						<dd class="active" onclick="mostrarListaActorInd()"><a href="#simple1">Actor individual</a></dd>
-						<dd onclick="mostrarListaActorTrans()" ><a href="#simple2">Actor transmigrante</a></dd>
-						<dd onclick="mostrarListaActorCol()" ><a href="#simple3">Actor colectivo</a></dd>
+						<dd class="active" ><a href="#simple1">Actor individual</a></dd>
+						<dd ><a href="#simple2">Actor transmigrante</a></dd>
+						<dd ><a href="#simple3">Actor colectivo</a></dd>
 					</dl>
 
 					<ul class="tabs-content">
@@ -150,10 +151,23 @@
 				  
 				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes--->  
 				  
-									<p>Contenido de casos</p>
-									<?php echo $casos?>
-									<?php echo $casosNucleo?>
-									<?php echo $infoAdicional?>
+								<div class="three columns">
+									<?php echo $listaCasos;?> <!---Se llama a la lista de casos--->
+								</div>
+								
+								
+								<div class="nine columns">
+									<div id="vistaDeCasos">
+										<?php echo $casos?>
+										<?php echo $casosNucleo?>
+										<?php echo $infoAdicional?>
+									</div>
+									
+									<div id="vistaDeFormCasos" class="Escondido">
+										<?php echo $vistaCasos?>
+									</div>
+								</div>
+								
 				  
 				  </li><!--Termina Pestaña Actores transmigrantes--->
 				  

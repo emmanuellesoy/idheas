@@ -50,6 +50,10 @@ class Form_c extends CI_Controller {
 				
 				/*************************************************************************************/
 				//DATOS PARA LOS FORMULARIOS
+				
+				///inicia en 1994 termina en  la var que recibe el año del servidor
+				$anio=date("Y");  
+				$datosCasos['anioCaso']=range(1994, $anio);
 				$DatosGenerales['edad']= range(0,100);
 				$DatosGenerales['hijos']= range(0,20);
 				$DatosGenerales['intentos']= range(0,20);
@@ -74,24 +78,25 @@ class Form_c extends CI_Controller {
 				$data['colectivo'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales  , true);
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
-				$data['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
-				$data['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
-				$data['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
+				$datosCasos['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
+				$datosCasos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
+				$datosCasos['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
 				//TERMINA CARGA DE FORMULARIOS
 				
 				/*************************************************************************************/
 				//AGREGAR VISTAS A CASOS USOS
-				$VistasCasos['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
-				
+				$data['listaCasos']=$this->load->view('casos/listaCasos_v',$datosCasos, true);
+				$data['vistaCasos']=$this->load->view('casos/principalCasos_v',$datosCasos, true);
 				
 				/*************************************************************************************/
 				//CARGA DE VISTAS
 				$data['listaActoresTransmigrante'] = $this->load->view('listaActoresTransmigrante_v',$Lista, true);
 				$data['listaActoresColectivo'] = $this->load->view('listaActoresColectivos_v',$Lista, true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
-				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasos , true);
-				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $VistasCasos , true);
-				$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $VistasCasos , true);
+				$VistasCasosForm['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
+				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasosForm , true);
+				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $VistasCasosForm , true);
+				$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $VistasCasosForm , true);
 				
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);

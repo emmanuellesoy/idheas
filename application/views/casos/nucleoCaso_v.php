@@ -1,7 +1,7 @@
-<div id="demo" data-collapse>
+<div id="pestania" data-collapse>
 	<h2>Núcleo caso</h2><!--título de la sub-pestaña--->  
 	<div>
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Derechos afectados y actos</h2>
 	  		<div>
 	  			<div>
@@ -29,7 +29,7 @@
 	  			  
 	  		</div>
 	  	</div><!--fin acordeon Derechos afectados y actos-->
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Intervenciones</h2>
 	  		<div>
 	  			<div>

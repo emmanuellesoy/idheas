@@ -1,5 +1,5 @@
 		<?php echo validation_errors(); ?>
-		<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+		<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor', $config); ?>
 		<input type="hidden" value="3" name="actores_tipoActorId" />
 		
 	<div	id="Actores" >
@@ -19,6 +19,8 @@
 				</div>
 				  
 				<div class="six columns">
+				
+				<div class="six columns">
 				 <p>
 				<label for="tipoActor">Tipo de actor colectivo</label>
 					<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
@@ -27,7 +29,13 @@
 						<?php endforeach;?>
 					</select>									
 				 </p>
-					 
+				</div>
+				<div class="six columns">
+					<p>
+						<label >Foto </label>
+						<input type="file" name="actores_foto"/>
+					</p>
+				</div>	 
 				 <p>
 				<label for="actividad">Actividad</label>
 					<select name="infoGralActores_actividad" id="infoGralActores_actividad">
