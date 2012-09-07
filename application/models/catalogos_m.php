@@ -136,4 +136,88 @@ class Catalogos_m extends CI_Model {
 	} /* fin de mTraerDatosCatalogoDerechosAfectados */
 	
 	
+	/* Este modelo trae los datos de los catálogos TipoIntervencion */
+	
+	public function mTraerDatosCatalogoTipoIntervencion(){
+		
+		/* Trae todos los daos de tipoIntervenciónN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoIntervencionN1Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoIntervencionN1Catalogo'] = $row;
+		}
+		
+		/* Trae todos los daos de tipoIntervenciónN2Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoIntervencionN2Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoIntervencionN2Catalogo'] = $row;
+		}
+		
+		/* Trae todos los daos de tipoIntervenciónN3Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoIntervencionN3Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoIntervencionN3Catalogo'] = $row;
+		}
+		
+		/* Trae todos los daos de tipoIntervenciónN4Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoIntervencionN4Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoIntervencionN4Catalogo'] = $row;
+		}
+		
+		/* Regresa la cadena al controlador*/
+		return $datos;	
+	}/* Fin de mTraerDatosCatalogoTipoIntervencion*/
+	
+	public function mTraerDatosCatalogoTipoLugar(){
+		
+		/* Trae todos los daos de tipoLugarN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoLugarN1Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoLugarN1Catalogo'] = $row;
+		}
+		
+		/* Trae todos los daos de tipoLugarN2Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoLugarN2Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoLugarN2Catalogo'] = $row;
+		}
+		
+		/* Trae todos los daos de tipoLugarN3Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoLugarN3Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoLugarN3Catalogo'] = $row;
+		}
+		
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	}/* Fin de mTraerDatosCatalogoTipoLugar*/
 }
