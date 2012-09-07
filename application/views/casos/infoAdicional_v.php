@@ -1,11 +1,11 @@
-<div id="demo" data-collapse>
+<div id="pestania" data-collapse>
 	<h2>Información adicional</h2><!--título de la sub-pestaña--->  
 	<div>
-		<div id="demo" data-collapse>
+		<div id="subPestanias" data-collapse>
 	  		<h2>Fuentes de información</h2>
 	  		<div>
-	  			<div>
-	  				<div id="demo" data-collapse>
+
+	  				<div id="subPestanias" data-collapse>
 				  		<h2>Fuente documental</h2>
 				  		<div>
 			  				 <div>
@@ -34,7 +34,7 @@
 			  				 </div>
 				  		</div>
 				  	</div><!--fin acordeon Fuente documental-->
-				  	<div id="demo" data-collapse>
+				  	<div id="subPestanias" data-collapse>
 				  		<h2>Fuentes de información personal</h2>
 					  		<div>
 					  			<div>
@@ -61,11 +61,11 @@
 					  			</div>
 					  		</div>
 					  	</div><!--fin acordeon Fuentes de información personal-->
-	  			</div>
+
 	  		</div>
 	  	</div><!--fin acordeon Fuentes de información-->
 	  	
-	  	<div id="demo" data-collapse>
+	  	<div id="subPestanias" data-collapse>
 	  		<h2>Relación entre casos</h2>
 	  		<div>
 	  			<div>

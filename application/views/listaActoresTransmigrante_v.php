@@ -1,8 +1,8 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Agregar Actor" onclick="mostrarFormlularioTrans()" /> </li>
-		<li><input type="button"class="[tiny, small, medium, large] button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
+		<li><input type="button" class="button"  value="Agregar Actor" onclick="mostrarFormlularioTrans()" /> </li>
+		<li><input type="button" class="button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 
 			<?php echo form_open('form_c/menu'); ?> 
@@ -17,7 +17,7 @@
 			
 			<?php echo br(2);?>	
 			<div class="twelve columns">
-				<b><div class="six columns">Foto</div>
+				<b><div class="six columns">Foto transmigrante</div>
 				<div class="six columns">Nombre</div></b>
 			<?php echo br(2);?>	
 			</div>
@@ -25,7 +25,8 @@
 
 <!------------Lista transmigrante-------------------->
 			
-			<div id="listaActorTrans" class="PruebaScorll Escondido">		
+			<div id="listaActorTrans" class="PruebaScorll">		
+
 					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
