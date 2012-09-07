@@ -64,7 +64,7 @@ class Casos_m extends CI_Model {
 	 * */
 	
 	public function mTraerDatosCaso(){
-		$casoId = 1;
+		$casoId = 4;
 		
 		$this->db->select('*');
 		$this->db->from('casos');
@@ -87,5 +87,5 @@ class Casos_m extends CI_Model {
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;
-	}
+	}/* Fin de mTraer DatosCaso*/
 }

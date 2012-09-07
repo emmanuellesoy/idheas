@@ -21,7 +21,7 @@ class Catalogos_c extends CI_Controller {
     
     public function cTraerDatosCatalogoNombre(){
         
-        $datos = $this->mTraerDatosCatalogoNombre();
+        $datos = $this->catalogos_m->mTraerDatosCatalogoNombre();
         
         print_r($datos);
         
