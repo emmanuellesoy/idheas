@@ -67,7 +67,7 @@
 
                     <p>
                         <label for="nacionalidad">Nacionalidad</label>
-                        <select id="infoGralActor_nacionalidad" name="infoGralActor_nacionalidad">						
+                        <select id="infoGralActor_nacionalidadId" name="infoGralActor_nacionalidadId">						
                         <?php foreach($nacionalidad as $key => $item):?> <!--muestra todas las nacionalidades-->
                                 <option value="<?=$item?>"><?=$key?></option>
                         <?php endforeach;?>
@@ -123,7 +123,7 @@
 
                     <p>
                         <label for="nivelEscolaridad">Nivel de Escolaridad</label>
-                        <select id="infoGralActor_escolaridad" name="infoGralActor_escolaridad">						
+                        <select id="infoGralActor_escolaridadId" name="infoGralActor_escolaridadId">						
                         <?php foreach($escolaridad as $key => $item):?> 
                                 <option value="<?=$item?>"><?=$key?></option>
                         <?php endforeach;?>
