@@ -29,7 +29,7 @@ class Catalogos_c extends CI_Controller {
     
     public function cTraerDatosCatalogoDerechosAfectados(){
         
-        $datos = $this->mTraerDatosCatalogoDerechosAfectados();
+        $datos = $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
         
         print_r($datos);
         
