@@ -37,7 +37,7 @@
 								<div class="seven columns"><!--Imprimo nombres-->
 										<?php 
                                                                                 if($item['foto'] != ''){
-                                                                                    header("Content-type:image/jpeg");
+                                                                                    
                                                                                 }
                                                                                 ?>
 										<?php echo br(2);?>	

@@ -23,6 +23,27 @@ class Actores_c extends CI_Controller {
 		 * un nuevo actor.
 		 */
                 
+            $tipos = array('image/gif','image/jpeg','image/bmp','image/pjpeg');
+                
+                $maximo = 1024000; //1000Kb
+                
+                if (is_uploaded_file($_FILES['actores_foto']['tmp_name'])){ // Se ha subido?
+                
+                    
+                }
+                
+                if (in_array($_FILES['actores_foto']['type'],$tipos) && $_FILES['actores_foto']['size'] <= $maximo){ // Es correcto?
+                
+                    $fp = fopen($_FILES['actores_foto']['tmp_name'], 'r'); //Abrimos la imagen
+                
+                    $imagen = fread($fp, filesize($_FILES['actores_foto']['tmp_name'])); //Extraemos el contenido de la imagen
+                
+                    $imagen = addslashes($imagen);
+                
+                    fclose($fp); //Cerramos imagen
+                    
+                }
+            
 		foreach($_POST as $campo => $valor){ 
    		
                     $pos = strpos($campo, '_');
@@ -35,15 +56,11 @@ class Actores_c extends CI_Controller {
                         
                 }
                 
-                //echo $_FILES['actores_foto']['size'];
-                
-                //print_r($_POST['actores_foto']['size']);
+		//$this->load->model('actores_m', 'am');
 		 
-		$this->load->model('actores_m', 'am');
-		 
-		$datos['agregado'] = $this->am->mAgregarActor($datos);
+		//$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
-                print_r($datos);
+                //print_r($datos);
                 
 	}
 	
