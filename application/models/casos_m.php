@@ -10,10 +10,14 @@ class Casos_m extends CI_Model {
 	    $this->load->database();
 	}
 	
-	public function mAgregarCaso($datosCasos){
+	/* Este modelo agrega un caso a la base de datos
+	 * @Param $datosCaso
+	 * */
+	
+	public function mAgregarCaso($datosCaso){
 		
 		/* inserta el array casos en la tabla casos de la BD */
-		$this->db->insert('casos', $datosCasos['tablas']['casos']);
+		$this->db->insert('casos', $datosCaso['tablas']['casos']);
 		
 		/* Obtine el Id del último caso insertado*/
 		$this->db->select_max('casoId');
@@ -28,16 +32,16 @@ class Casos_m extends CI_Model {
 		
 		/* Agrega el casoId al arreglo en el campo casos_casoId en las tablas...*/
 			
-		foreach($datosCasos['tablas'] as $key => $value){
+		foreach($datosCaso['tablas'] as $key => $value){
 			if($key != 'casos'){
-				$datosCasos['tablas'][$key]['casos_casoId'] = $ultimoCasoId;
+				$datosCaso['tablas'][$key]['casos_casoId'] = $ultimoCasoId;
 			}
 		}
 		
 		/* Inserta en la BD los arrays */
-		foreach($datosCasos['tablas'] as $key => $value){
+		foreach($datosCaso['tablas'] as $key => $value){
 			if($key != 'casos'){
-				$this->db->insert($key,$datosCasos['tablas'][$key]);
+				$this->db->insert($key,$datosCaso['tablas'][$key]);
 			}
 		}
 		
@@ -48,7 +52,7 @@ class Casos_m extends CI_Model {
 	}/* Fin de mAgregarCaso() */
 	
 	/* Este modelo trae los datos de un actor dependiendo de su id
-	 * @Param idCaso
+	 * @Param casoId
 	 * */
 	
 	public function mTraerDatosCaso($casoId){
@@ -77,8 +81,8 @@ class Casos_m extends CI_Model {
 	}/* Fin de mTraer DatosCaso*/
 	
 	/* Este modelo actualiza los datos de un caso
-		 * @param ($casoId, $datosCaso)
-		 * */
+	 * @param ($casoId, $datosCaso)
+	 * */
 		
 	public function mActualisaDatosCaso($casoId,$datosCaso){
 		
