@@ -123,4 +123,20 @@ class Casos_m extends CI_Model {
 		
 	}/* Fin de mActualisaDatosCaso */
 	
+	/* Este modelo cambia el estado de un caso a inactivo, en lugar de eliminarlo de la base de datos
+	 * @param ($casoId)
+	 * */
+	
+	public function mCambiaEstadoActivoCaso(){
+			
+		$casoId = 1;
+		$estado = array('estadoActivo' => 0);
+		
+		$this->db->where('casoId', $casoId);
+		$this->db->update('casos',$estado);
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+			
+	}/* Fin de mCambiaEstadoActivoActor */
 }
