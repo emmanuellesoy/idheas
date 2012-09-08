@@ -5,6 +5,7 @@ class Actores_c extends CI_Controller {
 	  public function __construct()
        {
             parent::__construct();
+            $this->load->helper('url');
             // Your own constructor code
        }
 
@@ -22,8 +23,6 @@ class Actores_c extends CI_Controller {
 		 * funcion mAgregarActor que se encarga de insertar en la base de datos
 		 * un nuevo actor.
 		 */
-                
-            
             
 		foreach($_POST as $campo => $valor){ 
    		

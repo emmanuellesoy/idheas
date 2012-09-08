@@ -10,42 +10,26 @@ class Agregar_catalogos_m extends CI_Model {
     
     }
     
-    public function agregarPaisesM($datos){
+    public function mAgregarCatalogos($datos_catalogos){
         
-        $this->db->insert_batch('paisesCatalogo', $datos); 
-        
-    }
-    
-    public function agregarEstadosPaisesM($datos){
-        
-        $result = $this->db->insert_batch('estadosCatalogo', $datos);
-        
-        if($result == 1){
+        foreach ($datos_catalogos as $catalogo => $dato){
             
-            $result = 'Consulta Exitosa';
-            
-        } else {
-            
-            $result = 'Consulta no exitosa';
+            $this->db->insert_batch($catalogo, $dato);
             
         }
         
-        return $result;
-        
     }
     
-    public function agregarEstatusPerpretadorM($datos) {
+    public function mAgregarDerechosCatalogos($derechos){
         
-        $this->db->insert_batch('estatusPerpetradorCatalogo', $datos); 
-        
-    }
-    
-    public function agregarEstatusVictimaM($datos) {
-        
-        $this->db->insert_batch('estatusVictimaCatalogo', $datos); 
+        foreach ($derechos as $derecho => $valor){
+            
+            $this->db->insert_batch($derecho, $valor);
+            
+        }
         
     }
-    
+        
 }
     
 ?>

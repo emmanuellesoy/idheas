@@ -230,7 +230,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['paisesCatalogo'] = $row;
+			$datos['paisesCatalogo'][$row['paisId']] = $row;
 		}
 		
 		/* Trae todos los datos de estadosCatalogo */
@@ -240,7 +240,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['estadosCatalogo'] = $row;
+			$datos['estadosCatalogo'][$row['estadoId']] = $row;
 		}
 		
 		/* Trae todos los datos de municipiosCatalogo */
@@ -250,7 +250,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['municipiosCatalogo'] = $row;
+			$datos['municipiosCatalogo'][$row['municipioId']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
