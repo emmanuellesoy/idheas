@@ -302,6 +302,25 @@
 			
 		}/* Fin de mCambiaEstadoActivoActor */
 		
+		/* Este modelo elimina la relacion en un caso de un perpetrador
+		 * @param ($perpetradorId)
+		 * */
+		
+		public function mEliminaPerpetrador(){
+			
+			$perpetradorId = 1;
+			
+			$this->db->where('perpetradores_perpetradorId', $perpetradorId);
+			$this->db->delete('ActosPerpetrador');
+			
+			$this->db->where('perpetradorId', $perpetradorId);
+			$this->db->delete('perpetradrores');
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+			
+		}/*Fin de mEliminaPerpetrador*/
+		
 		
 	}
 	

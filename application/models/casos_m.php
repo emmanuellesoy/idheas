@@ -139,4 +139,38 @@ class Casos_m extends CI_Model {
 		return ($mensaje = 'Hecho');
 			
 	}/* Fin de mCambiaEstadoActivoActor */
+	
+	/* Este modelo elimina una ficha relacionada a un caso
+	 * @param ($fichaId)
+	 * */
+	
+	public function mEliminaFichas(){
+			
+		$fichaId = 1;
+		
+		$this->db->where('fichas_fichaId', $fichaId);
+		$this->db->delete('registro');
+		
+		$this->db->where('fichaId', $fichaId);
+		$this->db->delete('fichas');
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+		
+	}/*Fin de mEliminaFichas*/
+	
+	public function mEliminaIntervenciones(){
+			
+		$intervencionId = 1;
+		
+		$this->db->where('intervenciones_intervencionId', $intervencionId);
+		$this->db->delete('intervenidos');
+		
+		$this->db->where('intervencionId', $intervencionId);
+		$this->db->delete('intervenciones');
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+		
+	}/*Fin de mEliminaFichas*/
 }

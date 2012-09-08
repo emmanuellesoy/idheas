@@ -44,7 +44,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN1Catalogo'] = $row;
+			$datos['actosN1Catalogo'][$row['actoId']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN2Catalogo*/
@@ -54,7 +54,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN2Catalogo'] = $row;
+			$datos['actosN2Catalogo'][$row['actoN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN3Catalogo*/
@@ -64,7 +64,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN3Catalogo'] = $row;
+			$datos['actosN3Catalogo'][$row['actoN3Id']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN4Catalogo*/
@@ -74,7 +74,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN4Catalogo'] = $row;
+			$datos['actosN4Catalogo'][$row['actoN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -93,7 +93,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN1Catalogos'] = $row;
+			$datos['derechosAfactadosN1Catalogos'][$row['derechoAfectadoN1Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN2Catalogo */
@@ -103,7 +103,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN2Catalogos'] = $row;
+			$datos['derechosAfactadosN2Catalogos'][$row['derechoAfectadoN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN3Catalogo */
@@ -113,7 +113,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN3Catalogos'] = $row;
+			$datos['derechosAfactadosN3Catalogos'][$row['derechoAfectadoN3Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN4Catalogo */
@@ -123,7 +123,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN4Catalogos'] = $row;
+			$datos['derechosAfactadosN4Catalogos'][$row['derechoAfectadoN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -143,7 +143,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN1Catalogo'] = $row;
+			$datos['tipoIntervencionN1Catalogo'][$row['tipoIntervencionN1']] = $row;
 		}
 		
 		/* Trae todos los daos de tipoIntervenciónN2Catalogo */
@@ -153,7 +153,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN2Catalogo'] = $row;
+			$datos['tipoIntervencionN2Catalogo'][$row['tipoIntervencionN2']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoIntervenciónN3Catalogo */
@@ -163,7 +163,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN3Catalogo'] = $row;
+			$datos['tipoIntervencionN3Catalogo'][$row['tipoIntervencionN3']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoIntervenciónN4Catalogo */
@@ -173,7 +173,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN4Catalogo'] = $row;
+			$datos['tipoIntervencionN4Catalogo'][$row['tipoIntervencionN4']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -191,7 +191,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN1Catalogo'] = $row;
+			$datos['tipoLugarN1Catalogo'][$row['tipoLugarN1Id']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoLugarN2Catalogo */
@@ -201,7 +201,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN2Catalogo'] = $row;
+			$datos['tipoLugarN2Catalogo'][$row['tipoLugarN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoLugarN3Catalogo */
@@ -211,7 +211,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN3Catalogo'] = $row;
+			$datos['tipoLugarN3Catalogo'][$row['tipoLugarN3Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
