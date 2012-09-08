@@ -10,20 +10,7 @@ class Casos_m extends CI_Model {
 	    $this->load->database();
 	}
 	
-	public function mAgregarCaso(){
-		
-		$datos = 'hecho';
-		
-		$datosCasos = array(
-		'tablas' => array(
-			'casos' => array('nombre' => 'Caso Omasky', 'personasAfectadas' => '2', 'fechaInicial' => '2012-03-01'),
-			'infoCaso' => array('descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'resumen' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'observaciones' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. '),
-			'infoAdicional' => array('nombreFuente' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'fechaPublicacion' => '1998-12-31', 'tipoFuenteId' => '1', 'url' => 'http://google.com.mx', 'fechaAcceso' => '2010-12-26', 'comentarios' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'observaciones' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'nivelConfiabilidadCatalogo_nivelConfiabilidadId' => '1', 'idiomaCatalogo_idiomaId' => '1'),
-			'fichas' => array('titulo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'fecha' => '2010-02-02', 'comentarios' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. '),
-			'lugares' => array('paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1'),
-			'nucleoCaso' => array('fechaInicio' => '2009-01-05', 'fechaTermino' => '2010-06-09', 'noPersonasAfectadas' => '3', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1')
-			)
-		);
+	public function mAgregarCaso($datosCasos){
 		
 		/* inserta el array casos en la tabla casos de la BD */
 		$this->db->insert('casos', $datosCasos['tablas']['casos']);
@@ -55,7 +42,8 @@ class Casos_m extends CI_Model {
 		}
 		
 		
-		return $datos;
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
 		
 	}/* Fin de mAgregarCaso() */
 	
@@ -63,8 +51,7 @@ class Casos_m extends CI_Model {
 	 * @Param idCaso
 	 * */
 	
-	public function mTraerDatosCaso(){
-		$casoId = 4;
+	public function mTraerDatosCaso($casoId){
 		
 		$this->db->select('*');
 		$this->db->from('casos');
@@ -93,20 +80,7 @@ class Casos_m extends CI_Model {
 		 * @param ($casoId, $datosCaso)
 		 * */
 		
-	public function mActualisaDatosCaso(){
-		
-		$casoId = 1;
-		
-		$datosCaso = array(
-			'tablas' => array(
-				'casos' => array('nombre' => 'Caso Omasky', 'personasAfectadas' => '2', 'fechaInicial' => '2012-03-01'),
-				'infoCaso' => array('descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'resumen' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'observaciones' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. '),
-				'infoAdicional' => array('nombreFuente' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'fechaPublicacion' => '1998-12-31', 'tipoFuenteId' => '1', 'url' => 'http://google.com.mx', 'fechaAcceso' => '2010-12-26', 'comentarios' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'observaciones' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'nivelConfiabilidadCatalogo_nivelConfiabilidadId' => '1', 'idiomaCatalogo_idiomaId' => '1'),
-				'fichas' => array('titulo' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. ', 'fecha' => '2010-02-02', 'comentarios' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia tortor metus, et condimentum quam. Proin enim purus, posuere eu facilisis ac, feugiat a arcu. Proin ut orci diam. Curabitur facilisis euismod metus nec varius. Donec pulvinar ante eget lectus eleifend non volutpat velit pharetra. Nam sed dui diam, sit amet commodo ante. Fusce lobortis lectus a erat aliquam rhoncus. Cras quis porttitor enim. Aenean vitae est nec ligula rhoncus dapibus sit amet id magna. Nulla molestie urna eget ligula consequat a pretium quam ultricies. '),
-				'lugares' => array('paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1'),
-				'nucleoCaso' => array('fechaInicio' => '2009-01-05', 'fechaTermino' => '2010-06-09', 'noPersonasAfectadas' => '3', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_estadoId' => '1', 'municipiosCatalogo_municipioId' => '1')
-			)
-		);
+	public function mActualisaDatosCaso($casoId,$datosCaso){
 		
 		$this->db->where('casoId', $casoId);
 		$this->db->update('casos',$datosCaso['tablas']['casos']);
@@ -127,9 +101,8 @@ class Casos_m extends CI_Model {
 	 * @param ($casoId)
 	 * */
 	
-	public function mCambiaEstadoActivoCaso(){
-			
-		$casoId = 1;
+	public function mCambiaEstadoActivoCaso($casoId){
+
 		$estado = array('estadoActivo' => 0);
 		
 		$this->db->where('casoId', $casoId);
@@ -138,19 +111,14 @@ class Casos_m extends CI_Model {
 		/* Regresa la cadena al controlador*/
 		return ($mensaje = 'Hecho');
 			
-	}/* Fin de mCambiaEstadoActivoActor */
+	}/* Fin de mCambiaEstadoActivoCaso */
 	
 	/* Este modelo elimina una ficha relacionada a un caso
 	 * @param ($fichaId)
 	 * */
 	
-	public function mEliminaFichas(){
+	public function mEliminaFichas($fichaId){
 			
-		$fichaId = 1;
-		
-		$this->db->where('fichas_fichaId', $fichaId);
-		$this->db->delete('registro');
-		
 		$this->db->where('fichaId', $fichaId);
 		$this->db->delete('fichas');
 		
@@ -159,18 +127,32 @@ class Casos_m extends CI_Model {
 		
 	}/*Fin de mEliminaFichas*/
 	
-	public function mEliminaIntervenciones(){
+	/* Este modelo elimina la relacion en un caso de una intervención
+	 * @param ($intervencionId)
+	 * */
+	
+	public function mEliminaIntervenciones($intervencionId){
 			
-		$intervencionId = 1;
-		
-		$this->db->where('intervenciones_intervencionId', $intervencionId);
-		$this->db->delete('intervenidos');
-		
 		$this->db->where('intervencionId', $intervencionId);
 		$this->db->delete('intervenciones');
 		
 		/* Regresa la cadena al controlador*/
 		return ($mensaje = 'Hecho');
 		
-	}/*Fin de mEliminaFichas*/
+	}/*Fin de mEliminaIntervenciones*/
+	
+			
+	/* Este modelo elimina la relacion en un caso de un perpetrador
+	 * @param ($actoId)
+	 * */
+	
+	public function mEliminaActo($actoId){
+		
+		$this->db->where('actoId', $actoId);
+		$this->db->delete('actos');
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+		
+	}/*Fin de mEliminaActo*/
 }
