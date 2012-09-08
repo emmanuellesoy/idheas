@@ -204,7 +204,7 @@
 			
 		}/* Fin de mBuscarActores() */
 		
-		/* Este método trae los actores en arreglos organizados por tipo (individual, transigrante, colectivo)*/
+		/* Este modelo trae los actores en arreglos organizados por tipo (individual, transigrante, colectivo)*/
 		
 		public function mTraerActores(){
 			
@@ -246,14 +246,44 @@
 				
 			}/* fin foreach */
                         
-			return $datos;
+		/* Regresa la cadena al controlador*/
+		return $datos;
 			
 		}/* fin de traerActores */
 		
+		/* Este modelo actualiza los datos de un actor
+		 * @param ($actorId, $datosActor)
+		 * */
+		
 		public function mActualizaDatosActor()
 		{
-			
+			$actorId = 1;
+			$datosActor = array(
+				'tipoActorId' => '1',
+				'tablas' => array(
+					'actores' => array('nombre' => 'Juan', 'apellidosSiglas' => 'Hernandez Martinez', 'tipoActorId' => '1', 'codigoPostal' => '10000'),
+					'datosDeNacimiento' => array('fechaNacimiento' => '24-12-1985', 'paisesCatalogo_paisId' => '1', 'estadosCatalogo_paisId' => '1', 'municipiosCatalogo_paisId' => '1' ),
+					'infoContacto' => array('telefono' => '58565856', 'telefonoMovil' => '0445558565856', 'correoE' => 'ejemplo@ejemplo.com', 'fax' => ''),
+					'infoMigratoria' => array('paisTransitorioId' => 1, 'paisDestinoId' => 1, 'intCruceDestino' => 1, 'intCruceTransitorio' => 1, 'expCruceDestino' => 1, 'expCruceTransitorio' => 1, 'motivoViaje' => 'Ganar más dinero', 'tipoEstanciaId' => 1, 'realizaViaje' => 'Solo', 'comentarios' => 'No sabe escribir.'),
+					'direccionActor' => array('direccion' => 'Calle: Desconocida Esq Lo que sea, Colonia: La otra, Delegación, Otra cosa Nada, Solo porprobar. Juguemos Zombie Island'),
+					'infoGralActor' => array('generoId' => 1, 'edad' => 21, 'nacionalidadId' => 1, 'hijos' => 4, 'escolaridadId' => 1, 'espaniol' => 'Si', 'estadoCivil_estadoCivilId' => 1, 'ocupacionesCatalogo_ultimaOcupacionId' => 1, 'gruposIndigenas_grupoIndigenaId' => 1)
+				)
+			); 
+		
+		$this->db->where('actorId', $actorId);
+		$this->db->update('actores',$datosActor['tablas']['actores']);
+		
+		foreach($datosActor['tablas'] as $key => $value){
+			if($key != 'actores'){
+				$this->db->where('actores_actorId', $actorId);
+				$this->db->update($key,$datosActor['tablas'][$key]);
+			}
 		}
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+					
+		}/* Fin de mActualizaDatosActor */
 		
 	}
 	
