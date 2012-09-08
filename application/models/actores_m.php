@@ -270,18 +270,18 @@
 				)
 			); 
 		
-		$this->db->where('actorId', $actorId);
-		$this->db->update('actores',$datosActor['tablas']['actores']);
-		
-		foreach($datosActor['tablas'] as $key => $value){
-			if($key != 'actores'){
-				$this->db->where('actores_actorId', $actorId);
-				$this->db->update($key,$datosActor['tablas'][$key]);
+			$this->db->where('actorId', $actorId);
+			$this->db->update('actores',$datosActor['tablas']['actores']);
+			
+			foreach($datosActor['tablas'] as $key => $value){
+				if($key != 'actores'){
+					$this->db->where('actores_actorId', $actorId);
+					$this->db->update($key,$datosActor['tablas'][$key]);
+				}
 			}
-		}
-		
-		/* Regresa la cadena al controlador*/
-		return ($mensaje = 'Hecho');
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
 					
 		}/* Fin de mActualizaDatosActor */
 		
