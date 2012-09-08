@@ -122,4 +122,5 @@ class Casos_m extends CI_Model {
 		return ($mensaje = 'Hecho');
 		
 	}/* Fin de mActualisaDatosCaso */
+	
 }

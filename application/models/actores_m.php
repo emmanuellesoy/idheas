@@ -285,6 +285,24 @@
 					
 		}/* Fin de mActualizaDatosActor */
 		
+		/* Este modelo cambia el estado de un actor a inactivo, en lugar de eliminarlo de la base de datos
+		 * @param ($actorId)
+		 * */
+		
+		public function mCambiaEstadoActivoActor(){
+			
+			$actorId = 1;
+			$estado = array('estadoActivo' => 0);
+			
+			$this->db->where('actorId', $actorId);
+			$this->db->update('actores',$estado);
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+			
+		}/* Fin de mCambiaEstadoActivoActor */
+		
+		
 	}
 	
 ?>
