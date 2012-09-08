@@ -136,7 +136,7 @@ class Catalogos_m extends CI_Model {
 	
 	public function mTraerDatosCatalogoTipoIntervencion(){
 		
-		/* Trae todos los datos de tipoIntervenciónN1Catalogo */
+		/* Trae todos los datos de tipoIntervencionN1Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN1Catalogo');
 		$consulta = $this->db->get();
@@ -146,7 +146,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoIntervencionN1Catalogo'][$row['tipoIntervencionN1Id']] = $row;
 		}
 		
-		/* Trae todos los daos de tipoIntervenciónN2Catalogo */
+		/* Trae todos los daos de tipoIntervencionN2Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN2Catalogo');
 		$consulta = $this->db->get();
@@ -156,7 +156,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoIntervencionN2Catalogo'][$row['tipoIntervencionN2Id']] = $row;
 		}
 		
-		/* Trae todos los datos de tipoIntervenciónN3Catalogo */
+		/* Trae todos los datos de tipoIntervencionN3Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN3Catalogo');
 		$consulta = $this->db->get();
@@ -166,7 +166,7 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoIntervencionN3Catalogo'][$row['tipoIntervencionN3Id']] = $row;
 		}
 		
-		/* Trae todos los datos de tipoIntervenciónN4Catalogo */
+		/* Trae todos los datos de tipoIntervencionN4Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN4Catalogo');
 		$consulta = $this->db->get();
@@ -178,6 +178,7 @@ class Catalogos_m extends CI_Model {
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;	
+		
 	}/* Fin de mTraerDatosCatalogoTipoIntervencion*/
 	
 	/* Este modelo trae los datos de los catálogos TipoLugar */
@@ -257,4 +258,63 @@ class Catalogos_m extends CI_Model {
 		return $datos;
 		
 	}/* Fin de mTraerDatosCatalogoPaises */
+	
+	/* Este modelo trae los datos de los catálogos TipoPerpetrador */
+	
+	public function mTraerDatosCatalogoTipoPerpetrador(){
+		
+		/* Trae todos los datos de tipoPerpetradorN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN1Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN1Catalogo'][$row['tipoPerpetradorN1Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN2Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN2Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN2Catalogo'][$row['tipoPerpetradorN2Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN3Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN3Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN3Catalogo'][$row['tipoPerpetradorN3Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN4Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN4Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN4Catalogo'][$row['tipoPerpetradorN4Id']] = $row;
+		}
+
+		/* Trae todos los datos de tipoPerpetradorN5Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN5Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN5Catalogo'][$row['tipoPerpetradorN5Id']] = $row;
+		}
+
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	}/* Fin de mTraerDatosCatalogoTipoPerpetrador*/
 }
