@@ -12,9 +12,9 @@ class Catalogos_m extends CI_Model {
 	 * @param $nombreCatalogo
 	 * */
 	
-	public function mTraerDatosCatalogoNombre(){
+	public function mTraerDatosCatalogoNombre($nombreCatalogo){
 		
-		$nombreCatalogo = 'estatusPerpetradorCatalogo';
+		//$nombreCatalogo = 'estatusPerpetradorCatalogo';
 		
 		$this->db->select('*');
 		$this->db->from($nombreCatalogo);
