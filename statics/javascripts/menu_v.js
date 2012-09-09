@@ -9,6 +9,14 @@
 		 
 		 
 	$(function() {
+		$( "#casos_fechaInicial" ).datepicker({ dateFormat: "yy-mm-dd"});
+		 });
+		 
+	$(function() {
+		$( "#casos_fechaTermino" ).datepicker({ dateFormat: "yy-mm-dd"});
+		 });
+		 
+	$(function() {
 		$( "#infoAdicional_fechaPublicacion" ).datepicker({ dateFormat: "yy-mm-dd"});
 		 });
 		 
@@ -16,6 +24,31 @@
 	$(function() {
 		$( "#datepickerIntervencion" ).datepicker({ dateFormat: "yy-mm-dd"});
 		 });
+
+
+/////////fECHA FICHA INICIAL CASOS
+
+	$(function() {
+		$( "#fichaExactaR" ).datepicker({ dateFormat: "yy-mm-dd",
+		changeYear: true });
+		 });
+    
+
+	$(function() {
+		$( "#fichaAproxR" ).datepicker({ dateFormat: "yy-mm-dd"});
+		 });
+    
+/***Script para cambiar el año y el mes****/
+	$(function() {
+		$( "#fichaSinDiaR" ).datepicker({ dateFormat: "yy-mm-00"});
+		});
+
+/***Funcion para cambiar el año****/
+	$(function() {
+		$( "#fichaSinDiaSinMesR" ).datepicker({ dateFormat: "yy-00-00"});
+		});
+		
+
 
 /////////fECHA FICHA INICIAL CASOS
 
@@ -145,7 +178,10 @@ function agregarQuitar(){
 ///funciones del formulario Actor transmigrante
 
 
-
+function mostrarDetallesLugar() {
+    $("#detallesLugarMostrar").toggle("slow");
+    };
+    
 ///funciones del formulario Actor colectivo
 
 
@@ -192,9 +228,20 @@ function mostrarfuncCol() {///Muestra/Esconde las opciones de casos de actor Col
     };
 
 
+function pestania1() {///Muestra/Esconde las opciones de casos de actor Colectivo
+			$("#selccPerTrans").hide();
+			$("#selccPerInd").show("slow");
+    };
+
+function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectivo
+			$("#selccPerTrans").show("slow");
+			$("#selccPerInd").hide();
+    };
+
+
 
   ///Función que agrega name a lafecha seleccionada en caso
-  function fichadeRecepcion(a){
+  function fichadeRecepcionInicial(a){
 		  if(a=="1"){
 			$('#fichaAprox').attr('name', ' ');
 			$('#fichaSinDia').attr('name', ' ');
@@ -237,6 +284,54 @@ function mostrarfuncCol() {///Muestra/Esconde las opciones de casos de actor Col
 		  }
 	  
 	  }
+
+
+  ///Función que agrega name a lafecha seleccionada en caso
+  function fichadeRecepcion(a){
+		  if(a=="1"){
+			$('#fichaAproxR').attr('name', ' ');
+			$('#fichaSinDiaR').attr('name', ' ');
+			$('#fichaSinDiaSinMesR').attr('name', ' ');
+			$('#fichaExactaR').attr('name', 'casos_fechaInicial');
+			$("#fichaAproxVR").hide();
+			$("#fichaSinDiaVR").hide();
+			$("#fichaSinDiaSinMesVR").hide();
+			$("#fichaExactaVR").show("slow");
+		  }
+		  else if (a=="2"){
+			$("#fichaSinDiaSinMesVR").hide();
+			$("#fichaSinDiaVR").hide();
+			$("#fichaExactaVR").hide();
+			$("#fichaAproxVR").show("slow");
+			$('#fichaSinDiaR').attr('name', ' ');
+			$('#fichaSinDiaSinMesR').attr('name', ' ');
+			$('#fichaExactaR').attr('name', ' ');
+			$('#fichaAproxR').attr('name', 'casos_fechaInicial');
+		  }
+		  else if (a=="3"){
+			$("#fichaAproxVR").hide();
+			$("#fichaSinDiaSinMesVR").hide();
+			$("#fichaExactaVR").hide();
+			$("#fichaSinDiaVR").show("slow");
+			$('#fichaSinDiaSinMesR').attr('name', ' ');
+			$('#fichaExactaR').attr('name', ' ');
+			$('#fichaAproxR').attr('name', ' ');
+			$('#fichaSinDiaR').attr('name', 'casos_fechaInicial');
+		  }
+		  else if (a=="4"){;
+			$("#fichaAproxVR").hide();
+			$("#fichaSinDiaVR").hide();
+			$("#fichaExactaVR").hide();
+			$("#fichaSinDiaSinMesVR").show("slow");
+			$('#fichaExactaR').attr('name', ' ');
+			$('#fichaAproxR').attr('name', ' ');
+			$('#fichaSinDiaR').attr('name', '');
+			$('#fichaSinDiaSinMesR').attr('name', 'casos_fechaInicial');
+		  }
+	  
+	  }
+     
+
      
   /********************************/
   ///Función que agrega name a lafecha seleccionada en caso
