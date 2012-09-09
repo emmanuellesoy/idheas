@@ -36,6 +36,8 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->cAgregarCatalogoTipoDeActorColectivo();
         
+        $this->cAgregarEstadoCivilCatalogo();
+        
     }
     
     /*
@@ -45,6 +47,31 @@ class Agregar_catalogos_c extends CI_Controller {
      * 
      */
     
+    public function cAgregarEstadoCivilCatalogo(){
+        
+        $estadoCivil['estadoCivil'][SOLTERO] = array('estadoCivilId' => SOLTERO, 'descripcion' => 'Soltero');
+        
+        $estadoCivil['estadoCivil'][CASADO] = array('estadoCivilId' => CASADO, 'descripcion' => 'Casado');
+        
+        $estadoCivil['estadoCivil'][VIUDO] = array('estadoCivilId' => VIUDO, 'descripcion' => 'Viudo');
+        
+        $estadoCivil['estadoCivil'][SEPARADO] = array('estadoCivilId' => SEPARADO, 'descripcion' => 'Separado');
+        
+        $estadoCivil['estadoCivil'][DIVORCIADO] = array('estadoCivilId' => DIVORCIADO, 'descripcion' => 'Divorciado');
+        
+        $estadoCivil['estadoCivil'][EN_UNION_LIBRE] = array('estadoCivilId' => EN_UNION_LIBRE, 'descripcion' => 'En Unión Libre');
+        
+        $estadoCivil['estadoCivil'][CON_COMPAÑERO] = array('estadoCivilId' => CON_COMPAÑERO, 'descripcion' => 'Con Compañero');
+        
+        $estadoCivil['estadoCivil'][EN_SOCIEDAD_DE_CONVIVENCIA] = array('estadoCivilId' => EN_SOCIEDAD_DE_CONVIVENCIA, 'descripcion' => 'En Sociedad De Convivencia');
+        
+        $this->agregar_catalogos_m->mAgregarDerechosCatalogos($estadoCivil);
+        
+        echo 'Catalogos de estados civiles insertados exitosamente<br />';
+        
+    }
+
+
     public function cAgregarDerechosCatalogos(){
         
         $derechosN1 = read_file('statics/catalogos/derechosAfectados/Derechos_Nivel1.csv');
@@ -243,7 +270,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($tiposDePerpetradorNiveles);
         
-        echo 'Catalogos de tipos de perpetrador insertados exitosamente.';
+        echo 'Catalogos de tipos de perpetrador insertados exitosamente.<br />';
         
     }
     
@@ -261,7 +288,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($gruposIndigenas);
         
-        echo 'Catalogos de grupos indigenas insertados exitosamente.';
+        echo 'Catalogos de grupos indigenas insertados exitosamente.<br />';
         
     }
     
@@ -289,7 +316,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($ocupaciones);
         
-        echo 'Catalogo de ocupaciones insertados exitosamente.';
+        echo 'Catalogo de ocupaciones insertados exitosamente.<br />';
         
     }
     
@@ -307,7 +334,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($estatus);
         
-        echo 'Catalogo de estatus de victimas insertado exitosamente.';
+        echo 'Catalogo de estatus de victimas insertado exitosamente.<br />';
         
     }
     
@@ -325,7 +352,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($estatus);
         
-        echo 'Catalogo de estatus de perpetradores insertado exitosamente.';
+        echo 'Catalogo de estatus de perpetradores insertado exitosamente.<br />';
         
     }
     
@@ -343,7 +370,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($filas);
         
-        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.';
+        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.<br />';
         
     }
 
@@ -362,7 +389,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($filas);
         
-        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.';
+        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.<br />';
         
     }
     
@@ -380,7 +407,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($filas);
         
-        echo 'Catalogo de actores colectivos insertados exitosamente.';
+        echo 'Catalogo de actores colectivos insertados exitosamente.<br />';
         
     }
     

@@ -59,15 +59,15 @@
 					  <p>
 						<label for="estadoCivil">Estado Civil</label>
 						<select id="infoGralActor_estadoCivil_estadoCivilId"  name="infoGralActor_estadoCivil_estadoCivilId">
-						<?php foreach($estadoCivil as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
+						<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?>
+                                                        <option value="<?=$item['estadoCivilId']; ?>"><?=$item['descripcion']; ?></option>
 						<?php endforeach;?>
 						</select>
 					  </p>
 					 
 					  <p>
-						<label for="nacionalidad">Nacionalidad</label>
-						<select name="infoGralActor_nacionalidad" id="InfoGralActor_nacionalidad">
+						<label for="nacionalidadID">Nacionalidad</label>
+						<select name="infoGralActor_nacionalidadId" id="InfoGralActor_nacionalidad">
 						<?php foreach($nacionalidad as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -98,9 +98,9 @@
 					  <p>
 					<label for="grupoIndigena">Grupo Indígena</label>
 						<select name="infoGralActor_gruposIndigenas_grupoIndigenaId" id="infoGralActor_gruposIndigenas_grupoIndigenaId">
-						<?php foreach($grupoIndigena as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
-						<?php endforeach;?>
+						<?php foreach($grupoIndigena['gruposIndigenas'] as $key => $item):?> 
+                                <option value="<?=$item['grupoIndigenaId']; ?>"><?=$item['descripcion']; ?></option>
+                        <?php endforeach;?>
 						</select>
 						
 					  </p>
@@ -118,7 +118,7 @@
 					 
 					  <p>
 						<label for="nivelEscolaridad">Nivel de Escolaridad</label>
-						<select name="infoGralActor_escolaridad" id="infoGralActor_escolaridad">
+						<select name="infoGralActor_escolaridadId" id="infoGralActor_escolaridadId">
 						<?php foreach($escolaridad as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -129,9 +129,9 @@
 					  <p>						
 						<label for="UltimaOcupacion">Última Ocupación</label>
 						<select name="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid" id="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid">
-						<?php foreach($ultimaOcupacion as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
-						<?php endforeach;?>
+						<?php foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
+                        <?php endforeach;?>
 						</select>
 						
 					  </p>
@@ -156,9 +156,9 @@
 								  <p>		
 								<label for="pais">País</label>
 									<select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">
-									<?php foreach($pais as $key => $item):?>
-															<option value="<?=$item?>"><?=$key?></option>
-									<?php endforeach;?>
+									<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 									</select>
 								  </p>
 							</div>
@@ -167,9 +167,9 @@
 								  <p>		
 								<label for="estado">Estado</label>
 									<select name="datosDeNacimiento_estadosCatalogo_estadoId">
-										<?php foreach($estado as $key => $item):?>
-																<option value="<?=$item?>"><?=$key?></option>
-										<?php endforeach;?>
+										<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+                                                                                <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
+                                                                                <?php endforeach;?>
 									</select>
 								  </p>
 							</div>
@@ -178,9 +178,9 @@
 							  <p>										
 								<label for="municipio">Municipio</label>
 									<select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">
-										<?php foreach($municipio as $key => $item):?>
-																<option value="<?=$item?>"><?=$key?></option>
-										<?php endforeach;?>
+										<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+                                                                                        <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                                                                                <?php endforeach;?>
 									</select>
 							  </p>
 							</div>
@@ -193,18 +193,18 @@
 				  <p>
 					<label for="paistrans">País de tránsito</label>
 						<select name="infoMigratoria_paisTransitoId" id="infoMigratoria_paisTransitoId">
-						<?php foreach($pais as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
-						<?php endforeach;?>
+						<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 						</select>
 					  </p>
 																
 					  <p>
 					<label for="paisdest">País destino</label>
 						<select name="infoMigratoria_paisDestinoId" id="infoMigratoria_paisDestinoId">
-						<?php foreach($pais as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
-						<?php endforeach;?>
+						<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 						</select>
 					  </p>
 						

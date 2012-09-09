@@ -1,7 +1,6 @@
 <?php echo validation_errors(); ?>
 <?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
-
 <div	id="Actores" >
     <fieldset>
         <legend>Información general</legend>
@@ -59,8 +58,8 @@
                     <p>
                         <label for="estadoCivil">Estado Civil</label>
                         <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						
-                        <?php foreach($estadoCivil as $key => $item):?> <!--muestra los estados civiles-->
-                                <option  value="<?=$item?>"> <?=$key?></option>
+                        <?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
+                                <option  value="<?=$item['estadoCivilId']?>"> <?=$item['descripcion']?></option>
                         <?php endforeach;?>
                         </select>
                     </p>
@@ -107,9 +106,9 @@
 
                     <p>
                 <label for="grupoIndigena">Grupo Indígena</label>
-                        <select id="infoGralActor_gruposIndigenas_grupoIndigenaId" name="infoGralActor_gruposIndigenas_grupoIndigenaId">						
-                        <?php foreach($grupoIndigena as $key => $item):?> 
-                                <option value="<?=$item?>"><?=$key?></option>
+                        <select id="infoGralActor_gruposIndigenas_grupoIndigenaId" name="infoGralActor_gruposIndigenas_grupoIndigenaId">
+                        <?php foreach($grupoIndigena['gruposIndigenas'] as $key => $item):?> 
+                                <option value="<?=$item['grupoIndigenaId']; ?>"><?=$item['descripcion']; ?></option>
                         <?php endforeach;?>
                         </select>
 
@@ -134,8 +133,8 @@
                     <p>						
                         <label for="UltimaOcupacion">Última Ocupación</label>
                         <select id="infoGralActor_OcupacionesCatalogo_UltimaOcupacionId" name="infoGralActor_OcupacionesCatalogo_UltimaOcupacionId">						
-                        <?php foreach($ultimaOcupacion as $key => $item):?> 
-                                <option value="<?=$item?>"><?=$key?></option>
+                        <?php foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
                         <?php endforeach;?>
                         </select>
 
@@ -154,8 +153,8 @@
                     <p>
                         <label for="pais">País</label>
                         <select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">						
-                        <?php foreach($pais as $key => $item):?> 
-                                <option value="<?=$item?>"><?=$key?></option>
+                        <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
                         <?php endforeach;?>
                         </select>
 
@@ -164,8 +163,8 @@
                     <p>
                         <label for="estado">Estado</label>
                         <select id="datosDeNacimiento_estadosCatalogo_estadoId" name="datosDeNacimiento_estadosCatalogo_estadoId">						
-                        <?php foreach($estado as $key => $item):?>
-                                <option value="<?=$item?>"><?=$key?></option>
+                        <?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
                         <?php endforeach;?>
                         </select>
 
@@ -177,8 +176,8 @@
                     <p>
                         <label for="municipio">Municipio</label>
                         <select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">						
-                        <?php foreach($municipio as $key => $item):?> 
-                            <option value="<?=$item?>"><?=$key?></option>
+                        <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
                         <?php endforeach;?>
                         </select>
 
@@ -256,8 +255,8 @@
                 <p>
                         <label for="paisdir">País</label>
                                 <select id="direccionActor_paisesCatalogo_paisId" name="direccionActor_paisesCatalogo_paisId">						
-                                <?php foreach($pais as $key => $item):?> 
-                                                        <option value="<?=$item?>"><?=$key?></option>
+                                <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                    <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
                                 <?php endforeach;?>
                                 </select>
                 </p>
@@ -274,13 +273,13 @@
 						<div class="six columns">
 							<label for="estadodir">Estado</label>
 										<select id="direccionActor_estadosCatalogo_estadoId" name="direccionActor_estadosCatalogo_estadoId">						
-										<?php foreach($estado as $key => $item):?>
-																<option value="<?=$item?>"><?=$key?></option>
-										<?php endforeach;?>
+										<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 										</select>	
 
-						</div>	
-
+						</div>
+                <!--
 						<div class="six columns">
 							<label >Agregar</label>
 									<input  type='button' onclick="agregarQuitar()" value='Agregar Campo'>
@@ -296,19 +295,16 @@
 											<input  type='button' onclick="QuitarEstadodirInd()" value='-'  >
 									</div>
 								</div>
-						</div>
-
-                </p>
-
+						</div>-->
 <!----/**************************************************************/---->									
 
 				<?php echo br(1);?>
                 <p>
                         <label for="municipiodir">Municipio</label>
                                 <select id="direccionActor_municipiosCatalogo_municipioId" name="direccionActor_municipiosCatalogo_municipioId">						
-                                <?php foreach($municipio as $key => $item):?> 
-                                                        <option value="<?=$item?>"><?=$key?></option>
-                                <?php endforeach;?>
+                                <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
                                 </select>
                 </p>	
 

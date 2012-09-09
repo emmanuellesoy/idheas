@@ -6,7 +6,7 @@ class Catalogos_c extends CI_Controller {
         
         parent::__construct();
     
-        $this->load->model(array('catalogos_m'));
+        $this->load->model(array('catalogos_m', 'actores_m'));
         
     }
 
@@ -64,6 +64,20 @@ class Catalogos_c extends CI_Controller {
         $datos = $this->catalogos_m->mTraerDatosCatalogoTipoPerpetrador();
         echo '<pre>';
         print_r($datos);
+        echo '</pre>';
+        
+    }
+    
+    public function cTraerDatosActor(){
+        
+        echo '<pre>';
+        
+        print_r($this->actores_m->mTraeDatosActores(12, 1));
+        
+        print_r($this->actores_m->mTraeDatosActores(13, 2));
+        
+        print_r($this->actores_m->mTraeDatosActores(14, 3));
+        
         echo '</pre>';
         
     }

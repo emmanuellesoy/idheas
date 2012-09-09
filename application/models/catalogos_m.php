@@ -12,9 +12,9 @@ class Catalogos_m extends CI_Model {
 	 * @param $nombreCatalogo
 	 * */
 	
-	public function mTraerDatosCatalogoNombre(){
+	public function mTraerDatosCatalogoNombre($nombreCatalogo){
 		
-		$nombreCatalogo = 'estatusPerpetradorCatalogo';
+		//$nombreCatalogo = 'estatusPerpetradorCatalogo';
 		
 		$this->db->select('*');
 		$this->db->from($nombreCatalogo);
@@ -226,6 +226,7 @@ class Catalogos_m extends CI_Model {
 		
 		/* Trae todos los datos de paisesCatalogo */
 		$this->db->select('*');
+                $this->db->order_by('nombre');
 		$this->db->from('paisesCatalogo');
 		$consulta = $this->db->get();
 						
@@ -237,6 +238,7 @@ class Catalogos_m extends CI_Model {
 		/* Trae todos los datos de estadosCatalogo */
 		$this->db->select('*');
 		$this->db->from('estadosCatalogo');
+                $this->db->order_by('nombre');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
@@ -246,6 +248,7 @@ class Catalogos_m extends CI_Model {
 		
 		/* Trae todos los datos de municipiosCatalogo */
 		$this->db->select('*');
+                $this->db->order_by('nombre');
 		$this->db->from('municipiosCatalogo');
 		$consulta = $this->db->get();
 						
@@ -312,6 +315,26 @@ class Catalogos_m extends CI_Model {
 		foreach ($consulta->result_array() as $row) {
 			$datos['tipoPerpetradorN5Catalogo'][$row['tipoPerpetradorN5Id']] = $row;
 		}
+
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	}/* Fin de mTraerDatosCatalogoTipoPerpetrador*/
+        
+        public function mTraerDatosCatalogoOcupacion(){
+		
+		/* Trae todos los datos de tipoPerpetradorN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('ocupacionesCatalogo');
+		$consulta = $this->db->get();
+						
+                foreach ($consulta->result_array() as $row) {
+                    if($row['tipoActorId'] == 1){
+                        $datos['individual'][$row['ocupacionId']] = $row;
+                    }else{
+                        $datos['colectivo'][$row['ocupacionId']] = $row;
+                    }
+                }
 
 		/* Regresa la cadena al controlador*/
 		return $datos;
