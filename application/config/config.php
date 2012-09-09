@@ -1,5 +1,19 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+define('SOLTERO', 1);
+define('CASADO', 2);
+define('VIUDO', 3);
+define('SEPARADO', 4);
+define('DIVORCIADO', 5);
+define('EN_UNION_LIBRE', 6);
+define('CON_COMPAÑERO', 7);
+define('EN_SOCIEDAD_DE_CONVIVENCIA', 8);
+define('CASO_URGENTE', 1);
+define('CASO_DE_PRIORIDAD_ALTA', 2);
+define('CASO_DE_PRIORIDAD_MEDIA', 3);
+define('CASO_DE_PRIORIDAD_BAJA', 4);
+define('EXPEDIENTE_CERRADO', 5);
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

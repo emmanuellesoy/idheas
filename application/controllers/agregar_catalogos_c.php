@@ -14,13 +14,27 @@ class Agregar_catalogos_c extends CI_Controller {
     
     public function index(){
         
+        $this->cAgregarCatalogoDeOcupaciones();
+        
+        $this->cAgregarCatalogoGruposIndigenas();
+        
         $this->cAgregarCatalogosLugares();
         
         $this->cAgregarCatalogosTipoDeIntervencion();
         
+        $this->cAgregarCatalogosTipoPerpetrador();
+        
         $this->cAgregarDerechosCatalogos();
         
-        $this->cAgregarCatalogosTipoPerpetrador();
+        $this->cAgregarCatalogoEstatusDeLaVictima();
+        
+        $this->cAgregarCatalogoEstatusDelPerpetrador();
+        
+        $this->cAgregarCatalogoNivelDeConfiabilidad();
+        
+        $this->cAgregarCatalogoTipoDeFuente();
+        
+        $this->cAgregarCatalogoTipoDeActorColectivo();
         
     }
     
@@ -229,7 +243,144 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarCatalogos($tiposDePerpetradorNiveles);
         
-        echo 'Catalogos de Tipos de perpetrador insertados exitosamente.';
+        echo 'Catalogos de tipos de perpetrador insertados exitosamente.';
+        
+    }
+    
+    public function cAgregarCatalogoGruposIndigenas(){
+        
+        $catalogoGruposIndigenas = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoDeGruposIndigenas.csv'));
+        
+        foreach($catalogoGruposIndigenas as $grupoIndigena){
+                
+            $datosGrupo = explode('¬', $grupoIndigena);
+                
+            $gruposIndigenas['gruposIndigenas'][trim($datosGrupo[0])] = array('grupoIndigenaId' => trim($datosGrupo[0]), 'paisId' => trim($datosGrupo[2]), 'descripcion' => trim($datosGrupo[1]), 'notas' => trim($datosGrupo[3]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($gruposIndigenas);
+        
+        echo 'Catalogos de grupos indigenas insertados exitosamente.';
+        
+    }
+    
+    public function cAgregarCatalogoDeOcupaciones(){
+        
+        $catalogoOcupaciones = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoDeOcupacionesActoresIndividuales.csv'));
+        
+        foreach($catalogoOcupaciones as $ocupacion){
+            
+            $datosOcupacion = explode('¬', $ocupacion);
+            
+            $ocupaciones['ocupacionesCatalogo'][$datosOcupacion[0]] = array('ocupacionId' => trim($datosOcupacion[1]), 'descripcion' => trim($datosOcupacion[1]), 'notas' => trim($datosOcupacion[1]), 'tipoActorId' => 1);
+            
+        }
+        
+        $catalogoOcupaciones = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoDeOcupacionesActoresColectivos.csv'));
+        
+        foreach($catalogoOcupaciones as $ocupacion){
+            
+            $datosOcupacion = explode('¬', $ocupacion);
+            
+            $ocupaciones['ocupacionesCatalogo'][$datosOcupacion[0]] = array('ocupacionId' => trim($datosOcupacion[1]), 'descripcion' => trim($datosOcupacion[1]), 'notas' => trim($datosOcupacion[1]), 'tipoActorId' => 2);
+            
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($ocupaciones);
+        
+        echo 'Catalogo de ocupaciones insertados exitosamente.';
+        
+    }
+    
+    public function cAgregarCatalogoEstatusDeLaVictima(){
+        
+        $catalogoEstatusDeLAVictima = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoEstatusDeLaVictima.csv'));
+        
+        foreach($catalogoEstatusDeLAVictima as $estatusDeLaVictima){
+                
+            $datosEstatusDeLaVictima = explode('¬', $estatusDeLaVictima);
+                
+            $estatus['estatusVictimaCatalogo'][trim($datosEstatusDeLaVictima[0])] = array('estatusVictimaId' => trim($datosEstatusDeLaVictima[0]), 'descripcion' => trim($datosEstatusDeLaVictima[1]), 'notas' => trim($datosEstatusDeLaVictima[2]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($estatus);
+        
+        echo 'Catalogo de estatus de victimas insertado exitosamente.';
+        
+    }
+    
+        public function cAgregarCatalogoEstatusDelPerpetrador(){
+        
+        $catalogoEstatusDelPerpetrador = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoEstatusDelPerpetrador.csv'));
+        
+        foreach($catalogoEstatusDelPerpetrador as $estatusDelPerpetrador){
+                
+            $datosEstatusDelPerpetrador = explode('¬', $estatusDelPerpetrador);
+                
+            $estatus['estatusPerpetradorCatalogo'][trim($datosEstatusDelPerpetrador[0])] = array('estatusPerpetradorId' => trim($datosEstatusDelPerpetrador[0]), 'descripcion' => trim($datosEstatusDelPerpetrador[1]), 'notas' => trim($datosEstatusDelPerpetrador[2]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($estatus);
+        
+        echo 'Catalogo de estatus de perpetradores insertado exitosamente.';
+        
+    }
+    
+    public function cAgregarCatalogoNivelDeConfiabilidad(){
+        
+        $catalogo = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoNivelDeConfiabilidad.csv'));
+        
+        foreach($catalogo as $filaCatalogo){
+                
+            $datos = explode('¬', $filaCatalogo);
+                
+            $filas['nivelConfiabilidadCatalogo'][trim($datos[0])] = array('nivelConfiabilidadId' => trim($datos[0]), 'descripcion' => trim($datos[1]), 'notas' => trim($datos[2]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($filas);
+        
+        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.';
+        
+    }
+
+    
+    public function cAgregarCatalogoTipoDeFuente(){
+        
+        $catalogo = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/catalogoTipoDeFuente.csv'));
+        
+        foreach($catalogo as $filaCatalogo){
+                
+            $datos = explode('¬', $filaCatalogo);
+                
+            $filas['tipoFuenteCatalogo'][trim($datos[0])] = array('tipoFuenteId' => trim($datos[0]), 'descripcion' => trim($datos[1]), 'notas' => trim($datos[2]) ,'selectorTipoFuente' => 1);
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($filas);
+        
+        echo 'Catalogo de niveles de confiabilidad de las funetes insertados exitosamente.';
+        
+    }
+    
+    public function cAgregarCatalogoTipoDeActorColectivo(){
+        
+        $catalogo = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/tipoDeActorColectivo.csv'));
+        
+        foreach($catalogo as $filaCatalogo){
+                
+            $datos = explode('¬', $filaCatalogo);
+                
+            $filas['tipoActorColectivo'][trim($datos[0])] = array('tipoActorColectivoId' => trim($datos[0]), 'descripcion' => trim($datos[1]), 'notas' => trim($datos[2]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($filas);
+        
+        echo 'Catalogo de actores colectivos insertados exitosamente.';
         
     }
     

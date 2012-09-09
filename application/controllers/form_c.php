@@ -78,6 +78,7 @@ class Form_c extends CI_Controller {
 				$data['colectivo'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales  , true);
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
+                $datosCasos['listaActores'] = $this->actores_m->mTraerActores();
 				$datosCasos['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
 				$datosCasos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
 				$datosCasos['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
