@@ -1,13 +1,17 @@
 <?php
 
 class Form_c extends CI_Controller {
+    
+    function __construct() {
+        parent::__construct();
+        $this->load->model(array('actores_m', 'casos_m', 'catalogos_m'));
+    }
 
-	function index()
+    function index()
 	{
 		//CARGA DE LAS LIBRERIAS
 		$this->load->helper(array('html', 'url'));					
 		$this->load->library('form_validation');
-                $this->load->model('actores_m');
 		// TERMINA CARGA DE LAS LIBRERIAS
 
 		if ($this->form_validation->run('login') == FALSE) //SI ES FALSA LA VALIDACION DEL LOGUEO 
@@ -57,9 +61,10 @@ class Form_c extends CI_Controller {
 				$DatosGenerales['edad']= range(0,100);
 				$DatosGenerales['hijos']= range(0,20);
 				$DatosGenerales['intentos']= range(0,20);
-				$DatosGenerales['estadoCivil']= array('Casado' => 1, 'Soltero' => 2, 'Viudo' => 3); 
+				$DatosGenerales['estadoCivil']= array('Soltero' => SOLTERO, 'Casado' => CASADO, 'Viudo' => VIUDO, 'Separado' => SEPARADO, 'Divorciado' => DIVORCIADO, 'En Union Libre' => EN_UNION_LIBRE, 'En Sociedad De Convivencia' => EN_SOCIEDAD_DE_CONVIVENCIA);
 				$DatosGenerales['nacionalidad']= array('narniano' => 1, 'salvadoreño' => 2, 'gnomo' => 3, 'mordoriano' => 4,'gondoriano' => 5); 
-				$DatosGenerales['grupoIndigena']= array('Totonaca' => 1, 'Otomi' => 2, 'Maya' => 3, 'Zapoteca' => 4); 
+				$DatosGenerales['grupoIndigena']= array('Totonaca' => 1, 'Otomi' => 2, 'Maya' => 3, 'Zapoteca' => 4);
+                                print_r($this->catalogos_m->traerDatosCatalogoNombre('gruposIndigenas'));
 				$DatosGenerales['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5); 
 				$DatosGenerales['ultimaOcupacion']= array('Sicario' => 1, 'Presidente' => 2, 'Candidato presidencial' => 3, 'Corredor de bolsa' => 4);
 				$DatosGenerales['pais']= array('Mexico' => 1, 'Salvador' => 2, 'Chile' => 3, 'Korea' => 4); 
