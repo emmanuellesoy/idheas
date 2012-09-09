@@ -24,8 +24,8 @@
 				 <p>
 				<label for="tipoActor">Tipo de actor colectivo</label>
 					<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
-						<?php foreach($tipoActor as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
+						<?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?>
+                                                        <option value="<?=$item['tipoActorColectivoId']; ?>"><?=$item['descripcion']; ?></option>
 						<?php endforeach;?>
 					</select>									
 				 </p>
@@ -39,8 +39,8 @@
 				 <p>
 				<label for="actividad">Actividad</label>
 					<select name="infoGralActores_actividad" id="infoGralActores_actividad">
-					<?php foreach($actividad as $key => $item):?>
-											<option value="<?=$item?>"><?=$key?></option>
+					<?php foreach($actividad['colectivo'] as $key => $item):?>
+                                                            <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
 					<?php endforeach;?>
 					</select>									
 				 </p>
@@ -62,18 +62,18 @@
 				<p>
 					<label for="paisdir">País</label>
 						<select name="direccionActor_paisesCatalogo_paisId" id="direccionActor_paisesCatalogo_paisId">
-					<?php foreach($pais as $key => $item):?>
-											<option value="<?=$item?>"><?=$key?></option>
-					<?php endforeach;?>
+					<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 						</select>
 				</p>
 					
 				<p>
 					<label for="estadodir">Estado</label>
 						<select name="direccionActor_estadosCatalogo_estadoId"  id="direccionActor_estadosCatalogo_estadoId" >
-							<?php foreach($estado as $key => $item):?>
-													<option value="<?=$item?>"><?=$key?></option>
-							<?php endforeach;?>
+							<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 						</select>
 				</p>
 				
@@ -83,9 +83,9 @@
 				<p>
 					<label for="direccionActor_municipiosCatalogo_municipioId">Municipio</label>
 						<select name="direccionActor_municipiosCatalogo_municipioId" id="direccionActor_municipiosCatalogo_municipioId">
-							<?php foreach($municipio as $key => $item):?>
-													<option value="<?=$item?>"><?=$key?></option>
-							<?php endforeach;?>						
+							<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                        <?php endforeach;?>
 						</select>
 				</p>	
 				
@@ -126,7 +126,7 @@
 				
 				<p>
 					<label for="paginaPersonal">Página web</label>
-						<input type="text" id="infoGralActores_paginaWeb" name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
+						<input type="text" id="infoGralActores_paginaWeb" name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="100" />
 				 </p>
 				 
 				 </div>
