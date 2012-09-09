@@ -86,24 +86,105 @@
 			<?php echo br(2);?>	
 		<!--Comienzan subpestañas--------------->
 	  	<div id="subPestanias" data-collapse>
-		<h2 class="twelve columns">Descripción</h2>
-				<div >
-				  <textarea  placeholder="Escribir alguna descripción" rows="10" cols="20" name="infoCaso_descripcion" id="infoAdicional_descripcion" wrap="hard" ></textarea>
-			</div>	  
+			<h2 class="twelve columns">Lugares</h2>
+			<div>
+	  				<table>
+			            <thead>
+			              <tr>
+			                <th>País</th>
+			                <th>Estado</th>
+			                <th>Municipio</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td>
+								<input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" />
+								<input type="button" class="[tiny, small, medium, large] button"  value="Eliminar" onclick="" />
+			                </td>
+			              </tr>
+			            </tbody>
+			          </table>
+			        <td><input type="button" class="[tiny, small, medium, large] button"  value="Añadir" onclick="" /></td>
+	  			</div>
+		</div>
+		
+	  	<div id="subPestanias" data-collapse>
+			<h2 class="twelve columns">Descripción</h2>
+				<div class="twelve columns">
+					<textarea id="tinyeditor" style="width: 400px; height: 200px" wrap="hard"  name="editorCasos"></textarea>
+					<script>
+					var instance = new TINY.editor.edit('editor', {
+						id: 'tinyeditor',
+						width: 584,
+						height: 175,
+						cssclass: 'tinyeditor',
+						controlclass: 'tinyeditor-control',
+						rowclass: 'tinyeditor-header',
+						dividerclass: 'tinyeditor-divider',
+						controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+						footer: false,
+						xhtml: false,
+						bodyid: 'editor',
+						toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+						resize: {cssclass: 'resize'}
+					});
+					</script>
+			   </div>	  
 		</div><!--fin acordeon descripción-->
 	  	
 	  	<div id="subPestanias" data-collapse>
 	  		<h2 class="twelve columns">Resumen</h2>
-	  		<div>
-				<textarea  placeholder="Añadir un resumen" rows="10" cols="20" name="infoCaso_resumen" id="infoCaso_resumen" wrap="hard" ></textarea>
-	  		</div>
+				<div class="twelve columns">
+					<textarea id="infoCaso_resumen" style="width: 400px; height: 200px" wrap="hard"  name="infoCaso_resumen"></textarea>
+					<script>
+					var instance = new TINY.editor.edit('infoCaso_resumen', {
+						id: 'infoCaso_resumen',
+						width: 584,
+						height: 175,
+						cssclass: 'tinyeditor',
+						controlclass: 'tinyeditor-control',
+						rowclass: 'tinyeditor-header',
+						dividerclass: 'tinyeditor-divider',
+						controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+						footer: false,
+						xhtml: false,
+						bodyid: 'editor',
+						toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+						resize: {cssclass: 'resize'}
+					});
+					</script>
+			   </div>	  
+
 	  	</div><!--fin acordeon observaciones-->
 
 	  	<div id="subPestanias" data-collapse>
 	  		<h2 class="twelve columns">Obsevaciones</h2>
-	  		<div>
-				<textarea  placeholder="Escribir algun comentario" rows="10" cols="20" name="infoAdicional_observaciones" id="infoAdicional_observaciones" wrap="hard" ></textarea>
-	  		</div>
+	  		
+			<div class="twelve columns">
+					<textarea id="infoAdicional_observaciones" style="width: 400px; height: 200px" wrap="hard"  name="infoAdicional_observaciones"></textarea>
+					<script>
+					var instance = new TINY.editor.edit('infoAdicional_observaciones', {
+						id: 'infoAdicional_observaciones',
+						width: 584,
+						height: 175,
+						cssclass: 'tinyeditor',
+						controlclass: 'tinyeditor-control',
+						rowclass: 'tinyeditor-header',
+						dividerclass: 'tinyeditor-divider',
+						controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+						footer: false,
+						xhtml: false,
+						bodyid: 'editor',
+						toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+						resize: {cssclass: 'resize'}
+					});
+					</script>
+			</div>	
 	  	</div><!--fin acordeon observaciones-->
 
 	</div>
@@ -301,21 +382,53 @@
 
 						</p>
 					</div>
-					<div class="twelve columns">
-						<div class="six columns">
+						<div class="twelve columns">
 								<p>
-									<label for="tipoIntervencion">Impacto</label>
-									<textarea  rows="10" cols="20" name="intervenciones_impacto" id="intervenciones_impacto" wrap="hard" ></textarea>
+									<label for="tipoIntervencion">Impacto</label>									
+									<textarea id="intervenciones_impacto" style="width: 400px; height: 200px" name="intervenciones_impacto" wrap="hard"  > </textarea>
+									<script>
+									var instance = new TINY.editor.edit('intervenciones_impacto', {
+										id: 'intervenciones_impacto',
+										width: 584,
+										height: 175,
+										cssclass: 'tinyeditor',
+										controlclass: 'tinyeditor-control',
+										rowclass: 'tinyeditor-header',
+										dividerclass: 'tinyeditor-divider',
+										controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+										footer: false,
+										xhtml: false,
+										bodyid: 'editor',
+										toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+										resize: {cssclass: 'resize'}
+									});
+									</script>
 								</p>	 
 						</div>
-						<div class="six columns">
+						<div class="twelve columns">
 								<p>
 									<label for="tipoRespuesta">En respuesta</label>
-									<textarea  rows="10" cols="20" name="intervenciones_respuesta" id="intervenciones_respuesta" wrap="hard" ></textarea>
+									<textarea id="intervenciones_respuesta" style="width: 400px; height: 200px" name="intervenciones_respuesta" wrap="hard"  > </textarea>
+									<script>
+									var instance = new TINY.editor.edit('intervenciones_respuesta', {
+										id: 'intervenciones_respuesta',
+										width: 584,
+										height: 175,
+										cssclass: 'tinyeditor',
+										controlclass: 'tinyeditor-control',
+										rowclass: 'tinyeditor-header',
+										dividerclass: 'tinyeditor-divider',
+										controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+										footer: false,
+										xhtml: false,
+										bodyid: 'editor',
+										toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+										resize: {cssclass: 'resize'}
+									});
+									</script>
 								</p>	 
 						</div>
 					<?php echo br(2);?>	
-					</div>
 
 			</fieldset>
 			
@@ -360,27 +473,58 @@
 	
 		<fieldset>
 			  <legend>fuente documental</legend>
-			  <div class="twelve columns">
-						<div class="six columns">
+						<div class="twelve columns">
 								<p>
 									<label for="nombreFuente">Nombre de la fuente</label>
-									<textarea  rows="10" cols="20" name="infoAdicional_nombreFuente" id="infoAdicional_nombreFuente" wrap="hard" ></textarea>
+									<textarea id="infoAdicional_nombreFuente" style="width: 400px; height: 200px" name="infoAdicional_nombreFuente" wrap="hard"  > </textarea>
+									<script>
+									var instance = new TINY.editor.edit('infoAdicional_nombreFuente', {
+										id: 'infoAdicional_nombreFuente',
+										width: 584,
+										height: 175,
+										cssclass: 'tinyeditor',
+										controlclass: 'tinyeditor-control',
+										rowclass: 'tinyeditor-header',
+										dividerclass: 'tinyeditor-divider',
+										controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+										footer: false,
+										xhtml: false,
+										bodyid: 'editor',
+										toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+										resize: {cssclass: 'resize'}
+									});
+									</script>
 								</p>	 
-								
+						
+						</div>
+						<div class="twelve columns">
+								<p>
+									<label for="tipoRespuesta">Información adicional</label>
+									<textarea id="infoAdicional_infoAdicionalFuenteDocumental" style="width: 400px; height: 200px" name="infoAdicional_infoAdicionalFuenteDocumental" wrap="hard"  > </textarea>
+									<script>
+									var instance = new TINY.editor.edit('infoAdicional_infoAdicionalFuenteDocumental', {
+										id: 'infoAdicional_infoAdicionalFuenteDocumental',
+										width: 584,
+										height: 175,
+										cssclass: 'tinyeditor',
+										controlclass: 'tinyeditor-control',
+										rowclass: 'tinyeditor-header',
+										dividerclass: 'tinyeditor-divider',
+										controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
+										footer: false,
+										xhtml: false,
+										bodyid: 'editor',
+										toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+										resize: {cssclass: 'resize'}
+									});
+									</script>
+								</p>	 
+						</div>
 								<p>
 									<label for="tipoFuente">Tipo de la fuente</label>
 									<span>Nombre</span>
-									<span><o></o>Notas</span>
+									<span>Notas</span>
 								</p>
-						</div>
-						<div class="six columns">
-								<p>
-									<label for="tipoRespuesta">Información adicional</label>
-									<textarea  rows="10" cols="20" name="infoAdicional_infoAdicionalFuenteDocumental" id="infoAdicional_infoAdicionalFuenteDocumental" wrap="hard" ></textarea>
-								</p>	 
-						</div>
-					<?php echo br(2);?>	
-			  </div>
 		</fieldset>
 	</div>
 

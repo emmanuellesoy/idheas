@@ -30,6 +30,7 @@
 			echo link_tag($link); 
 		?>  
 		
+	
 <!---------Acordion css -------->		
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
@@ -37,7 +38,14 @@
 			);
 			echo link_tag($link); 
 		?>  
-		
+				
+		<?php $link = array(
+			'href' => 'statics/CSS/tinyeditor.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+	
 		<!--Scripts foundation-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
@@ -50,6 +58,7 @@
 		<!---script que hace posible el acordion--->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
 
 	</head>
 	
@@ -58,7 +67,7 @@
 		<!---Encabezado de la página--->
 			<div class="twelve columns">
 			  <div class="panel">
-				<p>Este será mi header</p>
+				<p>Este será mi header</p
 			  </div>
 			</div>
 		  <!---Termina el encabezado de la página-->
