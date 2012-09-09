@@ -549,12 +549,6 @@ function QuitarEstadodirInd() {///Elimina la opcion por su id
 /************************Prueba de comunicación Ajax***********************/
 
 function mostarDatosListaElem() {
-	var datosActor=new Array("Siwon","Choi","Horse","hombre");
-    $("#formInd").hide("slow");
-    $("#formCargInd").show("slow");
-	$('#actores_nombreV').html(datosActor[0]); 
-	$('#actores_apellidosSiglasV').html(datosActor[1]); 
-	$('#alias_aliasV').html(datosActor[2]); 
-	$('#infoGralActor_generoidV').html(datosActor[3]); 
-    };
+    
+};
 /*******************************************************************/

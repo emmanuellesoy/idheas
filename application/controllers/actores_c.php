@@ -5,8 +5,11 @@ class Actores_c extends CI_Controller {
 	  public function __construct()
        {
             parent::__construct();
+            
             $this->load->helper('url');
-            // Your own constructor code
+            
+            $this->load->model(array('actores_m'));
+            
        }
 
 	public function index(){
@@ -40,7 +43,7 @@ class Actores_c extends CI_Controller {
 		 
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
-                print_r($datos);
+                redirect(base_url().'index.php/form_c');
                 
 	}
 	
@@ -75,6 +78,20 @@ class Actores_c extends CI_Controller {
 		print_r($datos);
 		
 	}
+        
+        public function cTraerDatosActor(){
+        
+        $actorId = 12;
+            
+        print_r($datos['actor'] = $this->actores_m->mTraeDatosActores($actorId, 1));
+        
+        $datos['_actorId'] = $actorId;
+        
+        $this->load->view('formulariosCargados/formularioIndividual_v', $datos);
+        
+        
+        
+    }
 	
 }
 

@@ -5,18 +5,18 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span >Nombre:   </span>
+							<span >Nombre: <?=$actor[$_actorId]['nombre']; ?></span>
 							<span id="actores_nombreV"></span>
 						  </p>
 						 
 						  <p>
-							<span >Apellidos:  </span>
+							<span >Apellidos: <?=$actor[$_actorId]['apellidosSiglas']; ?></span>
 							<span id="actores_apellidosSiglasV"></span>
 						 
 						  </p>
 						 
 						  <p>
-							<span >Alias:   </span>
+							<span >Alias: <?=$actor[$_actorId]['alias']; ?></span>
 							<span id="alias_aliasV"></span> 
 						  
 						  </p>
@@ -28,7 +28,19 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span >Género:   </span>
+							<span >Género:
+                                                        <?php 
+                                                            if($actor[$_actorId]['generoId'] == 1){
+                                                                
+                                                                echo 'Hombre';
+                                                                
+                                                            } else {
+                                                                
+                                                                echo 'Mujer';
+                                                                
+                                                            }
+                                                        ?>
+                                                        </span>
 							<span id="infoGralActor_generoidV"></span>
 						
 						  </p>
@@ -37,18 +49,18 @@
 						<div class="six columns">
 						  
 						  <p>
-							<span >Edad:   </span>
+							<span >Edad: <?=$actor[$_actorId]['edad']; ?> años</span>
 							<span id="infoGralActor_edadV"></span>
 						  </p>
 						</div>
 						 
 						  <p>
-							<span >Estado Civil:   </span>
+							<span >Estado Civil: <?=$estadoCivil; ?></span>
 							<span id="infoGralActor_estadoCivil_estadoCivilV"></span>
 						  </p>
 						 
 						  <p>
-							<span >Nacionalidad:   </span>
+							<span >Nacionalidad: <?=$nacionalidadId; ?></span>
 							 <span id="infoGralActor_nacionalidadV"></span>
 						  </p>
 						
