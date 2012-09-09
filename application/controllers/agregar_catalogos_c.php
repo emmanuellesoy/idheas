@@ -6,137 +6,114 @@ class Agregar_catalogos_c extends CI_Controller {
         
         parent::__construct();
         
-        $this->load->helper('url');
+        $this->load->helper(array('file', 'url'));
         
-        $this->load->helper('file');
+        $this->load->model('agregar_catalogos_m');
         
     }
     
     /*
-     * @name: agrgegar_paises
+     * @name: Agrega los catalogos de derechos afectados
      * @param: no_aplica
      * @descripcion: Esta función agrega el catalogo de paises a la bse de datos.
      * 
      */
     
-    public function agregarPaisesC(){
+    public function cAgregarDerechosCatalogos(){
         
-        $string = read_file('statics/catalogos/paises.csv');
+        $derechosN1 = read_file('statics/catalogos/derechosAfectados/Derechos_Nivel1.csv');
         
-        $rows = explode(';', $string);
+        $derechosN1 = explode('&', $derechosN1);
         
-        foreach($rows as $row){
+        foreach($derechosN1 as $derechoN1){
             
-            $obtener_datos = explode(',', $row);
-            
-            if(isset($obtener_datos[0]) || $obtener_datos[0] != ''){
+            $obtener_datos = explode('¬', $derechoN1);
                 
-                $query[] = array('nombre' => trim($obtener_datos[0]));
-                
-            }
-        }
-        
-        $this->load->model('agregar_catalogos_m');
-        
-        $this->agregar_catalogos_m->agregarPaisesM($query);
-        
-        echo 'Paises insertados exitosamente';
-        
-    }
-    
-    public function agregarEstadosPaisC(){
-        
-        $string = read_file('statics/catalogos/estadosPaises.csv');
-        
-        $rows = explode(';', $string);
-        
-        //print_r($rows);
-        
-        foreach ($rows as $row){
-            
-            $obtener_datos= explode('|', $row);
-            
-            $query[] = array('nombre' => trim($obtener_datos[1]), 'paises_paisId' => trim($obtener_datos[0]));
-            
-        }
-        
-        $this->load->model('agregar_catalogos_m');
-        
-        $result = $this->agregar_catalogos_m->agregarEstadosPaisesM($query);
-        
-        print_r($result);
-        
-    }
+              $derechos['derechosAfectadosN1Catalogo'][trim($obtener_datos[0])] = array('derechoAfectadoN1Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]));
 
+        }
 
-    /*
-     * @name: agrgegar_paises
-     * @param: no_aplica
-     * @descripcion: Esta función agrega el catalogo de paises a la bse de datos.
-     * 
-     */
-    
-    public function agregarEstatusPerpretadorC(){
+        $derechosN2 = read_file('statics/catalogos/derechosAfectados/Derechos_Nivel2.csv');
         
-        $string = read_file('statics/catalogos/estatusPerpretador.csv');
+        $derechosN2 = explode('&', $derechosN2);
         
-        $rows = explode(';', $string);
-        
-        foreach($rows as $row){
+        foreach($derechosN2 as $derechoN2){
             
-            $obtener_datos = explode(',', $row);
-            
-            if(isset($obtener_datos[0]) || $obtener_datos[0] != ''){
+            $obtener_datos = explode('¬', $derechoN2);
                 
-                $notas = ($obtener_datos[1] == 'Nulo') ? '' : $obtener_datos[1];
-                
-                $query[] = array('descripcion' => $obtener_datos[0], 'notas' => $notas);
-                
-            }
+              $derechos['derechosAfectadosN2Catalogo'][trim($obtener_datos[0])] = array('derechoAfectadoN2Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'derechosAfectadosN1Catalogo_derechoAfectadoN1Id' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
         }
         
-        $this->load->model('agregar_catalogos_m');
+        $derechosN3 = read_file('statics/catalogos/derechosAfectados/Derechos_Nivel3.csv');
         
-        $this->agregar_catalogos_m->agregarEstatusPerpretadorM($query);
+        $derechosN3 = explode('&', $derechosN3);
         
-        ?><?php print_r($query); ?><?php
+        foreach($derechosN3 as $derechoN3){
+            
+            $obtener_datos = explode('¬', $derechoN3);
+                
+              $derechos['derechosAfectadosN3Catalogo'][trim($obtener_datos[0])] = array('derechoAfectadoN3Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'derechosAfectadosN2Catalogo_derechoAfectadoN2Id' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
+        }
+        
+        $derechosN4 = read_file('statics/catalogos/derechosAfectados/Derechos_Nivel4.csv');
+        
+        $derechosN4 = explode('&', $derechosN4);
+        
+        foreach($derechosN4 as $derechoN4){
+            
+            $obtener_datos = explode('¬', $derechoN4);
+                
+              $derechos['derechosAfectadosN4Catalogo'][trim($obtener_datos[0])] = array('derechoAfectadoN4Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'derechosAfectadosN3Catalogo_derechoAfectadoN3Id' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarDerechosCatalogos($derechos);
         
     }
     
-    public function agregarEstatusVictimaC(){
+    public function cAgregarCatalogosLugares(){
         
-        $string = read_file('statics/catalogos/estatusVictima.csv');
+        $paises = read_file('statics/catalogos/catalogosLugares/paises.csv');
         
-        $rows = explode('$', $string);
+        $estados = read_file('statics/catalogos/catalogosLugares/CatalogosEdos.csv');
         
-        //print_r($rows);
+        $municipios = read_file('statics/catalogos/catalogosLugares/CatalogosMunicipios.csv');
         
-        foreach($rows as $row){
+        $paises = explode('&', $paises);
+        
+        $estados = explode('&', $estados);
+        
+        $municipios = explode('&', $municipios);
+        
+        foreach($paises as $pais){
             
-            $obtener_datos = explode('|', $row);
+            $datos_pais = explode('¬', $pais);
             
-            print_r($obtener_datos);
+            $lugares['paisesCatalogo'][$datos_pais[0]] = array('paisId' => trim($datos_pais[0]), 'nombre' => trim($datos_pais[1]));
             
-            if(isset($obtener_datos[0]) || $obtener_datos[0] != ''){
-                
-                $notas = ($obtener_datos[0] == 'Nulo') ? '' : $obtener_datos[0];
-                
-                $query[] = array('descripcion' => $obtener_datos[0], 'notas' => $notas);
-                
-                
-                
-            }
         }
         
-        //$this->load->model('agregar_catalogos_m');
+        foreach($estados as $estado){
+            
+            $datos_estado = explode('¬', $estado);
+            
+            $lugares['estadosCatalogo'][trim($datos_estado[0])] = array('estadoId' => trim($datos_estado[0]), 'nombre' => trim($datos_estado[1]), 'paises_paisId' => trim($datos_estado[2]));
+            
+        }
         
-        //$this->agregar_catalogos_m->agregarEstatusVictimaM($query);
+        foreach($municipios as $municipio){
+            
+            $datos_municipio = explode('¬', $municipio);
+            
+            $lugares['municipiosCatalogo'][trim($datos_municipio[0])] = array('municipioId' => trim($datos_municipio[0]), 'nombre' => trim($datos_municipio[1]), 'estados_estadoId' => trim($datos_municipio[2]));
+            
+        }
         
-        ?><?php print_r($query); ?><?php
+        $this->agregar_catalogos_m->mAgregarCatalogos($lugares);
         
     }
-    
-    
     
 }
 

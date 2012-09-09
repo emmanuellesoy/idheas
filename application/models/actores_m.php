@@ -65,8 +65,6 @@
 		 * */
 
 		public function mListaActores($tipoActorId){
-			
-			//$tipoActorId = 3;
 
 			$this->db->select('actorId, nombre');
 			$this->db->from('actores');
@@ -92,10 +90,6 @@
 		 * */
 		
 		public function mTraeDatosActores($actorId,$tipoActorId){
-			
-			//$actorId = 13;
-			//$tipoActorId = 1;
-			
 			
 			switch ($tipoActorId) {
 				
@@ -185,8 +179,6 @@
 	 	*/
 		public function mBuscarActoresNombre($cadena){
 			
-			//$cadena = 'a';
-			
 			$this->db->select('actorId, nombre, apellidosSiglas');
 			$this->db->from('actores');
 			$this->db->like('nombre', $cadena);
@@ -204,7 +196,7 @@
 			
 		}/* Fin de mBuscarActores() */
 		
-		/* Este método trae los actores en arreglos organizados por tipo (individual, transigrante, colectivo)*/
+		/* Este modelo trae los actores en arreglos organizados por tipo (individual, transigrante, colectivo)*/
 		
 		public function mTraerActores(){
 			
@@ -246,15 +238,62 @@
 				
 			}/* fin foreach */
                         
-			return $datos;
+		/* Regresa la cadena al controlador*/
+		return $datos;
 			
 		}/* fin de traerActores */
 		
-		public function mActualizaDatosActor()
-		{
-			
-		}
+		/* Este modelo actualiza los datos de un actor
+		 * @param ($actorId, $datosActor)
+		 * */
 		
+		public function mActualizaDatosActor($actorId,$datosActor)
+		{
+			$this->db->where('actorId', $actorId);
+			$this->db->update('actores',$datosActor['tablas']['actores']);
+			
+			foreach($datosActor['tablas'] as $key => $value){
+				if($key != 'actores'){
+					$this->db->where('actores_actorId', $actorId);
+					$this->db->update($key,$datosActor['tablas'][$key]);
+				}
+			}
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+					
+		}/* Fin de mActualizaDatosActor */
+		
+		/* Este modelo cambia el estado de un actor a inactivo, en lugar de eliminarlo de la base de datos
+		 * @param ($actorId)
+		 * */
+		
+		public function mCambiaEstadoActivoActor($actorId){
+			
+			$estado = array('estadoActivo' => 0);
+			
+			$this->db->where('actorId', $actorId);
+			$this->db->update('actores',$estado);
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+			
+		}/* Fin de mCambiaEstadoActivoActor */
+		
+		/* Este modelo elimina la relacion en un caso de un perpetrador
+		 * @param ($perpetradorId)
+		 * */
+		
+		public function mEliminaPerpetrador($perpetradorId){
+			
+			$this->db->where('perpetradorId', $perpetradorId);
+			$this->db->delete('perpetradrores');
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+			
+		}/*Fin de mEliminaPerpetrador*/
+
 	}
 	
 ?>

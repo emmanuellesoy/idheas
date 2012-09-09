@@ -44,7 +44,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN1Catalogo'] = $row;
+			$datos['actosN1Catalogo'][$row['actoId']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN2Catalogo*/
@@ -54,7 +54,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN2Catalogo'] = $row;
+			$datos['actosN2Catalogo'][$row['actoN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN3Catalogo*/
@@ -64,7 +64,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN3Catalogo'] = $row;
+			$datos['actosN3Catalogo'][$row['actoN3Id']] = $row;
 		}
 		
 		/* Trae todos los datos de actosN4Catalogo*/
@@ -74,7 +74,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['actosN4Catalogo'] = $row;
+			$datos['actosN4Catalogo'][$row['actoN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -93,7 +93,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN1Catalogos'] = $row;
+			$datos['derechosAfactadosN1Catalogos'][$row['derechoAfectadoN1Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN2Catalogo */
@@ -103,7 +103,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN2Catalogos'] = $row;
+			$datos['derechosAfactadosN2Catalogos'][$row['derechoAfectadoN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN3Catalogo */
@@ -113,7 +113,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN3Catalogos'] = $row;
+			$datos['derechosAfactadosN3Catalogos'][$row['derechoAfectadoN3Id']] = $row;
 		}
 		
 		/* Trae todos los datos de derechosAfactadosN4Catalogo */
@@ -123,7 +123,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN4Catalogos'] = $row;
+			$datos['derechosAfactadosN4Catalogos'][$row['derechoAfectadoN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -136,48 +136,49 @@ class Catalogos_m extends CI_Model {
 	
 	public function mTraerDatosCatalogoTipoIntervencion(){
 		
-		/* Trae todos los datos de tipoIntervenciónN1Catalogo */
+		/* Trae todos los datos de tipoIntervencionN1Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN1Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN1Catalogo'] = $row;
+			$datos['tipoIntervencionN1Catalogo'][$row['tipoIntervencionN1Id']] = $row;
 		}
 		
-		/* Trae todos los daos de tipoIntervenciónN2Catalogo */
+		/* Trae todos los daos de tipoIntervencionN2Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN2Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN2Catalogo'] = $row;
+			$datos['tipoIntervencionN2Catalogo'][$row['tipoIntervencionN2Id']] = $row;
 		}
 		
-		/* Trae todos los datos de tipoIntervenciónN3Catalogo */
+		/* Trae todos los datos de tipoIntervencionN3Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN3Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN3Catalogo'] = $row;
+			$datos['tipoIntervencionN3Catalogo'][$row['tipoIntervencionN3Id']] = $row;
 		}
 		
-		/* Trae todos los datos de tipoIntervenciónN4Catalogo */
+		/* Trae todos los datos de tipoIntervencionN4Catalogo */
 		$this->db->select('*');
 		$this->db->from('tipoIntervencionN4Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoIntervencionN4Catalogo'] = $row;
+			$datos['tipoIntervencionN4Catalogo'][$row['tipoIntervencionN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;	
+		
 	}/* Fin de mTraerDatosCatalogoTipoIntervencion*/
 	
 	/* Este modelo trae los datos de los catálogos TipoLugar */
@@ -191,7 +192,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN1Catalogo'] = $row;
+			$datos['tipoLugarN1Catalogo'][$row['tipoLugarN1Id']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoLugarN2Catalogo */
@@ -201,7 +202,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN2Catalogo'] = $row;
+			$datos['tipoLugarN2Catalogo'][$row['tipoLugarN2Id']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoLugarN3Catalogo */
@@ -211,7 +212,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN3Catalogo'] = $row;
+			$datos['tipoLugarN3Catalogo'][$row['tipoLugarN3Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
@@ -230,7 +231,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['paisesCatalogo'] = $row;
+			$datos['paisesCatalogo'][$row['paisId']] = $row;
 		}
 		
 		/* Trae todos los datos de estadosCatalogo */
@@ -240,7 +241,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['estadosCatalogo'] = $row;
+			$datos['estadosCatalogo'][$row['estadoId']] = $row;
 		}
 		
 		/* Trae todos los datos de municipiosCatalogo */
@@ -250,11 +251,70 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['municipiosCatalogo'] = $row;
+			$datos['municipiosCatalogo'][$row['municipioId']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;
 		
 	}/* Fin de mTraerDatosCatalogoPaises */
+	
+	/* Este modelo trae los datos de los catálogos TipoPerpetrador */
+	
+	public function mTraerDatosCatalogoTipoPerpetrador(){
+		
+		/* Trae todos los datos de tipoPerpetradorN1Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN1Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN1Catalogo'][$row['tipoPerpetradorN1Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN2Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN2Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN2Catalogo'][$row['tipoPerpetradorN2Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN3Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN3Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN3Catalogo'][$row['tipoPerpetradorN3Id']] = $row;
+		}
+		
+		/* Trae todos los datos de tipoPerpetradorN4Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN4Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN4Catalogo'][$row['tipoPerpetradorN4Id']] = $row;
+		}
+
+		/* Trae todos los datos de tipoPerpetradorN5Catalogo */
+		$this->db->select('*');
+		$this->db->from('tipoPerpetradorN5Catalogo');
+		$consulta = $this->db->get();
+						
+		/* Pasa la consulta a un cadena */
+		foreach ($consulta->result_array() as $row) {
+			$datos['tipoPerpetradorN5Catalogo'][$row['tipoPerpetradorN5Id']] = $row;
+		}
+
+		/* Regresa la cadena al controlador*/
+		return $datos;
+		
+	}/* Fin de mTraerDatosCatalogoTipoPerpetrador*/
 }
