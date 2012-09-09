@@ -59,6 +59,15 @@ class Catalogos_c extends CI_Controller {
         
     }
     
+    public function cTraerDatosCatalogoTipoPerpetrador(){
+        
+        $datos = $this->catalogos_m->mTraerDatosCatalogoTipoPerpetrador();
+        echo '<pre>';
+        print_r($datos);
+        echo '</pre>';
+        
+    }
+    
 }
 
 ?>

@@ -12,6 +12,18 @@ class Agregar_catalogos_c extends CI_Controller {
         
     }
     
+    public function index(){
+        
+        $this->cAgregarCatalogosLugares();
+        
+        $this->cAgregarCatalogosTipoDeIntervencion();
+        
+        $this->cAgregarDerechosCatalogos();
+        
+        $this->cAgregarCatalogosTipoPerpetrador();
+        
+    }
+    
     /*
      * @name: Agrega los catalogos de derechos afectados
      * @param: no_aplica
@@ -71,6 +83,8 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->agregar_catalogos_m->mAgregarDerechosCatalogos($derechos);
         
+        echo 'cataologos de derechos afectados ingresados correctamente<br />';
+        
     }
     
     public function cAgregarCatalogosLugares(){
@@ -112,6 +126,110 @@ class Agregar_catalogos_c extends CI_Controller {
         }
         
         $this->agregar_catalogos_m->mAgregarCatalogos($lugares);
+        
+        echo 'Catalogos de lugares insertados exitosamente.<br />';
+        
+    }
+    
+    public function cAgregarCatalogosTipoDeIntervencion(){
+        
+        for($n = 1; $n <= 4; $n++){
+            
+            $tipoDeIntervencion[$n] = explode('&', read_file('statics/catalogos/catalogotipodeintervencion/TipodeIntervencion_nivel'.$n.'.csv'));
+            
+        }
+            
+            foreach($tipoDeIntervencion[1] as $nivelDeIntervencion){
+                
+                $datosNivel = explode('¬', $nivelDeIntervencion);
+            
+                $tiposDeIntervencionNiveles['tipoIntervencionN1Catalogo'][trim($datosNivel[0])] = array('tipoIntervencionN1Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]));
+   
+            }
+            
+            foreach($tipoDeIntervencion[2] as $nivelDeIntervencion){
+                
+                    $datosNivel = explode('¬', $nivelDeIntervencion);
+                
+                    $tiposDeIntervencionNiveles['tipoIntervencionN2Catalogo'][trim($datosNivel[0])] = array('tipoIntervencionN2Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'tipoIntervencionN1Catalogo_tipoIntervencionN1Id' => trim($datosNivel[2]));
+                
+            }
+            
+            foreach($tipoDeIntervencion[3] as $nivelDeIntervencion){
+                
+                    $datosNivel = explode('¬', $nivelDeIntervencion);
+                
+                    $tiposDeIntervencionNiveles['tipoIntervencionN3Catalogo'][trim($datosNivel[0])] = array('tipoIntervencionN3Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'tipoIntervencionN2Catalogo_tipoIntervencionN2Id' => trim($datosNivel[2]));
+                
+            }
+            
+            foreach($tipoDeIntervencion[4] as $nivelDeIntervencion){
+                
+                    $datosNivel = explode('¬', $nivelDeIntervencion);
+                
+                    $tiposDeIntervencionNiveles['tipoIntervencionN4Catalogo'][trim($datosNivel[0])] = array('tipoIntervencionN4Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'tipoIntervencionN3Catalogo_tipoIntervencionN3Id' => trim($datosNivel[2]));
+                
+            }
+            
+     
+        
+            $this->agregar_catalogos_m->mAgregarCatalogos($tiposDeIntervencionNiveles);
+        
+            echo 'Catalogos de Tipo de intervencion insertados exitosamente<br />';
+            
+    }
+    
+    public function cAgregarCatalogosTipoPerpetrador(){
+        
+        for($n = 1; $n <= 5; $n++){
+            
+            $tipoDePerpetrador[$n] = explode('&', read_file('statics/catalogos/catalogotipodeperpetrador/TipodePerpetrador_nivel'.$n.'.csv'));
+            
+        }
+        
+        foreach($tipoDePerpetrador[1] as $nivelDePerpetrador){
+                
+                    $datosNivel = explode('¬', $nivelDePerpetrador);
+                
+                    $tiposDePerpetradorNiveles['tipoPerpetradorN1Catalogo'][trim($datosNivel[0])] = array('tipoPerpetradorN1Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'notas' => trim($datosNivel[2]));
+                
+        }
+        
+        foreach($tipoDePerpetrador[2] as $nivelDePerpetrador){
+                
+                $datosNivel = explode('¬', $nivelDePerpetrador);
+                
+                $tiposDePerpetradorNiveles['tipoPerpetradorN2Catalogo'][trim($datosNivel[0])] = array('tipoPerpetradorN2Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'notas' => trim($datosNivel[3]), 'tipoPerpetradorN1Catalogo_tipoPerpetradorN1Id' => trim($datosNivel[2]));
+                
+        }
+        
+        foreach($tipoDePerpetrador[3] as $nivelDePerpetrador){
+                
+                $datosNivel = explode('¬', $nivelDePerpetrador);
+                
+                $tiposDePerpetradorNiveles['tipoPerpetradorN3Catalogo'][trim($datosNivel[0])] = array('tipoPerpetradorN3Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'notas' => trim($datosNivel[3]), 'tipoPerpetradorN2Catalogo_tipoPerpetradorN2Id' => trim($datosNivel[2]));
+                
+        }
+        
+        foreach($tipoDePerpetrador[4] as $nivelDePerpetrador){
+                
+                $datosNivel = explode('¬', $nivelDePerpetrador);
+                
+                $tiposDePerpetradorNiveles['tipoPerpetradorN4Catalogo'][trim($datosNivel[0])] = array('tipoPerpetradorN4Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'notas' => trim($datosNivel[3]), 'tipoPerpetradorN3Catalogo_tipoPerpetradorN3Id' => trim($datosNivel[2]));
+                
+        }
+        
+        foreach($tipoDePerpetrador[5] as $nivelDePerpetrador){
+                
+                $datosNivel = explode('¬', $nivelDePerpetrador);
+                
+                $tiposDePerpetradorNiveles['tipoPerpetradorN5Catalogo'][trim($datosNivel[0])] = array('tipoPerpetradorN5Id' => trim($datosNivel[0]), 'descripcion' => trim($datosNivel[1]), 'notas' => trim($datosNivel[3]), 'tipoPerpetradorN4Catalogo_tipoPerpetradorN4Id' => trim($datosNivel[2]));
+                
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($tiposDePerpetradorNiveles);
+        
+        echo 'Catalogos de Tipos de perpetrador insertados exitosamente.';
         
     }
     
