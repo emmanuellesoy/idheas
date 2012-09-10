@@ -21,21 +21,29 @@
 			<?php echo br(2);?>	
 
 
+				  <pre><?php print_r($listaCasos); ?></pre>
 <!------------Lista ind-------------------->
 			
-			<div  id="listaActorIndiv" class="PruebaScorll">	
-					<!----</?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
+	<div  id="listaActorIndiv" class="PruebaScorll">
+					<?php if($listaCasos['individual']){ ?>
+				  <pre><?php print_r($derechosAfectados); ?></pre>
+                                                <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
+								<div class="five columns"><!--imprimo imagenes-->
+									<?php echo img($item['actorId']);?>
+									<?php echo br(2);?>	
+								</div>
 								
-								<div class="four columns"><!--Imprimo nombres-->
-										<!----  ?=$item['nombre']?--->
-										nombre de casos
+								<div class="seven columns"><!--Imprimo nombres-->
+										<?=$item['nombre']?>
 										<?php echo br(2);?>	
 								</div>
 							</div>
 							
-					<!--?php endforeach;?><Termina lista de los actores-->
+					<?php endforeach;?><!--Termina lista de los actores-->
+                                           <?php } ?>
 			</div>
+			
 			
 	</div> 

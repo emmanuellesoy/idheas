@@ -32,12 +32,13 @@
 			                <td>Content</td>
 			                <td>This is longer content</td>
 			                <td>Content</td>
-			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			                <td><input type="button" class="small button"  value="Detalles" onclick="detallesDelLugar()" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
 	  			</div>
-	  			  
+	  		
+	  		<div id="detallesLugar" class="Escondido"> <?php echo $detalleLugar?>	</div>	  
 	  		</div>
 	  	</div><!--fin acordeon lugares-->
 	  	<div id="subPestanias" data-collapse>

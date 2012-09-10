@@ -2,7 +2,6 @@
 	<div id="pestania" data-collapse>
 	<h2 class="twelve columns">Información general</h2><!--título de la sub-pestaña--->  
 	<div>
-	<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregar_caso_c'); ?>
 		<!--Comienzan datos-->
 		<div class="twelve columns">
 		<div class="six columns">
@@ -159,9 +158,7 @@
 					</script>
 			</div>	
 	  	</div><!--fin acordeon observaciones-->
-	
-	<input class="large button" type="submit" />
-	</form>
+
 	</div>
 </div><!--fin acordeon información general-->
 </div>

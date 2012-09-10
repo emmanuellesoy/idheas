@@ -86,44 +86,44 @@ class Catalogos_m extends CI_Model {
 	
 	public function mTraerDatosCatalogoDerechosAfectados(){
 		
-		/* Trae todos los daos de derechosAfactadosN1Catalogo */
+		/* Trae todos los daos de derechosAfectadosN1Catalogo */
 		$this->db->select('*');
-		$this->db->from('derechosAfactadosN1Catalogo');
+		$this->db->from('derechosAfectadosN1Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN1Catalogos'][$row['derechoAfectadoN1Id']] = $row;
+			$datos['derechosAfectadosN1Catalogos'][$row['derechoAfectadoN1Id']] = $row;
 		}
 		
-		/* Trae todos los datos de derechosAfactadosN2Catalogo */
+		/* Trae todos los datos de derechosAfectadosN2Catalogo */
 		$this->db->select('*');
-		$this->db->from('derechosAfactadosN2Catalogo');
+		$this->db->from('derechosAfectadosN2Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN2Catalogos'][$row['derechoAfectadoN2Id']] = $row;
+			$datos['derechosAfectadosN2Catalogos'][$row['derechoAfectadoN2Id']] = $row;
 		}
 		
-		/* Trae todos los datos de derechosAfactadosN3Catalogo */
+		/* Trae todos los datos de derechosAfectadosN3Catalogo */
 		$this->db->select('*');
-		$this->db->from('derechosAfactadosN3Catalogo');
+		$this->db->from('derechosAfectadosN3Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN3Catalogos'][$row['derechoAfectadoN3Id']] = $row;
+			$datos['derechosAfectadosN3Catalogos'][$row['derechoAfectadoN3Id']] = $row;
 		}
 		
-		/* Trae todos los datos de derechosAfactadosN4Catalogo */
+		/* Trae todos los datos de derechosAfectadosN4Catalogo */
 		$this->db->select('*');
-		$this->db->from('derechosAfactadosN4Catalogo');
+		$this->db->from('derechosAfectadosN4Catalogo');
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['derechosAfactadosN4Catalogos'][$row['derechoAfectadoN4Id']] = $row;
+			$datos['derechosAfectadosN4Catalogos'][$row['derechoAfectadoN4Id']] = $row;
 		}
 		
 		/* Regresa la cadena al controlador*/

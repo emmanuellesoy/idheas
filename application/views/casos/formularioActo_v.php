@@ -3,25 +3,122 @@
 	<div id="pestania" data-collapse>
 	<h2 class="twelve columns">Acto</h2><!--título de la sub-pestaña--->  
 	<div>
-	<?php $config=array('enctype'=>'image/jpeg');?>
 			<fieldset>
 				  <legend>Información general</legend>
-				  
                     <p>
-                        <label for="genero">Derecho afectado</label>
+                        <label for="derecho">Derecho afectado</label>
+                        <div id="textoDerechoAfectado"></div>
                         
-                        
-            <div  id="listaActorIndiv" class="PruebaScorll">	
+			<?php echo br(2);?>	            <div  id="listaActorIndiv" class="casosScorll">	
+                        <ul>
+							<?php foreach($derechosAfectados['derechosAfectadosN1Catalogos'] as $derechoAfectado):?> 
+								<li  id="pestaniaCasos" >
+									<div onclick="nombrederechoAfectado('<?=$derechoAfectado['descripcion'];?>','<?=$derechoAfectado['derechoAfectadoN1Id'];?>')" >
+										<?php echo $derechoAfectado['descripcion'];?>
+									</div>
+									<ul class="Escondido" id="<?=$derechoAfectado['derechoAfectadoN1Id'];?>DAN1" >
+									
+									<?php foreach($derechosAfectados['derechosAfectadosN2Catalogos'] as $derechoAfectadoN2):?>
+										<?php if($derechoAfectadoN2['derechosAfectadosN1Catalogo_derechoAfectadoN1Id'] == $derechoAfectado['derechoAfectadoN1Id']):?>
+											<li class=" pestaniaCasos" >
+												<div  onclick="nombrederechoAfectadosub1('<?=$derechoAfectadoN2['descripcion'];?>','<?=$derechoAfectadoN2['derechoAfectadoN2Id'];?>')">
+												<?php echo $derechoAfectadoN2['descripcion'];?>
+												</div>
+												<ul class="Escondido"  id="<?=$derechoAfectadoN2['derechoAfectadoN2Id'];?>DAN2" >
+									
+													<?php foreach($derechosAfectados['derechosAfectadosN3Catalogos'] as $derechoAfectadoN3):?>
+														<?php if($derechoAfectadoN3['derechosAfectadosN2Catalogo_derechoAfectadoN2Id'] == $derechoAfectadoN2['derechoAfectadoN2Id']):?>
+															<li class=" pestaniaCasos" >
+																<div  onclick="nombrederechoAfectadosub2('<?=$derechoAfectadoN3['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>')">
+																<?php echo $derechoAfectadoN3['descripcion'];?>
+																</div>
+																
+																	<ul class="Escondido" id="<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>DAN3" >
+														
+																		<?php foreach($derechosAfectados['derechosAfectadosN4Catalogos'] as $derechoAfectadoN4):?>
+																			<?php if($derechoAfectadoN4['derechosAfectadosN3Catalogo_derechoAfectadoN3Id'] == $derechoAfectadoN3['derechoAfectadoN3Id']):?>
+																				<li class=" pestaniaCasos" >
+																					<div  onclick="nombrederechoAfectadosub3('<?=$derechoAfectadoN4['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>')">
+																					<?php echo $derechoAfectadoN4['descripcion'];?>
+																					</div>
+																				</li>
+																			<?php endif;?>
+																		<?php endforeach;?>
+																	</ul>
+																
+															</li>
+														<?php endif;?>
+													<?php endforeach;?>
+													</ul>
+
+											</li>
+										<?php endif;?>
+									<?php endforeach;?>
+									</ul>
+								</li>
+							<?php endforeach;?>
+						</ul>
 			</div>
+  
                         
+                        <label for="Acto">Acto</label>
+                        <div id="textoDerechoAfectadoN2"></div>
+			<?php echo br(2);?>	
                         
-                        
-                        
-                        
-                        
-                        
-                        <label for="genero">Acto</label>
-                    </p>
+                  
+			<div  id="listaActorIndiv" class="casosScorll">	
+                        <ul>
+							<?php foreach($actos['actosN1Catalogo'] as $acto):?> 
+								<li  id="pestaniaCasos" >
+									<div onclick="nombreacto('<?=$acto['descripcion'];?>','<?=$acto['actoId'];?>')" >
+										<?php echo $acto['descripcion'];?>
+									</div>
+									
+									<ul class="Escondido" id="<?=$acto['actoId'];?>act1" >
+									
+									<?php foreach($actos['actosN2Catalogo'] as $actoN2):?>
+										<?php if($actoN2['actosN1Catalogo_actoId'] == $acto['actoId']):?>
+											<li class="pestaniaCasos" >
+												<div  onclick="nombreactosub1('<?=$actoN2['descripcion'];?>','<?=$actoN2['actoN2Id'];?>')">
+												<?php echo $actoN2['descripcion'];?>
+												</div>	
+												<ul class="Escondido"  id="<?=$actoN2['actoN2Id'];?>act2" >
+									
+													<?php foreach($actos['actosN3Catalogo'] as $actoN3):?>
+														<?php if($actoN3['actosN2Catalogo_actoN2Id'] == $actoN2['actoN2Id']):?>
+															<li class=" pestaniaCasos" >
+																<div  onclick="nombreactosub2('<?=$actoN3['descripcion'];?>','<?=$actoN3['actoN3Id'];?>')">
+																<?php echo $actoN3['descripcion'];?>
+																</div>
+																
+																	<ul class="Escondido" id="<?=$actoN3['actoN3Id'];?>act3" >
+														
+																		<?php foreach($actos['actosN4Catalogo'] as $actoN4):?>
+																			<?php if($actoN4['actosN3Catalogo_actoN3Id'] == $actoN3['actoN3Id']):?>
+																				<li class=" pestaniaCasos" >
+																					<div  onclick="nombreactosub3('<?=$actoN4['descripcion'];?>','<?=$actoN3['actoN3Id'];?>')">
+																					<?php echo $actoN4['descripcion'];?>
+																					</div>
+																				</li>
+																			<?php endif;?>
+																		<?php endforeach;?>
+																	</ul>
+																
+															</li>
+														<?php endif;?>
+													<?php endforeach;?>
+													</ul>
+
+											</li>
+										<?php endif;?>
+									<?php endforeach;?>
+									</ul>
+								</li>
+							<?php endforeach;?>
+						</ul>
+			</div>
+			
+             </p>
                     
                     		<div class="twelve columns">
 		<div class="six columns">
@@ -143,8 +240,7 @@
 		</div>
 				  
 			</fieldset>
-		<input class="large button" type="submit" />
-	</form>
+			
 	</div>
 	   
 	</div><!--fin acordeon información general-->

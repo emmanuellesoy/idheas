@@ -72,6 +72,8 @@ class Form_c extends CI_Controller {
 				$DatosGenerales['tipoDir']= array('Casa', 'Departamento', 'Hostal', 'Hotel'); 
 				$DatosGenerales['tipoActorColectivo']= $this->catalogos_m->mTraerDatosCatalogoNombre('tipoActorColectivo');
 				$DatosGenerales['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
+				$DatosGenerales['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
+				$DatosGenerales['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
 				$DatosGenerales['id']= 'id="ActorIndv" ';
 				$Lista['vista'] = "0";
 				//TERMINA INFORMACIÓN DE DATOS PARA LOS FORMULARIOS
@@ -82,12 +84,13 @@ class Form_c extends CI_Controller {
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
                 $datosCasos['listaActores'] = $this->actores_m->mTraerActores();
                 $DatosGenerales['listaActores'] = $this->actores_m->mTraerActores();
+                $DatosGenerales['listaCasos'] = $this->casos_m->mTraerDatosCaso();
 				$DatosGenerales['detalleLugar'] = $this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales , true);
 				$datosCasos['actor'] = $this->load->view('casos/formularioActo_v', $DatosGenerales , true);
 				$datosCasos['infoGral'] = $this->load->view('casos/formularioInfoGral_v', $DatosGenerales , true);
 				$datosCasos['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $DatosGenerales , true);
 				$datosCasos['fuenteDoc'] = $this->load->view('casos/formularioFuenteDoc_v', $DatosGenerales , true);
-				$datosCasos['fuentesInfoGral'] = $this->load->view('casos/formulariofuentesInfoPersonal_v', $DatosGenerales , true);
+				$datosCasos['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $DatosGenerales , true);
 				$datosCasos['intervencion'] = $this->load->view('casos/formularioIntervencion', $DatosGenerales , true);
 				$datosCasos['relacionCasos'] = $this->load->view('casos/formularioRelacionCasos_v', $DatosGenerales , true);
 				$datosCasos['ficha'] = $this->load->view('casos/formularioSeguimientoCaso_v', $DatosGenerales , true);
