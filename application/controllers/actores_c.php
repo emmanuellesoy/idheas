@@ -79,11 +79,9 @@ class Actores_c extends CI_Controller {
 		
 	}
         
-        public function cTraerDatosActor(){
-        
-        $actorId = 12;
+        public function cTraerDatosActor($actorId, $tipoActorId){
             
-        print_r($datos['actor'] = $this->actores_m->mTraeDatosActores($actorId, 1));
+        $datos['actor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
         
         $datos['_actorId'] = $actorId;
         

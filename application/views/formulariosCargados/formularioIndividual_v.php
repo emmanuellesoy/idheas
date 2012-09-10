@@ -55,12 +55,12 @@
 						</div>
 						 
 						  <p>
-							<span >Estado Civil: <?=$estadoCivil; ?></span>
+							<span >Estado Civil: <?=$actor[$_actorId]['estadoCivil_estadoCivilId']; ?></span>
 							<span id="infoGralActor_estadoCivil_estadoCivilV"></span>
 						  </p>
 						 
 						  <p>
-							<span >Nacionalidad: <?=$nacionalidadId; ?></span>
+							<span >Nacionalidad: <?=$actor[$_actorId]['nacionalidadId']; ?></span>
 							 <span id="infoGralActor_nacionalidadV"></span>
 						  </p>
 						

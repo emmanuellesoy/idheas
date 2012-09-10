@@ -1,10 +1,8 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
-
 	<ul class="button-group">
 		<li><input type="button" class="button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
 		<li><input type="button" class="button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
-
 			<?php echo form_open('form_c/menu'); ?> 
 			<!--buscador de la lista de actores--->
 			<div class="eight columns">
@@ -24,14 +22,14 @@
 
 
 <!------------Lista ind-------------------->
-			
+
 			<div  id="listaActorIndiv" class="PruebaScorll">
 					<?php if($listaActores['individual']){ ?>
                                                 <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
-							<div class="twelve columns" onclick="mostarDatosListaElem()">
+							<div class="twelve columns" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>)">
 								<div class="five columns"><!--imprimo imagenes-->
-									<?php echo img($item['actorId']);?>
+									<?php echo $item['actorId'];?>
 									<?php echo br(2);?>	
 								</div>
 								

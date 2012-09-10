@@ -107,9 +107,9 @@ class Form_c extends CI_Controller {
 				$data['listaActoresColectivo'] = $this->load->view('listaActoresColectivos_v',$Lista, true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
 				$VistasCasosForm['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
-				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasosForm , true);
-				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $VistasCasosForm , true);
-				$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $VistasCasosForm , true);
+				//$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasosForm , true);
+				//$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $VistasCasosForm , true);
+				//$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $VistasCasosForm , true);
 				
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);

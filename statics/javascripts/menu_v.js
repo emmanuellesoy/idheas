@@ -548,7 +548,19 @@ function QuitarEstadodirInd() {///Elimina la opcion por su id
 
 /************************Prueba de comunicación Ajax***********************/
 
-function mostarDatosListaElem() {
+function mostarDatosListaElem(id) {
+    
+    var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/1";
+    
+    $.ajax({
+            url: uri,
+            method: 'post',
+            datatype: "html",
+            success: function(data){
+                $('#formCargInd').html(data);
+            }
+        });
+    
     
 };
 /*******************************************************************/
