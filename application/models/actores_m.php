@@ -314,14 +314,37 @@
             return ($mensaje = 'Hecho');
         }/* Fin de mRelacionaActores */
 		
-		public function mEliminaRelacionActores($relacionId){
+		/*Este modelo elimina todas las relaciones actor-actor
+		 * @param $relacionActoresId
+		 * */
+		public function mEliminaRelacionActores($relacionActoresId){
 
-		    $this->db->where('relacionActoresId', $relacionId);
+		    $this->db->where('relacionActoresId', $relacionActoresId);
 			$this->db->delete('relacionActores');
 		
 		    /* Regresa la cadena al controlador*/
 		    return ($mensaje = 'Hecho');
-	    }/* Fin de mRelacionaActores */	
+	    }/* Fin de mEliminaRelacionActores */
+	   
+	   /* Este modelo trae todas las relaciones actor-actor
+	    * @param $actorId
+	    * */
+		public function mTraeRelacionesActor($actorId){
+			
+			$this->db->select('*');
+			$this->db->from('relacionActores');
+			$this->db->where('actorId',$actorId);
+			
+			$consulta = $this->db->get();
+			
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos[$row['actorId']] = $row;
+			}
+			
+			/* Regresa la cadena al controlador*/
+			return $datos;
+		}/* Fin de mTraeRelacionesActor*/	
 		
 	}
 	
