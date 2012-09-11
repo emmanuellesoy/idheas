@@ -65,11 +65,13 @@
 	</head>
 	
 <body>
+
+<form action="controllers/actores_c/agregarActor" method="post" accept-charset="utf-8">
 		<div >
 		
 			<p class="four columns">
 				<label for="pais">País</label>
-				<select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">						
+				<select id="lugares_paisesCatalogo_paisId" name="lugares_paisesCatalogo_paisId">						
 				<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
 						<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
@@ -79,7 +81,7 @@
 
 			<p class="four columns">
 				<label for="estado">Estado</label>
-				<select id="datosDeNacimiento_estadosCatalogo_estadoId" name="datosDeNacimiento_estadosCatalogo_estadoId">						
+				<select id="lugares_estadosCatalogo_estadoId" name="lugares_estadosCatalogo_estadoId">
 				<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
 						<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
@@ -88,7 +90,7 @@
 
 			<p class="four columns">
 				<label for="municipio">Municipio</label>
-				<select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">						
+				<select id="lugares_municipiosCatalogo_municipioId" name="lugares_municipiosCatalogo_municipioId">						
 				<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
 						<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
@@ -97,6 +99,7 @@
 			
 			<input class="medium button" type="submit" />
 		</div>
+</div>
 </body>
 </html>
 

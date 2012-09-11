@@ -1,8 +1,8 @@
 <div id="listaCasos" name="listaCasos"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button" class="button"  value="Agregar Caso" onclick="mostrarAgregarCasos()" /> </li>
-		<li><input type="button" class="button" value="Eliminar Caso" onclick="esconderCasos()" /> </li>
+		<li><input type="button" class="small button"  value="Agregar Caso" onclick="mostrarAgregarCasos()" /> </li>
+		<li><input type="button" class="small button" value="Eliminar Caso" onclick="esconderCasos()" /> </li>
     </ul>
 
 			<?php echo form_open('form_c/menu'); ?> 

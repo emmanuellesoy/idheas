@@ -1,7 +1,76 @@
+<!-------------------Comienza la parte de detalles del lugar------------------------------------->
+<html>
+
+	<head>
+		
+		<meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width" />
+
+		<title>i(dh)eas</title>
+		
+		  <!-- Estilo de la página CSS-->
+		<?php $link = array(
+			'href' => 'statics/stylesheets/foundation.min.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>
+				
+		<?php $link = array(
+			'href' => 'statics/stylesheets/app.css',
+			'rel' => 'stylesheet',
+			'type' => 'text/css',
+			);
+			echo link_tag($link); 
+		?>
+		
+		
+		<?php $link = array(
+			'href' => 'statics/CSS/menu_v.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+		
+	
+<!---------Acordion css -------->		
+		<?php $link = array(
+			'href' => 'statics/CSS/collapse.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+				
+		<?php $link = array(
+			'href' => 'statics/CSS/tinyeditor.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
+		<!--Scripts foundation-->
+		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
+		
+		<!--Scripts jquery-->		
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
+		<!---script que hace posible el acordion--->
+		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
+
+	</head>
+	
+<body>
+<form action="controllers/actores_c/agregarActor" method="post" accept-charset="utf-8">
+	
 <!-------------------------Comienza la parte de Acto---------------------------->
 <div id="formularioCasoActo">
 	<div id="pestania" data-collapse>
-	<h2 class="twelve columns">Acto</h2><!--título de la sub-pestaña--->  
+	<h2 class="open twelve columns">Acto</h2><!--título de la sub-pestaña--->  
 	<div>
 			<fieldset>
 				  <legend>Información general</legend>
@@ -9,7 +78,8 @@
                         <label for="derecho">Derecho afectado</label>
                         <div id="textoDerechoAfectado"></div>
                         
-			<?php echo br(2);?>	            <div  id="listaActorIndiv" class="casosScorll">	
+			<?php echo br(2);?>
+			            <div  id="listaActorIndiv" class="casosScorll">	
                         <ul>
 							<?php foreach($derechosAfectados['derechosAfectadosN1Catalogos'] as $derechoAfectado):?> 
 								<li  id="pestaniaCasos" >
@@ -67,7 +137,7 @@
                         
                   
 			<div  id="listaActorIndiv" class="casosScorll">	
-                        <ul>
+                        <ul style="text-decoration:none;">
 							<?php foreach($actos['actosN1Catalogo'] as $acto):?> 
 								<li  id="pestaniaCasos" >
 									<div onclick="nombreacto('<?=$acto['descripcion'];?>','<?=$acto['actoId'];?>')" >
@@ -78,15 +148,13 @@
 									
 									<?php foreach($actos['actosN2Catalogo'] as $actoN2):?>
 										<?php if($actoN2['actosN1Catalogo_actoId'] == $acto['actoId']):?>
-											<li class="pestaniaCasos" >
-												<div  onclick="nombreactosub1('<?=$actoN2['descripcion'];?>','<?=$actoN2['actoN2Id'];?>')">
+											<li class="pestaniaCasos" onclick="nombreactosub1('<?=$actoN2['descripcion'];?>','<?=$actoN2['actoN2Id'];?>')">
 												<?php echo $actoN2['descripcion'];?>
-												</div>	
 												<ul class="Escondido"  id="<?=$actoN2['actoN2Id'];?>act2" >
 									
 													<?php foreach($actos['actosN3Catalogo'] as $actoN3):?>
 														<?php if($actoN3['actosN2Catalogo_actoN2Id'] == $actoN2['actoN2Id']):?>
-															<li class=" pestaniaCasos" >
+															<li class=" pestaniaCasos"  >
 																<div  onclick="nombreactosub2('<?=$actoN3['descripcion'];?>','<?=$actoN3['actoN3Id'];?>')">
 																<?php echo $actoN3['descripcion'];?>
 																</div>
@@ -132,24 +200,24 @@
 		</div>
 		
 		<div class="six columns">
-			<?php echo br(1);?>	
+			<br />
 			<p class="Escondido" id="fechaExactaVAct">
-				<input type="text" id="fechaExactaAct"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+				<input type="text" id="fechaExactaAct"   placeholder="AAAA-MM-DD" />
 
 			</p>
 
 			<p class="Escondido" id="fechaAproxVAct">
-				<input type="text" id="fechaAproxAct"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+				<input type="text" id="fechaAproxAct"   placeholder="AAAA-MM-DD" />
 
 			</p>
 
 			<p class="Escondido" id="fechaSinDiaVAct">
-				<input type="text" id="fechaSinDiaAct"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+				<input type="text" id="fechaSinDiaAct"   placeholder="AAAA-MM-00" />
 
 			</p >
 
 			<p class="Escondido" id="fechaSinDiaSinMesVAct">
-				<input type="text" id="fechaSinDiaSinMesAct" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+				<input type="text" id="fechaSinDiaSinMesAct"  placeholder="AAAA-00-00" />
 
 			</p>
 		</div>
@@ -166,22 +234,22 @@
 			</div>
 			<div class="six columns">
 				<p class="Escondido" id="fechaExactaVAct2">
-					<input type="text" id="fechaExactaAct2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+					<input type="text" id="fechaExactaAct2"   placeholder="AAAA-MM-DD" />
 
 				</p>
 
 				<p class="Escondido" id="fechaAproxVAct2">
-					<input type="text" id="fechaAproxAct2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+					<input type="text" id="fechaAproxAct2"   placeholder="AAAA-MM-DD" />
 
 				</p>
 
 				<p class="Escondido" id="fechaSinDiaVAct2">
-					<input type="text" id="fechaSinDiaAct2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+					<input type="text" id="fechaSinDiaAct2"   placeholder="AAAA-MM-00" />
 
 				</p >
 
 				<p class="Escondido" id="fechaSinDiaSinMesVAct2">
-					<input type="text" id="fechaSinDiaSinMesAct2" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+					<input type="text" id="fechaSinDiaSinMesAct2"  placeholder="AAAA-00-00" />
 
 				</p>
 			</div>
@@ -198,14 +266,14 @@
 
 			<p>
 				<label for="personas">Personas afectadas:</label>
-				<input type="number"  name="nucleoCaso_noPersonasAfectadas" value="<?php echo set_value('personas'); ?>" size="40" maxlength="60" />
+				<input type="number"  name="nucleoCaso_noPersonasAfectadas"  />
 			</p>
 
 			<p>
 				<label for="pais">País</label>
-				<select id="nucleoCaso_paisesCatalogo_paisId" name="nucleoCaso_paisesCatalogo_paisId">						
-				<?php foreach($pais as $key => $item):?> 
-						<option value="<?=$item?>"><?=$key?></option>
+				<select id="nucleoCaso_paisesCatalogo_paisId" name="nucleoCaso_paisesCatalogo_paisId">
+				<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
 
@@ -217,9 +285,9 @@
 
 			<p>
 				<label for="estado">Estado</label>
-				<select id="nucleoCaso_estadosCatalogo_estadoId" name="nucleoCaso_estadosCatalogo_estadoId">						
-				<?php foreach($estado as $key => $item):?>
-						<option value="<?=$item?>"><?=$key?></option>
+				<select id="nucleoCaso_estadosCatalogo_estadoId" name="nucleoCaso_estadosCatalogo_estadoId">
+				<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
 
@@ -230,9 +298,9 @@
 
 			<p>
 				<label for="municipio">Municipio</label>
-				<select id="nucleoCaso_municipiosCatalogo_municipioId" name="nucleoCaso_municipiosCatalogo_municipioId">						
-				<?php foreach($municipio as $key => $item):?> 
-					<option value="<?=$item?>"><?=$key?></option>
+				<select id="nucleoCaso_municipiosCatalogo_municipioId" name="nucleoCaso_municipiosCatalogo_municipioId">
+				<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
 
@@ -245,6 +313,10 @@
 	   
 	</div><!--fin acordeon información general-->
 
+			<input class="medium button" type="submit" />
 </div>
 <!-----------------------Termina la parte de Acto------------------------------->
+</form>
+</body>
+</html>
 

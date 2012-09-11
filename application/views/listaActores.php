@@ -1,7 +1,7 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 	<ul class="button-group">
-		<li><input type="button" class="button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
-		<li><input type="button" class="button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
+		<li><input type="button" class="small button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
+		<li><input type="button" class="small button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 			<?php echo form_open('form_c/menu'); ?> 
 			<!--buscador de la lista de actores--->
