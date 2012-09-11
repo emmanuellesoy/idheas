@@ -10,7 +10,7 @@
 
 			<ul class="tabs-content">
 			  <li class="active" id="selccPerInd">
-			<div  id="listaActorIndiv" class="PruebaScorll">
+			<div  id="listaActorIndiv" class="casosScorll">
 					<?php if($listaActores['individual']){ ?>
                            <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
@@ -36,7 +36,7 @@
 			  
 			  <!--Comienza lista de actores transmigrantes--->
 			  <li id="selccPerTrans">
-				<div id="listaActorTrans" class="PruebaScorll">		
+				<div id="listaActorTrans" class="casosScorll">		
                             <?php if(isset($listaActores['transmigrante'])){ ?>
 					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					

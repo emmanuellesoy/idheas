@@ -6,12 +6,12 @@
 			 
 			  <p>
 				<span >Nombre:   </span>
-				<span id="actores_nombreV"></span>
+				<span id="nombre_colectivo"></span>
 			  </p>
 			 
 			  <p>
 				<span >Siglas:  </span>
-				<span id="actores_apellidosSiglasV"></span>
+				<span id="apellidosSiglas_colectivo"></span>
 			 
 			  </p>
 			 
@@ -22,14 +22,14 @@
 				
 			  <p>
 				<span >Tipo de actor colectivo:  </span>
-				<span id="infoGralActores_tipoActorColectivoIdV"></span>
+				<span id="tipoActorColectivoId_colectivo"></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Actividad:  </span>
-				<span id="infoGralActores_actividadV"></span>
+				<span id="actividad_colectivo"></span>
 			  </p>
 			
 			</div>
@@ -43,18 +43,18 @@
 			 
 			  <p>
 				<span >Ubicación:   </span>
-				<span id="direccionActor_direccionV"></span>
+				<span id="direccion_colectivo"></span>
 			  </p>
 			 
 			  <p>
 				<span >País:  </span>
-				<span id="direccionActor_paisesCatalogo_paisIdV"></span>
+				<span id="paisesCatalogo_paisId_colectivo"></span>
 			 
 			  </p>
 			 
 			  <p>
 				<span >Estado:  </span>
-				<span id="direccionActor_estadosCatalogo_estadoIdV"></span>
+				<span id="estadosCatalogo_estadoId_colectivo"></span>
 			 
 			  </p>
 			 
@@ -65,14 +65,14 @@
 				
 			  <p>
 				<span >Municipio:  </span>
-				<span id="direccionActor_municipiosCatalogo_municipioIdV"></span>
+				<span id="municipiosCatalogo_municipioId_colectivo"></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Código postal:  </span>
-				<span id="actores_codigoPostalV"></span>
+				<span id="actores_codigoPostal_colectivo"></span>
 			  </p>
 			
 			</div>
@@ -86,12 +86,12 @@
 			 
 			  <p>
 				<span >Teléfono:   </span>
-				<span id="infoContacto_telefonoV"></span>
+				<span id="telefono_colectivo"></span>
 			  </p>
 			 
 			  <p>
 				<span >Fax:  </span>
-				<span id="infoContacto_faxV"></span>
+				<span id="fax_colectivo"></span>
 			 
 			  </p>
 			 
@@ -102,14 +102,14 @@
 				
 			  <p>
 				<span >Correo electrónico:  </span>
-				<span id="infoContacto_correoEV"></span>
+				<span id="correoE_colectivo"></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Página web:  </span>
-				<span id="infoGralActores_paginaWebV"></span>
+				<span id="paginaWeb_colectivo"></span>
 			  </p>
 			
 			</div>

@@ -7,7 +7,7 @@
             <div class="six columns"><!----Primer mitad de información general---->
                 <p>
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="actores_nombre" name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required />
+                    <input type="text" id="actores_nombre" name="actores_nombre"  size="30" maxlength="30" required />
                 </p>
 
                 <p>

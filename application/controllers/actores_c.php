@@ -81,14 +81,10 @@ class Actores_c extends CI_Controller {
         
         public function cTraerDatosActor($actorId, $tipoActorId){
             
-        $datos['actor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+        $datos = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
         
-        $datos['_actorId'] = $actorId;
-        
-        $this->load->view('formulariosCargados/formularioIndividual_v', $datos);
-        
-        
-        
+        print_r(json_encode($datos));
+
     }
 	
 }

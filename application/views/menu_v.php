@@ -66,8 +66,10 @@
 	
 		<!---Encabezado de la página--->
 			<div class="twelve columns">
-			  <div class="panel">
-				<p>Este será mi header</p
+			  <div class="panel" >
+			  <div div="logo" >
+				<?php echo img('statics/IMG/logo.png');?>
+			  </div>
 			  </div>
 			</div>
 		  <!---Termina el encabezado de la página-->
@@ -104,7 +106,7 @@
 								
 								<div class="nine columns">
 									
-								<div id="formCargInd"><?php echo $individualVista;?></div>
+								<div id="formCargInd"><?=(isset($individualVista)) ? $individualVista : '';?></div>
 								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
 								
 								</div>
@@ -190,16 +192,6 @@
 			  
 			</div>
 		<!--Termina el contenido de la página-->
-    
-		<!---pie de página--->
-		<div class="row">
-			<div class="twelve columns">
-			  <div class="panel">
-				<p>Este es mi pie de página </p>
-			  </div>
-			</div>
-		</div>
-		  <!---Termina el pie de página-->
 	
 	</body>
 	

@@ -5,13 +5,23 @@
        overflow-x:hidden;
 }
 
+.eleccion{
+	width:95%;
+	height:30px;
+	background-color:blue;
+}
+
+
  .casosScorll{
 		width:100%;
        max-height: 300px; /* sets max-height value for all standards-compliant browsers */
        overflow:scroll;
        overflow-x:hidden;
 }
- 
+
+#logo{
+	float:right;
+} 
  
  .CajaLista{
 		width:100%;

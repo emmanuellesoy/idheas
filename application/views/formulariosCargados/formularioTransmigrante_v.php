@@ -6,18 +6,18 @@
 			 
 			  <p>
 				<span>Nombre:   </span>
-				<span id="actores_nombreV"></span>
+				<span id="nombre_transmigrante"></span>
 			  </p>
 			 
 			  <p>
 				<span>Apellidos:  </span>
-				<span id="actores_apellidosSiglasV"></span>
+				<span id="apellidosSiglas_transmigrante"></span>
 			 
 			  </p>
 			 
 			  <p>
 				<span>Alias:   </span>
-				<span id="alias_aliasV"></span> 
+				<span id="alias_transmigrante"></span>
 			  
 			  </p>
 			  
@@ -29,7 +29,7 @@
 			 
 			  <p>
 				<span>Género:   </span>
-				<span id="infoGralActor_generoidV"></span>
+				<span id="generoid_transmigrante"></span>
 			
 			  </p>
 			</div>
@@ -38,18 +38,18 @@
 			  
 			  <p>
 				<span>Edad:   </span>
-				<span id="infoGralActor_edadV"></span>
+				<span id="edad_transmigrante"></span>
 			  </p>
 			</div>
 			 
 			  <p>
 				<span>Estado Civil:   </span>
-				<span id="infoGralActor_estadoCivil_estadoCivilV"></span>
+				<span id="estadoCivil_estadoCivilId_transmigrante"></span>
 			  </p>
 			 
 			  <p>
 				<span>Nacionalidad:   </span>
-				 <span id="infoGralActor_nacionalidadV"></span>
+				 <span id="nacionalidadId_transmigrante"></span>
 			  </p>
 			
 			</div> 
@@ -62,21 +62,21 @@
 		 <div class="six columns">
 		  <p>
 				<span>Hijos:   </span>
-				<span id="infoGralActor_hijosV" ></span>
+				<span id="hijos_transmigrante" ></span>
 		  </p>
 		 </div>
 		  
 		 <div class="six columns">									
 		   <p>			
 			<span>¿Habla español?:   </span>
-			<span id="infoGralActor_espaniolV"></span>
+			<span id="espaniol_transmigrante"></span>
 		  </p>
 		 </div>
 		
 		 
 		  <p>
 			<span>Grupo Indígena:   </span>
-				<span id="infoGralActor_grupoIndigenaV"></span>
+				<span id="gruposIndigenas_grupoIndigenaId_transmigrante"></span>
 		  </p>
 
 			
@@ -86,12 +86,12 @@
 		 
 		  <p>
 			<span>Nivel de Escolaridad:   </span>
-			<span id="infoGralActor_escolaridadV"></span>									 
+			<span id="escolaridad_transmigrante"></span>									 
 		  </p>
 		 
 		  <p>						
 			<span>Última Ocupación:   </span>
-			<span id="infoGralActor_ocupacionesCatalogo_ultimalOcupacionidV"></span>
+			<span id="ocupacionesCatalogo_ultimalOcupacionid_transmigrante"></span>
 			
 		  </p>
 		 
@@ -109,21 +109,21 @@
 							<div class="four columns">		
 								  <p>		
 								<span >País: </span>
-								<div id="datosDeNacimiento_paisesCatalogo_paisIdV"></div>
+								<div id="paisesCatalogo_paisId_transmigrante"></div>
 								  </p>
 							</div>
 							
 							<div class="four columns">
 								  <p>		
 								<span>Estado: </span>
-									<div id="datosDeNacimiento_estadosCatalogo_estadoIdV"></div>
+									<div id="estadosCatalogo_estadoId_transmigrante"></div>
 								  </p>
 							</div>
 							
 							<div class="four columns">
 							  <p>										
 								<span>Municipio: </span>
-									<div id="datosDeNacimiento_municipiosCatalogos_municipiosIdV" ></div>
+									<div id="municipiosCatalogos_municipiosId_transmigrante" ></div>
 									</select>
 							  </p>
 							</div>
@@ -135,12 +135,12 @@
 				<div class="six columns">
 				  <p>
 					<span>País de tránsito: </span>
-						<div id="infoMigratoria_paisTransitoIdV"></div>
+						<div id="paisTransitoId_transmigrante"></div>
 					  </p>
 																
 					  <p>
 					<span>País destino: </span>
-						<div id="infoMigratoria_paisDestinoIdV"></div>
+						<div id="paisDestinoId_transmigrante"></div>
 					  </p>
 						
 					
@@ -151,11 +151,11 @@
 					  </p>
 						
 				<span>Comentarios:</span>
-				  <div id="infoMigratoria_comentariosV" ></div>
+				  <div id="comentarios_transmigrante" ></div>
 				
 				  <p>
 				<span>Expulsiones del país de destino: </span>
-					<div id="infoMigratoria_expCruceDestinov"></div>
+					<div id="expCruceDestino_transmigrante"></div>
 				  </p>
 					
 					</div>
@@ -164,30 +164,30 @@
 						
 					  <p>
 					<span>Motivo del viaje: </span>
-						<div id="infoMigratoria_motivoViajeV"></div>
+						<div id="motivoViaje_transmigrante"></div>
 					  </p>
 						
 						
 					  <p>
 					<span>Tipo de estancia:</span>
-						<div id="infoMigratoria_tipoEstanciaIdV"></div>
+						<div id="tipoEstanciaId_transmigrante"></div>
 					  </p>
 						
 						
 					  <p>
 					<span>Realiza el viaje:</span>
-						<div id="infoMigratoria_realizaViajeV" ></div>
+						<div id="realizaViaje_transmigrante" ></div>
 						
 					
 						
 					  <p>								
 					<span>Intentos de cruce al país destino: </span>
-						<div id="infoMigratoria_IntCrucesDestV" ></div>
+						<div id="intCrucesDest_transmigrante" ></div>
 					  </p>
 						
 					  <p>
 					<span>Expulsiones del país de tránsito: </span>
-						<div id="infoMigratoria_expCruceTransitoV"> </div>
+						<div id="expCruceTransito_transmigrante"> </div>
 					  </p>
 					 
 				</div>

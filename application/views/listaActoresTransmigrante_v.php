@@ -29,7 +29,7 @@
                             <?php if(isset($listaActores['transmigrante'])){ ?>
 					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
-							<div class="twelve columns" onclick="mostarDatosListaElem()">
+							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 2)">
 								<div class="five columns"><!--imprimo imagenes-->
 									<?php echo img($item['actorId']);?>
 									<?php echo br(2);?>	

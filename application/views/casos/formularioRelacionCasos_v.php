@@ -22,13 +22,13 @@
 			<div class="four columns">
 				
 				<label>fecha inicial: </label>
-					<input type="text" id="casos_fechaInicial" name="casos_fechaInicial" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+					<input type="text" id="casosfechaInicial" name="casos_fechaInicial" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
 			</div>
 			
 			<div class="four columns">
 				
 				<label>fecha de término: </label>
-					<input type="text" id="casos_fechaTermino" name="casos_fechaTermino" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+					<input type="text" id="casosfechaTermino" name="casos_fechaTermino" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
 				
 			</div>
 		

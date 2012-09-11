@@ -1,14 +1,77 @@
 <!-------------------Comienza la parte de detalles del lugar------------------------------------->
-<div id="formularioDetallerLugar">
-	<div id="subPestanias" data-collapse>
-		<h2 class="twelve columns">Detalle del lugar</h2><!--título de la sub-pestaña--->  
-		<div>
-		<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregar_caso_c'); ?>
-			<p class="four columns"> <!----Primer mitad de datos de Nacimiento ---->
+<html>
+
+	<head>
+		
+		<meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width" />
+
+		<title>i(dh)eas</title>
+		
+		  <!-- Estilo de la página CSS-->
+		<?php $link = array(
+			'href' => 'statics/stylesheets/foundation.min.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>
+				
+		<?php $link = array(
+			'href' => 'statics/stylesheets/app.css',
+			'rel' => 'stylesheet',
+			'type' => 'text/css',
+			);
+			echo link_tag($link); 
+		?>
+		
+		
+		<?php $link = array(
+			'href' => 'statics/CSS/menu_v.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+		
+	
+<!---------Acordion css -------->		
+		<?php $link = array(
+			'href' => 'statics/CSS/collapse.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+				
+		<?php $link = array(
+			'href' => 'statics/CSS/tinyeditor.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
+		<!--Scripts foundation-->
+		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
+		
+		<!--Scripts jquery-->		
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
+		<!---script que hace posible el acordion--->
+		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
+
+	</head>
+	
+<body>
+		<div >
+		
+			<p class="four columns">
 				<label for="pais">País</label>
 				<select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">						
-				<?php foreach($pais as $key => $item):?> 
-						<option value="<?=$item?>"><?=$key?></option>
+				<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
 
@@ -17,26 +80,23 @@
 			<p class="four columns">
 				<label for="estado">Estado</label>
 				<select id="datosDeNacimiento_estadosCatalogo_estadoId" name="datosDeNacimiento_estadosCatalogo_estadoId">						
-				<?php foreach($estado as $key => $item):?>
-						<option value="<?=$item?>"><?=$key?></option>
+				<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
-
 			</p>
 
 			<p class="four columns">
 				<label for="municipio">Municipio</label>
 				<select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">						
-				<?php foreach($municipio as $key => $item):?> 
-					<option value="<?=$item?>"><?=$key?></option>
+				<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
+						<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
 				<?php endforeach;?>
 				</select>
-
 			</p>
 			
-		<input class="medium button" type="submit" />
-		</form>	
+			<input class="medium button" type="submit" />
 		</div>
-	</div>
-</div>
+</body>
+</html>
 

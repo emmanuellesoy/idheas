@@ -26,8 +26,8 @@
 			<div  id="listaActorIndiv" class="PruebaScorll">
 					<?php if($listaActores['individual']){ ?>
                                                 <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
-					
-							<div class="twelve columns" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>)">
+                                                
+							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 1)">
 								<div class="five columns"><!--imprimo imagenes-->
 									<?php echo $item['actorId'];?>
 									<?php echo br(2);?>	
@@ -38,7 +38,6 @@
 										<?php echo br(2);?>	
 								</div>
 							</div>
-							
 					<?php endforeach;?><!--Termina lista de los actores-->
                                            <?php } ?>
 			</div>

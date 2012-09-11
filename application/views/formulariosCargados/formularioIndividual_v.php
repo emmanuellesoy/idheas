@@ -5,19 +5,19 @@
 						<div class="six columns">
 						 
 						  <p>
-							<span >Nombre: <?=$actor[$_actorId]['nombre']; ?></span>
-							<span id="actores_nombreV"></span>
+							<span >Nombre: </span>
+							<span id="nombre"></span>
 						  </p>
 						 
 						  <p>
-							<span >Apellidos: <?=$actor[$_actorId]['apellidosSiglas']; ?></span>
-							<span id="actores_apellidosSiglasV"></span>
+							<span >Apellidos: </span>
+							<span id="apellidosSiglas"></span>
 						 
 						  </p>
 						 
 						  <p>
-							<span >Alias: <?=$actor[$_actorId]['alias']; ?></span>
-							<span id="alias_aliasV"></span> 
+							<span >Alias: </span>
+							<span id="alias"></span> 
 						  
 						  </p>
 						  
@@ -29,19 +29,9 @@
 						 
 						  <p>
 							<span >Género:
-                                                        <?php 
-                                                            if($actor[$_actorId]['generoId'] == 1){
-                                                                
-                                                                echo 'Hombre';
-                                                                
-                                                            } else {
-                                                                
-                                                                echo 'Mujer';
-                                                                
-                                                            }
-                                                        ?>
+
                                                         </span>
-							<span id="infoGralActor_generoidV"></span>
+							<span id="generoId"></span>
 						
 						  </p>
 						</div>
@@ -49,19 +39,19 @@
 						<div class="six columns">
 						  
 						  <p>
-							<span >Edad: <?=$actor[$_actorId]['edad']; ?> años</span>
-							<span id="infoGralActor_edadV"></span>
+							<span >Edad: años</span>
+							<span id="edad"></span>
 						  </p>
 						</div>
 						 
 						  <p>
-							<span >Estado Civil: <?=$actor[$_actorId]['estadoCivil_estadoCivilId']; ?></span>
-							<span id="infoGralActor_estadoCivil_estadoCivilV"></span>
+							<span >Estado Civil: </span>
+							<span id="estadoCivil_estadoCivil"></span>
 						  </p>
 						 
 						  <p>
-							<span >Nacionalidad: <?=$actor[$_actorId]['nacionalidadId']; ?></span>
-							 <span id="infoGralActor_nacionalidadV"></span>
+							<span >Nacionalidad: </span>
+							 <span id="nacionalidadId"></span>
 						  </p>
 						
 						</div> 
@@ -75,21 +65,21 @@
 						 <div class="six columns">
 						  <p>
 								<span >Hijos:   </span>
-								<span id="infoGralActor_hijosV" ></span>
+								<span id="hijos" ></span>
 						  </p>
 						 </div>
 						  
 						 <div class="six columns">									
 						   <p>			
 							<span >¿Habla español?:   </span>
-							<span id="infoGralActor_espaniolV"></span>
+							<span id="espaniol"></span>
 						  </p>
 						 </div>
 						
 						 
 						  <p>
 							<span >Grupo Indígena:   </span>
-								<span id="infoGralActor_grupoIndigenaV"></span>
+								<span id="gruposIndigenas_grupoIndigenaId"></span>
 						  </p>
 				
 							
@@ -99,12 +89,12 @@
 						 
 						  <p>
 							<span >Nivel de Escolaridad:   </span>
-							<span id="infoGralActor_escolaridadV"></span>									 
+							<span id="escolaridadId"></span>									 
 						  </p>
 						 
 						  <p>						
 							<span >Última Ocupación:   </span>
-							<span id="infoGralActor_ocupacionesCatalogo_ultimalOcupacionidV"></span>
+							<span id="ocupacionesCatalogo_ultimaOcupacionId"></span>
 							
 						  </p>
 						 
@@ -120,12 +110,12 @@
 						 
 						  <p>
 							<span >País:   </span>
-							<span id="datosDeNacimiento_paisesCatalogo_paisIdV"></span>										
+							<span id="paisesCatalogo_paisId"></span>										
 						  </p>
 						 
 						  <p>
 							<span >Estado:   </span>
-							<span id="datosDeNacimiento_estadosCatalogo_estadoIdV"></span>
+							<span id="estadosCatalogo_estadoId"></span>
 							
 						  </p>
 						  </div>
@@ -133,13 +123,13 @@
 						 
 						  <p>
 							<span >Municipio:   </span>
-							<span id="datosDeNacimiento_municipiosCatalogo_municipioIdV"></span>
+							<span id="municipiosCatalogo_municipioId"></span>
 						 
 						  </p>
 						 
 						  <p>
 							<span >Fecha de nacimiento:   </span>
-							<span id="datosDeNacimiento_fechaNacimientoV"></span>
+							<span id="fechaNacimiento"></span>
 						  </p>
 															  
 						</div>  
@@ -153,19 +143,19 @@
 						 
 						  <p>
 						<span >Teléfono:   </span>
-							<span id="infoContacto_telefonoV"></span>
+							<span id="telefono"></span>
 						  </p>
 						  
 						  <p>
 						<span >Teléfono móvil:   </span>
-							<span id="infoContacto_telefonoMovilV"></span> 
+							<span id="telefonoMovil"></span> 
 						  </p>
 						  </div>
 						<div class="six columns">
 						  
 						  <p>
 						<span >Correo electrónico:   </span>
-							<span id="infoContacto_correoEV"></span>
+							<span id="correoE"></span>
 						  </p>
 						</div>  
 					</fieldset><!--Termina información del contacto-->
@@ -178,19 +168,19 @@
 						  
 						 <p>
 							<span>Tipo de dirección:   </span>
-							<span id="direccionActor_tipoDireccionIdV"></span>
+							<span id="tipoDireccionId"></span>
 						 
 						 </p>
 						 <p>
 							 
 							<span>Ubicación:   </span>
-								<span id="direccionActor_direccionV"></span>
+								<span id="direccion"></span>
 						 </p>
 						 
 						 
 						<p>
 							<span>Código Postal:   </span>
-								<span id="actores_codigoPostalV"></span>
+								<span id="codigoPostal"></span>
 						 </p>
 						 
 						</div>
@@ -200,14 +190,14 @@
 
 						<p>
 							<span>País:   </span>
-								<span id="direccionActor_paisesCatalogo_paisIdV"></span>
+								<span id="paisesCatalogo_paisId"></span>
 						</p>				
 
 						<p>
 						
 							<span>Estado:   </span>
 
-									<span id="direccionActor_estadosCatalogo_estadoIdV"></span>
+									<span id="estadosCatalogo_estadoId"></span>
 						
 						</p>
 
@@ -216,7 +206,7 @@
 
 						<p>
 							<span>Municipio:   </span>
-								<span id="direccionActor_municipiosCatalogo_municipioIdV"></span>
+								<span id="municipiosCatalogo_municipioId"></span>
 						</p>	
 						
 						 

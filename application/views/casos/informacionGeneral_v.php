@@ -32,14 +32,16 @@
 			                <td>Content</td>
 			                <td>This is longer content</td>
 			                <td>Content</td>
-			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaDetalleLugar()" />
+			                <input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
+				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar()" />	  
 	  			</div>
-	  			  
 	  		</div>
 	  	</div><!--fin acordeon lugares-->
+	  	
 	  	<div id="subPestanias" data-collapse>
 	  		<h2>Descripción</h2>
 	  		<div>
@@ -76,12 +78,13 @@
 			                <td>Content</td>
 			                <td>This is longer content</td>
 			                <td>Content</td>
-			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFicha()" /></td>
+			                <td><input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
 	  			</div>
-	  			  
+	  		<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaFicha()" />	  
 	  		</div>
 	  	</div><!--fin acordeon Seguimiento del caso-->
 	</div>
