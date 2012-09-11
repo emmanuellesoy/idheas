@@ -296,6 +296,7 @@
 		}/*Fin de mEliminaPerpetrador*/
 		
 		/*Este modelo relaciona dos actores
+<<<<<<< HEAD
          * @param 
          * $datos = array(
          *         'relacionActoresId' => '1' ,
