@@ -10,8 +10,8 @@ class casosInicia_c extends CI_Controller {
 
     function index() /***Funcion que carga los detallaes del lugar***/
 	{
-		$this->load->helper(array('html', 'url'));
-				
+		$this->load->helper(array('html', 'url'));					
+		
 				$DatosGenerales['lugares']= $this->catalogos_m->mTraerDatosCatalogoPaises();
 
 		$this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales);
