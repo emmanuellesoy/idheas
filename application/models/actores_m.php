@@ -294,7 +294,34 @@
 			return ($mensaje = 'Hecho');
 			
 		}/*Fin de mEliminaPerpetrador*/
+		
+		/*Este modelo relaciona dos actores
+         * @param 
+         * $datos = array(
+         *         'relacionActoresId' => '1' ,
+           'actorId' => '1' ,
+           'actorRelacionadoId' => '1' ,
+           'tipoRelacionId' => '1'
+         *         'tipoRelacionIndividualColectivoId' => '1'
+        );
+         * */
+        public function mRelacionaActores($datos){
 
+            $this->db->insert('relacionActores',$datos);
+
+            /* Regresa la cadena al controlador*/
+            return ($mensaje = 'Hecho');
+        }/* Fin de mRelacionaActores */
+		
+		public function mEliminaRelacionActores($relacionId){
+
+		    $this->db->where('relacionActoresId', $relacionId);
+			$this->db->delete('relacionActores');
+		
+		    /* Regresa la cadena al controlador*/
+		    return ($mensaje = 'Hecho');
+	    }/* Fin de mRelacionaActores */	
+		
 	}
 	
 ?>

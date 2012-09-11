@@ -159,4 +159,24 @@ class Casos_m extends CI_Model {
 		return ($mensaje = 'Hecho');
 		
 	}/*Fin de mEliminaActo*/
+	
+	/*Este modelo relaciona dos actores
+     * @param $datos 
+     * */
+    public function mRelacionaCasos($datos){
+
+	    $this->db->insert('relacionCasos',$datos);
+	
+	    /* Regresa la cadena al controlador*/
+	    return ($mensaje = 'Hecho');
+    }/* Fin de mRelacionaActores */
+   
+	public function mEliminaRelacionCasos($relacionId){
+
+	    $this->db->where('relacionId', $relacionId);
+		$this->db->delete('relacionCasos');
+	
+	    /* Regresa la cadena al controlador*/
+	    return ($mensaje = 'Hecho');
+    }/* Fin de mEliminaRelacionCasos */	
 }
