@@ -1,5 +1,6 @@
 <?php echo validation_errors(); ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
 <div	id="Actores" >
     <fieldset>
@@ -7,18 +8,18 @@
             <div class="six columns"><!----Primer mitad de información general---->
                 <p>
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="actores_nombre" name="actores_nombre"  size="30" maxlength="30" required />
+                    <input type="text" id="actores_nombre" name="actores_nombre"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['nombre'].'"' : ''); ?> size="30" required />
                 </p>
 
                 <p>
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required />
+                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['apellidosSiglas'].'"' : ''); ?> size="60" required />
 
                 </p>
 
                 <p>
-                    <label for="alias">Alias</label>
-                    <input type="text" id="alias_alias" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" />
+                    <label for="alias_alias">Alias</label>
+                    <input type="text" id="alias_alias" name="alias_alias" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['alias'].'"' : ''); ?> size="30" />
 
                 </p>
             </div><!----Termina primer mitad de información general---->
@@ -27,7 +28,7 @@
                 <div class="four columns">
 
                     <p>
-                        <label for="genero">Género</label>
+                        <label for="infoGralActor_generoid">Género</label>
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
 
@@ -201,12 +202,12 @@
 
                     <p>
                     <label for="telefono">Teléfono</label>
-                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
+                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" />
                    </p>
 
                     <p>
                     <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
-                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
+                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" />
                     </p>
                     
                 </div><!--Termina primer mitad de la nformación de contacto--->
@@ -215,7 +216,7 @@
 
                     <p>
                 <label for="infoContacto_correoE">Correo electrónico</label>
-                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  />
+                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60"  />
                     </p>
                 </div>  <!--Segunda mitad de nformación de contacto--->
 
