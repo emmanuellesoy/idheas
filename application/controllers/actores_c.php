@@ -6,9 +6,11 @@ class Actores_c extends CI_Controller {
        {
             parent::__construct();
             
-            $this->load->helper('url');
-            
             $this->load->model(array('actores_m'));
+    
+            $this->load->helper(array('html', 'url'));					
+	
+            $this->load->library('form_validation');
             
        }
 
@@ -85,6 +87,18 @@ class Actores_c extends CI_Controller {
         
         print_r(json_encode($datos));
 
+    }
+    
+    public function traerEditar($actorId = 1, $tipoActorId = 1){
+        
+        $data['editar'] = 1;
+        
+        $data['actorId'] = $actorId;
+        
+        $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+       
+        $this->load->view('formularios/FormularioIndividual_v', $data);
+        
     }
 	
 }

@@ -1,5 +1,6 @@
 <?php echo validation_errors(); ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
 <div	id="Actores" >
     <fieldset>
@@ -7,18 +8,31 @@
             <div class="six columns"><!----Primer mitad de información general---->
                 <p>
                     <label for="nombre">Nombre</label>
+<<<<<<< HEAD
                     <input type="text" id="actores_nombre" name="actores_nombre"  required />
+=======
+                    <input type="text" id="actores_nombre" name="actores_nombre"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['nombre'].'"' : ''); ?> size="30" required />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
                 </p>
 
                 <p>
                     <label for="apellidos">Apellidos</label>
+<<<<<<< HEAD
                     <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>"  required />
+=======
+                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['apellidosSiglas'].'"' : ''); ?> size="60" required />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
 
                 </p>
 
                 <p>
+<<<<<<< HEAD
                     <label for="alias">Alias</label>
                     <input type="text" id="alias_alias" name="alias_alias" value="<?php echo set_value('alias'); ?>"  />
+=======
+                    <label for="alias_alias">Alias</label>
+                    <input type="text" id="alias_alias" name="alias_alias" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['alias'].'"' : ''); ?> size="30" />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
 
                 </p>
             </div><!----Termina primer mitad de información general---->
@@ -34,8 +48,13 @@
                 <div class="eight columns">				
 				
                     <p>
+<<<<<<< HEAD
                         <label for="genero">Género</label>
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="1" /> Hombre
+=======
+                        <label for="infoGralActor_generoid">Género</label>
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
 
                     </p>
@@ -213,12 +232,20 @@
 
                     <p>
                     <label for="telefono">Teléfono</label>
+<<<<<<< HEAD
                         <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>"  />
+=======
+                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
                    </p>
 
                     <p>
                     <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
+<<<<<<< HEAD
                         <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>"  />
+=======
+                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
                     </p>
                     
                 </div><!--Termina primer mitad de la nformación de contacto--->
@@ -227,7 +254,11 @@
 
                     <p>
                 <label for="infoContacto_correoE">Correo electrónico</label>
+<<<<<<< HEAD
                         <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>"  />
+=======
+                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60"  />
+>>>>>>> 9c83957e3751b2f021598aa6e07212c54ae7ea62
                     </p>
                 </div>  <!--Segunda mitad de nformación de contacto--->
 
