@@ -7,34 +7,41 @@
             <div class="six columns"><!----Primer mitad de información general---->
                 <p>
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="actores_nombre" name="actores_nombre"  size="30" maxlength="30" required />
+                    <input type="text" id="actores_nombre" name="actores_nombre"  required />
                 </p>
 
                 <p>
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required />
+                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>"  required />
 
                 </p>
 
                 <p>
                     <label for="alias">Alias</label>
-                    <input type="text" id="alias_alias" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20" />
+                    <input type="text" id="alias_alias" name="alias_alias" value="<?php echo set_value('alias'); ?>"  />
 
                 </p>
             </div><!----Termina primer mitad de información general---->
             <div class="six columns"><!----Segunda mitad de información general---->
 
-                <div class="four columns">
+				<div class="twelve columns">	
+					<p>
+					<label >Foto </label>
+					<input type="file" name="actores_foto" size="15"/>
+					</p>
+				</div>
 
+                <div class="eight columns">				
+				
                     <p>
                         <label for="genero">Género</label>
-                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="1" /> Hombre
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
 
                     </p>
                 </div>
 
-                <div class="two columns">
+                <div class="four columns">
 
                     <p>
                         <label for="edad">Edad</label>
@@ -48,14 +55,9 @@
 
                 </div>
 				
-				<div class="six columns">	
-					<p>
-					<label >Foto </label>
-					<input type="file" name="actores_foto"/>
-					</p>
-				</div>
-				
-                    <p>
+
+				<div class="twelve columns">					
+                    <p id="infoGralActor_estadoCivil_estadoCivilIdSelect" class="eleven columns">
                         <label for="estadoCivil">Estado Civil</label>
                         <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						
                         <?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
@@ -63,6 +65,16 @@
                         <?php endforeach;?>
                         </select>
                     </p>
+                 </div> 
+                 
+                    <p class="one columns">
+						<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+					</p>	  
+				<div id="TextoEspecial_infoGralActor_estadoCivil_estadoCivilId" class="Escondido twelve columns">
+					ñlSDMÑLASM DÑL
+					ÑLDSMFÑALSMDÑLSAM
+						<input id="BotonmenosinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="-" onclick="mostrarTexto(this)" />	
+				</div>
 
                     <p>
                         <label for="nacionalidad">Nacionalidad</label>
@@ -201,12 +213,12 @@
 
                     <p>
                     <label for="telefono">Teléfono</label>
-                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" maxlength="20" />
+                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>"  />
                    </p>
 
                     <p>
                     <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
-                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="30" />
+                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>"  />
                     </p>
                     
                 </div><!--Termina primer mitad de la nformación de contacto--->
@@ -215,7 +227,7 @@
 
                     <p>
                 <label for="infoContacto_correoE">Correo electrónico</label>
-                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60" maxlength="40"  />
+                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>"  />
                     </p>
                 </div>  <!--Segunda mitad de nformación de contacto--->
 
@@ -279,7 +291,7 @@
 										</select>	
 
 						</div>
-                <!--
+						
 						<div class="six columns">
 							<label >Agregar</label>
 									<input  type='button' onclick="agregarQuitar()" value='Agregar Campo'>
@@ -295,8 +307,7 @@
 											<input  type='button' onclick="QuitarEstadodirInd()" value='-'  >
 									</div>
 								</div>
-						</div>-->
-<!----/**************************************************************/---->									
+						</div>						
 
 				<?php echo br(1);?>
                 <p>
@@ -313,7 +324,13 @@
         </fieldset><!--Termina datos dirección-->
 
 				<?php echo br(1);?>
-<input class="medium button" type="submit" />
+		<div class="row">
+		<div  class="four columns offset-by-eight" >
+			
+		<input class="medium button" type="submit" value="Guardar" />
+		<input class="medium button" type="reset" value="Cancelar" />
+		</div>
+		</div>
 <?php echo br(2);?>
 </div>
 </form>	

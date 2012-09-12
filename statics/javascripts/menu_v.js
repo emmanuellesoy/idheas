@@ -806,3 +806,20 @@ function ventanaFuenteDoc(){
 	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
 	};
 
+
+function mostrarTexto(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(8);  //Obteng el nombre limpio
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	nombre2= "TextoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+	select =nombre + "Select";		//Nombre del campo select para esconder las opciones
+    $("#"+ select).hide("slow");	//Escondo las opciones
+    $("#"+ select).removeAttr("value");	//Quito el atribulo value			
+	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
+    $("#"+ nombre2).html('<input type="text"  />');	//agrego el atributo value al texto
+	alert(select+"  "+ texto+"  "+nombre2);
+	}
+
+
+function esconderTexto(elem){
+}
