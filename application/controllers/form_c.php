@@ -87,10 +87,10 @@ class Form_c extends CI_Controller {
                                 $DatosGenerales['listaCasos'] = $this->casos_m->mTraerDatosCaso(1);
 				//$DatosGenerales['detalleLugar'] = $this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales , true);
 				//$datosCasos['ficha'] = $this->load->view('casos/formularioSeguimientoCaso_v', $DatosGenerales , true);
-				$datosCasos['actor'] = $this->load->view('casos/formularioActo_v', $DatosGenerales , true);
+				//$datosCasos['actor'] = $this->load->view('casos/formularioActo_v', $DatosGenerales , true);
+				//$datosCasos['fuenteDoc'] = $this->load->view('casos/formularioFuenteDoc_v', $DatosGenerales , true);
 				$datosCasos['infoGral'] = $this->load->view('casos/formularioInfoGral_v', $DatosGenerales , true);
 				$datosCasos['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $DatosGenerales , true);
-				$datosCasos['fuenteDoc'] = $this->load->view('casos/formularioFuenteDoc_v', $DatosGenerales , true);
 				$datosCasos['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $DatosGenerales , true);
 				$datosCasos['intervencion'] = $this->load->view('casos/formularioIntervencion', $DatosGenerales , true);
 				$datosCasos['relacionCasos'] = $this->load->view('casos/formularioRelacionCasos_v', $DatosGenerales , true);

@@ -27,11 +27,13 @@
 						                <td>Content</td>
 						                <td>Content</td>
 						                <td>Content</td>
-						                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+										<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFuenteDoc()" />
+										<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 						              </tr>
 						            </tbody>
 					          </table>
 			  				 </div>
+										<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaFuenteDoc()" />
 				  		</div>
 				  	</div><!--fin acordeon Fuente documental-->
 				  	<div id="subPestanias" data-collapse>

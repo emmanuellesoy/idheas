@@ -720,17 +720,6 @@ function detallesDelLugar(){
     $("#detallesLugar").toggle("slow");
     };
 
-
-function ventanaDetalleLugar(){
-	  var windowSizeArray = [ "width=800,height=200" ];
-	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
-	};
-
-function ventanaFicha(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosInicia_c/SeguimientoCaso', 'Seguimiento del caso', windowSizeArray);
-	};
-
 /************************Prueba de comunicación Ajax***********************/
 
 function mostarDatosListaElem(id, tipoActorId) {
@@ -785,13 +774,35 @@ function mostarDatosListaElem() {
 	$('ul').html(datosActor[3]); 
     };
 */
-/*******************************************************************/
+/******************Ventanas*************************/
+
+
+function ventanaDetalleLugar(){
+	  var windowSizeArray = [ "width=800,height=200" ];
+	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
+	};
+
+function ventanaFicha(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosInicia_c/SeguimientoCaso', 'Seguimiento del caso', windowSizeArray);
+	};
+
+
+function ventanaDerAfectados(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosNucleo_c', 'Derechos Afectados', windowSizeArray);
+	};
 
 
 
+function ventanaInterevenciones(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosNucleo_c/intervenciones', 'Intervenciones', windowSizeArray);
+	};
 
 
-
-
-
+function ventanaFuenteDoc(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
+	};
 

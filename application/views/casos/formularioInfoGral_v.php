@@ -1,6 +1,6 @@
 <div id="formularioInfoGral">
 	<div id="pestania" data-collapse>
-	<h2 class="twelve columns">Información general</h2><!--título de la sub-pestaña--->  
+	<h2 class="open twelve columns">Información general</h2><!--título de la sub-pestaña--->  
 	<div>
 		<!--Comienzan datos-->
 		<div class="twelve columns">
@@ -19,7 +19,7 @@
 		<div class="twelve columns">
 		<div class="six columns">
 	<label for="edad">Fecha inicial</label>
-			<select onclick="fechaInicialCasos(value)">
+			<select onclick="fechaInicialCasos(value)" name="casos_fechaInicial">
 						<option  value="1" checked="checked" >fecha exacta</option>
 						<option  value="2">fecha aproximada</option>
 						<option  value="3">Se desconce el día</option>
@@ -51,9 +51,9 @@
 		</div>
 	</div> <!---termina opciones de fechaInicial-->
 		<div class="twelve columns">
-				<label for="edad">Fecha terminal</label>
+				<label for="edad">Fecha término</label>
 			<div class="six columns">
-				<select onclick="fechaTerminalCasos(value)">
+				<select onclick="fechaTerminalCasos(value)" name="caos_fechaTermino" >
 							<option  value="1" checked="checked" >fecha exacta</option>
 							<option  value="2">fecha aproximada</option>
 							<option  value="3">Se desconce el día</option>
@@ -88,7 +88,7 @@
 	  	<div id="subPestanias" data-collapse>
 			<h2 class="twelve columns">Descripción</h2>
 				<div class="twelve columns">
-					<textarea id="tinyeditor" style="width: 400px; height: 200px" wrap="hard"  name="editorCasos"></textarea>
+					<textarea id="tinyeditor" style="width: 400px; height: 200px" wrap="hard"  name="infocaso_descripccion"></textarea>
 					<script>
 					var instance = new TINY.editor.edit('editor', {
 						id: 'tinyeditor',

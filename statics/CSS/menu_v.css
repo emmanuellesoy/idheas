@@ -19,6 +19,10 @@
        overflow-x:hidden;
 }
 
+#formularioCasoActo li{
+	list-style: square;
+}
+
 #logo{
 	float:right;
 } 

@@ -285,7 +285,7 @@
 				</fieldset><!--Termina datos de nacimiento-->
 				
 				<?php echo br(1);?>
-			<input class="large button" type="submit" />
+			<input class="medium button" type="submit" />
 				<?php echo br(2);?>
 			</div>
 			
