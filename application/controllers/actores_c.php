@@ -97,9 +97,13 @@ class Actores_c extends CI_Controller {
         
         $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
        
-        $this->load->view('formularios/FormularioIndividual_v', $data);
+        $vista['editarIndividual'] = $this->load->view('formularios/FormularioIndividual_v', $data, true);
+        
+        $this->load->view('vistaeditarFormIndv', $vista);
         
     }
+    
+    
 	
 }
 

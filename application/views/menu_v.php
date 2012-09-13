@@ -137,19 +137,14 @@
 						
 						  <!---Contenido de la pestaña Actor Colectivo--->
 								<div class="three columns">
-									
-									
-										<?php 
-										
-										echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
+										<?php echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
 									</div>
 								
 								
 									<div class="nine columns">
-								<div id="formCargCol"><?php echo $colectivoVista;?></div>
-								<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
-												
-									</div>
+										<div id="formCargCol"><?php echo $colectivoVista;?></div>
+										<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
+								</div>
 								
 							<!--Termina contenido de la pestaña Actor Colectivo-->
 							

@@ -806,20 +806,29 @@ function ventanaFuenteDoc(){
 	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
 	};
 
-
 function mostrarTexto(elem){
 	var nombre = $(elem).attr('id');
 	nombre = nombre.substring(8);  //Obteng el nombre limpio
 	texto= "especial_" + nombre;	//Nombre del campo texto
 	nombre2= "TextoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
-	select =nombre + "Select";		//Nombre del campo select para esconder las opciones
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+    $("#"+ nombre).removeAttr("name");	//Quito el atribulo name
     $("#"+ select).hide("slow");	//Escondo las opciones
-    $("#"+ select).removeAttr("value");	//Quito el atribulo value			
 	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
-    $("#"+ nombre2).html('<input type="text"  />');	//agrego el atributo value al texto
-	alert(select+"  "+ texto+"  "+nombre2);
-	}
+    $("#"+ nombre2).html('<span><input type="text"  name='+ texto +' id='+ texto +' /> '+ 	//agrego el atributo value al texto
+    '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect(this)" /> </span>');
+    alert(nombre+"  "+nombre2+"  "+select);
+};
 
 
-function esconderTexto(elem){
+function mostrarSelect(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(10);
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+	nombre2= "TextoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+    $("#"+ texto).removeAttr("name");	//Quito el atribulo value
+    $("#"+ nombre2).hide("slow");	//Escondo las opciones
+    $("#"+ select).show("slow");	//Escondo las opciones
+    $("#"+nombre).attr('name',nombre);
 }
