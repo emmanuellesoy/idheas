@@ -728,13 +728,19 @@ function mostarDatosListaElem(id, tipoActorId) {
     $('.borrar_select').css('background-color', '#fff');
     $('#elemento_'+id).css('background-color', '#D21400');
     if(tipoActorId == 3){
-        var tipoActor = '_colectivo';
+        var tipoActor = '_colectivo';   
+        $("#formCargCol").show("slow");
+		$("#formCol").hide("slow");
     }
     if(tipoActorId == 2){
         var tipoActor = '_transmigrante';
+		$("#formCargTrans").show("slow");
+		$("#formTrans").hide("slow");
     }
     if(tipoActorId == 1){
         var tipoActor = '';
+        $("#formCargInd").show("slow");
+		$("#formInd").hide("slow");
     }
     $.ajax({
             url: uri,
@@ -760,8 +766,7 @@ function mostarDatosListaElem(id, tipoActorId) {
                 //$('#formCargInd').html(data);
             }
         });
-    
-    
+   
 };
 /*
 function mostarDatosListaElem() {
@@ -831,4 +836,53 @@ function mostrarSelect(elem){
     $("#"+ nombre2).hide("slow");	//Escondo las opciones
     $("#"+ select).show("slow");	//Escondo las opciones
     $("#"+nombre).attr('name',nombre);
-}
+};
+
+function mostrarTexto2(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(8);  //Obteng el nombre limpio
+	name= nombre.substring(1);
+	alert(name);
+	name= "especial_"+ name;
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+    $("#"+ nombre).removeAttr("name");	//Quito el atribulo name
+    $("#"+ select).hide("slow");	//Escondo las opciones
+	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
+    $("#"+ nombre2).html('<span><input type="text"  name="TextoEspecial_'+ name +'" id='+ texto +' /> '+ 	//agrego el atributo value al texto
+    '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect2(this)" /> </span>');
+};
+
+
+function mostrarSelect2(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(10);
+	name= nombre.substring(1);
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+    $("#"+ texto).removeAttr("name");	//Quito el atribulo value
+    $("#"+ nombre2).hide("slow");	//Escondo las opciones
+    $("#"+ select).show("slow");	//Escondo las opciones
+    $("#"+nombre).attr('name',name);
+};
+
+
+function mostrarColectivo(){
+    $("#formCargCol").show("slow");
+    $("#formCol").hide("slow");	
+};
+	
+
+function mostrarIndividual(){
+    $("#formCargInd").show("slow");
+    $("#formInd").hide("slow");	
+};
+
+
+function mostrarTransmigrante(){
+    $("#formCargTrans").show("slow");
+    $("#formTrans").hide("slow");	
+};
+

@@ -21,6 +21,7 @@
 					<label for="tipoActor">Tipo de actor colectivo</label>
 					<span id="infoGralActores_tipoActorColectivoIdSelect">
 						<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
+							<option > </option>
 							<?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?>
 								<option value="<?=$item['tipoActorColectivoId']; ?>"><?=$item['descripcion']; ?></option>
 							<?php endforeach;?>
@@ -40,9 +41,10 @@
 					<label for="actividad">Actividad</label>
 					<span id="infoGralActores_actividadSelect">
 						<select name="infoGralActores_actividad" id="infoGralActores_actividad">
-						<?php foreach($actividad['colectivo'] as $key => $item):?>
+							<option > </option>
+							<?php foreach($actividad['colectivo'] as $key => $item):?>
 								<option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
-						<?php endforeach;?>
+							<?php endforeach;?>
 						</select>
 						<input id="BotonmasinfoGralActores_actividad" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -62,48 +64,50 @@
 						<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
 				 </p>
 
-					<label for="paisdir">País</label>
-				<span id="direccionActor_paisesCatalogo_paisIdSelect">
-						<select name="direccionActor_paisesCatalogo_paisId" id="direccionActor_paisesCatalogo_paisId">
+				<label for="paisdir">País</label>
+					<div id="2direccionActor_paisesCatalogo_paisIdSelect" class="twelve columns">
+						<select name="direccionActor_paisesCatalogo_paisId" id="2direccionActor_paisesCatalogo_paisId">
 							<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
 									<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
 							<?php endforeach;?>
 						</select>
-						<input id="BotonmasdireccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
-				</span>
-				<span id="TextoEspecial_direccionActor_paisesCatalogo_paisId" class="Escondido twelve columns">	</span>
+						<input id="Botonmas2direccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
+					</div>
+					<span id="TextoEspecial_2direccionActor_paisesCatalogo_paisId" class="Escondido twelve columns">	</span>
 					
 					
 					<label for="estadodir">Estado</label>
-					<span id="direccionActor_estadosCatalogo_estadoIdSelect">
-						<select name="direccionActor_estadosCatalogo_estadoId"  id="direccionActor_estadosCatalogo_estadoId" >
+					<span id="2direccionActor_estadosCatalogo_estadoIdSelect" class="twelve columns">
+						<select name="direccionActor_estadosCatalogo_estadoId"  id="2direccionActor_estadosCatalogo_estadoId" >
+							<option > </option>
 							<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
                                 <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
-                        <?php endforeach;?>
+							<?php endforeach;?>
 						</select>
-						<input id="BotonmasdireccionActor_estadosCatalogo_estadoId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+						<input id="Botonmas2direccionActor_estadosCatalogo_estadoId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</span>
-				<span id="TextoEspecial_direccionActor_estadosCatalogo_estadoId" class="Escondido twelve columns"></span>
+					<span id="TextoEspecial_2direccionActor_estadosCatalogo_estadoId" class="Escondido twelve columns"></span>
 				
 			  </div>
 				  
 			<div class="six columns">
 				
 					<label for="municipioId">Municipio</label>
-					<span id="direccionActor_municipiosCatalogo_municipioIdSelect">
+					<span id="2direccionActor_municipiosCatalogo_municipioIdSelect" >
 						<select name="direccionActor_municipiosCatalogo_municipioId" id="direccionActor_municipiosCatalogo_municipioId">
+							<option > </option>
 							<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
                                 <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-                        <?php endforeach;?>
+							<?php endforeach;?>
 						</select>
-						<input id="BotonmasdireccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+						<input id="Botonmas2direccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</span>
-					<span id="TextoEspecial_direccionActor_municipiosCatalogo_municipioId" class="Escondido twelve columns"></span>
+					<span id="TextoEspecial_2direccionActor_municipiosCatalogo_municipioId" class="Escondido twelve columns"></span>
 				
-				<p>
-					<label for="codigoPos">Código Postal</label>
+					<p>
+						<label for="codigoPos">Código Postal</label>
 						<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
-				 </p>
+					 </p>
 			
 			</div> <!--six columns -->
 					 
@@ -150,7 +154,7 @@
 		<div  class="four columns offset-by-eight" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input class="medium button" type="reset" value="Cancelar" />
+		<input onClick="mostrarColectivo()" class="medium button" type="reset" value="Cancelar"  />
 		</div>
 		</div>
 

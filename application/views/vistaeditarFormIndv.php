@@ -63,7 +63,75 @@
 	</head>
 	
 	<body>
-		<?php echo $editarIndividual?>
+	
+		<!---Encabezado de la página--->
+			<div class="twelve columns">
+			  <div class="panel" >
+			  <div div="logo" >
+				<?php echo img('statics/IMG/logo.png');?>
+			  </div>
+			  </div>
+			</div>
+		  <!---Termina el encabezado de la página-->
+		  
+		  <!--Contenido de la página-->
+			<div class="two columns">				
+
+			<dl class="nice vertical tabs">
+				  <dd class="active"><a href="#vertical1">Actores</a></dd>
+				</dl>
+				
+			</div>
+		
+			<div class="ten columns">
+				<ul class="tabs-content">
+				
+				  <li class="active" id="vertical1Tab"><!--Pestaña Actores Individuales--->
+					
+					<dl class="tabs"><!--Pestañas de Actores-->
+						<dd class="active" ><a href="#simple1">Editar actor <?=(isset($datosActor) ? ' '.$datosActor[$actorId][$actorId]['nombre'].' ' : ''); ?> </a></dd>
+					</dl>
+
+					<ul class="tabs-content">
+					    <li class="active" id="simple1Tab">
+						  <!---Contenido de la pestaña Actor individual--->
+								
+								<div class="elven columns">
+									
+								<div id="formCargInd" class="Escondido"><?=(isset($formulario)) ? $formulario : '';?></div>
+								<div id="formInd" ><?php echo $formulario;?> </div>
+								
+								</div>
+								
+							<!--Termina contenido de la pestaña Actor individual-->
+					    </li>
+					  
+					  
+					    <li id="simple2Tab"  >
+						</li>
+						
+					    <li id="simple3Tab" onclick="mostrarListaActorCol()">
+						</li>
+					
+					
+					</ul>
+
+					  </li> <!--Termina Pestaña Actores individuales--->
+				  
+				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes--->  
+				  
+					
+				  </li><!--Termina Pestaña Actores transmigrantes--->
+				  
+				  <li id="vertical3Tab"><!--Pestaña Actores Colectivos--->  
+				  				
+				  </li><!--Termina Pestaña Actores Colectivos--->
+				  
+				</ul>
+			  
+			</div>
+		<!--Termina el contenido de la página-->
+	
 	</body>
 	
 </html>

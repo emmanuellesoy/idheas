@@ -11,26 +11,26 @@
 					 
 					  <p>
 						<label for="nombre">Nombre</label>
-						<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required/>
+						<input type="text"  name="actores_nombre" size="30"  required/>
 					  </p>
 					 
 					  <p>
 						<label for="apellidos">Apellidos</label>
-						<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="60" maxlength="60" required/>
+						<input type="text"  name="actores_apellidosSiglas" size="60" required/>
 					 
 					  </p>
 					 
 					  <p>
 						<label for="alias">Alias</label>
-						<input type="text" name="alias_alias" value="<?php echo set_value('alias'); ?>" size="30" maxlength="20"/>
+						<input type="text" name="alias_alias" size="30" />
 					  
 					  </p>
 					 
 					  
 					</div>
-					<div class="six columns">
+				<div class="six columns">
 					 
-					<div class="four columns">
+					<div class="seven columns">
 					  <p>
 						<label for="genero">Género</label>
 						<input type="radio" name="infoGralActor_generoid" checked="checked" value="<?php echo set_value('Hombre'); ?>" /> Hombre
@@ -39,7 +39,7 @@
 					  </p>
 					  </div>
 					 
-					<div class="two columns">
+					<div class="five columns">
 					  <p>
 						<label for="edad">Edad</label>
 						<select name="infoGralActor_edad" id="infoGralActor_edad">					
@@ -51,38 +51,40 @@
 					  </p>
 					</div>
 					
-				<div class="six columns">	
-					<p>
-					<label >Foto </label>
-					<input type="file" name="actores_foto"/>
-					</p>
-				</div>		
-						<label for="estadoCivil">Estado Civil</label>
-						<span class="twelve class" id="infoGralActor_estadoCivil_estadoCivilIdSelect">
+					<div class="twelve columns">	
+						<p>
+						<label >Foto </label>
+						<input type="file" name="actores_foto"/>
+						</p>
+					</div>		
+						
+					<label for="estadoCivil">Estado Civil</label>
+					<span class="twelve columns" id="infoGralActor_estadoCivil_estadoCivilIdSelect">
 						<select id="infoGralActor_estadoCivil_estadoCivilId"  name="infoGralActor_estadoCivil_estadoCivilId">
-						<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?>
-                                                        <option value="<?=$item['estadoCivilId']; ?>"><?=$item['descripcion']; ?></option>
+							<option > </option>
+							<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?>
+								<option value="<?=$item['estadoCivilId']; ?>"><?=$item['descripcion']; ?></option>
 						<?php endforeach;?>
 						</select>
-							<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+						<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
 						<span id="TextoEspecial_infoGralActor_estadoCivil_estadoCivilId" class="Escondido twelve columns">
 					</span>
 					 
-					 
-						<label for="nacionalidadID">Nacionalidad</label>
+					<label for="nacionalidadID">Nacionalidad</label>
 					<span class="twelve columns" id="infoGralActor_nacionalidadIdSelect">	
 						<select name="infoGralActor_nacionalidadId" id="InfoGralActor_nacionalidad">
-						<?php foreach($nacionalidad as $key => $item):?>
-												<option value="<?=$item?>"><?=$key?></option>
-						<?php endforeach;?>
+							<option > </option>
+							<?php foreach($nacionalidad as $key => $item):?>
+								<option value="<?=$item?>"><?=$key?></option>
+							<?php endforeach;?>
 						</select>
 						<input id="BotonmasinfoGralActor_nacionalidadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+						</span>
+						<span id="TextoEspecial_infoGralActor_nacionalidadId" class="Escondido twelve columns">
 					</span>
-					<span id="TextoEspecial_infoGralActor_nacionalidadId" class="Escondido twelve columns">
-				</span>
 					
-					</div>
+				</div>
 					 
 				</fieldset>	<!--Termina información general-->
 				
@@ -97,6 +99,7 @@
 					<label for="hijos">Hijos</label>
 					<span class="twelve columns" id="infoGralActor_hijosSelect">
 						<select name="infoGralActor_hijos" id="infoGralActor_hijos" >						
+						<option > </option>
 						<?php foreach($hijos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -110,6 +113,7 @@
 					<label for="grupoIndigena">Grupo Indígena</label>
 					<span class="twelve columns" id="infoGralActor_gruposIndigenas_grupoIndigenaIdSelect">
 						<select name="infoGralActor_gruposIndigenas_grupoIndigenaId" id="infoGralActor_gruposIndigenas_grupoIndigenaId">
+						<option > </option>
 						<?php foreach($grupoIndigena['gruposIndigenas'] as $key => $item):?> 
                                 <option value="<?=$item['grupoIndigenaId']; ?>"><?=$item['descripcion']; ?></option>
                         <?php endforeach;?>
@@ -134,6 +138,7 @@
 						<label for="nivelEscolaridad">Nivel de Escolaridad</label>
 						<span class="twelve columns" id="infoGralActor_escolaridadIdSelect">
 							<select name="infoGralActor_escolaridadId" id="infoGralActor_escolaridadId">
+								<option > </option>
 							<?php foreach($escolaridad as $key => $item):?>
 													<option value="<?=$item?>"><?=$key?></option>
 							<?php endforeach;?>
@@ -147,6 +152,7 @@
 						<label for="UltimaOcupacion">Última Ocupación</label>
 						<span class="twelve columns" id="infoGralActor_ocupacionesCatalogo_ultimaOcupacionidSelect">
 						<select name="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid" id="infoGralActor_ocupacionesCatalogo_ultimaOcupacionid">
+							<option > </option>
 						<?php foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item):?> 
                                 <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
                         <?php endforeach;?>
@@ -193,6 +199,7 @@
 								<label for="estado">Estado</label>
 						<span id="datosDeNacimiento_estadosCatalogo_estadoIdSelect" class="twelve columns" >
 									<select name="datosDeNacimiento_estadosCatalogo_estadoId">
+										<option > </option>
 										<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
 										<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
 										<?php endforeach;?>
@@ -207,6 +214,7 @@
 							  <span id="datosDeNacimiento_municipiosCatalogo_municipioIdSelect" class="twelve columns">
 								<label for="municipio">Municipio</label>
 									<select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">
+										<option > </option>
 										<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
 												<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
 										<?php endforeach;?>
@@ -226,6 +234,7 @@
 					<label for="paistrans">País de tránsito</label>
 						<span id="infoMigratoria_paisTransitoIdSelect" class="twelve columns">
 						<select name="infoMigratoria_paisTransitoId" id="infoMigratoria_paisTransitoId">
+							<option > </option>
 						<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
                                 <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
                         <?php endforeach;?>
@@ -238,6 +247,7 @@
 					<label for="paisdest">País destino</label>
 					<span id="infoMigratoria_paisDestinoIdSelect" class="twelve columns">
 						<select name="infoMigratoria_paisDestinoId" id="infoMigratoria_paisDestinoId">
+							<option > </option>
 						<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
                                 <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
                         <?php endforeach;?>
@@ -249,6 +259,7 @@
 					<label for="intcrucepaistran">Intentos de cruce por el país de tránsito</label>
 					<span id="infoMigratoria_intCruceTransitoSelect" class="twelve columns">
 						<select name="infoMigratoria_intCruceTransito" id="infoMigratoria_intCruceTransito" >						
+						<option > </option>
 						<?php foreach($intentos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -269,6 +280,7 @@
 					<label for="expulpaisdest">Expulsiones del país de destino</label>
 					<span id="infoMigratoria_expCruceDestinoSelect" class="twelve columns">
 						<select name="infoMigratoria_expCruceDestino" id="infoMigratoria_expCruceDestino">						
+						<option > </option>
 						<?php foreach($intentos as $item):?> 
 									<option  value="<?=$item?>"><?=$item?></option>
 						<?php endforeach;?>
@@ -283,6 +295,7 @@
 					<label for="motivoViaje">Motivo del viaje</label>
 						<span id="infoMigratoria_motivoViajeSelect" class="twelve columns" >
 						<select name="infoMigratoria_motivoViaje" id="infoMigratoria_motivoViaje">
+							<option > </option>
 						<?php foreach($motivos as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -296,6 +309,7 @@
 					<label for="tipoEstancia">Tipo de estancia</label>
 					<span id="infoMigratoria_tipoEstanciaIdSelect" class="twelve columns">
 						<select name="infoMigratoria_tipoEstanciaId" id="infoMigratoria_tipoEstanciaId">
+							<option > </option>
 						<?php foreach($estancia as $key => $item):?>
 												<option value="<?=$item?>"><?=$key?></option>
 						<?php endforeach;?>
@@ -309,6 +323,7 @@
 				<div class="six columns">				
 				 <p>								
 					<label for="intcrucespaisdets">Intentos de cruce al país destino</label>
+					<option > </option>
 						<select name="infoMigratoria_intCruceDestino" id="infoMigratoria_intCruceDestino" >						
 						<?php foreach($intentos as $item):?> 
 									<option value="<?=$item?>"><?=$item?></option>
@@ -318,6 +333,7 @@
 						
 				 <p>
 					<label for="expulpaistrans">Expulsiones del país de tránsito</label>
+					<option > </option>
 						<select name="infoMigratoria_expCruceTransito">						
 						<?php foreach($intentos as $item):?> 
 									<option  value="<?=$item?>"><?=$item?></option>
@@ -344,7 +360,7 @@
 		<div  class="four columns offset-by-eight" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input class="medium button" type="reset" value="Cancelar" />
+		<input class="medium button" type="reset" value="Cancelar" onclick="mostrarTransmigrante()" />
 		</div>
 		</div>
 			</div>

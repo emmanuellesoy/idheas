@@ -15,7 +15,7 @@
 	<body>
 				
 
-<form action="index.php/form_c" method="post" accept-charset="utf-8">
+<form action="<?=base_url(); ?>index.php/form_c" method="post" accept-charset="utf-8">
 		<div id="container" name="container">
 			<div id="encabezado" name="encabezado">	
 						

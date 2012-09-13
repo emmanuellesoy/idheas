@@ -89,7 +89,7 @@ class Actores_c extends CI_Controller {
 
     }
     
-    public function traerEditar($actorId = 1, $tipoActorId = 1){
+    public function traerEditar($actorId =3, $tipoActorId =1){
         
         $data['editar'] = 1;
         
@@ -97,9 +97,21 @@ class Actores_c extends CI_Controller {
         
         $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
        
-        $vista['editarIndividual'] = $this->load->view('formularios/FormularioIndividual_v', $data, true);
+			
+        switch($tipoActorId){
+			case '1':
+			$data['formulario'] = $this->load->view('formularios/FormularioIndividual_v', $data , true);
+			break;
+			case '2':
+			$data['formulario'] = $this->load->view('formularios/formularioTransmigrante_v', $data , true);
+			break;
+			case '3':
+			$data['formulario'] = $this->load->view('formularios/formularioColectivo_v', $data , true);
+			break;
+		}
         
-        $this->load->view('vistaeditarFormIndv', $vista);
+        
+        $this->load->view('vistaeditarFormIndv', $data);
         
     }
     
