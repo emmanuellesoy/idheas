@@ -5,8 +5,13 @@ class Actores_c extends CI_Controller {
 	  public function __construct()
        {
             parent::__construct();
-            $this->load->helper('url');
-            // Your own constructor code
+            
+            $this->load->model(array('actores_m'));
+    
+            $this->load->helper(array('html', 'url'));					
+	
+            $this->load->library('form_validation');
+            
        }
 
 	public function index(){
@@ -40,7 +45,7 @@ class Actores_c extends CI_Controller {
 		 
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
-                print_r($datos);
+                redirect(base_url().'index.php/form_c');
                 
 	}
 	
@@ -75,6 +80,42 @@ class Actores_c extends CI_Controller {
 		print_r($datos);
 		
 	}
+        
+        public function cTraerDatosActor($actorId, $tipoActorId){
+            
+        $datos = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+        
+        print_r(json_encode($datos));
+
+    }
+    
+    public function traerEditar($actorId =3, $tipoActorId =1){
+        
+        $data['editar'] = 1;
+        
+        $data['actorId'] = $actorId;
+        
+        $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+       
+			
+        switch($tipoActorId){
+			case '1':
+			$data['formulario'] = $this->load->view('formularios/FormularioIndividual_v', $data , true);
+			break;
+			case '2':
+			$data['formulario'] = $this->load->view('formularios/formularioTransmigrante_v', $data , true);
+			break;
+			case '3':
+			$data['formulario'] = $this->load->view('formularios/formularioColectivo_v', $data , true);
+			break;
+		}
+        
+        
+        $this->load->view('vistaeditarFormIndv', $data);
+        
+    }
+    
+    
 	
 }
 

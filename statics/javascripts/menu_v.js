@@ -720,10 +720,55 @@ function detallesDelLugar(){
     $("#detallesLugar").toggle("slow");
     };
 
-
-
 /************************Prueba de comunicación Ajax***********************/
 
+function mostarDatosListaElem(id, tipoActorId) {
+    
+    var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;
+    $('.borrar_select').css('background-color', '#fff');
+    $('#elemento_'+id).css('background-color', '#D21400');
+    if(tipoActorId == 3){
+        var tipoActor = '_colectivo';   
+        $("#formCargCol").show("slow");
+		$("#formCol").hide("slow");
+    }
+    if(tipoActorId == 2){
+        var tipoActor = '_transmigrante';
+		$("#formCargTrans").show("slow");
+		$("#formTrans").hide("slow");
+    }
+    if(tipoActorId == 1){
+        var tipoActor = '';
+        $("#formCargInd").show("slow");
+		$("#formInd").hide("slow");
+    }
+    $.ajax({
+            url: uri,
+            method: 'post',
+            datatype: "html",
+            success: function(data){
+                var json = jQuery.parseJSON(data);
+                $.each(json, function(indice, valor){
+                    $.each(valor, function(nombre, dato){
+                        $('#'+nombre+tipoActor).html(dato);
+                    });
+                    /*
+                    $('#actores_apellidosSiglasV').html(valor.apellidosSiglas);
+                    $('#alias_aliasV').html(valor.alias);
+                    $('#infoGralActor_generoidV').html(valor.generoId);
+                    $('#infoGralActor_edadV').html(valor.edad);
+                    $('#infoGralActor_estadoCivil_estadoCivilV').html(valor.estadoCivil_estadoCivilId);
+                    $('#infoGralActor_nacionalidadV').html(valor.nacionalidadId);
+                    */
+                });
+                
+                
+                //$('#formCargInd').html(data);
+            }
+        });
+   
+};
+/*
 function mostarDatosListaElem() {
 	var datosActor=new Array("Siwon","Choi","Horse","hombre");
     $("#formInd").hide("slow");
@@ -733,18 +778,111 @@ function mostarDatosListaElem() {
 	$('#alias_aliasV').html(datosActor[2]); 
 	$('ul').html(datosActor[3]); 
     };
-/*******************************************************************/
+*/
+/******************Ventanas*************************/
+
+
+function ventanaDetalleLugar(){
+	  var windowSizeArray = [ "width=800,height=200" ];
+	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
+	};
+
+function ventanaFicha(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosInicia_c/SeguimientoCaso', 'Seguimiento del caso', windowSizeArray);
+	};
+
+
+function ventanaDerAfectados(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosNucleo_c', 'Derechos Afectados', windowSizeArray);
+	};
 
 
 
+function ventanaInterevenciones(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('casosNucleo_c/intervenciones', 'Intervenciones', windowSizeArray);
+	};
 
 
+function ventanaFuenteDoc(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
+	};
+
+function mostrarTexto(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(8);  //Obteng el nombre limpio
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	nombre2= "TextoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+    $("#"+ nombre).removeAttr("name");	//Quito el atribulo name
+    $("#"+ select).hide("slow");	//Escondo las opciones
+	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
+    $("#"+ nombre2).html('<span><input type="text"  name='+ texto +' id='+ texto +' /> '+ 	//agrego el atributo value al texto
+    '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect(this)" /> </span>');
+    alert(nombre+"  "+nombre2+"  "+select);
+};
 
 
+function mostrarSelect(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(10);
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+	nombre2= "TextoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+    $("#"+ texto).removeAttr("name");	//Quito el atribulo value
+    $("#"+ nombre2).hide("slow");	//Escondo las opciones
+    $("#"+ select).show("slow");	//Escondo las opciones
+    $("#"+nombre).attr('name',nombre);
+};
+
+function mostrarTexto2(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(8);  //Obteng el nombre limpio
+	name= nombre.substring(1);
+	alert(name);
+	name= "especial_"+ name;
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+    $("#"+ nombre).removeAttr("name");	//Quito el atribulo name
+    $("#"+ select).hide("slow");	//Escondo las opciones
+	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
+    $("#"+ nombre2).html('<span><input type="text"  name="TextoEspecial_'+ name +'" id='+ texto +' /> '+ 	//agrego el atributo value al texto
+    '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect2(this)" /> </span>');
+};
 
 
+function mostrarSelect2(elem){
+	var nombre = $(elem).attr('id');
+	nombre = nombre.substring(10);
+	name= nombre.substring(1);
+	texto= "especial_" + nombre;	//Nombre del campo texto
+	select = nombre+"Select";		//Nombre del campo select para esconder las opciones
+	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
+    $("#"+ texto).removeAttr("name");	//Quito el atribulo value
+    $("#"+ nombre2).hide("slow");	//Escondo las opciones
+    $("#"+ select).show("slow");	//Escondo las opciones
+    $("#"+nombre).attr('name',name);
+};
 
 
+function mostrarColectivo(){
+    $("#formCargCol").show("slow");
+    $("#formCol").hide("slow");	
+};
+	
+
+function mostrarIndividual(){
+    $("#formCargInd").show("slow");
+    $("#formInd").hide("slow");	
+};
 
 
+function mostrarTransmigrante(){
+    $("#formCargTrans").show("slow");
+    $("#formTrans").hide("slow");	
+};
 

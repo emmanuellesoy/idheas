@@ -21,10 +21,12 @@
 			                <td>This is longer content</td>
 			                <td>Content</td>
 			                <td>Content</td>
-			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaDerAfectados()" />
+			                <input type="button" class="tiny button"  value="Eliminar" onclick="ventanaDerAfectados()" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
+			    <input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDerAfectados()" />
 	  			</div>
 	  			  
 	  		</div>
@@ -49,10 +51,12 @@
 			                <td>This is longer content</td>
 			                <td>Content</td>
 			                <td>Content</td>
-			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaInterevenciones()" />
+			                <input type="button" class="tiny button"  value="Eliminar" onclick="ventanaInterevenciones()" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
+				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaInterevenciones()" />	  
 	  			</div>
 	  			  
 	  		</div>

@@ -1,25 +1,20 @@
 <?php
 
-class Form_c extends CI_Controller {
-    
-    function __construct() {
+class form_c extends CI_Controller {
+
+public function __construct() {
         parent::__construct();
-        $this->load->model(array('actores_m', 'casos_m', 'catalogos_m'));
+        
+        
+			$this->load->model(array('actores_m', 'casos_m', 'catalogos_m'));
+    
+            $this->load->helper(array('html', 'url'));					
+	
+            $this->load->library('form_validation');
     }
 
-    function index()
+public function index()
 	{
-		//CARGA DE LAS LIBRERIAS
-		$this->load->helper(array('html', 'url'));					
-		$this->load->library('form_validation');
-		// TERMINA CARGA DE LAS LIBRERIAS
-
-		if ($this->form_validation->run('login') == FALSE) //SI ES FALSA LA VALIDACION DEL LOGUEO 
-		{
-			$this->load->view('login');
-		}
-		else
-		{       
                     
                         $Lista['listaActores'] = $this->actores_m->mTraerActores();
 
@@ -82,18 +77,14 @@ class Form_c extends CI_Controller {
 				$data['colectivo'] = $this->load->view('formularios/formularioColectivo_v', $DatosGenerales  , true);
 				$data['transmigrante'] = $this->load->view('formularios/formularioTransmigrante_v', $DatosGenerales , true);
 				$data['individual'] = $this->load->view('formularios/FormularioIndividual_v', $DatosGenerales , true);
-                $datosCasos['listaActores'] = $this->actores_m->mTraerActores();
-                $DatosGenerales['listaActores'] = $this->actores_m->mTraerActores();
-                $DatosGenerales['listaCasos'] = $this->casos_m->mTraerDatosCaso();
-				$DatosGenerales['detalleLugar'] = $this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales , true);
-				$datosCasos['actor'] = $this->load->view('casos/formularioActo_v', $DatosGenerales , true);
+                                $datosCasos['listaActores'] = $this->actores_m->mTraerActores();
+                                $DatosGenerales['listaActores'] = $this->actores_m->mTraerActores();
+                                $DatosGenerales['listaCasos'] = $this->casos_m->mTraerDatosCaso(1);
 				$datosCasos['infoGral'] = $this->load->view('casos/formularioInfoGral_v', $DatosGenerales , true);
 				$datosCasos['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $DatosGenerales , true);
-				$datosCasos['fuenteDoc'] = $this->load->view('casos/formularioFuenteDoc_v', $DatosGenerales , true);
 				$datosCasos['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $DatosGenerales , true);
 				$datosCasos['intervencion'] = $this->load->view('casos/formularioIntervencion', $DatosGenerales , true);
 				$datosCasos['relacionCasos'] = $this->load->view('casos/formularioRelacionCasos_v', $DatosGenerales , true);
-				$datosCasos['ficha'] = $this->load->view('casos/formularioSeguimientoCaso_v', $DatosGenerales , true);
 				$datosCasos['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
 				$datosCasos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
 				$datosCasos['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
@@ -117,25 +108,7 @@ class Form_c extends CI_Controller {
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);
 		}
-	}
 
 
-	function menu()
-	{
-	
-		$this->load->helper('html');
-		$this->load->helper('url');
-		$this->load->library('form_validation');
-
-		if ($this->form_validation->run('listaActores') == FALSE)
-		{
-				
-				$this->load->view('welcome_message');
-		}
-		else
-		{
-				$this->load->view('SigueientePagina');
-		}
-	}
 }
 ?>

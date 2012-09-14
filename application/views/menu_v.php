@@ -45,7 +45,7 @@
 			);
 			echo link_tag($link); 
 		?>  
-	
+                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
 		<!--Scripts foundation-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
@@ -106,7 +106,7 @@
 								
 								<div class="nine columns">
 									
-								<div id="formCargInd"><?php echo $individualVista;?></div>
+								<div id="formCargInd"><?=(isset($individualVista)) ? $individualVista : '';?></div>
 								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
 								
 								</div>
@@ -137,19 +137,14 @@
 						
 						  <!---Contenido de la pestaña Actor Colectivo--->
 								<div class="three columns">
-									
-									
-										<?php 
-										
-										echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
+										<?php echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
 									</div>
 								
 								
 									<div class="nine columns">
-								<div id="formCargCol"><?php echo $colectivoVista;?></div>
-								<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
-												
-									</div>
+										<div id="formCargCol"><?php echo $colectivoVista;?></div>
+										<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
+								</div>
 								
 							<!--Termina contenido de la pestaña Actor Colectivo-->
 							
@@ -196,6 +191,3 @@
 	</body>
 	
 </html>
-
-
-  				

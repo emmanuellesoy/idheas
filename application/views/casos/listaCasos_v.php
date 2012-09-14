@@ -1,8 +1,8 @@
 <div id="listaCasos" name="listaCasos"><!--Lista de Actores--->
 
 	<ul class="button-group">
-		<li><input type="button" class="button"  value="Agregar Caso" onclick="mostrarAgregarCasos()" /> </li>
-		<li><input type="button" class="button" value="Eliminar Caso" onclick="esconderCasos()" /> </li>
+		<li><input type="button" class="small button"  value="Agregar Caso" onclick="mostrarAgregarCasos()" /> </li>
+		<li><input type="button" class="small button" value="Eliminar Caso" onclick="esconderCasos()" /> </li>
     </ul>
 
 			<?php echo form_open('form_c/menu'); ?> 
@@ -22,28 +22,21 @@
 
 
 				  <pre><?php print_r($listaCasos); ?></pre>
-<!------------Lista ind-------------------->
+<!------------Lista ind--------------------
+				<div  id="listaActorIndiv" class="PruebaScorll">
+		
+					< ?php if($listaCasos){ ?>
+                    < ?php foreach($listaCasos  as $item):?> 
 			
-	<div  id="listaActorIndiv" class="PruebaScorll">
-					<?php if($listaCasos['individual']){ ?>
-				  <pre><?php print_r($derechosAfectados); ?></pre>
-                                                <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
-					
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
-								<div class="five columns"><!--imprimo imagenes-->
-									<?php echo img($item['actorId']);?>
-									<?php echo br(2);?>	
-								</div>
-								
-								<div class="seven columns"><!--Imprimo nombres-->
-										<?=$item['nombre']?>
-										<?php echo br(2);?>	
-								</div>
+										< ?=$item['nombre']?>
+										< ?php echo br(2);?>	
 							</div>
 							
-					<?php endforeach;?><!--Termina lista de los actores-->
-                                           <?php } ?>
-			</div>
+                    < ?php } ?>
+					< ?php endforeach;? >
+	</div>--Termina lista de los actores-->
 			
-			
+	
+		
 	</div> 
