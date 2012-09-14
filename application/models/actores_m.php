@@ -103,6 +103,7 @@
 						$this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
 						$this->db->join('alias','alias.actores_actorId = actores.actorId','left');
+						$this->db->join('relacionActores','relacionActores.actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
 						$this->db->where('estadoActivo',1);
 						
@@ -126,6 +127,7 @@
 						$this->db->join('datosDeNacimiento','datosDeNacimiento.actores_actorId = actores.actorId', 'left');
 						$this->db->join('infoMigratoria','infoMigratoria.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
+						$this->db->join('relacionActores','relacionActores.actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
 						$this->db->where('estadoActivo',1);
 						
@@ -148,6 +150,7 @@
 						$this->db->from('actores');
 						$this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActores','infoGralActores.actores_actorId = actores.actorId','left');
+						$this->db->join('relacionActores','relacionActores.actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
 						$this->db->where('estadoActivo',1);
 						
@@ -294,6 +297,35 @@
 			return ($mensaje = 'Hecho');
 			
 		}/*Fin de mEliminaPerpetrador*/
+		
+		/*Este modelo relaciona dos actores
+         * @param 
+         * $datos = array(
+         *         'relacionActoresId' => '1' ,
+           'actorId' => '1' ,
+           'actorRelacionadoId' => '1' ,
+           'tipoRelacionId' => '1'
+         *         'tipoRelacionIndividualColectivoId' => '1'
+        );
+         * */
+        public function mRelacionaActores($datos){
+
+            $this->db->insert('relacionActores',$datos);
+
+            /* Regresa la cadena al controlador*/
+            return ($mensaje = 'Hecho');
+        }/* Fin de mRelacionaActores */
+		
+		/*Este modelo elimina todas las relaciones actor-actor
+		 * @param $relacionActoresId
+		 * */
+		public function mEliminaRelacionActores($relacionActoresId){
+			$this->db->where('relacionActoresId', $relacionActoresId);
+			$this->db->delete('relacionActores');
+		
+		    /* Regresa la cadena al controlador*/
+		    return ($mensaje = 'Hecho');
+		}
 
 	}
 	
