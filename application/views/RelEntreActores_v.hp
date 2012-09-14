@@ -1,0 +1,91 @@
+    <fieldset>
+        <legend>Información general</legend>
+            <div class="six columns"><!----Primer mitad de información general---->
+                <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="actores_nombre" name="actores_nombre"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['nombre'].'"' : ''); ?> size="30" required />
+                </p>
+
+                <p>
+                    <label for="apellidos">Apellidos</label>
+                    
+                    <input type="text" id="actores_apellidosSiglas" name="actores_apellidosSiglas" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['apellidosSiglas'].'"' : ''); ?> size="60" required />
+
+                </p>
+
+                <p>
+                    <label for="alias_alias">Alias</label>
+                    <input type="text" id="alias_alias" name="alias_alias" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['alias'].'"' : ''); ?> size="30" />
+
+                </p>
+            </div><!----Termina primer mitad de información general---->
+            <div class="six columns"><!----Segunda mitad de información general---->
+
+				<div class="twelve columns">	
+					<p>
+					<label >Foto </label>
+					<input type="file" name="actores_foto" size="15"/>
+					</p>
+				</div>
+
+                <div class="eight columns">				
+				
+                    <p>
+                        <label for="infoGralActor_generoid">Género</label>
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
+
+                    </p>
+                </div>
+
+                <div class="four columns">
+
+                    <p>
+                        <label for="edad">Edad</label>
+                        <select id="infoGralActor_edad" name="infoGralActor_edad">
+                        <option > </option>
+                        <?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>"> <?=$item?></option>
+                        <?php endforeach;?>
+                        </select>
+                    </p>
+
+                </div>
+				
+
+				<div >	
+                        <label for="estadoCivil">Estado Civil</label>
+                        <span id="infoGralActor_estadoCivil_estadoCivilIdSelect" class="twelve columns">
+							<select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						
+							<option > </option>
+								<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
+                                <option  value="<?=$item['estadoCivilId']?>"> <?=$item['descripcion']?></option>
+								<?php endforeach;?>
+								</select>
+						<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+                        </span>
+						<span id="TextoEspecial_infoGralActor_estadoCivil_estadoCivilId" class="Escondido twelve columns">
+						</span>
+				</div> 
+                 
+
+
+                    <div >
+						<br /><br />
+                        <label for="nacionalidad">Nacionalidad</label>
+						<span class="twelve columns" id="infoGralActor_nacionalidadIdSelect">
+                        <select id="infoGralActor_nacionalidadId" name="infoGralActor_nacionalidadId">						
+						<option > </option>
+                        <?php foreach($nacionalidad as $key => $item):?> <!--muestra todas las nacionalidades-->
+                                <option value="<?=$item?>"><?=$key?></option>
+                        <?php endforeach;?>
+                        </select>
+						<input id="BotonmasinfoGralActor_nacionalidadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+                        </span>
+						<span id="TextoEspecial_infoGralActor_nacionalidadId" class="Escondido twelve columns">
+						</span>
+                    </div>
+
+                </div> 	<!----Segunda mitad de información general---->
+
+        </fieldset>	<!--Termina información general-->

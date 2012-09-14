@@ -17,38 +17,38 @@
 					
 		</div>
 		<div class="twelve columns">
-		<div class="six columns">
-	<label for="edad">Fecha inicial</label>
-			<select onclick="fechaInicialCasos(value)" name="casos_fechaInicial">
-						<option  value="1" checked="checked" >fecha exacta</option>
-						<option  value="2">fecha aproximada</option>
-						<option  value="3">Se desconce el día</option>
-						<option  value="4">Se desconce el día y el mes</option>
-			</select>
-		</div>
-		
-		<div class="six columns">
-			<?php echo br(1);?>	
-			<p class="Escondido" id="fechaExactaV">
-				<input type="text" id="fechaExacta"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+			<div class="six columns">
+			<label for="edad">Fecha inicial</label>
+				<select onclick="fechaInicialCasos(value)" name="casos_fechaInicial">
+							<option  value="1" checked="checked" >fecha exacta</option>
+							<option  value="2">fecha aproximada</option>
+							<option  value="3">Se desconce el día</option>
+							<option  value="4">Se desconce el día y el mes</option>
+				</select>
+			</div>
+			
+			<div class="six columns">
+				<?php echo br(1);?>	
+				<p class="Escondido" id="fechaExactaV">
+					<input type="text" id="fechaExacta"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
 
-			</p>
+				</p>
 
-			<p class="Escondido" id="fechaAproxV">
-				<input type="text" id="fechaAprox"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+				<p class="Escondido" id="fechaAproxV">
+					<input type="text" id="fechaAprox"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
 
-			</p>
+				</p>
 
-			<p class="Escondido" id="fechaSinDiaV">
-				<input type="text" id="fechaSinDia"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+				<p class="Escondido" id="fechaSinDiaV">
+					<input type="text" id="fechaSinDia"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
 
-			</p >
+				</p >
 
-			<p class="Escondido" id="fechaSinDiaSinMesV">
-				<input type="text" id="fechaSinDiaSinMes" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+				<p class="Escondido" id="fechaSinDiaSinMesV">
+					<input type="text" id="fechaSinDiaSinMes" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
 
-			</p>
-		</div>
+				</p>
+			</div>
 	</div> <!---termina opciones de fechaInicial-->
 		<div class="twelve columns">
 				<label for="edad">Fecha término</label>

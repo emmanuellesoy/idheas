@@ -100,10 +100,11 @@ public function index()
 				$data['listaActoresTransmigrante'] = $this->load->view('listaActoresTransmigrante_v',$Lista, true);
 				$data['listaActoresColectivo'] = $this->load->view('listaActoresColectivos_v',$Lista, true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
-				$VistasCasosForm['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
-				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $VistasCasosForm , true);
-				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $VistasCasosForm , true);
-				$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $VistasCasosForm , true);
+				$data['relEntreActores'] = $this->load->view('RelEntreActores_v', $data , true);
+				$data['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
+				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $data , true);
+				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $data , true);
+				$data['colectivoVista'] = $this->load->view('formulariosCargados/formularioColectivo_v', $data , true);
 				
 				//CARGA DE LA VISTA MENU
 				$this->load->view('menu_v',$data);

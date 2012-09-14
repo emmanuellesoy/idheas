@@ -13,8 +13,10 @@ class casosInicia_c extends CI_Controller {
 		$this->load->helper(array('html', 'url'));					
 		
 				$DatosGenerales['lugares']= $this->catalogos_m->mTraerDatosCatalogoPaises();
+				$DatosGenerales['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+				
 
-		$this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales);
+		$this->load->view('formularios/formRelEntreIndividuaColectivo_v',$DatosGenerales);
 	
 		
 	}
