@@ -1,10 +1,11 @@
 <div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
 	<ul class="button-group">
-		<li><input type="button" class="small button"  value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
+		<li><input type="button" class="small button" value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
 		<li><input type="button" class="small button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
-                <li><input type="button" class="small button" value="Editar Actor" /></li>
     </ul>
-			<?php echo form_open('form_c/menu'); ?> 
+    <form action="controllers/form_c/menu" method="post" accept-charset="utf-8" id="formEditarActor">
+			
+        <input type="submit" class="small button" value="Editar Actor" id="botonEditarActor" />
 			<!--buscador de la lista de actores--->
 			<div class="seven columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
