@@ -103,7 +103,7 @@
 						$this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
 						$this->db->join('alias','alias.actores_actorId = actores.actorId','left');
-						$this->db->join('relacionActores','relacionActores.actorId = actores.actorId','left');
+						$this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
 						$this->db->where('estadoActivo',1);
 						
