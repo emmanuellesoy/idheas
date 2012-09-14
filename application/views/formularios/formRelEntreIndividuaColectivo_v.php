@@ -73,7 +73,7 @@
 			<span>Foto, Nombre</span>
 			
 			
-			<input type="hidden" value="1" id="relacionActores_tipodeRelacionId" />
+			<input type="hidden" value="1" id="relacionActores_actoresActorId" />
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>

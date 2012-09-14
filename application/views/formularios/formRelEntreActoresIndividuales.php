@@ -70,7 +70,7 @@
 			
 			<div class="panel twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
-				<select id="infoGralActor_hijos" name="relacionActores_tipoRelacionId">
+				<select id="relacionActores" name="relacionActores_actoresActorId">
 					<option > </option>
 				</select>
 			</div>
