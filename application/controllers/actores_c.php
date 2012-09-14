@@ -115,6 +115,26 @@ class Actores_c extends CI_Controller {
         
     }
     
+    public function editarActor(){
+        
+        foreach($_POST as $campo => $valor){ 
+   		
+                    $pos = strpos($campo, '_');
+                    
+                    $nombre_tabla = substr($campo, 0, $pos);
+                    
+                    $nombre_campo = substr($campo, ++$pos);
+                    
+                    $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+                        
+                }
+        
+        $this->actores_m->mActualizaDatosActor($_POST['actores_actorId'],$datos);
+        
+        redirect(base_url().'index.php/form_c');
+        
+    }
+    
     
 	
 }
