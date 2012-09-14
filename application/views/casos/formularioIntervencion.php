@@ -47,7 +47,7 @@
 			);
 			echo link_tag($link); 
 		?>  
-                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
+        <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
 		<!--Scripts foundation-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>

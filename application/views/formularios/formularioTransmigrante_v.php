@@ -1,5 +1,6 @@
 <?php echo validation_errors(); ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor'); ?>
+<?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
 <input type="hidden" value="2" name="actores_tipoActorId" />
 			
 		<div id="Actores" >
@@ -11,18 +12,18 @@
 					 
 					  <p>
 						<label for="nombre">Nombre</label>
-						<input type="text"  name="actores_nombre" size="30"  required/>
+						<input type="text"  name="actores_nombre"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['nombre'].'"' : ''); ?>  size="30"  required/>
 					  </p>
 					 
 					  <p>
 						<label for="apellidos">Apellidos</label>
-						<input type="text"  name="actores_apellidosSiglas" size="60" required/>
+						<input type="text"  name="actores_apellidosSiglas" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['apellidosSiglas'].'"' : ''); ?> size="60" required/>
 					 
 					  </p>
 					 
 					  <p>
 						<label for="alias">Alias</label>
-						<input type="text" name="alias_alias" size="30" />
+						<input type="text" name="alias_alias"  size="30" />
 					  
 					  </p>
 					 
@@ -270,7 +271,7 @@
 					</span>
 						
 				<label for="comentario">Comentarios</label>
-				  <textarea  placeholder="Escribir algun comentario" rows="10" cols="100" name="infoMigratoria_comentarios" id="infoMigratoria_comentarios" wrap="hard" ></textarea>
+				  <textarea  placeholder="Escribir algun comentario"  rows="10" cols="100" name="infoMigratoria_comentarios" id="infoMigratoria_comentarios" wrap="hard" ></textarea>
 				  
 					
 				</div>

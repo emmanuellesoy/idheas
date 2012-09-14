@@ -31,7 +31,7 @@
 		?>  
 		
 	
-<!---------Acordion css -------->		
+<!---Acordion css -->		
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
@@ -55,7 +55,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<!---script que hace posible el acordion--->
+		<!---script que hace posible el acordion-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
@@ -67,7 +67,7 @@
 		<!-----------------Comienza la parte de Fuente documental------------------------>
 		<div id="formularioFuenteDocumental" class="twelve columns">
 			<div id="pestania" data-collapse>
-			<h2 class="twelve columns">Fuente documental</h2><!--título de la sub-pestaña--->  
+			<h2 class="twelve columns">Fuente documental</h2><!--título de la sub-pestaña-->  
 			<div>
 			
 				<fieldset>

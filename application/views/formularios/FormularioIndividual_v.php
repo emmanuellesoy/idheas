@@ -2,6 +2,7 @@
 <?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
 <?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
+
 <div	id="Actores" >
     <fieldset>
         <legend>Información general</legend>
@@ -61,7 +62,7 @@
 				<div >	
                         <label for="estadoCivil">Estado Civil</label>
                         <span id="infoGralActor_estadoCivil_estadoCivilIdSelect" class="twelve columns">
-							<select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId">						
+							<select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId"  >
 							<option > </option>
 								<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
                                 <option  value="<?=$item['estadoCivilId']?>"> <?=$item['descripcion']?></option>
@@ -229,7 +230,7 @@
 
                     <p>
                         <label for="fechaNacimiento">Fecha de nacimiento</label>
-                        <input type="text" id="datepicker"name="datosDeNacimiento_fechaNacimiento" value="<?php echo set_value('fechaNacimiento'); ?>" placeholder="AAAA-MM-DD" />
+                        <input type="text" id="datepicker"name="datosDeNacimiento_fechaNacimiento" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['fechaNacimiento'].'"' : ''); ?> placeholder="AAAA-MM-DD" />
 
                     </p>
 
@@ -239,18 +240,19 @@
 
         <?php echo br(3);?>
 
-        <fieldset><!--Información de contacto--->
+        <fieldset><!--Información de contacto-->
+
                     <legend>Información de contacto</legend>
-                <div class="six columns"><!--Primer mitad de información de contacto--->
+                <div class="six columns"> <!--Primer mitad de información de contacto-->
 
                     <p>
                     <label for="telefono">Teléfono</label>
-                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30" />
+                        <input type="text" id="infoContacto_telefono" name="infoContacto_telefono"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30" />
                    </p>
 
                     <p>
                     <label for="infoContacto_telefonoMovil">Teléfono móvil</label>
-                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" value="<?php echo set_value('telefonomovil'); ?>" size="30" />
+                        <input type="text" id="infoContacto_telefonoMovil" name="infoContacto_telefonoMovil" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefonoMovil'].'"' : ''); ?> size="30" />
                     </p>
                     
                 </div><!--Termina primer mitad de la nformación de contacto--->
@@ -259,7 +261,7 @@
 
                     <p>
                 <label for="infoContacto_correoE">Correo electrónico</label>
-                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="60"  />
+                        <input type="email" id="infoContacto_correoE" name="infoContacto_correoE"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['correoE'].'"' : ''); ?>  size="60"  />
                     </p>
                 </div>  <!--Segunda mitad de nformación de contacto--->
 
@@ -287,13 +289,13 @@
                     
                     <p>
                         <label for="direccionActor_direccion">Ubicación</label>
-                                <input type="text" id="direccionActor_direccion" name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
+                                <input type="text" id="direccionActor_direccion" name="direccionActor_direccion"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['direccion'].'"' : ''); ?>  size="30"  />
                     </p>
 
 
                 <p>
                         <label for="actores_codigoPostal">Código Postal</label>
-                                <input type="text" id="actores_codigoPostal" name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
+                                <input type="text" id="actores_codigoPostal" name="actores_codigoPostal"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['codigoPostal'].'"' : ''); ?>  size="30"  />
                     </p>
 
                 </div>
@@ -346,8 +348,7 @@
 					</select>
 					<input id="BotonmasdireccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 				</span>
-				<span id="TextoEspecial_direccionActor_municipiosCatalogo_municipioId" class="Escondido twelve columns">
-			</span>
+				<span id="TextoEspecial_direccionActor_municipiosCatalogo_municipioId" class="Escondido twelve columns"></span>
 
 
         </fieldset><!--Termina datos dirección-->

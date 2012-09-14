@@ -935,16 +935,18 @@ function QuitarEstadodirInd() {///Elimina la opcion por su id
 
 /*//Funciones colapsibles//*/
 /*************************************************************/
-function  nombrederechoAfectado(descripcion, valor){
+function  nombrederechoAfectado(descripcion, valor, notas){
 	var algo="#"+valor+"DAN1";
-	$('#textoDerechoAfectado').html(descripcion); 
+	$('#textoDerechoAfectado').html(descripcion);
+	$('#notasDerechoAfectado').html(notas); 
 	$('#textoDerechoAfectado').attr('name', ' ');
 	$('#textoDerechoAfectado').attr('value', valor); 
 	$(algo).toggleClass("Escondido");
 	};
 
-function nombrederechoAfectadosub1(descripcion2, valor){
+function nombrederechoAfectadosub1(descripcion2, valor, notas){
 	var nombre="#"+valor+"DAN2";
+	$('#notasDerechoAfectado').html(notas); 
 	$('#textoDerechoAfectado').html(descripcion2); 
 	$('#textoDerechoAfectado').attr('name', ' ');
 	$('#textoDerechoAfectado').attr('value', valor);
@@ -952,8 +954,9 @@ function nombrederechoAfectadosub1(descripcion2, valor){
 	};
 	
 
-function nombrederechoAfectadosub2(descripcion3, valor){
+function nombrederechoAfectadosub2(descripcion3, valor, notas){
 	var nombre="#"+valor+"DAN3";
+	$('#notasDerechoAfectado').html(notas); 
 	$('#textoDerechoAfectado').html(descripcion3); 
 	$('#textoDerechoAfectado').attr('name', ' ');
 	$('#textoDerechoAfectado').attr('value', valor);
@@ -961,7 +964,8 @@ function nombrederechoAfectadosub2(descripcion3, valor){
 	};
 
 
-function nombrederechoAfectadosub3(descripcion4, valor){
+function nombrederechoAfectadosub3(descripcion4, valor, notas){
+	$('#notasDerechoAfectado').html(notas); 
 	$('#textoDerechoAfectado').html(descripcion4); 
 	$('#textoDerechoAfectado').attr('name', ' ');
 	$('#textoDerechoAfectado').attr('value', valor);
@@ -1060,8 +1064,17 @@ function mostarDatosListaElem(id, tipoActorId) {
                 //$('#formCargInd').html(data);
             }
         });
-        var action = base_url+'index.php/actores_c/traerEditar/'+id+'/'+tipoActorId;
+    var action = base_url+'index.php/actores_c/traerEditar/'+id+'/'+tipoActorId;
+
+    if(tipoActorId == 3){
+    $('#formEditarActor3').attr('action', action);
+    }
+    if(tipoActorId == 2){
+    $('#formEditarActor2').attr('action', action);
+    }
+    if(tipoActorId == 1){
     $('#formEditarActor').attr('action', action);
+    }
    
 };
 /*

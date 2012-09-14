@@ -9,12 +9,12 @@
 				<div class="six columns">
 				  <p>
 					<label for="nombre">Nombre</label>
-					<input type="text"  name="actores_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required/>
+					<input type="text"  name="actores_nombre"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['nombre'].'"' : ''); ?>  size="30" maxlength="30" required/>
 				 </p>
 				 
 				 <p>
 				<label for="siglas">Siglas:</label>
-					<input type="text"  name="actores_apellidosSiglas" value="<?php echo set_value('apellidosSiglas'); ?>" size="40" maxlength="60" required/>
+					<input type="text"  name="actores_apellidosSiglas"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['apellidosSiglas'].'"' : ''); ?>  size="40" maxlength="60" required/>
 				</p>
 				
 					
@@ -61,7 +61,7 @@
 				<div class="six columns">  
 				 <p>
 					<label for="ubicacion">Ubicación</label>
-						<input type="text"  name="direccionActor_direccion" value="<?php echo set_value('ubicacion'); ?>" size="30"  />
+						<input type="text"  name="direccionActor_direccion" size="30"    />
 				 </p>
 
 				<label for="paisdir">País</label>
@@ -106,7 +106,7 @@
 				
 					<p>
 						<label for="codigoPos">Código Postal</label>
-						<input type="text"  name="actores_codigoPostal" value="<?php echo set_value('codigoPos'); ?>" size="30"  />
+						<input type="text"  name="actores_codigoPostal"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['codigoPostal'].'"' : ''); ?>  size="30"  />
 					 </p>
 			
 			</div> <!--six columns -->
@@ -122,12 +122,12 @@
 				<div class="six columns">
 				 <p>
 					<label for="telefono">Teléfono</label>
-						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono" value="<?php echo set_value('telefono'); ?>" size="30"  />
+						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30"  />
 				</p>
 				 
 				 <p>
 					<label for="fax">Fax</label>
-						<input type="text" id="infoContacto_fax" name="infoContacto_fax" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="15" />
+						<input type="text" id="infoContacto_fax" name="infoContacto_fax"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['fax'].'"' : ''); ?>  size="30" maxlength="15" />
 				</p>
 				
 				</div> <!-- six columns -->
@@ -136,12 +136,12 @@
 					
 				<p>
 					<label for="correo">Correo electrónico</label>
-						<input type="email" id="infoContacto_correoE" name="infoContacto_correoE" value="<?php echo set_value('correo'); ?>" size="30"  />
+						<input type="email" id="infoContacto_correoE" name="infoContacto_correoE"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['correoE'].'"' : ''); ?>  size="30"  />
 				</p> 
 				
 				<p>
 					<label for="paginaPersonal">Página web</label>
-						<input type="text" id="infoGralActores_paginaWeb" name="infoGralActores_paginaWeb" value="<?php echo set_value('telefonomovil'); ?>" size="30" maxlength="100" />
+						<input type="text" id="infoGralActores_paginaWeb" name="infoGralActores_paginaWeb"  <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['paginaWeb'].'"' : ''); ?>  size="30" maxlength="100" />
 				 </p>
 				 
 				 </div> <!--six columns-->
