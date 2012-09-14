@@ -17,6 +17,8 @@
        max-height: 300px; /* sets max-height value for all standards-compliant browsers */
        overflow:scroll;
        overflow-x:hidden;
+       background-color: #efefef;
+       border:4px solid #eee;
 }
 
 #formularioCasoActo li{
@@ -26,6 +28,11 @@
 #logo{
 	float:right;
 } 
+ 
+#ListasActores{
+border-left:4px solid #eee;
+border-right:4px solid #eee;
+}
  
  .CajaLista{
 		width:100%;

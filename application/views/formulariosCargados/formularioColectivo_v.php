@@ -115,7 +115,9 @@
 			</div>
 		</fieldset>	<!--Termina información general-->
 		<?php echo br(1);?>
-				
+
+					<?=$relEntreActores; ?>
+				<?php echo br(1);?>				
 				
                         <input id="mostrarEstadodir" class="[tiny, small, medium, large] button"   type='button' onclick="mostrarfuncCol()" value='Mostrar casos'>
 

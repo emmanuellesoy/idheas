@@ -217,16 +217,19 @@
 						
 				
 				<?php echo br(1);?>
-				
+						
+
+					<?=$relEntreActores; ?>
+				<?php echo br(1);?>
+						
 				
                         <input id="mostrarEstadodir" class="[tiny, small, medium, large] button"   type='button' onclick="mostrarfuncInd()" value='Mostrar casos'>
-
+			
                         <div class="Escondido" id="mostrarCasosIndividual">
                                 <div class="twelve columns">
 									<?php echo $casosMenu?>
                                 </div>
                         </div>
-
                 </div>
 
 				

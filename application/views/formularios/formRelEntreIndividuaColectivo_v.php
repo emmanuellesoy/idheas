@@ -67,21 +67,22 @@
 	<body>
 
 		<form action="" method="post" accept-charset="utf-8">
+			<input type="hidden" value="2" id="relacionActores_tipoRelacionIndividualColectivoId" />
 			
 			<label>Persona</label>
 			<span>Foto, Nombre</span>
 			
 			
-			<input type="hidden" value="1" id="tipodeRelacionCol" />
+			<input type="hidden" value="1" id="relacionActores_tipodeRelacionId" />
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>
 			
-			<br/><br/><br/><br/>
+			<br/><br/>
 			<label>Notas</label>
 			<span id="tipoRelNotas"></span>
 			
-			<br/><br/><br/><br/>
+			<br/><br/>
 			
 			<div  id="listaActorIndiv" class="casosScorll">	
 				<ul>
@@ -97,6 +98,7 @@
 
 			
 			<label>Actor colectivo</label>
+			<br/><br/>
 			
 			
 			<div class="twelve columns">
@@ -176,7 +178,7 @@
 					<script>
 					var instance = new TINY.editor.edit('editor', {
 						id: 'TextoRelActores',
-						width: 584,
+						width: 500,
 						height: 175,
 						cssclass: 'tinyeditor',
 						controlclass: 'tinyeditor-control',
@@ -192,7 +194,7 @@
 					</script>
 			   </div>	  
 			
-			
+			<input class="medium button" type="submit" />
 			
 		</form>
 		

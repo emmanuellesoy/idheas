@@ -28,12 +28,12 @@
 											<td>Content</td>
 											<td>Content</td>
 											<td>Content</td>
-											<td><input type="button" class="tiny button"  value="Editar" onclick="" />
+											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActores()" />
 											<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 										  </tr>
 										</tbody>
 									</table>
-									<input type="button" class="tiny button"  value="Nuevo" onclick="" />
+									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores()" />
 								</div>
 						</div>
 					</div>
@@ -96,12 +96,12 @@
 											<td>Content</td>
 											<td>Content</td>
 											<td>Content</td>
-											<td><input type="button" class="tiny button"  value="Editar" onclick="" />
+											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresCol()" />
 											<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 										  </tr>
 										</tbody>
 									</table>
-									<input type="button" class="tiny button"  value="Nuevo" onclick="" />
+									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActoresCol()" />
 								</div>
 						</div>
 					</div>

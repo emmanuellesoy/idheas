@@ -97,10 +97,10 @@ public function index()
 				
 				/*************************************************************************************/
 				//CARGA DE VISTAS
+				$data['relEntreActores'] = $this->load->view('RelEntreActores_v', $data , true);
 				$data['listaActoresTransmigrante'] = $this->load->view('listaActoresTransmigrante_v',$Lista, true);
 				$data['listaActoresColectivo'] = $this->load->view('listaActoresColectivos_v',$Lista, true);
 				$data['listaActores'] = $this->load->view('listaActores',$Lista, true);
-				$data['relEntreActores'] = $this->load->view('RelEntreActores_v', $data , true);
 				$data['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $Lista , true);
 				$data['individualVista'] = $this->load->view('formulariosCargados/formularioIndividual_v', $data , true);
 				$data['transmigranteVista'] = $this->load->view('formulariosCargados/formularioTransmigrante_v', $data , true);

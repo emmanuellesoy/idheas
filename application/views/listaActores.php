@@ -6,11 +6,11 @@
     </ul>
 			<?php echo form_open('form_c/menu'); ?> 
 			<!--buscador de la lista de actores--->
-			<div class="eight columns">
+			<div class="seven columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
 				</div>
-				<div class="four columns">
-					<input  type="button" class="small button" value="Buscar" title="Buscar" />
+				<div class="five columns">
+					<input  type="button" class="tiny button" value="Buscar" title="Buscar" />
 				</div><!--termina buscador de la lista de actores--->
 			</form>	
 			

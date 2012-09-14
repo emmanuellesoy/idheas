@@ -196,7 +196,9 @@
 			
 	
 				<?php echo br(1);?>
-				
+
+					<?=$relEntreActores; ?>
+				<?php echo br(1);?>				
 				
                         <input class="[tiny, small, medium, large] button"   type='button' onclick="mostrarfuncTrans()" value='Mostrar casos'>
 

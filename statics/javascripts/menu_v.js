@@ -725,7 +725,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaAproxRIC').attr('name', ' ');
 			$('#fechaSinDiaRIC').attr('name', ' ');
 			$('#fechaSinDiaSinMesRIC').attr('name', ' ');
-			$('#fechaExactaRIC').attr('name', 'casos_fechaInicial');
+			$('#fechaExactaRIC').attr('name', 'relacionActores_fechaInicial');
 			$("#fechaAproxVRIC").hide();
 			$("#fechaSinDiaVRIC").hide();
 			$("#fechaSinDiaSinMesVRIC").hide();
@@ -739,7 +739,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaRIC').attr('name', ' ');
 			$('#fechaSinDiaSinMesRIC').attr('name', ' ');
 			$('#fechaExactaRIC').attr('name', ' ');
-			$('#fechaAproxRIC').attr('name', 'casos_fechaInicial');
+			$('#fechaAproxRIC').attr('name', 'relacionActores_fechaInicial');
 		  }
 		  else if (a=="3"){
 			$("#fechaAproxVRIC").hide();
@@ -749,7 +749,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaSinMesRIC').attr('name', ' ');
 			$('#fechaExactaRIC').attr('name', ' ');
 			$('#fechaAproxRIC').attr('name', ' ');
-			$('#fechaSinDiaRIC').attr('name', 'casos_fechaInicial');
+			$('#fechaSinDiaRIC').attr('name', 'relacionActores_fechaInicial');
 		  }
 		  else if (a=="4"){;
 			$("#fechaAproxVRIC").hide();
@@ -759,7 +759,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaExactaRIC').attr('name', ' ');
 			$('#fechaAproxRIC').attr('name', ' ');
 			$('#fechaSinDiaRIC').attr('name', '');
-			$('#fechaSinDiaSinMesRIC').attr('name', 'casos_fechaInicial');
+			$('#fechaSinDiaSinMesRIC').attr('name', 'relacionActores_fechaInicial');
 		  }
 	  
 	  }
@@ -771,7 +771,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaAprox2RIC').attr('name', ' ');
 			$('#fechaSinDia2RIC').attr('name', ' ');
 			$('#fechaSinDiaSinMes2RIC').attr('name', ' ');
-			$('#fechaExacta2RIC').attr('name', 'casos_fechaInicial');
+			$('#fechaExacta2RIC').attr('name', 'relacionActores_fechaTermino');
 			$("#fechaAproxV2RIC").hide();
 			$("#fechaSinDiaV2RIC").hide();
 			$("#fechaSinDiaSinMesV2RIC").hide();
@@ -785,7 +785,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDia2RIC').attr('name', ' ');
 			$('#fechaSinDiaSinMes2RIC').attr('name', ' ');
 			$('#fechaExacta2RIC').attr('name', ' ');
-			$('#fechaAprox2RIC').attr('name', 'casos_fechaInicial');
+			$('#fechaAprox2RIC').attr('name', 'relacionActores_fechaTermino');
 		  }
 		  else if (a=="3"){
 			$("#fechaAproxV2RIC").hide();
@@ -795,7 +795,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaSinMes2RIC').attr('name', ' ');
 			$('#fechaExacta2RIC').attr('name', ' ');
 			$('#fechaAprox2RIC').attr('name', ' ');
-			$('#fechaSinDia2RIC').attr('name', 'casos_fechaInicial');
+			$('#fechaSinDia2RIC').attr('name', 'relacionActores_fechaTermino');
 		  }
 		  else if (a=="4"){;
 			$("#fechaAproxV2RIC").hide();
@@ -805,7 +805,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaExacta2RIC').attr('name', ' ');
 			$('#fechaAprox2RIC').attr('name', ' ');
 			$('#fechaSinDia2RIC').attr('name', '');
-			$('#fechaSinDiaSinMes2RIC').attr('name', 'casos_fechaInicial');
+			$('#fechaSinDiaSinMes2RIC').attr('name', 'relacionActores_fechaTermino');
 		  }
 	  
 	  }
@@ -1103,6 +1103,18 @@ function ventanaInterevenciones(){
 function ventanaFuenteDoc(){
 	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
 	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
+	};
+
+
+function ventanaRelacionOtrosActores(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('relacionesEntreActores_c', 'Fuente documental', windowSizeArray);
+	};
+
+
+function ventanaRelacionOtrosActoresCol(){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('relacionesEntreActores_c/RelOtrosActores', 'Relaciones con otros actores', windowSizeArray);
 	};
 
 function mostrarTexto(elem){

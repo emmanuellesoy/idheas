@@ -68,7 +68,7 @@
 	<div id="FormularioRelacionIndividuos">
 		<form action="" method="post" accept-charset="utf-8">
 			
-			<div class="twelve columns">
+			<div class="panel twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
 				<select id="infoGralActor_hijos" name="relacionActores_tipoRelacionId">
 					<option > </option>
@@ -155,7 +155,7 @@
 					<script>
 					var instance = new TINY.editor.edit('editor', {
 						id: 'TextoRelActores',
-						width: 584,
+						width: 500,
 						height: 175,
 						cssclass: 'tinyeditor',
 						controlclass: 'tinyeditor-control',
@@ -170,6 +170,7 @@
 					});
 					</script>
 			   </div>	  
+			<input class="medium button" type="submit" />
 			
 		</form>		
 	</div>	
