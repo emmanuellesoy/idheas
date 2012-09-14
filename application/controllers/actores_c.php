@@ -89,7 +89,7 @@ class Actores_c extends CI_Controller {
 
     }
     
-    public function traerEditar($actorId =3, $tipoActorId =1){
+    public function traerEditar($actorId =1, $tipoActorId =1){
         
         $data['editar'] = 1;
         

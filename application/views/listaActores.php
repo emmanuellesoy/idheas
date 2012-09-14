@@ -3,7 +3,7 @@
 		<li><input type="button" class="small button" value="Agregar Actor" onclick="mostrarFormlulario()" /> </li>
 		<li><input type="button" class="small button" value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
-    <form action="controllers/form_c/menu" method="post" accept-charset="utf-8" id="formEditarActor">
+    <form method="post" accept-charset="utf-8" id="formEditarActor">
 			
         <input type="submit" class="small button" value="Editar Actor" id="botonEditarActor" />
 			<!--buscador de la lista de actores--->
