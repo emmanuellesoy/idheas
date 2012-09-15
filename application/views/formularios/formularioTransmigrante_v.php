@@ -61,17 +61,23 @@
 						
 					<label for="estadoCivil">Estado Civil</label>
 					<span class="twelve columns" id="infoGralActor_estadoCivil_estadoCivilIdSelect">
-						<select id="infoGralActor_estadoCivil_estadoCivilId"  name="infoGralActor_estadoCivil_estadoCivilId">
-							<option > </option>
-							<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?>
-								<option value="<?=$item['estadoCivilId']; ?>"><?=$item['descripcion']; ?></option>
-						<?php endforeach;?>
-						</select>
+						 <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId"  >
+                                <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($estadoCivil['estadoCivil'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['estadoCivilId']?>" <?=($datosActor[$actorId][$actorId]['estadoCivil_estadoCivilId'] == $item) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['estadoCivilId']?>" > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } ?>
+                            </select>
+                            <!--****************************************************-->
 						<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
 						<span id="TextoEspecial_infoGralActor_estadoCivil_estadoCivilId" class="Escondido twelve columns">
 					</span>
 					 
+
 					<label for="nacionalidadID">Nacionalidad</label>
 					<span class="twelve columns" id="infoGralActor_nacionalidadIdSelect">	
 						<select name="infoGralActor_nacionalidadId" id="InfoGralActor_nacionalidad">
@@ -80,6 +86,7 @@
 								<option value="<?=$item?>"><?=$key?></option>
 							<?php endforeach;?>
 						</select>
+
 						<input id="BotonmasinfoGralActor_nacionalidadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
 						<span id="TextoEspecial_infoGralActor_nacionalidadId" class="Escondido twelve columns">
