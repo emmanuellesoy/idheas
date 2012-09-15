@@ -1148,7 +1148,6 @@ function mostrarSelect2(elem){
 
 
 function pagInicial(){
-	alert("pasa por aqui");
 	window.location=base_url+"index.php/form_c";
 
 };
