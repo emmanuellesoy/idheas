@@ -1023,7 +1023,7 @@ function detallesDelLugar(){
 function mostarDatosListaElem(id, tipoActorId) {
     
     var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;
-    $('.borrar_select').css('background-color', '#fff');
+    $('.borrar_select').css('background-color', 'black');
     $('#elemento_'+id).css('background-color', '#D21400');
     $.ajax({
             url: uri,
