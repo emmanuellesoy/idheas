@@ -1,25 +1,22 @@
-<?php
-    if(isset($carga_ajax)){
-        ?>
-                    <div	id="ActoresV" >
+        <div	id="ActoresV" >
                         <fieldset>
                                     <legend>Información general</legend>
                                 <div class="six columns">
 
                                     <p>
                                         <span >Nombre: </span>
-                                        <span id="nombre"><?=(isset($datosActor[$actorId]['nombre'])) ? $datosActor[$actorId]['nombre'] : ''; ?></span>
+                                        <span id="nombre"><?=(isset($datosActor)) ? $datosActor[$actorId]['nombre'] : ''; ?></span>
                                     </p>
 
                                     <p>
                                         <span >Apellidos: </span>
-                                        <span id="apellidosSiglas"><?=(isset($datosActor[$actorId]['apellidosSiglas'])) ? $datosActor[$actorId]['apellidosSiglas'] : ''; ?></span>
+                                        <span id="apellidosSiglas"><?=(isset($datosActor)) ? $datosActor[$actorId]['apellidosSiglas'] : ''; ?></span>
 
                                     </p>
 
                                     <p>
                                         <span >Alias: </span>
-                                        <span id="alias"><?=(isset($datosActor[$actorId]['alias'])) ? $datosActor[$actorId]['alias'] : ''; ?></span> 
+                                        <span id="alias"><?=(isset($datosActor)) ? $datosActor[$actorId]['alias'] : ''; ?></span> 
 
                                     </p>
 
@@ -33,7 +30,7 @@
                                         <span >Género:
 
                                         </span>
-                                        <span id="generoId"><?=(isset($datosActor[$actorId]['generoId'])) ? $datosActor[$actorId]['generoId'] : ''; ?></span>
+                                        <span id="generoId"><?=(isset($datosActor)) ? $datosActor[$actorId]['generoId'] : ''; ?></span>
 
                                     </p>
                                 </div>
@@ -42,18 +39,18 @@
 
                                     <p>
                                         <span >Edad: </span>
-                                        <span id="edad"><?=(isset($datosActor[$actorId]['edad'])) ? $datosActor[$actorId]['edad'].' años' : ''; ?></span>
+                                        <span id="edad"><?=(isset($datosActor)) ? $datosActor[$actorId]['edad'].' años' : ''; ?></span>
                                     </p>
                                 </div>
 
                                     <p>
                                         <span >Estado Civil: </span>
-                                        <span id="estadoCivil_estadoCivilId"><?=(isset($datosActor[$actorId]['estadoCivil_estadoCivilId'])) ? $datosActor[$actorId]['estadoCivil_estadoCivilId'] : ''; ?></span>
+                                        <span id="estadoCivil_estadoCivilId"><?=(isset($datosActor)) ? $datosActor[$actorId]['estadoCivil_estadoCivilId'] : ''; ?></span>
                                     </p>
 
                                     <p>
                                         <span >Nacionalidad: </span>
-                                            <span id="nacionalidadId"><?=(isset($datosActor[$actorId]['nacionalidadId'])) ? $datosActor[$actorId]['nacionalidadId'] : ''; ?></span>
+                                            <span id="nacionalidadId"><?=(isset($datosActor)) ? $datosActor[$actorId]['nacionalidadId'] : ''; ?></span>
                                     </p>
 
                                 </div> 
@@ -67,21 +64,21 @@
                                     <div class="six columns">
                                     <p>
                                                 <span >Hijos:   </span>
-                                                <span id="hijos" ><?=(isset($datosActor[$actorId]['hijos'])) ? $datosActor[$actorId]['hijos'] : ''; ?></span>
+                                                <span id="hijos" ><?=(isset($datosActor)) ? $datosActor[$actorId]['hijos'] : ''; ?></span>
                                     </p>
                                     </div>
 
                                     <div class="six columns">									
                                     <p>			
                                         <span >¿Habla español?:   </span>
-                                        <span id="espaniol"><?=(isset($datosActor[$actorId]['espaniol'])) ? $datosActor[$actorId]['espaniol'] : ''; ?></span>
+                                        <span id="espaniol"><?=(isset($datosActor)) ? $datosActor[$actorId]['espaniol'] : ''; ?></span>
                                     </p>
                                     </div>
 
 
                                     <p>
                                         <span >Grupo Indígena:   </span>
-                                                <span id="gruposIndigenas_grupoIndigenaId"><?=(isset($datosActor[$actorId]['gruposIndigenas_grupoIndigenaId'])) ? $datosActor[$actorId]['gruposIndigenas_grupoIndigenaId'] : ''; ?></span>
+                                                <span id="gruposIndigenas_grupoIndigenaId"><?=(isset($datosActor)) ? $datosActor[$actorId]['gruposIndigenas_grupoIndigenaId'] : ''; ?></span>
                                     </p>
 
 
@@ -91,12 +88,12 @@
 
                                     <p>
                                         <span >Nivel de Escolaridad:   </span>
-                                        <span id="escolaridadId"><?=(isset($datosActor[$actorId]['escolaridadId'])) ? $datosActor[$actorId]['escolaridadId'] : ''; ?></span>									 
+                                        <span id="escolaridadId"><?=(isset($datosActor)) ? $datosActor[$actorId]['escolaridadId'] : ''; ?></span>									 
                                     </p>
 
                                     <p>						
                                         <span >Última Ocupación:   </span>
-                                        <span id="ocupacionesCatalogo_ultimaOcupacionId"><?=(isset($datosActor[$actorId]['ocupacionesCatalogo_ultimaOcupacionId'])) ? $datosActor[$actorId]['ocupacionesCatalogo_ultimaOcupacionId'] : ''; ?></span>
+                                        <span id="ocupacionesCatalogo_ultimaOcupacionId"><?=(isset($datosActor)) ? $datosActor[$actorId]['ocupacionesCatalogo_ultimaOcupacionId'] : ''; ?></span>
 
                                     </p>
 
@@ -112,12 +109,12 @@
 
                                     <p>
                                         <span >País:   </span>
-                                        <span id="paisesCatalogo_paisId"><?=(isset($datosActor[$actorId]['paisesCatalogo_paisId'])) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>										
+                                        <span id="paisesCatalogo_paisId"><?=(isset($datosActor)) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>										
                                     </p>
 
                                     <p>
                                         <span >Estado:   </span>
-                                        <span id="paisesCatalogo_paisId"><?=(isset($datosActor[$actorId]['paisesCatalogo_paisId'])) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>
+                                        <span id="paisesCatalogo_paisId"><?=(isset($datosActor)) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>
 
                                     </p>
                                     </div>
@@ -125,13 +122,13 @@
 
                                     <p>
                                         <span >Municipio:   </span>
-                                        <span id="municipiosCatalogo_municipioId"><?=(isset($datosActor[$actorId]['municipiosCatalogo_municipioId'])) ? $datosActor[$actorId]['municipiosCatalogo_municipioId'] : ''; ?></span>
+                                        <span id="municipiosCatalogo_municipioId"><?=(isset($datosActor)) ? $datosActor[$actorId]['municipiosCatalogo_municipioId'] : ''; ?></span>
 
                                     </p>
 
                                     <p>
                                         <span >Fecha de nacimiento:   </span>
-                                        <span id="fechaNacimiento"><?=(isset($datosActor[$actorId]['fechaNacimiento'])) ? $datosActor[$actorId]['fechaNacimiento'] : ''; ?></span>
+                                        <span id="fechaNacimiento"><?=(isset($datosActor)) ? $datosActor[$actorId]['fechaNacimiento'] : ''; ?></span>
                                     </p>
 
                                 </div>  
@@ -145,19 +142,19 @@
 
                                     <p>
                                 <span >Teléfono:   </span>
-                                        <span id="telefono"><?=(isset($datosActor[$actorId]['telefono'])) ? $datosActor[$actorId]['telefono'] : ''; ?></span>
+                                        <span id="telefono"><?=(isset($datosActor)) ? $datosActor[$actorId]['telefono'] : ''; ?></span>
                                     </p>
 
                                     <p>
                                 <span >Teléfono móvil:   </span>
-                                        <span id="telefonoMovil"><?=(isset($datosActor[$actorId]['telefonoMovil'])) ? $datosActor[$actorId]['telefonoMovil'] : ''; ?></span> 
+                                        <span id="telefonoMovil"><?=(isset($datosActor)) ? $datosActor[$actorId]['telefonoMovil'] : ''; ?></span> 
                                     </p>
                                     </div>
                                 <div class="six columns">
 
                                     <p>
                                 <span >Correo electrónico:   </span>
-                                        <span id="correoE"><?=(isset($datosActor[$actorId]['correoE'])) ? $datosActor[$actorId]['correoE'] : ''; ?></span>
+                                        <span id="correoE"><?=(isset($datosActor)) ? $datosActor[$actorId]['correoE'] : ''; ?></span>
                                     </p>
                                 </div>  
                         </fieldset><!--Termina información del contacto-->
@@ -170,19 +167,19 @@
 
                                     <p>
                                         <span>Tipo de dirección:   </span>
-                                        <span id="tipoDireccionId"><?=(isset($datosActor[$actorId]['tipoDireccionId'])) ? $datosActor[$actorId]['tipoDireccionId'] : ''; ?></span>
+                                        <span id="tipoDireccionId"><?=(isset($datosActor)) ? $datosActor[$actorId]['tipoDireccionId'] : ''; ?></span>
 
                                     </p>
                                     <p>
 
                                         <span>Ubicación:   </span>
-                                                <span id="direccion"><?=(isset($datosActor[$actorId]['direccion'])) ? $datosActor[$actorId]['direccion'] : ''; ?></span>
+                                                <span id="direccion"><?=(isset($datosActor)) ? $datosActor[$actorId]['direccion'] : ''; ?></span>
                                     </p>
 
 
                                 <p>
                                         <span>Código Postal:   </span>
-                                                <span id="codigoPostal"><?=(isset($datosActor[$actorId]['codigoPostal'])) ? $datosActor[$actorId]['codigoPostal'] : ''; ?></span>
+                                                <span id="codigoPostal"><?=(isset($datosActor)) ? $datosActor[$actorId]['codigoPostal'] : ''; ?></span>
                                     </p>
 
                                 </div>
@@ -192,14 +189,14 @@
 
                                 <p>
                                         <span>País:   </span>
-                                                <span id="paisesCatalogo_paisId"><?=(isset($datosActor[$actorId]['paisesCatalogo_paisId'])) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>
+                                                <span id="paisesCatalogo_paisId"><?=(isset($datosActor)) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>
                                 </p>				
 
                                 <p>
 
                                         <span>Estado:   </span>
 
-                                                        <span id="estadosCatalogo_estadoId"><?=(isset($datosActor[$actorId]['estadosCatalogo_estadoId'])) ? $datosActor[$actorId]['estadosCatalogo_estadoId'] : ''; ?></span>
+                                                        <span id="estadosCatalogo_estadoId"><?=(isset($datosActor)) ? $datosActor[$actorId]['estadosCatalogo_estadoId'] : ''; ?></span>
 
                                 </p>
 
@@ -208,7 +205,7 @@
 
                                 <p>
                                         <span>Municipio:   </span>
-                                                <span id="municipiosCatalogo_municipioId"><?=(isset($datosActor[$actorId]['municipiosCatalogo_municipioId'])) ? $datosActor[$actorId]['municipiosCatalogo_municipioId'] : ''; ?></span>
+                                                <span id="municipiosCatalogo_municipioId"><?=(isset($datosActor)) ? $datosActor[$actorId]['municipiosCatalogo_municipioId'] : ''; ?></span>
                                 </p>	
 
 
@@ -220,7 +217,8 @@
 
                 <?php echo br(1);?>
 
-                
+
+                        <?=$relEntreActores; ?>
                 <?php echo br(1);?>
         <input id="mostrarEstadodir" class="[tiny, small, medium, large] button"   type='button' onclick="mostrarfuncInd()" value='Mostrar casos'>
     <div class="Escondido" id="mostrarCasosIndividual">
@@ -229,6 +227,5 @@
         </div>
     </div>
 </div>
-            <?php
-    }
-?>
+
+
