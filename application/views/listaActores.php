@@ -33,7 +33,7 @@
                                                 
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 1)">
 								<div class="five columns"><!--imprimo imagenes-->
-									<?php echo $item['actorId'];?>
+									<img src="<?=base_url(); ?>statics/actores_fotos/<?=$item['actorId']; ?>.jpeg" />
 									<?php echo br(2);?>	
 								</div>
 								

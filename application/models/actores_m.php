@@ -35,6 +35,7 @@
         		foreach ($consulta->result_array() as $row) {
             		$ultimoActorId = $row['actorId'];
         		}
+                        return $ultimoActorId;
         	}
 			
 			/* Agrega el actorId al arreglo en el campo actores_actorId en las tablas...*/

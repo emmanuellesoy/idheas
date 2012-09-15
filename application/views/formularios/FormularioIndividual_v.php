@@ -1,6 +1,6 @@
 <?php echo validation_errors(); ?>
 <?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
+<?php $config=array('enctype'=>'multipart/form-data'); echo form_open('actores_c/'.$editar_crear, $config); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
 <?php 
     if(isset($datosActor)){
@@ -34,7 +34,7 @@
 				<div class="twelve columns">	
 					<p>
 					<label >Foto </label>
-					<input type="file" name="actores_foto" size="15"/>
+					<input type="file" id="userfile" name="userfile" size="15"/>
 					</p>
 				</div>
 
