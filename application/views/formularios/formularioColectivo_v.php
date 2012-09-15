@@ -27,10 +27,16 @@
 					<label for="tipoActor">Tipo de actor colectivo</label>
 					<span id="infoGralActores_tipoActorColectivoIdSelect">
 						<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
-							<option > </option>
-							<?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?>
+
+                                <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['tipoActorColectivoId']?>" <?=($datosActor[$actorId][$actorId]['tipoActorColectivoId'] == $item['tipoActorColectivoId']) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?> <!--muestra los estados civiles-->
 								<option value="<?=$item['tipoActorColectivoId']; ?>"><?=$item['descripcion']; ?></option>
-							<?php endforeach;?>
+                                    <?php endforeach; } ?>
+
 						</select>
 						<input id="BotonmasinfoGralActores_tipoActorColectivoId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -73,9 +79,14 @@
 				<label for="paisdir">País</label>
 					<div id="2direccionActor_paisesCatalogo_paisIdSelect" class="twelve columns">
 						<select name="direccionActor_paisesCatalogo_paisId" id="2direccionActor_paisesCatalogo_paisId">
-							<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
-									<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
-							<?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['paisesCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['paisId']?>" <?=($datosActor[$actorId][$actorId]['paisesCatalogo_paisId'] == $item['paisId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
 						</select>
 						<input id="Botonmas2direccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</div>
@@ -101,10 +112,14 @@
 					<label for="municipioId">Municipio</label>
 					<span id="2direccionActor_municipiosCatalogo_municipioIdSelect" >
 						<select name="direccionActor_municipiosCatalogo_municipioId" id="direccionActor_municipiosCatalogo_municipioId">
-							<option > </option>
-							<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-							<?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['municipiosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['municipioId']?>" <?=($datosActor[$actorId][$actorId]['municipiosCatalogo_municipioId'] == $item['municipioId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
 						</select>
 						<input id="Botonmas2direccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</span>

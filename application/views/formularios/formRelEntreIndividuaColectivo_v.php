@@ -194,7 +194,7 @@
 					</script>
 			   </div>	  
 			
-			<input class="medium button" type="submit" />
+			<input class="medium button" type="submit" value="Guardar" />
 			
 		</form>
 		

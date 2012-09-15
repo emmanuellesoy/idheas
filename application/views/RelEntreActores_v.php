@@ -5,7 +5,7 @@
 			<div id="pestania" data-collapse>
 				<h2>Actores individuales o transmigrantes</h2>
 				<div>
-					<!--Comienza relacion con otros actores--->
+					<!--Comienza relacion con otros actores-->
 					<div class="twelve columns">
 						<div id="subPestanias" data-collapse>
 							<h2>Relacion con otros actores </h2>

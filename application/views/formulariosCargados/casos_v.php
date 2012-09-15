@@ -1,9 +1,9 @@
 <div id="pestania" data-collapse>	
-	<h2>Casos</h2><!--título de la pestaña--->  
+	<h2>Casos</h2><!--título de la pestaña-->  
 	<div>
 		<div id="subPestanias" data-collapse>	
   
-			<h2>Información general</h2><!--título de la pestaña--->  
+			<h2>Información general</h2><!--título de la pestaña-->  
 			<div>
 				<div id="casos_nombre">
 					<p>Nombre:</p>
@@ -19,7 +19,7 @@
 				</div>
 			 </div>
 				
-			<h2>Lugares</h2><!--título de la pestaña--->  
+			<h2>Lugares</h2><!--título de la pestaña-->  
 				<div>
 					<table>
 						<thead>
@@ -42,7 +42,7 @@
 						  
 					</div><!--fin acordeon lugares-->
 
-			<h2>Núcleo caso</h2><!--título de la pestaña--->  
+			<h2>Núcleo caso</h2><!--título de la pestaña-->  
 				<div>
 					<div id="subPestanias" data-collapse>
 						<h2>Derechos afectados y actos</h2>
