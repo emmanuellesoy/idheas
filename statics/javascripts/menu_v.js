@@ -344,19 +344,19 @@ function mostrarAgregarCasos() {
     
 function mostrarFormlulario() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargInd").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formInd").show("slow");
     };
     
 function mostrarFormlularioTrans() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargTrans").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formTrans").show("slow");
     };
     
 function mostrarFormlularioCol() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargCol").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formCol").show("slow");
     };
 
@@ -1038,13 +1038,18 @@ function mostarDatosListaElem(id, tipoActorId) {
 
     if(tipoActorId == 3){
     $('#formEditarActor3').attr('action', action);
+    $('#formCol').hide("slow");
+
     }
     if(tipoActorId == 2){
     $('#formEditarActor2').attr('action', action);
+    $('#formTrans').hide("slow");
     }
     if(tipoActorId == 1){
     $('#formEditarActor').attr('action', action);
+    $('#formInd').hide("slow");
     }
+    $('.cargarDatosActor').show("slow");
    
 };
 /******************Ventanas*************************/

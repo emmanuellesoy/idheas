@@ -172,10 +172,11 @@
 		<?php echo br(2);?>
 		
 		<div class="row">
-		<div  class="four columns offset-by-eight" >
-			
+		<div  class="six columns offset-by-six" >
+		
+        <input class="medium button" type="button" value="Regresar"  onclick="pagInicial()" />
 		<input class="medium button" type="submit" value="Guardar" />
-		<input onClick="pagInicial" class="medium button" type="reset" value="Cancelar"  />
+		<input onClick="pagInicial()" class="medium button" type="reset" value="Cancelar"  />
 		</div>
 		</div>
 

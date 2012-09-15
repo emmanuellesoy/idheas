@@ -100,14 +100,13 @@
 					  <li class="active" id="simple1Tab">
 						  <!---Contenido de la pestaña Actor individual--->
 								<div class="three columns">
-										<?php echo $listaActores;?> <!---Se llama a listaActores--->
+										<?php echo $listaActores;?> <!---Se llama a listaActores-->
 								</div>
 								
 								
-								<div class="nine columns cargarDatosActor">
-									
-								<div id="formCargInd"><?=(isset($individualVista)) ? $individualVista : '';?></div>
-								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
+								<div class="nine columns">
+									<div class="cargarDatosActor"></div>
+									<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
 								</div>
 								
 							<!--Termina contenido de la pestaña Actor individual-->
@@ -116,15 +115,15 @@
 					  
 					  <li id="simple2Tab"  >
 						  
-						  <!---Contenido de la pestaña Actor transmigrante--->
+						  <!---Contenido de la pestaña Actor transmigrante-->
 								<div class="three columns">									
-										<?php echo $listaActoresTransmigrante;?> <!---Se llama a listaActores--->
+										<?php echo $listaActoresTransmigrante;?> <!---Se llama a listaActores-->
 									</div>
 								
 								
-									<div class="nine columns cargarDatosActor">
-								<div id="formCargTrans"><?php echo $transmigranteVista;?></div>
-								<div id="formTrans"class="Escondido" ><?php echo $transmigrante;?></div>
+									<div class="nine columns">
+									<div class="cargarDatosActor"></div>
+									<div id="formTrans"class="Escondido" ><?php echo $transmigrante;?></div>
 												
 									</div>
 								
@@ -134,15 +133,15 @@
 						
 					  <li id="simple3Tab" onclick="mostrarListaActorCol()">
 						
-						  <!---Contenido de la pestaña Actor Colectivo--->
+						  <!---Contenido de la pestaña Actor Colectivo-->
 								<div class="three columns">
-										<?php echo $listaActoresColectivo;?> <!---Se llama a listaActores--->
+										<?php echo $listaActoresColectivo;?> <!---Se llama a listaActores-->
 									</div>
 								
 								
-									<div class="nine columns cargarDatosActor">
-										<div id="formCargCol"><?php echo $colectivoVista;?></div>
-										<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
+									<div class="nine columns">
+									<div class="cargarDatosActor"></div>
+								<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
 								</div>
 								
 							<!--Termina contenido de la pestaña Actor Colectivo-->
