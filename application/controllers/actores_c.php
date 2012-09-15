@@ -6,7 +6,7 @@ class Actores_c extends CI_Controller {
        {
             parent::__construct();
             
-            $this->load->model(array('actores_m'));
+            $this->load->model(array('actores_m', 'catalogos_m'));
     
             $this->load->helper(array('html', 'url'));					
 	
@@ -81,12 +81,22 @@ class Actores_c extends CI_Controller {
 		
 	}
         
-        public function cTraerDatosActor($actorId, $tipoActorId){
+    public function cTraerDatosActor($actorId, $tipoActorId){
             
-        $datos = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+        $datos['datosActor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
         
-        print_r(json_encode($datos));
-
+        $datos['actorId'] = $actorId;
+        
+        if($tipoActorId == 1){
+            $this->load->view('formulariosCargados/formularioIndividual_v', $datos);
+        } elseif ($tipoActorId == 2) {
+            $this->load->view('formulariosCargados/formularioColectivo_v', $datos);
+        } else {
+            $this->load->view('formulariosCargados/formularioTransmigrante_v', $datos);
+        }
+        
+        
+        
     }
     
     public function traerEditar($actorId =1, $tipoActorId =1){
@@ -94,6 +104,25 @@ class Actores_c extends CI_Controller {
         $data['editar'] = 1;
         
         $data['actorId'] = $actorId;
+        
+        $anio=date("Y");  
+        $data['anioCaso']=range(1994, $anio);
+        $data['edad']= range(0,100);
+        $data['hijos']= range(0,20);
+        $data['intentos']= range(0,20);
+        $data['estadoCivil']= $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');;
+        $data['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
+        $data['grupoIndigena']= $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
+        $data['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5); 
+        $data['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
+        $data['lugares']= $this->catalogos_m->mTraerDatosCatalogoPaises();
+        $data['motivos']= array('Negocios' => 1, 'Trabajo' => 2, 'No se' => 3, 'Se acabo mi creatividad' => 4); 
+        $data['estancia']= array('Vacaional' => 1, 'Largo tiempo' => 2, 'No se' => 3, 'Permanente' => 4); 
+        $data['tipoDir']= array('Casa', 'Departamento', 'Hostal', 'Hotel'); 
+        $data['tipoActorColectivo']= $this->catalogos_m->mTraerDatosCatalogoNombre('tipoActorColectivo');
+        $data['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
+        $data['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
+        $data['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
         
         $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
        
@@ -131,7 +160,7 @@ class Actores_c extends CI_Controller {
         
         $this->actores_m->mActualizaDatosActor($_POST['actores_actorId'],$datos);
         
-        redirect(base_url().'index.php/form_c');
+        redirect(base_url().'index.php/actores_c/traerEditar/'.$_POST['actores_actorId'].'/'.$_POST['actores_tipoActorId']);
         
     }
     

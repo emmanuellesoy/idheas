@@ -104,7 +104,7 @@
 								</div>
 								
 								
-								<div class="nine columns">
+								<div class="nine columns cargarDatosActor">
 									
 								<div id="formCargInd"><?=(isset($individualVista)) ? $individualVista : '';?></div>
 								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>

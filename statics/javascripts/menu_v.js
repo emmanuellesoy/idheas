@@ -1045,20 +1045,7 @@ function mostarDatosListaElem(id, tipoActorId) {
             method: 'post',
             datatype: "html",
             success: function(data){
-                var json = jQuery.parseJSON(data);
-                $.each(json, function(indice, valor){
-                    $.each(valor, function(nombre, dato){
-                        $('#'+nombre+tipoActor).html(dato);
-                    });
-                    /*
-                    $('#actores_apellidosSiglasV').html(valor.apellidosSiglas);
-                    $('#alias_aliasV').html(valor.alias);
-                    $('#infoGralActor_generoidV').html(valor.generoId);
-                    $('#infoGralActor_edadV').html(valor.edad);
-                    $('#infoGralActor_estadoCivil_estadoCivilV').html(valor.estadoCivil_estadoCivilId);
-                    $('#infoGralActor_nacionalidadV').html(valor.nacionalidadId);
-                    */
-                });
+                $('.cargarDatosActor').html(data);
                 
                 
                 //$('#formCargInd').html(data);
