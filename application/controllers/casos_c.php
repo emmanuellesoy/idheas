@@ -109,7 +109,13 @@ class Casos_c extends CI_Controller {
        }
        
        
-       
+       public function cRelacionaCasoActor(){
+           
+           $datos = array('casoId' => $_POST['casoId'] , 'actorId' => $_POST['actorId']);
+           
+           $expression = $this->casos_m->mRelacionaCasoActor($datos);
+           
+       }
        
     
 }
