@@ -42,7 +42,31 @@ class Actores_c extends CI_Controller {
                 }
                 
 		$this->load->model('actores_m', 'am');
-		 
+                
+                $config['upload_path'] = './statics/actores_fotos';
+                
+                $config['file_name'] = $datos['agregado'];
+		
+                $config['allowed_types'] = 'jpg';
+		
+                $config['max_size']	= '3000000';
+		
+                $this->load->library('upload', $config);
+                
+                $nombre_foto = base_url().'statics/actores_fotos'.$datos['agregado'].'jpeg';
+                
+                //$image = imagecreatefromjpeg($nombre_foto);
+                
+                //ob_start();
+                
+                //imagejpeg($nombre_foto);
+                
+                //$foto = ob_get_contents();
+                
+                //ob_end_clean();
+                
+                //$datos['tablas']['actores']['foto'] = $foto;
+		
 		$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
                 redirect(base_url().'index.php/form_c');
