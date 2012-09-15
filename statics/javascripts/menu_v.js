@@ -1025,29 +1025,12 @@ function mostarDatosListaElem(id, tipoActorId) {
     var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;
     $('.borrar_select').css('background-color', '#fff');
     $('#elemento_'+id).css('background-color', '#D21400');
-    if(tipoActorId == 3){
-        var tipoActor = '_colectivo';   
-        $("#formCargCol").show("slow");
-		$("#formCol").hide("slow");
-    }
-    if(tipoActorId == 2){
-        var tipoActor = '_transmigrante';
-		$("#formCargTrans").show("slow");
-		$("#formTrans").hide("slow");
-    }
-    if(tipoActorId == 1){
-        var tipoActor = '';
-        $("#formCargInd").show("slow");
-		$("#formInd").hide("slow");
-    }
     $.ajax({
             url: uri,
             method: 'post',
             datatype: "html",
             success: function(data){
                 $('.cargarDatosActor').html(data);
-                
-                
                 //$('#formCargInd').html(data);
             }
         });
@@ -1065,8 +1048,6 @@ function mostarDatosListaElem(id, tipoActorId) {
    
 };
 /******************Ventanas*************************/
-
-
 function ventanaDetalleLugar(){
 	  var windowSizeArray = [ "width=800,height=200" ];
 	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);

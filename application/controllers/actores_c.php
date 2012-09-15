@@ -6,7 +6,7 @@ class Actores_c extends CI_Controller {
        {
             parent::__construct();
             
-            $this->load->model(array('actores_m', 'catalogos_m'));
+            $this->load->model(array('actores_m', 'catalogos_m', 'casos_m'));
     
             $this->load->helper(array('html', 'url'));					
 	
@@ -82,17 +82,57 @@ class Actores_c extends CI_Controller {
 	}
         
     public function cTraerDatosActor($actorId, $tipoActorId){
+        
+        $datos['lista_casos'] = array(
+						'1'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'2'=>array(
+								'nombre'   => 'Joon lee', 
+								 'url'   => 'http://24.media.tumblr.com/tumblr_m065d3a4Nu1r7m3tvo5_r1_250.jpg',
+							),
+						'3'=>array(
+						   		 'nombre'   => 'fei', 
+								 'url'   => 'http://images4.wikia.nocookie.net/__cb20111031210505/drama/es/images/f/f3/Min_miss_a_362840.jpg',
+							),
+						'4'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'5'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							),
+						'6'=>array(
+						   		 'nombre'   => 'G.O.', 
+								 'url'   => 'http://static.allkpop.com/wp-content/uploads/2011/08/20110830_go_mblaq-460x613.jpg',
+							));
+        
+        $datos['carga_ajax'] = 1;
             
         $datos['datosActor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
         
+        $datos['listaCasos'] = $this->casos_m->mTraerDatosCaso(1);
+        
         $datos['actorId'] = $actorId;
         
+        $datos['relEntreActores'] = $this->load->view('RelEntreActores_v', $datos, true);
+        
+        $datos['casosMenu'] = $this->load->view('formulariosCargados/casos_v', $datos, true);
+        
         if($tipoActorId == 1){
+        
             $this->load->view('formulariosCargados/formularioIndividual_v', $datos);
-        } elseif ($tipoActorId == 2) {
+        
+        } elseif ($tipoActorId == 3) {
+        
             $this->load->view('formulariosCargados/formularioColectivo_v', $datos);
+        
         } else {
+        
             $this->load->view('formulariosCargados/formularioTransmigrante_v', $datos);
+        
         }
         
         
@@ -123,24 +163,22 @@ class Actores_c extends CI_Controller {
         $data['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
         $data['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
         $data['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
-        $data['relEntreActores'] = $this->load->view('relEntreActores_v');
         $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
-       
-			
+	$data['relEntreActores'] = $this->load->view('RelEntreActores_v', $data, true);
         switch($tipoActorId){
-			case '1':
-			$data['formulario'] = $this->load->view('formularios/formularioIndividual_v', $data , true);
-			break;
-			case '2':
-			$data['formulario'] = $this->load->view('formularios/formularioTransmigrante_v', $data , true);
-			break;
-			case '3':
-			$data['formulario'] = $this->load->view('formularios/formularioColectivo_v', $data , true);
-			break;
+                    case '1':
+                    $form['formulario'] = $this->load->view('formularios/FormularioIndividual_v', $data , true);
+                    break;
+                    case '2':
+                    $form['formulario'] = $this->load->view('formularios/formularioTransmigrante_v', $data , true);
+                    break;
+                    case '3':
+                    $form['formulario'] = $this->load->view('formularios/formularioColectivo_v', $data , true);
+                    break;
             }
         
         
-        $this->load->view('vistaeditarFormIndv', $data);
+        $this->load->view('vistaeditarFormIndv', $form);
         
     }
     
