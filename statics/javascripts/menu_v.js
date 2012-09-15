@@ -1025,42 +1025,12 @@ function mostarDatosListaElem(id, tipoActorId) {
     var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;
     $('.borrar_select').css('background-color', '#fff');
     $('#elemento_'+id).css('background-color', '#D21400');
-    if(tipoActorId == 3){
-        var tipoActor = '_colectivo';   
-        $("#formCargCol").show("slow");
-		$("#formCol").hide("slow");
-    }
-    if(tipoActorId == 2){
-        var tipoActor = '_transmigrante';
-		$("#formCargTrans").show("slow");
-		$("#formTrans").hide("slow");
-    }
-    if(tipoActorId == 1){
-        var tipoActor = '';
-        $("#formCargInd").show("slow");
-		$("#formInd").hide("slow");
-    }
     $.ajax({
             url: uri,
             method: 'post',
             datatype: "html",
             success: function(data){
-                var json = jQuery.parseJSON(data);
-                $.each(json, function(indice, valor){
-                    $.each(valor, function(nombre, dato){
-                        $('#'+nombre+tipoActor).html(dato);
-                    });
-                    /*
-                    $('#actores_apellidosSiglasV').html(valor.apellidosSiglas);
-                    $('#alias_aliasV').html(valor.alias);
-                    $('#infoGralActor_generoidV').html(valor.generoId);
-                    $('#infoGralActor_edadV').html(valor.edad);
-                    $('#infoGralActor_estadoCivil_estadoCivilV').html(valor.estadoCivil_estadoCivilId);
-                    $('#infoGralActor_nacionalidadV').html(valor.nacionalidadId);
-                    */
-                });
-                
-                
+                $('.cargarDatosActor').html(data);
                 //$('#formCargInd').html(data);
             }
         });
@@ -1078,19 +1048,7 @@ function mostarDatosListaElem(id, tipoActorId) {
    
 };
 /*
-function mostarDatosListaElem() {
-	var datosActor=new Array("Siwon","Choi","Horse","hombre");
-    $("#formInd").hide("slow");
-    $("#formCargInd").show("slow");
-	$('#actores_nombreV').html(datosActor[0]); 
-	$('#actores_apellidosSiglasV').html(datosActor[1]); 
-	$('#alias_aliasV').html(datosActor[2]); 
-	$('ul').html(datosActor[3]); 
-    };
-*/
 /******************Ventanas*************************/
-
-
 function ventanaDetalleLugar(){
 	  var windowSizeArray = [ "width=800,height=200" ];
 	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);

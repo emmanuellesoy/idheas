@@ -104,7 +104,7 @@
 								</div>
 								
 								
-								<div class="nine columns">
+								<div class="nine columns cargarDatosActor">
 									
 								<div id="formCargInd"><?=(isset($individualVista)) ? $individualVista : '';?></div>
 								<div id="formInd"class="Escondido" ><?php echo $individual;?> </div>
@@ -122,7 +122,7 @@
 									</div>
 								
 								
-									<div class="nine columns">
+									<div class="nine columns cargarDatosActor">
 								<div id="formCargTrans"><?php echo $transmigranteVista;?></div>
 								<div id="formTrans"class="Escondido" ><?php echo $transmigrante;?></div>
 												
@@ -140,7 +140,7 @@
 									</div>
 								
 								
-									<div class="nine columns">
+									<div class="nine columns cargarDatosActor">
 										<div id="formCargCol"><?php echo $colectivoVista;?></div>
 										<div id="formCol"class="Escondido" ><?php echo $colectivo;?></div>
 								</div>
