@@ -328,6 +328,21 @@
 		    /* Regresa la cadena al controlador*/
 		    return ($mensaje = 'Hecho');
 		}
+		
+		/*Este modelo relaciona un actor con un caso 
+		 * @param $datos 
+		 * $datos = array(
+         *         'casoId' => '1' ,
+         		   'actorId' => '1');
+		 * */
+		
+		public function mRelacionaCasoActor($datos)
+		{
+			$this->db->insert('casos_has_actores',$datos);
+			
+			/* Regresa la cadena al controlador*/
+            return ($mensaje = 'Hecho');
+		}
 
 	}
 	

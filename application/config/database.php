@@ -50,9 +50,15 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
+<<<<<<< HEAD
 //$db['default']['password'] = '1E5y8LamySQL';
-$db['default']['password'] = 'Luisalein9';
+//$db['default']['password'] = 'Luisalein9';
+$db['default']['password'] = 'Brass&3a4';
+=======
+$db['default']['password'] = '1E5y8LamySQL';
+//$db['default']['password'] = 'Luisalein9';
 //$db['default']['password'] = 'Brass&3a4';
+>>>>>>> 3fd86f5bf899f2ff7bcebaa88348b4e08f6703fa
 $db['default']['database'] = 'ideasIkari';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
