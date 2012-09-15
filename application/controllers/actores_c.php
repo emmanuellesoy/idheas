@@ -203,6 +203,7 @@ class Actores_c extends CI_Controller {
         
         
         $this->load->view('vistaeditarFormIndv', $form);
+
         
     }
     
