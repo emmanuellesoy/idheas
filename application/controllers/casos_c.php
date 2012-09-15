@@ -52,7 +52,49 @@ class Casos_c extends CI_Controller {
        
        public function cAgregarCaso(){
            
-           $expression = $this->casos_m->mAgregarCaso();
+           foreach($_POST as $campo => $valor){ 
+   		
+                    $pos = strpos($campo, '_');
+                    
+                    $nombre_tabla = substr($campo, 0, $pos);
+                    
+                    $nombre_campo = substr($campo, ++$pos);
+                    
+                    $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+                        
+                }
+                
+           
+           $expression = $this->casos_m->mAgregarCaso($datos);
+           
+           print_r($expression);
+           
+       }
+       
+              public function cActualisaDatosCaso(){
+           
+           foreach($_POST as $campo => $valor){ 
+   		
+                    $pos = strpos($campo, '_');
+                    
+                    $nombre_tabla = substr($campo, 0, $pos);
+                    
+                    $nombre_campo = substr($campo, ++$pos);
+                    
+                    $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+                        
+                }
+                
+           
+           $expression = $this->casos_m->mActualisaDatosCaso($_POST['casos_casoId'] ,$datos);
+           
+           print_r($expression);
+           
+       }
+       
+       public function cCambiaEstadoActivoCaso(){
+           
+           $expression = $this->casos_m->mCambiaEstadoActivoCaso($_POST['casos_casoId']);
            
            print_r($expression);
            
