@@ -175,7 +175,7 @@
 		<div  class="four columns offset-by-eight" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input onClick="mostrarColectivo()" class="medium button" type="reset" value="Cancelar"  />
+		<input onClick="pagInicial" class="medium button" type="reset" value="Cancelar"  />
 		</div>
 		</div>
 

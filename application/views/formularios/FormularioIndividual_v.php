@@ -107,7 +107,7 @@
                         <label for="nacionalidad">Nacionalidad</label>
 						<span class="twelve columns" id="infoGralActor_nacionalidadIdSelect">
 
-                        <select id="infoGralActor_nacionalidadIdSelect" name="infoGralActor_nacionalidadIdSelect">
+                        <select id="infoGralActor_nacionalidadIdSelect" name="infoGralActor_nacionalidadId">
                             <option></option>
                         <?php if(isset($datosActor)){
                             foreach($nacionalidad as $key => $item):?> <!--muestra todas las edades de 1 a 100-->
@@ -439,7 +439,7 @@
 		<div  class="four columns offset-by-eight" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input class="medium button" type="reset" value="Cancelar"  onclick="mostrarIndividual()" />
+		<input class="medium button" type="reset" value="Cancelar"  onclick="pagInicial()" />
 		</div>
 		</div>
 <?php echo br(2);?>
