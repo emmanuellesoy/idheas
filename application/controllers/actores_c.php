@@ -123,13 +123,13 @@ class Actores_c extends CI_Controller {
         $data['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
         $data['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
         $data['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
-        
+        $data['relEntreActores'] = $this->load->view('relEntreActores_v');
         $data['datosActor'][$actorId] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
        
 			
         switch($tipoActorId){
 			case '1':
-			$data['formulario'] = $this->load->view('formularios/FormularioIndividual_v', $data , true);
+			$data['formulario'] = $this->load->view('formularios/formularioIndividual_v', $data , true);
 			break;
 			case '2':
 			$data['formulario'] = $this->load->view('formularios/formularioTransmigrante_v', $data , true);
@@ -137,7 +137,7 @@ class Actores_c extends CI_Controller {
 			case '3':
 			$data['formulario'] = $this->load->view('formularios/formularioColectivo_v', $data , true);
 			break;
-		}
+            }
         
         
         $this->load->view('vistaeditarFormIndv', $data);
