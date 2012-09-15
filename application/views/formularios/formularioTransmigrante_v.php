@@ -503,7 +503,7 @@
 		<div  class="four columns offset-by-eight" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input class="medium button" type="reset" value="Cancelar" onclick="mostrarTransmigrante()" />
+		<input class="medium button" type="reset" value="Cancelar" onclick="pagInicial()" />
 		</div>
 		</div>
 			</div>

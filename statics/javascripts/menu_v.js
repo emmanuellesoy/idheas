@@ -1147,20 +1147,8 @@ function mostrarSelect2(elem){
 };
 
 
-function mostrarColectivo(){
-    $("#formCargCol").show("slow");
-    $("#formCol").hide("slow");	
+function pagInicial(){
+	window.location=base_url+"index.php/form_c";
+
 };
 	
-
-function mostrarIndividual(){
-    $("#formCargInd").show("slow");
-    $("#formInd").hide("slow");	
-};
-
-
-function mostrarTransmigrante(){
-    $("#formCargTrans").show("slow");
-    $("#formTrans").hide("slow");	
-};
-
