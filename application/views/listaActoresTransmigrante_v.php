@@ -1,4 +1,4 @@
-<div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
+<div id="ListasActores" name="ListasActores"><!--Lista de Actores-->
 
 	<ul class="button-group">
 		<li><input type="button" class="small button"  value="Agregar Actor" onclick="mostrarFormlularioTrans()" /> </li>
@@ -8,13 +8,13 @@
     <form  method="post" accept-charset="utf-8" id="formEditarActor2">
 			
         <input type="submit" class="small button" value="EditarActor" id="botonEditarActor" /> 
-			<!--buscador de la lista de actores--->
+			<!--buscador de la lista de actores-->
 			<div class="eight columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
 				</div>
 				<div class="four columns">
 					<input  type="button" class="small button" value="Buscar" title="Buscar" />
-				</div><!--termina buscador de la lista de actores--->
+				</div><!--termina buscador de la lista de actores-->
 			</form>	
 			
 			<?php echo br(2);?>	

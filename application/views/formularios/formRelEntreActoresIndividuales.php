@@ -109,7 +109,6 @@
 											
 									<?php endforeach;?><!--Termina lista de los actores-->
 								<?php } ?>
-								
 						</div>
 		
 
@@ -147,10 +146,9 @@
 
 					</p>
 				</div>
-		</div> <!---termina opciones de fechaInicial-->
+		</div> <!---termina opciones de fechaInicial---->
 				
-				
-			<div class="twelve columns">
+			<div class="twelve columns" >
 					<label for="Termonio">Fecha término</label>
 				<div class="six columns">
 					<select onclick="fechaTerminalCasosRP(value)" >
@@ -206,7 +204,9 @@
 					});
 					</script>
 			   </div>	  
-			<input class="medium button" type="submit" value="Guardar" />
+			
+			</div>	
+		<input class="medium button" type="submit" value="Guardar" />
 			
 		</form>		
 	</div>	

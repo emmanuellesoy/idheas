@@ -143,7 +143,7 @@
 				<div class="six columns">
 				 <p>
 					<label for="telefono">Teléfono</label>
-						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30"  />
+						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30"  />
 				</p>
 				 
 				 <p>
@@ -174,7 +174,6 @@
 		<div class="row">
 		<div  class="six columns offset-by-six" >
 		
-        <input class="medium button" type="button" value="Regresar"  onclick="pagInicial()" />
 		<input class="medium button" type="submit" value="Guardar" />
 		<input onClick="pagInicial()" class="medium button" type="reset" value="Cancelar"  />
 		</div>

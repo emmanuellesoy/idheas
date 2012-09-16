@@ -1,4 +1,4 @@
-<div id="ListasActores" name="ListasActores"><!--Lista de Actores--->
+<div id="ListasActores" name="ListasActores"><!--Lista de Actores---->
 
 	<ul class="button-group">
 		<li><input type="button" class="small button" value="Agregar Actor" onclick="mostrarFormlularioCol()" /> </li>
@@ -8,13 +8,13 @@
     <form  method="post" accept-charset="utf-8" id="formEditarActor3">
 			
         <input type="submit" class="small button" value="EditarActor" id="botonEditarActor" />
-			<!--buscador de la lista de actores--->
+			<!--buscador de la lista de actores---->
 			<div class="eight columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
 				</div>
 				<div class="four columns">
 					<input  type="button" class="small button" value="Buscar" title="Buscar" />
-				</div><!--termina buscador de la lista de actores--->
+				</div><!--termina buscador de la lista de actores---->
 			</form>	
 			
 			<?php echo br(2);?>	
@@ -28,7 +28,7 @@
 <!------------Lista colectivo-------------------->
 			
 			<div id="listaActorColect" class="PruebaScorll">
-                            <?php if(isset($listaActores['colectivo'])){ ?>
+                <?php if(isset($listaActores['colectivo'])){ ?>
 					<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 3)">
@@ -44,7 +44,7 @@
 							</div>
 							
 					<?php endforeach;?><!--Termina lista de los actores-->
-                                        <?php } ?>
+                <?php } ?>
 			</div>
 					
    

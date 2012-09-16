@@ -1,6 +1,5 @@
-<!-------------------Comienza la parte de detalles del lugar------------------------------------->
+<!-------------------Comienza la parte de detalles del lugar-------------------------------------->
 <html>
-
 	<head>
 		
 		<meta charset="utf-8">
@@ -8,7 +7,7 @@
 
 		<title>i(dh)eas</title>
 		
-		  <!-- Estilo de la página CSS -->
+		  <!-- Estilo de la página CSS-->
 		<?php $link = array(
 			'href' => 'statics/stylesheets/foundation.min.css',
 			'rel' => 'stylesheet',
@@ -63,10 +62,11 @@
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
 
 	</head>
-	
+
 	<body>
 
 		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
+			
 			<input type="hidden"  id="relacionActores_tipoRelacionInd" name="relacionActores_tipoRelacionInd" value=""/>
 			
 			<label>Persona</label>
@@ -106,7 +106,7 @@
 
 
 			
-			<input type="hidden" value="" id="relacionActores_actoresActorId" name="relacionActores_actoresActorId"/>
+<input type="hidden" value="" id="relacionActores_actoresActorId" name="relacionActores_actoresActorId"/>
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>
@@ -144,10 +144,9 @@
 											<?php echo br(2);?>	
 									</div>
 								</div>
-			</div>
-								
 						<?php endforeach;?><!--Termina lista de los actores-->
 					<?php } ?>
+			</div>
 			<br/><br/>
 			
 			
@@ -197,6 +196,7 @@
 								<option  value="4">Se desconce el día y el mes</option>
 					</select>
 				</div>
+				
 				<div class="six columns">
 					<p class="Escondido" id="fechaExactaV2RIC">
 						<input type="text" id="fechaExacta2RIC" placeholder="AAAA-MM-DD" />
@@ -243,10 +243,12 @@
 					});
 					</script>
 			   </div>	  
+			</div>
 			
-			<input class="medium button" type="submit" value="Guardar" />
 			
-		</form>
+		<input class="medium button" type="submit" value="Guardar" />
+			
+		</form>		
 		
 	</body>
 </html>
