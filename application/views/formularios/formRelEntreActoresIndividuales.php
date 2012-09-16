@@ -66,7 +66,7 @@
 	
 	<body>
 	<div id="FormularioRelacionIndividuos">
-		<form action="actores_c/" method="post" accept-charset="utf-8">
+		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 
 	
 			<input type="hidden" id="relacionActores_actorRelacionadoId" name="relacionActores_actorRelacionadoId" value=" " />

@@ -66,7 +66,7 @@
 	
 	<body>
 
-		<form action="actores_c/" method="post" accept-charset="utf-8">
+		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 			<input type="hidden"  id="relacionActores_tipoRelacionInd" name="relacionActores_tipoRelacionInd" value=""/>
 			
 			<label>Persona</label>
@@ -106,7 +106,7 @@
 
 
 			
-			<input type="hidden" value="" id="relacionActores_actoresActorId" />
+			<input type="hidden" value="" id="relacionActores_actoresActorId" name="relacionActores_actoresActorId"/>
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>
