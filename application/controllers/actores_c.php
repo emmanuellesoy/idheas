@@ -211,19 +211,37 @@ class Actores_c extends CI_Controller {
         
         foreach($_POST as $campo => $valor){ 
    		
-                    $pos = strpos($campo, '_');
-                    
-                    $nombre_tabla = substr($campo, 0, $pos);
-                    
-                    $nombre_campo = substr($campo, ++$pos);
-                    
-                    $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
-                        
-                }
+            $pos = strpos($campo, '_');
+
+            $nombre_tabla = substr($campo, 0, $pos);
+
+            $nombre_campo = substr($campo, ++$pos);
+
+            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+
+        }
         
         $this->actores_m->mActualizaDatosActor($_POST['actores_actorId'],$datos);
         
         redirect(base_url().'index.php/actores_c/traerEditar/'.$_POST['actores_actorId'].'/'.$_POST['actores_tipoActorId']);
+        
+    }
+    
+    public function cRelacionaActores(){
+        
+        foreach($_POST as $campo => $valor){ 
+   		
+            $pos = strpos($campo, '_');
+
+            $nombre_tabla = substr($campo, 0, $pos);
+
+            $nombre_campo = substr($campo, ++$pos);
+
+            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+
+        }
+        
+        $this->actores_m->mRelacionaActores($_POST['actores_actorId'],$datos);
         
     }
     
