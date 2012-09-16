@@ -973,9 +973,10 @@ function nombrederechoAfectadosub3(descripcion4, valor, notas){
 
 /*//Funciones colapsibles//*/
 /************************************************/
-function  relacionIndCol(nombre , descripcion){
+function  relacionIndCol(nombre , descripcion, valor){
 	$('#tipoRelNotas').html(descripcion); 
 	$('#tipoRelTexto').html(nombre); 
+	$('#relacionActores_actoresActorId').attr('value', valor);
 	};
 	
 
@@ -1157,3 +1158,22 @@ function pagInicial(){
 
 };
 	
+
+function personaRelacionada(idPersona){
+    $('.cambiarColor').css('background-color', '#efefef');
+    $('#personaRelacionada'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_actorRelacionadoId').attr('value', idPersona);
+};
+
+
+function personaRelacionadaColectivo(idPersona){
+    $('.cambiarColor').css('background-color', '#efefef');
+    $('#personaRelacionadaCol'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_tipoRelacionInd').attr('value', idPersona);
+};
+
+function personaRelacionadaColectivoCol(idPersona){
+    $('.cambiarColor2').css('background-color', '#efefef');
+    $('#personaRelacionadaCol2'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_tipoRelacionIndividualColectivoId').attr('value', idPersona);
+};

@@ -42,7 +42,9 @@ border-right:4px solid #eee;
 		display: none;
 }
 
-
+.ambiarColor{
+border-bottom:2px solid #D21400;	
+}
  /* jQuery UI Datepicker 1.8.23
  *
  * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)

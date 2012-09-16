@@ -1,4 +1,4 @@
-<!---Comienza la parte de detalles del lugar---->
+<!---Comienza la parte de detalles del lugar-->
 <html>
 
 	<head>
@@ -67,7 +67,11 @@
 	<body>
 	<div id="FormularioRelacionIndividuos">
 		<form action="actores_c/" method="post" accept-charset="utf-8">
-			
+
+	
+			<input type="hidden" id="relacionActores_actorRelacionadoId" name="relacionActores_actorRelacionadoId" value=" " />
+					<?=$tipoRelacion; ?>
+
 			<div class="twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
 				<select id="relacionActores" name="relacionActores_actoresActorId">
@@ -76,7 +80,39 @@
 			</div>
 			<br /><br />
 			<label for="PerRelacionada">Persona Relacionada</label>
-			
+
+						<div  id="listaPersonaRelacionada" class="casosScorll">
+								<?php if($listaActores['individual']){ ?>
+								<?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
+								
+										<div class="cambiarColor twelve columns" id="personaRelacionada<?=$item['actorId']?>" onclick="personaRelacionada('<?=$item['actorId']?>')">  <!--funcion interventor-->
+											<div class="seven columns"><!--imprimo imagenes-->
+												<?php echo img($item['actorId']);?>
+													<?=$item['nombre']?>
+													<?php echo br(2);?>	
+											</div>
+										</div>
+										
+								<?php endforeach;?><!--Termina lista de los actores-->
+								<?php } ?>
+									
+								<?php if(isset($listaActores['transmigrante'])){ ?>
+									<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
+									
+											<div class="cambiarColor twelve columns" id="personaRelacionada<?=$item['actorId']?>" onclick="personaRelacionada('<?=$item['actorId']?>')"> 
+												<div class="seven columns" ><!--imprimo imagenes-->
+													<?php echo img($item['actorId']);?>
+														<?=$item['nombre']?>
+														<?php echo br(2);?>	
+												</div>
+											</div>
+											
+									<?php endforeach;?><!--Termina lista de los actores-->
+								<?php } ?>
+								
+						</div>
+		
+
 			<br /><br />
 			<div class="twelve columns">
 				<div class="six columns">

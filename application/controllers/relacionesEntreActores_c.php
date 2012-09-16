@@ -10,9 +10,11 @@ class relacionesEntreActores_c extends CI_Controller {
 
     function index() /***Funcion que carga los detallaes del lugar***/
 	{
-		$this->load->helper(array('html', 'url'));					
+		$this->load->helper(array('html', 'url'));	
+		$data['tipoRelacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		$data['listaActores'] = $this->actores_m->mTraerActores();
 		
-		$this->load->view('formularios/formRelEntreActoresIndividuales');
+		$this->load->view('formularios/formRelEntreActoresIndividuales',$data);
 		
 		
 	}
@@ -24,6 +26,7 @@ class relacionesEntreActores_c extends CI_Controller {
 		$this->load->helper(array('html', 'url'));					
 		
 		$DatosGenerales['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		$DatosGenerales['listaActores'] = $this->actores_m->mTraerActores();
 		
 		$this->load->view('formularios/formRelEntreIndividuaColectivo_v',$DatosGenerales);
 	}

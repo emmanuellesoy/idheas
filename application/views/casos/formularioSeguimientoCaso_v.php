@@ -67,7 +67,7 @@
 <body>
 <div id="formularioDetallerLugar">
 	<div id="pestania" data-collapse >
-		<h2 class="open">Detalle de la información de seguimiento del caso</h2><!--título de la sub-pestaña--->  
+		<h2 class="open">Detalle de la información de seguimiento del caso</h2><!--título de la sub-pestaña-->  
 			<div>
 				<div class="twelve columns">
 					<div class="six columns">

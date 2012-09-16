@@ -2,7 +2,7 @@
 <!-------------------Comienza la parte de relación entre casos------------------------------------->
 <div id="formularioRelacionCasos">
 <div id="pestania" data-collapse>
-	<h2 class="twelve columns">Detalle de la relación entre casos</h2><!--título de la sub-pestaña--->  
+	<h2 class="twelve columns">Detalle de la relación entre casos</h2><!--título de la sub-pestaña-->  
 	<div>
 		<span>Nombre del caso</span>	
 		

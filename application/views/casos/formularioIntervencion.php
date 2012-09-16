@@ -70,7 +70,7 @@
 <!-----------------Comienza la parte de Intervención---------------------------->
 <div id="formularioIntervencion">
 <div id="pestania" data-collapse>
-	<h2 class="open twelve columns">Intervención</h2><!--título de la sub-pestaña--->  
+	<h2 class="open twelve columns">Intervención</h2><!--título de la sub-pestaña-->  
 	<div>
 		
 		<fieldset class="twelve columns">
@@ -196,13 +196,13 @@
 										</div>
 								
 							<div id="subpestanias" data-collapse>
-								<h2 class="twelve columns">Actor colectivo</h2><!--título de la sub-pestaña--->  
+								<h2 class="twelve columns">Actor colectivo</h2><!--título de la sub-pestaña-->  
 								<div>
 									<div id="listaActorColect" class="PruebaScorll">
 													<?php if(isset($listaActores['colectivo'])){ ?>
 											<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 											
-													<div class="twelve columns" onclick="mostarDatosListaElem()">
+													<div class="twelve columns" onclick="">
 														<div class="five columns"><!--imprimo imagenes-->
 															<?php echo img($item['actorId']);?>
 															<?php echo br(2);?>	
