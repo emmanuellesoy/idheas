@@ -613,6 +613,24 @@
 			
 		}/* Fin de mTraerRelacionActores */
 
+		public function mTraerCitasActores($actorId){
+			/* Trae todos los datos de relacionActores */
+			$this->db->select('*');
+			$this->db->from('relacionActores');
+			$this->db->where('actorRelacionadoId',$actorId);
+			$consulta = $this->db->get();
+						
+			if ($consulta->num_rows() > 0){				
+				/* Pasa la consulta a un cadena */
+				foreach ($consulta->result_array() as $row) {
+					$datos['actorRelacionadoId'] = $row;
+				}
+			}
+			
+			/* Regresa la cadena al controlador*/
+            return $datos;
+			
+		}/* Fin de mTraerRelacionActores */
 	}
 	
 ?>
