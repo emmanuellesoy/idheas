@@ -8,6 +8,12 @@ function ventanaRelacionOtrosActores(idActor){
 	};
 
 
+function ventanaRelacionOtrosActoresCol(idActor){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('relacionesEntreActores_c/RelOtrosActores/index/'+idActor, 'Relaciones con otros actores', windowSizeArray);
+	};
+
+
 function ventanaDetalleLugar(){
 	  var windowSizeArray = [ "width=800,height=200" ];
 	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
@@ -38,12 +44,6 @@ function ventanaFuenteDoc(){
 	};
 
 
-function ventanaRelacionOtrosActoresCol(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c/RelOtrosActores', 'Relaciones con otros actores', windowSizeArray);
-	};
-
-
 /******************Ventanas Editar*************************/
 
 function ventanaRelacionOtrosActoresEditar(idActor, relacionActoresId){
@@ -51,3 +51,13 @@ function ventanaRelacionOtrosActoresEditar(idActor, relacionActoresId){
 	window.open('relacionesEntreActores_c/index/'+idActor, 'Fuente documental', windowSizeArray);
 	};
 
+
+function ventanaRelacionOtrosActoresColEditar(idActor, relacionActoresId){
+	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
+	window.open('relacionesEntreActores_c/RelOtrosActores'+idActor+'/'+relacionActoresId, 'Relaciones con otros actores', windowSizeArray);
+	};
+
+
+function cerrarVentana(){
+	window.close();
+};
