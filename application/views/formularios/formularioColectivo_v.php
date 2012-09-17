@@ -1,6 +1,12 @@
-		<?php echo validation_errors(); ?>
-		<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregarActor', $config); ?>
-		<input type="hidden" value="3" name="actores_tipoActorId" />
+        <?php echo validation_errors(); ?>
+	<?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
+<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
+<input type="hidden" value="3" name="actores_tipoActorId" />
+<?php 
+    if(isset($datosActor)){
+        ?><input type="hidden" value="<?=$actorId ?>" name="actores_actorId" /><?php
+    }
+?>
 		
 	<div	id="Actores" >
 				<fieldset >
@@ -21,10 +27,16 @@
 					<label for="tipoActor">Tipo de actor colectivo</label>
 					<span id="infoGralActores_tipoActorColectivoIdSelect">
 						<select name="infoGralActores_tipoActorColectivoId" id="infoGralActores_tipoActorColectivoId">
-							<option > </option>
-							<?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?>
+
+                                <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['tipoActorColectivoId']?>" <?=($datosActor[$actorId][$actorId]['tipoActorColectivoId'] == $item['tipoActorColectivoId']) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($tipoActorColectivo['tipoActorColectivo'] as $key => $item):?> <!--muestra los estados civiles-->
 								<option value="<?=$item['tipoActorColectivoId']; ?>"><?=$item['descripcion']; ?></option>
-							<?php endforeach;?>
+                                    <?php endforeach; } ?>
+
 						</select>
 						<input id="BotonmasinfoGralActores_tipoActorColectivoId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -67,9 +79,14 @@
 				<label for="paisdir">País</label>
 					<div id="2direccionActor_paisesCatalogo_paisIdSelect" class="twelve columns">
 						<select name="direccionActor_paisesCatalogo_paisId" id="2direccionActor_paisesCatalogo_paisId">
-							<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
-									<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
-							<?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['paisesCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['paisId']?>" <?=($datosActor[$actorId][$actorId]['paisesCatalogo_paisId'] == $item['paisId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
 						</select>
 						<input id="Botonmas2direccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</div>
@@ -95,10 +112,14 @@
 					<label for="municipioId">Municipio</label>
 					<span id="2direccionActor_municipiosCatalogo_municipioIdSelect" >
 						<select name="direccionActor_municipiosCatalogo_municipioId" id="direccionActor_municipiosCatalogo_municipioId">
-							<option > </option>
-							<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-							<?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['municipiosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['municipioId']?>" <?=($datosActor[$actorId][$actorId]['municipiosCatalogo_municipioId'] == $item['municipioId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
 						</select>
 						<input id="Botonmas2direccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto2(this)" />	
 					</span>
@@ -122,7 +143,7 @@
 				<div class="six columns">
 				 <p>
 					<label for="telefono">Teléfono</label>
-						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30"  />
+						<input type="text" id="infoContacto_telefono" name="infoContacto_telefono" <?=(isset($datosActor) ? 'value="'.$datosActor[$actorId][$actorId]['telefono'].'"' : ''); ?>  size="30"  />
 				</p>
 				 
 				 <p>
@@ -151,10 +172,10 @@
 		<?php echo br(2);?>
 		
 		<div class="row">
-		<div  class="four columns offset-by-eight" >
-			
+		<div  class="six columns offset-by-six" >
+		
 		<input class="medium button" type="submit" value="Guardar" />
-		<input onClick="mostrarColectivo()" class="medium button" type="reset" value="Cancelar"  />
+		<input onClick="pagInicial()" class="medium button" type="reset" value="Cancelar"  />
 		</div>
 		</div>
 

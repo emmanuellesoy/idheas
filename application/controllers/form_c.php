@@ -56,8 +56,8 @@ public function index()
 				$DatosGenerales['edad']= range(0,100);
 				$DatosGenerales['hijos']= range(0,20);
 				$DatosGenerales['intentos']= range(0,20);
-				$DatosGenerales['estadoCivil']= $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');;
-				$DatosGenerales['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
+				$DatosGenerales['estadoCivil']= $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
+;				$DatosGenerales['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
 				$DatosGenerales['grupoIndigena']= $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
 				$DatosGenerales['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5); 
 				$DatosGenerales['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
@@ -110,6 +110,11 @@ public function index()
 				$this->load->view('menu_v',$data);
 		}
 
+
+public function prueba()
+	{
+		$this->load->view('welcome_message');
+}
 
 }
 ?>

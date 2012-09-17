@@ -1,23 +1,91 @@
-
+<?php
+    if(isset($carga_ajax)){
+        ?>
 <div	id="ActoresV" >
+
+
+				<!--******************************************-->
+						
+		<meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width" />
+
+		<title>i(dh)eas</title>
+		
+		  <!-- Estilo de la página CSS-->
+		<?php $link = array(
+			'href' => 'statics/stylesheets/foundation.min.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>
+				
+		<?php $link = array(
+			'href' => 'statics/stylesheets/app.css',
+			'rel' => 'stylesheet',
+			'type' => 'text/css',
+			);
+			echo link_tag($link); 
+		?>
+		
+		
+		<?php $link = array(
+			'href' => 'statics/CSS/menu_v.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+		
+	
+<!---------Acordion css -------->		
+		<?php $link = array(
+			'href' => 'statics/CSS/collapse.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+				
+		<?php $link = array(
+			'href' => 'statics/CSS/tinyeditor.css',
+			'rel' => 'stylesheet',
+			);
+			echo link_tag($link); 
+		?>  
+                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
+		<!--Scripts foundation-->
+		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
+		
+		<!--Scripts jquery-->		
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
+		<!---script que hace posible el acordion--->
+		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
+
+				<!--******************************************-->
+
+	
 		<fieldset> <!--Información general-->
 			  <legend>Información general</legend>
 			<div class="six columns">
 			 
 			  <p>
 				<span>Nombre:   </span>
-				<span id="nombre_transmigrante"></span>
+				<span id="nombre"><?=(isset($datosActor[$actorId]['nombre'])) ? $datosActor[$actorId]['nombre'] : ''; ?></span>
 			  </p>
 			 
 			  <p>
 				<span>Apellidos:  </span>
-				<span id="apellidosSiglas_transmigrante"></span>
+				<span id="apellidosSiglas"><?=(isset($datosActor[$actorId]['apellidosSiglas'])) ? $datosActor[$actorId]['apellidosSiglas'] : ''; ?></span>
 			 
 			  </p>
 			 
 			  <p>
 				<span>Alias:   </span>
-				<span id="alias_transmigrante"></span>
+				<span id="alias"><?=(isset($datosActor[$actorId]['alias'])) ? $datosActor[$actorId]['alias'] : ''; ?></span>
 			  
 			  </p>
 			  
@@ -29,7 +97,7 @@
 			 
 			  <p>
 				<span>Género:   </span>
-				<span id="generoid_transmigrante"></span>
+				<span id="generoid"><?=(isset($datosActor[$actorId]['generoid'])) ? $datosActor[$actorId]['generoid'] : ''; ?></span>
 			
 			  </p>
 			</div>
@@ -38,18 +106,18 @@
 			  
 			  <p>
 				<span>Edad:   </span>
-				<span id="edad_transmigrante"></span>
+				<span id="edad"><?=(isset($datosActor[$actorId]['edad'])) ? $datosActor[$actorId]['edad'] : ''; ?></span>
 			  </p>
 			</div>
 			 
 			  <p>
 				<span>Estado Civil:   </span>
-				<span id="estadoCivil_estadoCivilId_transmigrante"></span>
+				<span id="estadoCivil_estadoCivilId"><?=(isset($datosActor[$actorId]['estadoCivil_estadoCivilId'])) ? $datosActor[$actorId]['estadoCivil_estadoCivilId'] : ''; ?></span>
 			  </p>
 			 
 			  <p>
 				<span>Nacionalidad:   </span>
-				 <span id="nacionalidadId_transmigrante"></span>
+				 <span id="nacionalidadId"><?=(isset($datosActor[$actorId]['nacionalidadId'])) ? $datosActor[$actorId]['nacionalidadId'] : ''; ?></span>
 			  </p>
 			
 			</div> 
@@ -62,21 +130,21 @@
 		 <div class="six columns">
 		  <p>
 				<span>Hijos:   </span>
-				<span id="hijos_transmigrante" ></span>
+				<span id="hijos" ><?=(isset($datosActor[$actorId]['hijos'])) ? $datosActor[$actorId]['hijos'] : ''; ?></span>
 		  </p>
 		 </div>
 		  
 		 <div class="six columns">									
 		   <p>			
 			<span>¿Habla español?:   </span>
-			<span id="espaniol_transmigrante"></span>
+			<span id="espaniol"><?=(isset($datosActor[$actorId]['espaniol'])) ? $datosActor[$actorId]['espaniol'] : ''; ?></span>
 		  </p>
 		 </div>
 		
 		 
 		  <p>
 			<span>Grupo Indígena:   </span>
-				<span id="gruposIndigenas_grupoIndigenaId_transmigrante"></span>
+				<span id="gruposIndigenas_grupoIndigenaId"><?=(isset($datosActor[$actorId]['gruposIndigenas_grupoIndigenaId'])) ? $datosActor[$actorId]['gruposIndigenas_grupoIndigenaId'] : ''; ?></span>
 		  </p>
 
 			
@@ -86,12 +154,12 @@
 		 
 		  <p>
 			<span>Nivel de Escolaridad:   </span>
-			<span id="escolaridad_transmigrante"></span>									 
+			<span id="escolaridadId"><?=(isset($datosActor[$actorId]['escolaridadId'])) ? $datosActor[$actorId]['escolaridadId'] : ''; ?></span>									 
 		  </p>
 		 
 		  <p>						
 			<span>Última Ocupación:   </span>
-			<span id="ocupacionesCatalogo_ultimalOcupacionid_transmigrante"></span>
+			<span id="ocupacionesCatalogo_ultimalOcupacionid"><?=(isset($datosActor[$actorId]['ocupacionesCatalogo_ultimalOcupacionid'])) ? $datosActor[$actorId]['ocupacionesCatalogo_ultimalOcupacionid'] : ''; ?></span>
 			
 		  </p>
 		 
@@ -109,21 +177,21 @@
 							<div class="four columns">		
 								  <p>		
 								<span >País: </span>
-								<div id="paisesCatalogo_paisId_transmigrante"></div>
+								<div id="paisesCatalogo_paisId"><?=(isset($datosActor[$actorId]['paisesCatalogo_paisId'])) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></div>
 								  </p>
 							</div>
 							
 							<div class="four columns">
 								  <p>		
 								<span>Estado: </span>
-									<div id="estadosCatalogo_estadoId_transmigrante"></div>
+									<div id="estadosCatalogo_estadoId"><?=(isset($datosActor[$actorId]['estadosCatalogo_estadoId'])) ? $datosActor[$actorId]['estadosCatalogo_estadoId'] : ''; ?></div>
 								  </p>
 							</div>
 							
 							<div class="four columns">
 							  <p>										
 								<span>Municipio: </span>
-									<div id="municipiosCatalogos_municipiosId_transmigrante" ></div>
+									<div id="municipiosCatalogos_municipiosId" ><?=(isset($datosActor[$actorId]['municipiosCatalogos_municipiosId'])) ? $datosActor[$actorId]['municipiosCatalogos_municipiosId'] : ''; ?></div>
 									</select>
 							  </p>
 							</div>
@@ -135,12 +203,12 @@
 				<div class="six columns">
 				  <p>
 					<span>País de tránsito: </span>
-						<div id="paisTransitoId_transmigrante"></div>
+						<div id="paisTransitoId"><?=(isset($datosActor[$actorId]['paisTransitoId'])) ? $datosActor[$actorId]['paisTransitoId'] : ''; ?></div>
 					  </p>
 																
 					  <p>
 					<span>País destino: </span>
-						<div id="paisDestinoId_transmigrante"></div>
+						<div id="paisDestinoId"><?=(isset($datosActor[$actorId]['paisDestinoId'])) ? $datosActor[$actorId]['paisDestinoId'] : ''; ?></div>
 					  </p>
 						
 					
@@ -151,11 +219,11 @@
 					  </p>
 						
 				<span>Comentarios:</span>
-				  <div id="comentarios_transmigrante" ></div>
+				  <div id="comentarios" ><?=(isset($datosActor[$actorId]['comentarios'])) ? $datosActor[$actorId]['comentarios'] : ''; ?></div>
 				
 				  <p>
 				<span>Expulsiones del país de destino: </span>
-					<div id="expCruceDestino_transmigrante"></div>
+					<div id="expCruceDestino"><?=(isset($datosActor[$actorId]['expCruceDestino'])) ? $datosActor[$actorId]['expCruceDestino'] : ''; ?></div>
 				  </p>
 					
 					</div>
@@ -164,30 +232,30 @@
 						
 					  <p>
 					<span>Motivo del viaje: </span>
-						<div id="motivoViaje_transmigrante"></div>
+						<div id="motivoViaje"><?=(isset($datosActor[$actorId]['motivoViaje'])) ? $datosActor[$actorId]['motivoViaje'] : ''; ?></div>
 					  </p>
 						
 						
 					  <p>
 					<span>Tipo de estancia:</span>
-						<div id="tipoEstanciaId_transmigrante"></div>
+						<div id="tipoEstanciaId"><?=(isset($datosActor[$actorId]['tipoEstanciaId'])) ? $datosActor[$actorId]['tipoEstanciaId'] : ''; ?></div>
 					  </p>
 						
 						
 					  <p>
 					<span>Realiza el viaje:</span>
-						<div id="realizaViaje_transmigrante" ></div>
+						<div id="realizaViaje" ><?=(isset($datosActor[$actorId]['realizaViaje'])) ? $datosActor[$actorId]['realizaViaje'] : ''; ?></div>
 						
 					
 						
 					  <p>								
 					<span>Intentos de cruce al país destino: </span>
-						<div id="intCrucesDest_transmigrante" ></div>
+						<div id="intCrucesDest" ><?=(isset($datosActor[$actorId]['intCrucesDest'])) ? $datosActor[$actorId]['intCrucesDest'] : ''; ?></div>
 					  </p>
 						
 					  <p>
 					<span>Expulsiones del país de tránsito: </span>
-						<div id="expCruceTransito_transmigrante"> </div>
+						<div id="expCruceTransito"> <?=(isset($datosActor[$actorId]['expCruceTransito'])) ? $datosActor[$actorId]['expCruceTransito'] : ''; ?></div>
 					  </p>
 					 
 				</div>
@@ -210,3 +278,4 @@
 					
 				<?php echo br(1);?>
 </div>
+<?php } ?>

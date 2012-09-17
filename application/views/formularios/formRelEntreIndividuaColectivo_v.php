@@ -1,6 +1,5 @@
-<!-------------------Comienza la parte de detalles del lugar------------------------------------->
+<!-------------------Comienza la parte de detalles del lugar-------------------------------------->
 <html>
-
 	<head>
 		
 		<meta charset="utf-8">
@@ -8,7 +7,7 @@
 
 		<title>i(dh)eas</title>
 		
-		  <!-- Estilo de la página CSS -->
+		  <!-- Estilo de la página CSS-->
 		<?php $link = array(
 			'href' => 'statics/stylesheets/foundation.min.css',
 			'rel' => 'stylesheet',
@@ -63,17 +62,50 @@
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
 
 	</head>
-	
+
 	<body>
 
-		<form action="actores_c/" method="post" accept-charset="utf-8">
-			<input type="hidden" value="2" id="relacionActores_tipoRelacionIndividualColectivoId" />
+		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
+			
+			<input type="hidden"  id="relacionActores_tipoRelacionInd" name="relacionActores_tipoRelacionInd" value=""/>
 			
 			<label>Persona</label>
-			<span>Foto, Nombre</span>
+
+			<label for="PerRelacionada">Persona Relacionada</label>
+
+			<div  id="listaPersonaRelacionada" class="casosScorll">
+					<?php if($listaActores['individual']){ ?>
+					<?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
+					
+							<div class="cambiarColor twelve columns" id="personaRelacionadaCol<?=$item['actorId']?>" onclick="personaRelacionadaColectivo('<?=$item['actorId']?>')">  <!--funcion interventor-->
+								<div class="seven columns"><!--imprimo imagenes-->
+									<?php echo img($item['actorId']);?>
+										<?=$item['nombre']?>
+										<?php echo br(2);?>	
+								</div>
+							</div>
+							
+					<?php endforeach;?><!--Termina lista de los actores-->
+					<?php } ?>
+						
+					<?php if(isset($listaActores['transmigrante'])){ ?>
+						<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
+						
+								<div class="cambiarColor twelve columns" id="personaRelacionadaCol<?=$item['actorId']?>" onclick="personaRelacionadaColectivo('<?=$item['actorId']?>')"> 
+									<div class="seven columns" ><!--imprimo imagenes-->
+										<?php echo img($item['actorId']);?>
+											<?=$item['nombre']?>
+											<?php echo br(2);?>	
+									</div>
+								</div>
+								
+						<?php endforeach;?><!--Termina lista de los actores-->
+					<?php } ?>
+					
+			</div>
+
 			
-			
-			<input type="hidden" value="1" id="relacionActores_actoresActorId" />
+<input type="hidden" value="" id="relacionActores_actoresActorId" name="relacionActores_actoresActorId"/>
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>
@@ -88,7 +120,7 @@
 				<ul>
 					<?php foreach($relacionActorIndCol as $relacionActor):?> 
 						<?php foreach($relacionActor as $row):?> 
-							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['notas'];?>')"><?php echo $row['notas'];?> </li>
+							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['notas'];?>','<?= $row['tipoRelacionId'];?> ')"><?php echo $row['notas'];?></li>
 								
 						<?php endforeach;?>
 					<?php endforeach;?>
@@ -98,6 +130,22 @@
 
 			
 			<label>Actor colectivo</label>
+			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value=""/>
+
+			<div  id="listaPersonaRelacionada" class="casosScorll">
+					<?php if(isset($listaActores['colectivo'])){ ?>
+						<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
+						
+								<div class="cambiarColor2 twelve columns" id="personaRelacionadaCol2<?=$item['actorId']?>" onclick="personaRelacionadaColectivoCol('<?=$item['actorId']?>')"> 
+									<div class="seven columns" ><!--imprimo imagenes-->
+										<?php echo img($item['actorId']);?>
+											<?=$item['nombre']?>
+											<?php echo br(2);?>	
+									</div>
+								</div>
+						<?php endforeach;?><!--Termina lista de los actores-->
+					<?php } ?>
+			</div>
 			<br/><br/>
 			
 			
@@ -147,6 +195,7 @@
 								<option  value="4">Se desconce el día y el mes</option>
 					</select>
 				</div>
+				
 				<div class="six columns">
 					<p class="Escondido" id="fechaExactaV2RIC">
 						<input type="text" id="fechaExacta2RIC" placeholder="AAAA-MM-DD" />
@@ -193,10 +242,12 @@
 					});
 					</script>
 			   </div>	  
+			</div>
 			
-			<input class="medium button" type="submit" />
 			
-		</form>
+		<input class="medium button" type="submit" value="Guardar" />
+			
+		</form>		
 		
 	</body>
 </html>

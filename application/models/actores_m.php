@@ -35,6 +35,7 @@
         		foreach ($consulta->result_array() as $row) {
             		$ultimoActorId = $row['actorId'];
         		}
+                        return $ultimoActorId;
         	}
 			
 			/* Agrega el actorId al arreglo en el campo actores_actorId en las tablas...*/
@@ -96,16 +97,16 @@
 				/* Si es el actor es del tipo invividual*/
 				case '1': 
 
-						$this->db->select('*');
-						$this->db->from('actores');
-						$this->db->join('datosDeNacimiento','datosDeNacimiento.actores_actorId = actores.actorId', 'left');
-						$this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
-						$this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
-						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
-						$this->db->join('alias','alias.actores_actorId = actores.actorId','left');
-						$this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
-						$this->db->where('actorId',$actorId);
-						$this->db->where('estadoActivo',1);
+                                    $this->db->select('*');
+                                    $this->db->from('actores');
+                                    $this->db->join('datosDeNacimiento','datosDeNacimiento.actores_actorId = actores.actorId', 'left');
+                                    $this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
+                                    $this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
+                                    $this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
+                                    $this->db->join('alias','alias.actores_actorId = actores.actorId','left');
+                                    $this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
+                                    $this->db->where('actorId',$actorId);
+                                    $this->db->where('estadoActivo',1);
 						
 						$consulta = $this->db->get();
 						
@@ -128,6 +129,7 @@
 						$this->db->join('infoMigratoria','infoMigratoria.actores_actorId = actores.actorId','left');
 						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
 						$this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
+                                                $this->db->join('alias','alias.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
 						$this->db->where('estadoActivo',1);
 						
@@ -325,6 +327,21 @@
 		
 		    /* Regresa la cadena al controlador*/
 		    return ($mensaje = 'Hecho');
+		}
+		
+		/*Este modelo relaciona un actor con un caso 
+		 * @param $datos 
+		 * $datos = array(
+         *         'casoId' => '1' ,
+         		   'actorId' => '1');
+		 * */
+		
+		public function mRelacionaCasoActor($datos)
+		{
+			$this->db->insert('casos_has_actores',$datos);
+			
+			/* Regresa la cadena al controlador*/
+            return ($mensaje = 'Hecho');
 		}
 
 	}

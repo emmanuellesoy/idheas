@@ -344,19 +344,19 @@ function mostrarAgregarCasos() {
     
 function mostrarFormlulario() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargInd").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formInd").show("slow");
     };
     
 function mostrarFormlularioTrans() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargTrans").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formTrans").show("slow");
     };
     
 function mostrarFormlularioCol() {///Muestra el formulario cuando se quiere agregar un nuevo actor
 	
-    $("#formCargCol").hide("slow");
+    $(".cargarDatosActor").hide("slow");
     $("#formCol").show("slow");
     };
 
@@ -973,9 +973,10 @@ function nombrederechoAfectadosub3(descripcion4, valor, notas){
 
 /*//Funciones colapsibles//*/
 /************************************************/
-function  relacionIndCol(nombre , descripcion){
+function  relacionIndCol(nombre , descripcion, valor){
 	$('#tipoRelNotas').html(descripcion); 
 	$('#tipoRelTexto').html(nombre); 
+	$('#relacionActores_actoresActorId').attr('value', valor);
 	};
 	
 
@@ -1025,42 +1026,12 @@ function mostarDatosListaElem(id, tipoActorId) {
     var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;
     $('.borrar_select').css('background-color', '#fff');
     $('#elemento_'+id).css('background-color', '#D21400');
-    if(tipoActorId == 3){
-        var tipoActor = '_colectivo';   
-        $("#formCargCol").show("slow");
-		$("#formCol").hide("slow");
-    }
-    if(tipoActorId == 2){
-        var tipoActor = '_transmigrante';
-		$("#formCargTrans").show("slow");
-		$("#formTrans").hide("slow");
-    }
-    if(tipoActorId == 1){
-        var tipoActor = '';
-        $("#formCargInd").show("slow");
-		$("#formInd").hide("slow");
-    }
     $.ajax({
             url: uri,
             method: 'post',
             datatype: "html",
             success: function(data){
-                var json = jQuery.parseJSON(data);
-                $.each(json, function(indice, valor){
-                    $.each(valor, function(nombre, dato){
-                        $('#'+nombre+tipoActor).html(dato);
-                    });
-                    /*
-                    $('#actores_apellidosSiglasV').html(valor.apellidosSiglas);
-                    $('#alias_aliasV').html(valor.alias);
-                    $('#infoGralActor_generoidV').html(valor.generoId);
-                    $('#infoGralActor_edadV').html(valor.edad);
-                    $('#infoGralActor_estadoCivil_estadoCivilV').html(valor.estadoCivil_estadoCivilId);
-                    $('#infoGralActor_nacionalidadV').html(valor.nacionalidadId);
-                    */
-                });
-                
-                
+                $('.cargarDatosActor').html(data);
                 //$('#formCargInd').html(data);
             }
         });
@@ -1068,70 +1039,20 @@ function mostarDatosListaElem(id, tipoActorId) {
 
     if(tipoActorId == 3){
     $('#formEditarActor3').attr('action', action);
+    $('#formCol').hide("slow");
+
     }
     if(tipoActorId == 2){
     $('#formEditarActor2').attr('action', action);
+    $('#formTrans').hide("slow");
     }
     if(tipoActorId == 1){
     $('#formEditarActor').attr('action', action);
+    $('#formInd').hide("slow");
     }
+    $('.cargarDatosActor').show("slow");
    
 };
-/*
-function mostarDatosListaElem() {
-	var datosActor=new Array("Siwon","Choi","Horse","hombre");
-    $("#formInd").hide("slow");
-    $("#formCargInd").show("slow");
-	$('#actores_nombreV').html(datosActor[0]); 
-	$('#actores_apellidosSiglasV').html(datosActor[1]); 
-	$('#alias_aliasV').html(datosActor[2]); 
-	$('ul').html(datosActor[3]); 
-    };
-*/
-/******************Ventanas*************************/
-
-
-function ventanaDetalleLugar(){
-	  var windowSizeArray = [ "width=800,height=200" ];
-	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
-	};
-
-function ventanaFicha(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosInicia_c/SeguimientoCaso', 'Seguimiento del caso', windowSizeArray);
-	};
-
-
-function ventanaDerAfectados(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosNucleo_c', 'Derechos Afectados', windowSizeArray);
-	};
-
-
-
-function ventanaInterevenciones(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosNucleo_c/intervenciones', 'Intervenciones', windowSizeArray);
-	};
-
-
-function ventanaFuenteDoc(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
-	};
-
-
-function ventanaRelacionOtrosActores(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c', 'Fuente documental', windowSizeArray);
-	};
-
-
-function ventanaRelacionOtrosActoresCol(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c/RelOtrosActores', 'Relaciones con otros actores', windowSizeArray);
-	};
-
 function mostrarTexto(elem){
 	var nombre = $(elem).attr('id');
 	nombre = nombre.substring(8);  //Obteng el nombre limpio
@@ -1143,7 +1064,6 @@ function mostrarTexto(elem){
 	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
     $("#"+ nombre2).html('<span><input type="text"  name='+ texto +' id='+ texto +' /> '+ 	//agrego el atributo value al texto
     '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect(this)" /> </span>');
-    alert(nombre+"  "+nombre2+"  "+select);
 };
 
 
@@ -1163,7 +1083,6 @@ function mostrarTexto2(elem){
 	var nombre = $(elem).attr('id');
 	nombre = nombre.substring(8);  //Obteng el nombre limpio
 	name= nombre.substring(1);
-	alert(name);
 	name= "especial_"+ name;
 	texto= "especial_" + nombre;	//Nombre del campo texto
 	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
@@ -1190,20 +1109,32 @@ function mostrarSelect2(elem){
 };
 
 
-function mostrarColectivo(){
-    $("#formCargCol").show("slow");
-    $("#formCol").hide("slow");	
+function pagInicial(){
+	window.location=base_url+"index.php/form_c";
+
 };
 	
 
-function mostrarIndividual(){
-    $("#formCargInd").show("slow");
-    $("#formInd").hide("slow");	
+function personaRelacionada(idPersona){
+    $('.cambiarColor').css('background-color', '#efefef');
+    $('#personaRelacionada'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_actorRelacionadoId').attr('value', idPersona);
 };
 
 
-function mostrarTransmigrante(){
-    $("#formCargTrans").show("slow");
-    $("#formTrans").hide("slow");	
+function personaRelacionadaColectivo(idPersona){
+    $('.cambiarColor').css('background-color', '#efefef');
+    $('#personaRelacionadaCol'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_tipoRelacionInd').attr('value', idPersona);
 };
 
+function personaRelacionadaColectivoCol(idPersona){
+    $('.cambiarColor2').css('background-color', '#efefef');
+    $('#personaRelacionadaCol2'+idPersona).css('background-color', '#fff');
+	$('#relacionActores_tipoRelacionIndividualColectivoId').attr('value', idPersona);
+};
+
+function recargarPagina(){
+        location.reload("#vertical2");
+}
+    

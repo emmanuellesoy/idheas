@@ -1,8 +1,12 @@
 <?php echo validation_errors(); ?>
 <?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
+<?php $config=array('enctype'=>'multipart/form-data'); echo form_open('actores_c/'.$editar_crear, $config); ?>
 <input type="hidden" value="1" name="actores_tipoActorId" />
-
+<?php 
+    if(isset($datosActor)){
+        ?><input type="hidden" value="<?=$actorId ?>" name="actores_actorId" /><?php
+    }
+?>
 <div	id="Actores" >
     <fieldset>
         <legend>Información general</legend>
@@ -30,7 +34,7 @@
 				<div class="twelve columns">	
 					<p>
 					<label >Foto </label>
-					<input type="file" name="actores_foto" size="15"/>
+					<input type="file" id="userfile" name="userfile" size="15"/>
 					</p>
 				</div>
 
@@ -38,8 +42,20 @@
 				
                     <p>
                         <label for="infoGralActor_generoid">Género</label>
+                        <?php
+                        if(isset($datosActor)){
+                        if($datosActor[$actorId][$actorId]['generoId'] == 1){
+                        ?>
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
                         <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
+                        <?php } else { ?>
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="1" /> Hombre
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="2" /> Mujer 
+                         <?php }
+                        } else { ?>
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" checked="checked" value="1" /> Hombre
+                        <input type="radio" id="infoGralActor_generoid" name="infoGralActor_generoid" value="2" /> Mujer
+                        <?php } ?>
 
                     </p>
                 </div>
@@ -49,10 +65,16 @@
                     <p>
                         <label for="edad">Edad</label>
                         <select id="infoGralActor_edad" name="infoGralActor_edad">
-                        <option > </option>
-                        <?php foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                            <option></option>
+                        <?php if(isset($datosActor)){
+                            foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>" <?=($datosActor[$actorId][$actorId]['edad'] == $item) ? 'selected="selected"' : '' ; ?>> <?=$item?></option>
+                            <?php endforeach;
+                        } else {
+                            foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
                                 <option value="<?=$item?>"> <?=$item?></option>
-                        <?php endforeach;?>
+                            <?php endforeach;
+                        } ?>
                         </select>
                     </p>
 
@@ -62,13 +84,17 @@
 				<div >	
                         <label for="estadoCivil">Estado Civil</label>
                         <span id="infoGralActor_estadoCivil_estadoCivilIdSelect" class="twelve columns">
-							<select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId"  >
-							<option > </option>
-								<?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
-                                <option  value="<?=$item['estadoCivilId']?>"> <?=$item['descripcion']?></option>
-								<?php endforeach;?>
-								</select>
-						<input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+                            <select id="infoGralActor_estadoCivil_estadoCivilId" name="infoGralActor_estadoCivil_estadoCivilId"  >
+                                <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($estadoCivil['estadoCivil'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['estadoCivilId']?>" <?=($datosActor[$actorId][$actorId]['estadoCivil_estadoCivilId'] == $item['estadoCivilId']) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($estadoCivil['estadoCivil'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['estadoCivilId']?>" > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } ?>
+                            </select>
+                            <input id="BotonmasinfoGralActor_estadoCivil_estadoCivilId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
                         </span>
 						<span id="TextoEspecial_infoGralActor_estadoCivil_estadoCivilId" class="Escondido twelve columns">
 						</span>
@@ -80,13 +106,20 @@
 						<br /><br />
                         <label for="nacionalidad">Nacionalidad</label>
 						<span class="twelve columns" id="infoGralActor_nacionalidadIdSelect">
-                        <select id="infoGralActor_nacionalidadId" name="infoGralActor_nacionalidadId">						
-						<option > </option>
-                        <?php foreach($nacionalidad as $key => $item):?> <!--muestra todas las nacionalidades-->
-                                <option value="<?=$item?>"><?=$key?></option>
-                        <?php endforeach;?>
-                        </select>
-						<input id="BotonmasinfoGralActor_nacionalidadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
+
+                        <select id="infoGralActor_nacionalidadIdSelect" name="infoGralActor_nacionalidadId">
+                            <option></option>
+                        <?php if(isset($datosActor)){
+                            foreach($nacionalidad as $key => $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>" <?=($datosActor[$actorId][$actorId]['nacionalidadId'] == $item) ? 'selected="selected"' : '' ; ?>> <?=$key?></option>
+                            <?php endforeach;
+                        } else {
+                            foreach($nacionalidadId as $key => $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>"> <?=$key?></option>
+                            <?php endforeach;
+                        } ?>
+                    </select>
+                        <input id="BotonmasinfoGralActor_nacionalidadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
                         </span>
 						<span id="TextoEspecial_infoGralActor_nacionalidadId" class="Escondido twelve columns">
 						</span>
@@ -106,10 +139,16 @@
                     <p>
                                 <label for="hijos">Hijos</label>
                                 <select id="infoGralActor_hijos" name="infoGralActor_hijos">
-								<option > </option>
-                                <?php foreach($edad as $item):?> 
-                                        <option value="<?=$item?>"><?=$item?></option>
-                                <?php endforeach;?>
+                            <option></option>
+                        <?php if(isset($datosActor)){
+                            foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>" <?=($datosActor[$actorId][$actorId]['hijos'] == $item) ? 'selected="selected"' : '' ; ?>> <?=$item?></option>
+                            <?php endforeach;
+                        } else {
+                            foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>"> <?=$item?></option>
+                            <?php endforeach;
+                        } ?>
                                 </select>
                     </p>
                     </div>
@@ -127,10 +166,14 @@
                 <label for="grupoIndigena">Grupo Indígena</label>
 						<span class="twelve columns" id="infoGralActor_gruposIndigenas_grupoIndigenaIdSelect">
                         <select id="infoGralActor_gruposIndigenas_grupoIndigenaId" name="infoGralActor_gruposIndigenas_grupoIndigenaId">
-							<option > </option>
-                        <?php foreach($grupoIndigena['gruposIndigenas'] as $key => $item):?> 
-                                <option value="<?=$item['grupoIndigenaId']; ?>"><?=$item['descripcion']; ?></option>
-                        <?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($grupoIndigena['gruposIndigenas'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['grupoIndigenaId']?>" <?=($datosActor[$actorId][$actorId]['gruposIndigenas_grupoIndigenaId'] == $item['grupoIndigenaId']) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($grupoIndigena['gruposIndigenas'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['grupoIndigenaId']; ?>"><?=$item['descripcion']; ?></option>
+                                    <?php endforeach; } ?>
                         </select>
 						<input id="BotonmasinfoGralActor_gruposIndigenas_grupoIndigenaId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
                         </span>
@@ -145,12 +188,16 @@
 
 
                         <label for="nivelEscolaridad">Nivel de Escolaridad</label>
-                    <span class="twelve columns" id="infoGralActor_escolaridadIdSelect">
-                        <select id="infoGralActor_escolaridadId" name="infoGralActor_escolaridadId">						
-							<option > </option>
-                        <?php foreach($escolaridad as $key => $item):?> 
-                                <option value="<?=$item?>"><?=$key?></option>
-                        <?php endforeach;?>
+                        <select id="infoGralActor_escolaridadId" name="infoGralActor_escolaridadId">                        
+                            <option></option>
+                        <?php if(isset($datosActor)){
+                            foreach($escolaridad as $key => $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>" <?=($datosActor[$actorId][$actorId]['escolaridadId'] == $item) ? 'selected="selected"' : '' ; ?>> <?=$key?></option>
+                            <?php endforeach;
+                        } else {
+                            foreach($escolaridad as $key => $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>"> <?=$key?></option>
+                            <?php endforeach;}?>    
                         </select>
 					<input id="BotonmasinfoGralActor_escolaridadId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -160,11 +207,15 @@
 
                         <label for="UltimaOcupacion">Última Ocupación</label>
                     <span class="twelve columns" id="infoGralActor_OcupacionesCatalogo_UltimaOcupacionIdSelect" >
-                        <select id="infoGralActor_OcupacionesCatalogo_UltimaOcupacionId" name="infoGralActor_OcupacionesCatalogo_UltimaOcupacionId">						
-							<option > </option>
-                        <?php foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
-                        <?php endforeach;?>
+                        <select id="infoGralActor_ocupacionesCatalogo_ultimaOcupacionId" name="infoGralActor_ocupacionesCatalogo_ultimaOcupacionId">						
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['ocupacionId']?>" <?=($datosActor[$actorId][$actorId]['ocupacionesCatalogo_ultimaOcupacionId'] == $item['ocupacionId']) ? 'selected="selected"' : '' ; ?> > <?=$item['descripcion']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($ultimaOcupacion['ocupacionesCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['ocupacionId']; ?>"><?=$item['descripcion']; ?></option>
+                                    <?php endforeach; } ?>
                         </select>
 					<input id="BotonmasinfoGralActor_OcupacionesCatalogo_UltimaOcupacionId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -186,10 +237,14 @@
                         <label for="pais">País</label>
                     <span class="twelve columns" id="datosDeNacimiento_paisesCatalogo_paisIdSelect">
                         <select id="datosDeNacimiento_paisesCatalogo_paisId" name="datosDeNacimiento_paisesCatalogo_paisId">						
-							<option > </option>
-                        <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
-                        <?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['paisesCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['paisId']?>" <?=($datosActor[$actorId][$actorId]['paisesCatalogo_paisId'] == $item['paisId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
                         </select>
 					<input id="BotonmasdatosDeNacimiento_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -200,10 +255,14 @@
                         <label for="estado">Estado</label>
                     <span class="twelve columns" id="datosDeNacimiento_estadosCatalogo_estadoIdSelect">
                         <select id="datosDeNacimiento_estadosCatalogo_estadoId" name="datosDeNacimiento_estadosCatalogo_estadoId">						
-							<option > </option>
-                        <?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
-                        <?php endforeach;?>
+                        <option></option>
+                            <?php if(isset($datosActor)){
+                                foreach($lugares['estadosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                    <option  value="<?=$item['estadoId']?>" <?=($datosActor[$actorId][$actorId]['estadosCatalogo_estadoId'] == $item['estadoId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                <?php endforeach; } else { ?>
+                                <?php foreach($lugares['estadosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                    <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
+                                <?php endforeach; } ?>
                         </select>
 					<input id="BotonmasinfoGralActor_OcupacionesCatalogo_UltimaOcupacionId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 					</span>
@@ -218,10 +277,14 @@
                     <label for="municipio">Municipio</label>
                     <span id="datosDeNacimiento_municipiosCatalogo_municipioIdSelect" class="twelve columns" >
                         <select id="datosDeNacimiento_municipiosCatalogo_municipioId" name="datosDeNacimiento_municipiosCatalogo_municipioId">						
-							<option > </option>
-                        <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
-                                <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-                        <?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['municipiosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['municipioId']?>" <?=($datosActor[$actorId][$actorId]['municipiosCatalogo_municipioId'] == $item['municipioId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
                         </select>
 						<input id="BotonmasdatosDeNacimiento_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
@@ -276,10 +339,16 @@
                         <label for="direccionActor_tipoDireccionId">Tipo de dirección</label>
                     <span class="twelve columns" id="direccionActor_tipoDireccionIdSelect">
 							<select  id="direccionActor_tipoDireccionId" name="direccionActor_tipoDireccionId">			
-							<option > </option>
-								<?php foreach($tipoDir as $item):?> 
-														<option value="<?=$item?>"><?=$item?></option>
-								<?php endforeach;?>
+                        <option></option>
+                        <?php if(isset($datosActor)){
+                            foreach($tipoDir as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>" <?=($datosActor[$actorId][$actorId]['tipoDireccionId'] == $item) ? 'selected="selected"' : '' ; ?>> <?=$item?></option>
+                            <?php endforeach;
+                        } else {
+                            foreach($edad as $item):?> <!--muestra todas las edades de 1 a 100-->
+                                <option value="<?=$item?>"> <?=$item?></option>
+                            <?php endforeach;
+                        } ?>
 							</select>
 							<input id="BotonmasdireccionActor_tipoDireccionId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
@@ -305,10 +374,14 @@
                         <label for="paisdir">País</label>
                     <span class="twelve columns" id="direccionActor_paisesCatalogo_paisIdSelect">
                                 <select id="direccionActor_paisesCatalogo_paisId" name="direccionActor_paisesCatalogo_paisId">						
-							<option > </option>
-                                <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
-                                    <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
-                                <?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['paisesCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['paisId']?>" <?=($datosActor[$actorId][$actorId]['paisesCatalogo_paisId'] == $item['paisId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['paisesCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
                                 </select>
 							<input id="BotonmasdireccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 						</span>
@@ -326,10 +399,14 @@
 		<span class="twelve columns" id="direccionActor_estadosCatalogo_estadoIdSelect">
 				<label for="estadodir">Estado</label>
 							<select id="direccionActor_estadosCatalogo_estadoId" name="direccionActor_estadosCatalogo_estadoId">						
-							<option > </option>
-								<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
-								<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
-								<?php endforeach;?>
+                        <option></option>
+                            <?php if(isset($datosActor)){
+                                foreach($lugares['estadosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                    <option  value="<?=$item['estadoId']?>" <?=($datosActor[$actorId][$actorId]['estadosCatalogo_estadoId'] == $item['estadoId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                <?php endforeach; } else { ?>
+                                <?php foreach($lugares['estadosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                    <option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
+                                <?php endforeach; } ?>
 							</select>	
 				<input id="BotonmasdireccionActor_paisesCatalogo_paisId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 			</span>
@@ -341,10 +418,14 @@
 			<label for="municipiodir">Municipio</label>
 			<span class="twelve columns" id="direccionActor_municipiosCatalogo_municipioIdSelect">
 					<select id="direccionActor_municipiosCatalogo_municipioId" name="direccionActor_municipiosCatalogo_municipioId">						
-							<option > </option>
-						<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
-						<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-						<?php endforeach;?>
+                            <option></option>
+                                <?php if(isset($datosActor)){
+                                    foreach($lugares['municipiosCatalogo'] as $key => $item): ?> <!--muestra los estados civiles-->
+                                        <option  value="<?=$item['municipioId']?>" <?=($datosActor[$actorId][$actorId]['municipiosCatalogo_municipioId'] == $item['municipioId']) ? 'selected="selected"' : '' ; ?> > <?=$item['nombre']?></option>
+                                    <?php endforeach; } else { ?>
+                                    <?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> <!--muestra los estados civiles-->
+                                        <option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
+                                    <?php endforeach; } ?>
 					</select>
 					<input id="BotonmasdireccionActor_municipiosCatalogo_municipioId" type="button" class="tiny button"  value="+" onclick="mostrarTexto(this)" />	
 				</span>
@@ -355,15 +436,12 @@
 
 				<?php echo br(1);?>
 		<div class="row">
-		<div  class="four columns offset-by-eight" >
+		<div  class="six columns offset-by-six" >
 			
 		<input class="medium button" type="submit" value="Guardar" />
-		<input class="medium button" type="reset" value="Cancelar"  onclick="mostrarIndividual()" />
+		<input class="medium button" type="reset" value="Cancelar"  onclick="pagInicial()" />
 		</div>
 		</div>
 <?php echo br(2);?>
 </div>
 </form>	
-
-
-
