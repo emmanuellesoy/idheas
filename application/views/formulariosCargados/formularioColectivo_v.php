@@ -71,12 +71,12 @@
 			 
 			  <p>
 				<span >Nombre:   </span>
-				<span id="nombre"><?=(isset($datosActor[$actorId]['nombre'])) ? $datosActor[$actorId]['nombre'] : ''; ?></span>
+				<span id="nombre"><?=(isset($datosActor['actores']['nombre'])) ? $datosActor['actores']['nombre'] : ''; ?></span>
 			  </p>
 			 
 			  <p>
 				<span >Siglas:  </span>
-				<span id="apellidosSiglas"><?=(isset($datosActor[$actorId]['apellidosSiglas'])) ? $datosActor[$actorId]['apellidosSiglas'] : ''; ?></span>
+				<span id="apellidosSiglas"><?=(isset($datosActor['actores']['apellidosSiglas'])) ? $datosActor['actores']['apellidosSiglas'] : ''; ?></span>
 			 
 			  </p>
 			 
@@ -87,14 +87,14 @@
 				
 			  <p>
 				<span >Tipo de actor colectivo:  </span>
-				<span id="tipoActorColectivoId"><?=(isset($datosActor[$actorId]['tipoActorColectivoId'])) ? $datosActor[$actorId]['tipoActorColectivoId'] : ''; ?></span>
+				<span id="tipoActorColectivoId"><?=(isset($datosActor['infoGralActores']['tipoActorColectivoId'])) ? $datosActor['infoGralActores']['tipoActorColectivoId'] : ''; ?></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Actividad:  </span>
-				<span id="actividad"><?=(isset($datosActor[$actorId]['actividad'])) ? $datosActor[$actorId]['actividad'] : ''; ?></span>
+				<span id="actividad"><?=(isset($datosActor['infoGralActores']['actividad'])) ? $datosActor['infoGralActores']['actividad'] : ''; ?></span>
 			  </p>
 			
 			</div>
@@ -108,18 +108,18 @@
 			 
 			  <p>
 				<span >Ubicación:   </span>
-				<span id="direccion"><?=(isset($datosActor[$actorId]['direccion'])) ? $datosActor[$actorId]['direccion'] : ''; ?></span>
+				<span id="direccion"><?=(isset($datosActor['direccionActor']['direccion'])) ? $datosActor['direccionActor']['direccion'] : ''; ?></span>
 			  </p>
 			 
 			  <p>
 				<span >País:  </span>
-				<span id="paisesCatalogo_paisId"><?=(isset($datosActor[$actorId]['paisesCatalogo_paisId'])) ? $datosActor[$actorId]['paisesCatalogo_paisId'] : ''; ?></span>
+				<span id="paisesCatalogo_paisId"><?=(isset($datosActor['direccionActor']['paisesCatalogo_paisId'])) ? $datosActor['direccionActor']['paisesCatalogo_paisId'] : ''; ?></span>
 			 
 			  </p>
 			 
 			  <p>
 				<span >Estado:  </span>
-				<span id="estadosCatalogo_estadoId"><?=(isset($datosActor[$actorId]['estadosCatalogo_estadoId'])) ? $datosActor[$actorId]['estadosCatalogo_estadoId'] : ''; ?></span>
+				<span id="estadosCatalogo_estadoId"><?=(isset($datosActor['direccionActor']['estadosCatalogo_estadoId'])) ? $datosActor['direccionActor']['estadosCatalogo_estadoId'] : ''; ?></span>
 			 
 			  </p>
 			 
@@ -130,14 +130,14 @@
 				
 			  <p>
 				<span >Municipio:  </span>
-				<span id="municipiosCatalogo_municipioId"><?=(isset($datosActor[$actorId]['municipiosCatalogo_municipioId'])) ? $datosActor[$actorId]['municipiosCatalogo_municipioId'] : ''; ?></span>
+				<span id="municipiosCatalogo_municipioId"><?=(isset($datosActor['direccionActor']['municipiosCatalogo_municipioId'])) ? $datosActor['direccionActor']['municipiosCatalogo_municipioId'] : ''; ?></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Código postal:  </span>
-				<span id="actores_codigoPostal"><?=(isset($datosActor[$actorId]['actores_codigoPostal'])) ? $datosActor[$actorId]['actores_codigoPostal'] : ''; ?></span>
+				<span id="actores_codigoPostal"><?=(isset($datosActor['actores']['actores_codigoPostal'])) ? $datosActor['actores']['actores_codigoPostal'] : ''; ?></span>
 			  </p>
 			
 			</div>
@@ -151,12 +151,12 @@
 			 
 			  <p>
 				<span >Teléfono:   </span>
-				<span id="telefono"><?=(isset($datosActor[$actorId]['telefono'])) ? $datosActor[$actorId]['telefono'] : ''; ?></span>
+				<span id="telefono"><?=(isset($datosActor['infoContacto']['telefono'])) ? $datosActor['infoContacto']['telefono'] : ''; ?></span>
 			  </p>
 			 
 			  <p>
 				<span >Fax:  </span>
-				<span id="fax"><?=(isset($datosActor[$actorId]['fax'])) ? $datosActor[$actorId]['fax'] : ''; ?></span>
+				<span id="fax"><?=(isset($datosActor['infoContacto']['fax'])) ? $datosActor[$actorId]['infoContacto'] : ''; ?></span>
 			 
 			  </p>
 			 
@@ -167,14 +167,14 @@
 				
 			  <p>
 				<span >Correo electrónico:  </span>
-				<span id="correoE"><?=(isset($datosActor[$actorId]['correoE'])) ? $datosActor[$actorId]['correoE'] : ''; ?></span>
+				<span id="correoE"><?=(isset($datosActor['infoContacto']['correoE'])) ? $datosActor['infoContacto']['correoE'] : ''; ?></span>
 			 
 			  </p>
 			
 				
 			  <p>
 				<span >Página web:  </span>
-				<span id="paginaWeb"><?=(isset($datosActor[$actorId]['paginaWeb'])) ? $datosActor[$actorId]['paginaWeb'] : ''; ?></span>
+				<span id="paginaWeb"><?=(isset($datosActor['infoGralActores']['paginaWeb'])) ? $datosActor['infoGralActores']['paginaWeb'] : ''; ?></span>
 			  </p>
 			
 			</div>
