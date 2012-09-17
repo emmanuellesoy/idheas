@@ -138,64 +138,55 @@ class Actores_c extends CI_Controller {
             
         $datos['datosActor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
         
+        $infoGral=($tipoActorId == 3) ? 'infoGralActores' : 'infoGralActor';
+        
+        print_r($datos['datosActor']);
+        
         $data = $this->catalogos_m->mTraerDatosCatalogoPaises();
         
-        if(isset($data['paisesCatalogo'][$datos['datosActor'][$actorId]['paisesCatalogo_paisId']]['nombre'])){
+        if(isset($data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId'])){
         
-            $datos['datosActor'][$actorId]['paisesCatalogo_paisId'] = $data['paisesCatalogo'][--$datos['datosActor'][$actorId]['paisesCatalogo_paisId']]['nombre'];
-        
-        }
-        
-        if(isset($data['estadosCatalogo'][$datos['datosActor'][$actorId]['estadosCatalogo_estadoId']]['nombre'])){
-        
-            $datos['datosActor'][$actorId]['estadosCatalogo_estadoId'] = $data['estadosCatalogo'][--$datos['datosActor'][$actorId]['estadosCatalogo_estadoId']]['nombre'];
+            $data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId'] = $data['paisesCatalogo'][--$data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId']]['nombre'];
         
         }
         
-        if(isset($data['municipiosCatalogo'][$datos['datosActor'][$actorId]['municipiosCatalogo_municipioId']]['nombre'])){
+        if(isset($data['datosActor']['datosDeNacimiento']['estadosCatalogo_estadoId'])){
         
-            $datos['datosActor'][$actorId]['municipiosCatalogo_municipioId'] = $data['municipiosCatalogo'][--$datos['datosActor'][$actorId]['municipiosCatalogo_municipioId']]['nombre'];
+            $data['datosActor']['datosDeNacimiento']['estadosCatalogo_estadoId'] = $data['estadosCatalogo'][--$data['datosActor']['datosDeNacimiento']['estadoCatalogo_estadoId']]['nombre'];
         
         }
         
-        $data = $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
+        if(isset($data['datosActor']['datosDeNacimiento']['municipiosCatalogo_municipioId'])){
         
-        if(isset($data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'])){
-        
-            $datos['datosActor'][$actorId]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'];
+            $data['datosActor']['datosDeNacimiento']['municipiosCatalogo_municipioId'] = $data['municipiosCatalogo'][--$data['datosActor']['datosDeNacimiento']['municipiosCatalogo_municipioId']]['nombre'];
         
         }
         
         $data = $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
         
-        if(isset($data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'])){
+        print_r($data);
         
-            $datos['datosActor'][$actorId]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'];
+        if(isset($data['estadoCivil'][$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']])){
+        
+            $datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']]['descripcion'];
         
         }
         
         $data = $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
         
-        if(isset($data['gruposIndigenas'][--$datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId']]['descripcion'])){
+        if(isset($data['gruposIndigenas'][$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']])){
             
-            $datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId'] = $data['gruposIndigenas'][--$datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId']]['descripcion'];
+            $datos['datosActor']['actorId']['gruposIndigenas_grupoIndigenaId'] = $data['gruposIndigenas'][--$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']]['descripcion'];
             
         }
         
         $data = $data['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
         
-        if(isset($data['ocupacionesCatalogo'][--$datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'])){
+        if(isset($data['ocupacionesCatalogo'][$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']])){
         
-            $datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId'] = $data['ocupacionesCatalogo'][--$datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'];
+            $datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId'] = $data['ocupacionesCatalogo'][--$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'];
         
         }
-        
-        
-        
-        
-        echo '<pre>';
-            print_r($datos['datosActor'][$actorId]);
-        echo '</pre>';
         
         $data['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
         $data['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5);
