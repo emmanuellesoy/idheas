@@ -1,6 +1,6 @@
         <?php echo validation_errors(); ?>
 	<?php $editar_crear = (isset($editar)) ? 'editarActor' : 'agregarActor'; ?>
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/'.$editar_crear); ?>
+<?php $config=array('enctype'=>'multipart/form-data'); echo form_open('actores_c/'.$editar_crear); ?>
 <input type="hidden" value="3" name="actores_tipoActorId" />
 <?php 
     if(isset($datosActor)){
