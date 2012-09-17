@@ -21,21 +21,20 @@
 			<?php echo br(2);?>	
 
 
-				  <pre><?php print_r($listaCasos); ?></pre>
-<!------------Lista ind--------------------
-				<div  id="listaActorIndiv" class="PruebaScorll">
+<!--*************Lista de casos*************-->
+				<div  id="listaCasos" class="PruebaScorll">
 		
-					< ?php if($listaCasos){ ?>
-                    < ?php foreach($listaCasos  as $item):?> 
+					<?php if($listaCasos):?>
+                    <?php foreach($listaCasos  as $item):?> 
 			
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
-										< ?=$item['nombre']?>
-										< ?php echo br(2);?>	
+										<?=$item['nombre']?>
+										<?php echo br(2);?>	
 							</div>
 							
-                    < ?php } ?>
-					< ?php endforeach;? >
-	</div>--Termina lista de los actores-->
+					<?php endforeach;?>
+					<?php endif;?> 
+	</div>
 			
 	
 		

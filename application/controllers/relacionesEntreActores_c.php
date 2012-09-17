@@ -12,10 +12,8 @@ class relacionesEntreActores_c extends CI_Controller {
 	{
 		$this->load->helper(array('html', 'url'));					
 		
-		$DatosGenerales['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		$this->load->view('formularios/formRelEntreActoresIndividuales');
 		
-		$this->load->view('formularios/formRelEntreIndividuaColectivo_v',$DatosGenerales);
-	
 		
 	}
 	
@@ -25,7 +23,9 @@ class relacionesEntreActores_c extends CI_Controller {
 	{
 		$this->load->helper(array('html', 'url'));					
 		
-		$this->load->view('formularios/formRelEntreActoresIndividuales');
+		$DatosGenerales['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		
+		$this->load->view('formularios/formRelEntreIndividuaColectivo_v',$DatosGenerales);
 	}
 
 /**Terminan las funciones que pertenecen a la parte de información general de la sección de casos**/	

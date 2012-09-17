@@ -76,7 +76,7 @@
 					<!--Comienza actores colectivos--->
 					<div class="twelve columns">
 						<div id="pestania" data-collapse>
-							<h2>Relacion con otros actores </h2>
+							<h2>Actores colectivos </h2>
 								<div>
 									<table>
 										<thead>

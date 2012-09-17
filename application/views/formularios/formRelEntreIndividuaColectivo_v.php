@@ -8,7 +8,7 @@
 
 		<title>i(dh)eas</title>
 		
-		  <!-- Estilo de la página CSS-->
+		  <!-- Estilo de la página CSS -->
 		<?php $link = array(
 			'href' => 'statics/stylesheets/foundation.min.css',
 			'rel' => 'stylesheet',
@@ -57,7 +57,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<!---script que hace posible el acordion--->
+		<!---script que hace posible el acordion-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
@@ -66,7 +66,7 @@
 	
 	<body>
 
-		<form action="" method="post" accept-charset="utf-8">
+		<form action="actores_c/" method="post" accept-charset="utf-8">
 			<input type="hidden" value="2" id="relacionActores_tipoRelacionIndividualColectivoId" />
 			
 			<label>Persona</label>
@@ -88,7 +88,7 @@
 				<ul>
 					<?php foreach($relacionActorIndCol as $relacionActor):?> 
 						<?php foreach($relacionActor as $row):?> 
-							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['descripcion'];?>')"><?php echo $row['descripcion'];?> </li>
+							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['notas'];?>')"><?php echo $row['notas'];?> </li>
 								
 						<?php endforeach;?>
 					<?php endforeach;?>

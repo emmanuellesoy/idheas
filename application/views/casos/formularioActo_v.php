@@ -34,6 +34,7 @@
 		
 	
 <!---------Acordion css -------->		
+
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
@@ -77,13 +78,16 @@
                     <p>
                         <label for="derecho">Derecho afectado</label>
                         <div id="textoDerechoAfectado"></div>
+
+                        <label for="derecho">Notas</label>
+                        <div id="notasDerechoAfectado"></div>
                         
 			<?php echo br(2);?>
 			            <div  id="listaActorIndiv" class="casosScorll">	
                         <ul>
 							<?php foreach($derechosAfectados['derechosAfectadosN1Catalogos'] as $derechoAfectado):?> 
 								<li  id="pestaniaCasos" >
-									<div onclick="nombrederechoAfectado('<?=$derechoAfectado['descripcion'];?>','<?=$derechoAfectado['derechoAfectadoN1Id'];?>')" >
+									<div onclick="nombrederechoAfectado('<?=$derechoAfectado['descripcion'];?>','<?=$derechoAfectado['derechoAfectadoN1Id'];?>','<?=$derechoAfectado['notas'];?>')" >
 										<?php echo $derechoAfectado['descripcion'];?>
 									</div>
 									<ul class="Escondido" id="<?=$derechoAfectado['derechoAfectadoN1Id'];?>DAN1" >
@@ -91,7 +95,7 @@
 									<?php foreach($derechosAfectados['derechosAfectadosN2Catalogos'] as $derechoAfectadoN2):?>
 										<?php if($derechoAfectadoN2['derechosAfectadosN1Catalogo_derechoAfectadoN1Id'] == $derechoAfectado['derechoAfectadoN1Id']):?>
 											<li class=" pestaniaCasos" >
-												<div  onclick="nombrederechoAfectadosub1('<?=$derechoAfectadoN2['descripcion'];?>','<?=$derechoAfectadoN2['derechoAfectadoN2Id'];?>')">
+												<div  onclick="nombrederechoAfectadosub1('<?=$derechoAfectadoN2['descripcion'];?>','<?=$derechoAfectadoN2['derechoAfectadoN2Id'];?>','<?=$derechoAfectadoN2['notas'];?>')">
 												<?php echo $derechoAfectadoN2['descripcion'];?>
 												</div>
 												<ul class="Escondido"  id="<?=$derechoAfectadoN2['derechoAfectadoN2Id'];?>DAN2" >
@@ -99,7 +103,7 @@
 													<?php foreach($derechosAfectados['derechosAfectadosN3Catalogos'] as $derechoAfectadoN3):?>
 														<?php if($derechoAfectadoN3['derechosAfectadosN2Catalogo_derechoAfectadoN2Id'] == $derechoAfectadoN2['derechoAfectadoN2Id']):?>
 															<li class=" pestaniaCasos" >
-																<div  onclick="nombrederechoAfectadosub2('<?=$derechoAfectadoN3['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>')">
+																<div  onclick="nombrederechoAfectadosub2('<?=$derechoAfectadoN3['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>','<?=$derechoAfectadoN3['notas'];?>')">
 																<?php echo $derechoAfectadoN3['descripcion'];?>
 																</div>
 																
@@ -108,7 +112,7 @@
 																		<?php foreach($derechosAfectados['derechosAfectadosN4Catalogos'] as $derechoAfectadoN4):?>
 																			<?php if($derechoAfectadoN4['derechosAfectadosN3Catalogo_derechoAfectadoN3Id'] == $derechoAfectadoN3['derechoAfectadoN3Id']):?>
 																				<li class=" pestaniaCasos" >
-																					<div  onclick="nombrederechoAfectadosub3('<?=$derechoAfectadoN4['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>')">
+																					<div  onclick="nombrederechoAfectadosub3('<?=$derechoAfectadoN4['descripcion'];?>','<?=$derechoAfectadoN3['derechoAfectadoN3Id'];?>','<?=$derechoAfectadoN4['notas'];?>')">
 																					<?php echo $derechoAfectadoN4['descripcion'];?>
 																					</div>
 																				</li>

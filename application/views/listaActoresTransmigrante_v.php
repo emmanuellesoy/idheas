@@ -5,7 +5,9 @@
 		<li><input type="button" class="small button"  value="Eliminar Actor" onclick="esconderFormlulario()" /> </li>
     </ul>
 
-			<?php echo form_open('form_c/menu'); ?> 
+    <form  method="post" accept-charset="utf-8" id="formEditarActor2">
+			
+        <input type="submit" class="small button" value="EditarActor" id="botonEditarActor" /> 
 			<!--buscador de la lista de actores--->
 			<div class="eight columns">
 					<input id="actores_nombre" type="text"  name="actores_nombre" value="<?php echo set_value('actores_nombre'); ?>" placeholder="Nombre, Apellido" />
@@ -26,8 +28,8 @@
 <!------------Lista transmigrante-------------------->
 			
 			<div id="listaActorTrans" class="PruebaScorll">		
-                            <?php if(isset($listaActores['transmigrante'])){ ?>
-					<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
+                    <?php if(isset($listaActores['transmigrante'])){ ?>
+							<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 2)">
 								<div class="five columns"><!--imprimo imagenes-->
