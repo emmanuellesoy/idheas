@@ -19,7 +19,7 @@
 			
 			<?php echo br(2);?>	
 			<div class="twelve columns">
-				<b><div class="six columns">Foto transmigrante</div>
+				<b><div class="six columns">Foto</div>
 				<div class="six columns">Nombre</div></b>
 			<?php echo br(2);?>	
 			</div>
@@ -28,7 +28,7 @@
 <!------------Lista transmigrante-------------------->
 			
 			<div id="listaActorTrans" class="PruebaScorll">		
-                    <?php if(isset($listaActores['transmigrante'])){ ?>
+                    <?php if(isset($listaActores['transmigrante']) != 'No hay actores en la base de datos '){ ?>
 							<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 2)">
