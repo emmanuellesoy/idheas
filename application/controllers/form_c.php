@@ -91,7 +91,7 @@ public function index()
 				//TERMINA CARGA DE FORMULARIOS
 				
 				/*************************************************************************************/
-				//AGREGAR VISTAS A CASOS USOS
+				//AGREGAR VISTAS A CASOS 
 				$data['listaCasos']=$this->load->view('casos/listaCasos_v',$datosCasos, true);
 				$data['vistaCasos']=$this->load->view('casos/principalCasos_v',$datosCasos, true);
 				
