@@ -605,6 +605,7 @@
 				/* Pasa la consulta a un cadena */
 				foreach ($consulta->result_array() as $row) {
 					$datos['actores_actorId'] = $row;
+					$datos['actores_actorId']['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actorRelacionadoId']);
 				}
 			}
 			
@@ -613,7 +614,7 @@
 			
 		}/* Fin de mTraerRelacionActores */
 
-		public function mTraerCitasActores($actorId){
+		public function mTraerCitasActor($actorId){
 			/* Trae todos los datos de relacionActores */
 			$this->db->select('*');
 			$this->db->from('relacionActores');
