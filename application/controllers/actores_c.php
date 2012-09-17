@@ -140,19 +140,17 @@ class Actores_c extends CI_Controller {
         
         $infoGral=($tipoActorId == 3) ? 'infoGralActores' : 'infoGralActor';
         
-        print_r($datos['datosActor']);
-        
         $data = $this->catalogos_m->mTraerDatosCatalogoPaises();
         
         if(isset($data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId'])){
         
-            $data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId'] = $data['paisesCatalogo'][--$data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId']]['nombre'];
+            $datos['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId'] = $data['paisesCatalogo'][--$data['datosActor']['datosDeNacimiento']['paisesCatalogo_paisId']]['nombre'];
         
         }
         
         if(isset($data['datosActor']['datosDeNacimiento']['estadosCatalogo_estadoId'])){
         
-            $data['datosActor']['datosDeNacimiento']['estadosCatalogo_estadoId'] = $data['estadosCatalogo'][--$data['datosActor']['datosDeNacimiento']['estadoCatalogo_estadoId']]['nombre'];
+            $datos['datosActor']['datosDeNacimiento']['estadosCatalogo_estadoId'] = $data['estadosCatalogo'][--$data['datosActor']['datosDeNacimiento']['estadoCatalogo_estadoId']]['nombre'];
         
         }
         
@@ -164,28 +162,32 @@ class Actores_c extends CI_Controller {
         
         $data = $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
         
-        print_r($data);
         
-        if(isset($data['estadoCivil'][$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']])){
-        
-            $datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']]['descripcion'];
-        
-        }
-        
-        $data = $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
-        
-        if(isset($data['gruposIndigenas'][$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']])){
+        if(isset($datos['datosActor']['infoGralActor']) || isset($datos['datosActor']['infoGralActores'])){
             
-            $datos['datosActor']['actorId']['gruposIndigenas_grupoIndigenaId'] = $data['gruposIndigenas'][--$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']]['descripcion'];
             
-        }
-        
-        $data = $data['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
-        
-        if(isset($data['ocupacionesCatalogo'][$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']])){
-        
-            $datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId'] = $data['ocupacionesCatalogo'][--$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'];
-        
+            if(isset($data['estadoCivil'][$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']])){
+
+                $datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$infoGral]['estadoCivil_estadoCivilId']]['descripcion'];
+
+            }
+
+            $data = $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
+
+            if(isset($data['gruposIndigenas'][$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']])){
+
+                $datos['datosActor']['actorId']['gruposIndigenas_grupoIndigenaId'] = $data['gruposIndigenas'][--$datos['datosActor'][$infoGral]['gruposIndigenas_grupoIndigenaId']]['descripcion'];
+
+            }
+
+            $data = $data['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
+
+            if(isset($data['ocupacionesCatalogo'][$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']])){
+
+                $datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId'] = $data['ocupacionesCatalogo'][--$datos['datosActor'][$infoGral]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'];
+
+            }
+            
         }
         
         $data['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
