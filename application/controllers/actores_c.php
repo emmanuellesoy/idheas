@@ -70,7 +70,7 @@ class Actores_c extends CI_Controller {
                 
                 //$datos['tablas']['actores']['foto'] = $foto;
                 
-                //redirect(base_url().'index.php/form_c');
+                redirect(base_url().'index.php/form_c');
                 
 	}
 	
