@@ -1053,48 +1053,6 @@ function mostarDatosListaElem(id, tipoActorId) {
     $('.cargarDatosActor').show("slow");
    
 };
-/******************Ventanas*************************/
-function ventanaDetalleLugar(){
-	  var windowSizeArray = [ "width=800,height=200" ];
-	window.open('casosInicia_c', 'Detalles Lugar', windowSizeArray);
-	};
-
-function ventanaFicha(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosInicia_c/SeguimientoCaso', 'Seguimiento del caso', windowSizeArray);
-	};
-
-
-function ventanaDerAfectados(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosNucleo_c', 'Derechos Afectados', windowSizeArray);
-	};
-
-
-
-function ventanaInterevenciones(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('casosNucleo_c/intervenciones', 'Intervenciones', windowSizeArray);
-	};
-
-
-function ventanaFuenteDoc(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('infoAdicional_c', 'Fuente documental', windowSizeArray);
-	};
-
-
-function ventanaRelacionOtrosActores(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c', 'Fuente documental', windowSizeArray);
-	};
-
-
-function ventanaRelacionOtrosActoresCol(){
-	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c/RelOtrosActores', 'Relaciones con otros actores', windowSizeArray);
-	};
-
 function mostrarTexto(elem){
 	var nombre = $(elem).attr('id');
 	nombre = nombre.substring(8);  //Obteng el nombre limpio
@@ -1106,7 +1064,6 @@ function mostrarTexto(elem){
 	$("#"+ nombre2).show("slow");	//Muestro el campo donde se ingresará el nuevo dato
     $("#"+ nombre2).html('<span><input type="text"  name='+ texto +' id='+ texto +' /> '+ 	//agrego el atributo value al texto
     '<input id="Botonmenos'+nombre+'" type="button" class="tiny button"  value="-" onclick="mostrarSelect(this)" /> </span>');
-    alert(nombre+"  "+nombre2+"  "+select);
 };
 
 
@@ -1126,7 +1083,6 @@ function mostrarTexto2(elem){
 	var nombre = $(elem).attr('id');
 	nombre = nombre.substring(8);  //Obteng el nombre limpio
 	name= nombre.substring(1);
-	alert(name);
 	name= "especial_"+ name;
 	texto= "especial_" + nombre;	//Nombre del campo texto
 	nombre2= "textoEspecial_"+nombre; //Nombre del campo donde se encuentra el texto
@@ -1177,3 +1133,8 @@ function personaRelacionadaColectivoCol(idPersona){
     $('#personaRelacionadaCol2'+idPersona).css('background-color', '#fff');
 	$('#relacionActores_tipoRelacionIndividualColectivoId').attr('value', idPersona);
 };
+
+function recargarPagina(){
+        location.reload("#vertical2");
+}
+    

@@ -111,5 +111,10 @@ public function index()
 		}
 
 
+public function prueba()
+	{
+		$this->load->view('welcome_message');
+}
+
 }
 ?>

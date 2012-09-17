@@ -2,6 +2,7 @@
 	<fieldset>
 		<legend>Relacion entre actores </legend>
 		<div class="twelve columns">
+
 			<div id="pestania" data-collapse>
 				<h2>Actores individuales o transmigrantes</h2>
 				<div>
@@ -28,12 +29,12 @@
 											<td>Content</td>
 											<td>Content</td>
 											<td>Content</td>
-											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActores()" />
+											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresEditar('<?=$actorId ?>' , '<?=(isset($relacionActoresId)) ? $relacionActoresId : '' ; ?>')" />
 											<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 										  </tr>
 										</tbody>
 									</table>
-									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores()" />
+									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores('<?=$actorId ?>')" />
 								</div>
 						</div>
 					</div>
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 		
-					<!--Comienza actores colectivos--->
+					<!--Comienza actores colectivos---->
 					<div class="twelve columns">
 						<div id="pestania" data-collapse>
 							<h2>Actores colectivos </h2>
