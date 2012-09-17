@@ -110,11 +110,5 @@ public function index()
 				$this->load->view('menu_v',$data);
 		}
 
-
-public function prueba()
-	{
-		$this->load->view('welcome_message');
-}
-
 }
 ?>

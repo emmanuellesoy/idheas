@@ -1,8 +1,5 @@
 
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregar_caso_c'); ?>
 	<?php echo $infoGral?>
-<input class="small button" type="submit" />
-</form>
 
 <!---
 

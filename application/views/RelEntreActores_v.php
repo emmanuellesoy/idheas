@@ -97,12 +97,12 @@
 											<td>Content</td>
 											<td>Content</td>
 											<td>Content</td>
-											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresCol()" />
+											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresColEditar('<?=$actorId ?>' , '<?=(isset($relacionActoresId)) ? $relacionActoresId : '' ; ?>')" />
 											<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 										  </tr>
 										</tbody>
 									</table>
-									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActoresCol()" />
+									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActoresCol('<?=$actorId ?>')" />
 								</div>
 						</div>
 					</div>

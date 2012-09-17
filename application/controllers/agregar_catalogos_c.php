@@ -26,6 +26,8 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $this->cAgregarDerechosCatalogos();
         
+        $this->cAgregarActosCatalogos();
+        
         $this->cAgregarCatalogoEstatusDeLaVictima();
         
         $this->cAgregarCatalogoEstatusDelPerpetrador();
@@ -37,6 +39,8 @@ class Agregar_catalogos_c extends CI_Controller {
         $this->cAgregarCatalogoTipoDeActorColectivo();
         
         $this->cAgregarEstadoCivilCatalogo();
+        
+        $this->cAgregarCatalogoRelacionEntreActores();
         
     }
     
@@ -65,7 +69,7 @@ class Agregar_catalogos_c extends CI_Controller {
         
         $estadoCivil['estadoCivil'][EN_SOCIEDAD_DE_CONVIVENCIA] = array('estadoCivilId' => EN_SOCIEDAD_DE_CONVIVENCIA, 'descripcion' => 'En Sociedad De Convivencia');
         
-        $this->agregar_catalogos_m->mAgregarDerechosCatalogos($estadoCivil);
+        $this->agregar_catalogos_m->mAgregarCatalogos($estadoCivil);
         
         echo 'Catalogos de estados civiles insertados exitosamente<br />';
         
@@ -125,6 +129,62 @@ class Agregar_catalogos_c extends CI_Controller {
         $this->agregar_catalogos_m->mAgregarDerechosCatalogos($derechos);
         
         echo 'cataologos de derechos afectados ingresados correctamente<br />';
+        
+    }
+    
+        public function cAgregarActosCatalogos(){
+        
+        $derechosN1 = read_file('statics/catalogos/catalogoviolaciones/CatalogoViolaciones_nivel1.csv');
+        
+        $derechosN1 = explode('&', $derechosN1);
+        
+        foreach($derechosN1 as $derechoN1){
+            
+            $obtener_datos = explode('¬', $derechoN1);
+                
+              $derechos['actosN1Catalogo'][trim($obtener_datos[0])] = array('actoId' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]));
+
+        }
+
+        $derechosN2 = read_file('statics/catalogos/catalogoviolaciones/CatalogoViolaciones_nivel2.csv');
+        
+        $derechosN2 = explode('&', $derechosN2);
+        
+        foreach($derechosN2 as $derechoN2){
+            
+            $obtener_datos = explode('¬', $derechoN2);
+                
+              $derechos['actosN2Catalogo'][trim($obtener_datos[0])] = array('actoN2Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'actosN1Catalogo_actoId' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
+        }
+        
+        $derechosN3 = read_file('statics/catalogos/catalogoviolaciones/CatalogoViolaciones_nivel3.csv');
+        
+        $derechosN3 = explode('&', $derechosN3);
+        
+        foreach($derechosN3 as $derechoN3){
+            
+            $obtener_datos = explode('¬', $derechoN3);
+                
+              $derechos['actosN3Catalogo'][trim($obtener_datos[0])] = array('actoN3Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'actosN2Catalogo_actoN2Id' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
+        }
+        
+        $derechosN4 = read_file('statics/catalogos/catalogoviolaciones/CatalogoViolaciones_nivel3.csv');
+        
+        $derechosN4 = explode('&', $derechosN4);
+        
+        foreach($derechosN4 as $derechoN4){
+            
+            $obtener_datos = explode('¬', $derechoN4);
+                
+              $derechos['actosN4Catalogo'][trim($obtener_datos[0])] = array('actoN4Id' => trim($obtener_datos[0]), 'descripcion' => trim($obtener_datos[1]), 'actosN3Catalogo_actoN3Id' => trim($obtener_datos[2]), 'notas' => trim($obtener_datos[3]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarDerechosCatalogos($derechos);
+        
+        echo 'Cataologos de actos violatorios ingresados correctamente<br />';
         
     }
     
@@ -410,6 +470,26 @@ class Agregar_catalogos_c extends CI_Controller {
         echo 'Catalogo de actores colectivos insertados exitosamente.<br />';
         
     }
+    
+    public function cAgregarCatalogoRelacionEntreActores(){
+        
+        $catalogo = explode('&', read_file('statics/catalogos/catalogosDeUnSoloNivel/relacionEntreActores.csv'));
+        
+        foreach($catalogo as $filaCatalogo){
+                
+            $datos = explode('¬', $filaCatalogo);
+                
+            $filas['relacionActoresCatalogo'][trim($datos[0])] = array('tipoRelacionId' => trim($datos[0]), 'nombre' => trim($datos[1]), 'notas' => trim($datos[2]), 'nivel2' => trim($datos[3]), 'tipoDeRelacion' => trim($datos[4]));
+
+        }
+        
+        $this->agregar_catalogos_m->mAgregarCatalogos($filas);
+        
+        echo 'Catalogo de relación entre actores insertados exitosamente.<br />';
+        
+    }
+    
+    
     
 }
 
