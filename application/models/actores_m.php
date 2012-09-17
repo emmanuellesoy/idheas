@@ -202,21 +202,9 @@
 									$datos['relacionActores'] = $row;
 								}
 							}
-													
-						}else{
-							
-							$datos = 'El actor solicitado no está en la base de datos';
-							return $datos;
-						} /* Fin if es_activo*/
-						
-						if ($datos->num_rows() > 0) {
-							/* Regresa la cadena al controlador*/
-							return $datos;
-						}else{
-							$datos = 'Aún no has agregado actores en la base de datos';
-							return $datos;
 						}
-						
+						/* Regresa la cadena al controlador*/
+						return $datos;						
 					break;
 					
 				/* Si es el actor es del tipo transmigrante*/	
@@ -340,21 +328,9 @@
 									$datos['relacionActores'] = $row;
 								}
 							}
-													
-						}else{
-							
-							$datos = 'El actor solicitado no está en la base de datos';
-							return $datos;
-						} /* Fin if es_activo*/
-						
-						if ($datos->num_rows() > 0) {
-							/* Regresa la cadena al controlador*/
-							return $datos;
-						}else{
-							$datos = 'Aún no has agregado actores en la base de datos';
-							return $datos;
 						}
-					
+						/* Regresa la cadena al controlador*/
+						return $datos;					
 					break;
 				
 				/* Si es el actor es del tipo colectivo*/
@@ -426,20 +402,9 @@
 									$datos['relacionActores'] = $row;
 								}
 							}
-													
-						}else{
-							
-							$datos = 'El actor solicitado no está en la base de datos';
-							return $datos;
-						} /* Fin if es_activo*/
-						
-						if ($datos->num_rows() > 0) {
-							/* Regresa la cadena al controlador*/
-							return $datos;
-						}else{
-							$datos = 'Aún no has agregado actores en la base de datos';
-							return $datos;
 						}
+
+						return $datos;
 						
 					break;
 
@@ -487,6 +452,7 @@
 			
 			$consulta= $this->db->get();	
 			
+			if ($consulta->num_rows() > 0) {
 			foreach ($consulta->result_array() as $value) {
                             
 				switch (trim($value['tipoActorId'])) {
@@ -518,9 +484,14 @@
 				}/* fin del switch */
 				
 			}/* fin foreach */
-                        
-		/* Regresa la cadena al controlador*/
-		return $datos;
+			/* Regresa la cadena al controlador*/
+			return $datos;
+			
+			}else{
+				$datos = "No hay actores en la base de datos";
+				return $datos;
+			}            
+		
 			
 		}/* fin de traerActores */
 		
