@@ -69,14 +69,17 @@ class Casos_m extends CI_Model {
 		$this->db->where('casoId',$casoId);
 		
 		$consulta = $this->db->get();
-						
-		/* Pasa la consulta a un cadena */
-		foreach ($consulta->result_array() as $row) {
-			$datos[$row['casoId']] = $row;
+		if($consulta->num_rows() != 0){						
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos[$row['casoId']] = $row;
+			}
+			/* Regresa la cadena al controlador*/
+			return $datos;
+		}else{
+			$datos = 'No hay casos en la base de datos';
+			return $datos;			
 		}
-		
-		/* Regresa la cadena al controlador*/
-		return $datos;
 	}/* Fin de mTraer DatosCaso*/
 	
 	/* Este modelo actualiza los datos de un caso
