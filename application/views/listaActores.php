@@ -26,9 +26,8 @@
 
 
 <!------------Lista ind-------------------->
-
 			<div  id="listaActorIndiv" class="PruebaScorll">
-					<?php if($listaActores['individual']){ ?>
+					<?php if(isset($listaActores['individual']) != 'No hay actores en la base de datos '){ ?>
                             <?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 1)">
 								<div class="five columns"><!--imprimo imagenes-->

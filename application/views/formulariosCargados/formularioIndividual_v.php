@@ -68,7 +68,7 @@
 
                                     <p>
                                         <span >Nombre: </span>
-                                        <span id="nombre"><?=(isset($datosActor)) ? $datosActor[$actorId]['nombre'] : ''; ?></span>
+                                        <span id="nombre"><?=(isset($datosActor)) ? $datosActor['actores']['nombre'] : ''; ?></span>
                                     </p>
 
                                     <p>

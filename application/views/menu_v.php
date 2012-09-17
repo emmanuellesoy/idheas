@@ -31,7 +31,7 @@
 		?>  
 		
 	
-<!---------Acordion css -------->		
+		<!---------Acordion css -------->		
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
@@ -65,7 +65,7 @@
 	
 	<body>
 	
-		<!---Encabezado de la página--->
+		<!---Encabezado de la página---->
 			<div class="twelve columns">
 			  <div class="panel" >
 			  <div div="logo" >
@@ -80,7 +80,7 @@
 
 			<dl class="nice vertical tabs">
 				  <dd class="active"><a href="#vertical1">Actores</a></dd>
-				  <dd  onclick="recargarPagina()" ><a href="#vertical2">Casos</a></dd>
+				  <dd><a href="#vertical2">Casos</a></dd>
 				  <dd><a href="#vertical3">Reporte</a></dd>
 				</dl>
 				
