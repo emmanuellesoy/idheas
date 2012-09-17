@@ -320,7 +320,7 @@
                     
                 </div><!--Termina primer mitad de la nformación de contacto--->
 
-                <div class="six columns"><!--Segunda mitad de nformación de contacto--->
+                <div class="six columns"><!--Segunda mitad de nformación de contacto---->
 
                     <p>
                 <label for="infoContacto_correoE">Correo electrónico</label>

@@ -40,10 +40,11 @@
 					<input id="usuario" type="text" name="usuario"  required pattern="Admin"/>
 					<?php echo br(2);?>
 					<H2>Contraseña</H2>
-					<input id="contrasenia" type="password" name="contrasenia" required />
+					<input id="contrasenia" type="password" name="contrasenia" pattern="idheas" required />
 					<p class="submit">  
 					<?php echo br(1);?>
 					<input type="submit" value="Aceptar" />  
+					<?php echo br(3);?>
 					</div>
 					</p>
 				</form>
