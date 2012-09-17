@@ -47,7 +47,7 @@
 				<div class="six columns">
 						<p>
 							<label >Foto </label>
-							<input type="file" name="actores_foto"/>
+							<input type="file" id="userfile" name="userfile" size="15"/>
 						</p>
 					
 					<label for="actividad">Actividad</label>
