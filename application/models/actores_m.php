@@ -460,18 +460,21 @@
 					case '1':
                                             
 						$datos['individual'][$value['actorId']] = $value;
+						$datos['mensaje'] = 'Ok';
 							
 						break;
 						
 					case '2':
                                             
 						$datos['transmigrante'][$value['actorId']] = $value;
+						$datos['mensaje'] = 'Ok';
 						
 						break;
 					
 					case '3':
                                             
 						$datos['colectivo'][$value['actorId']] = $value;
+						$datos['mensaje'] = 'Ok';
 					
 						break;
 						
