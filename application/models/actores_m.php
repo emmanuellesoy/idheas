@@ -487,8 +487,9 @@
 			/* Regresa la cadena al controlador*/
 			return $datos;
 			
-			}else{
-				$datos = "No hay actores en la base de datos";
+			}else
+				
+				$datos = trim("No hay actores en la base de datos");
 				return $datos;
 			}            
 		
