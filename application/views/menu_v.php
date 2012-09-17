@@ -55,7 +55,8 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<!---script que hace posible el acordion--->
+		<script src="<?php echo base_url(); ?>statics/javascripts/ventanas.js" ></script>
+		<!---script que hace posible el acordion---->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
@@ -79,7 +80,7 @@
 
 			<dl class="nice vertical tabs">
 				  <dd class="active"><a href="#vertical1">Actores</a></dd>
-				  <dd><a href="#vertical2">Casos</a></dd>
+				  <dd  onclick="recargarPagina()" ><a href="#vertical2">Casos</a></dd>
 				  <dd><a href="#vertical3">Reporte</a></dd>
 				</dl>
 				
@@ -151,12 +152,12 @@
 					
 					</ul>
 
-					  </li> <!--Termina Pestaña Actores individuales--->
+					  </li> <!--Termina Pestaña Actores individuales---->
 				  
-				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes--->  
+				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes---->  
 				  
 								<div class="three columns">
-									<?php echo $listaCasos;?> <!---Se llama a la lista de casos--->
+									<?php echo $listaCasos;?> <!---Se llama a la lista de casos---->
 								</div>
 								
 								
@@ -173,13 +174,13 @@
 								</div>
 								
 				  
-				  </li><!--Termina Pestaña Actores transmigrantes--->
+				  </li><!--Termina Pestaña Actores transmigrantes---->
 				  
-				  <li id="vertical3Tab"><!--Pestaña Actores Colectivos--->  
+				  <li id="vertical3Tab"><!--Pestaña Actores Colectivos---->  
 				  
 									<p>Contenido de colectivos</p>
 									
-				  </li><!--Termina Pestaña Actores Colectivos--->
+				  </li><!--Termina Pestaña Actores Colectivos---->
 				  
 				</ul>
 			  

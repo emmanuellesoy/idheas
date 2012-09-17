@@ -66,9 +66,11 @@
 	
 	<body>
 	<div id="FormularioRelacionIndividuos">
-		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
+		<form action="<?=base_url(); ?>index.php/actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 
-	
+
+			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
+
 			<input type="hidden" id="relacionActores_actorRelacionadoId" name="relacionActores_actorRelacionadoId" value=" " />
 					<?=$tipoRelacion; ?>
 
