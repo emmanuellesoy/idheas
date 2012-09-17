@@ -488,7 +488,8 @@
 			return $datos;
 			
 			}else{
-				$datos = "No hay actores en la base de datos";
+				
+				$datos = trim("No hay actores en la base de datos");
 				return $datos;
 			}            
 		
