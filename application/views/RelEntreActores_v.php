@@ -11,6 +11,8 @@
 						<div id="subPestanias" data-collapse>
 							<h2>Relacion con otros actores </h2>
 								<div>
+
+									<?php if(isset)?>
 									<table>
 										<thead>
 										  <tr>
@@ -35,6 +37,8 @@
 										</tbody>
 									</table>
 									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores('<?=$actorId ?>')" />
+
+
 								</div>
 						</div>
 					</div>
