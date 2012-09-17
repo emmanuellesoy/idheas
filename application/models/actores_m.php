@@ -96,75 +96,350 @@
 				
 				/* Si es el actor es del tipo invividual*/
 				case '1': 
+				
+						$this->db->select('estadoActivo');
+						$this->db->from('actores');
+						$this->db->where('actorId',$actorId);
+						
+						$estadoActivo = $this->db->get();
 
-                                    $this->db->select('*');
-                                    $this->db->from('actores');
-                                    $this->db->join('datosDeNacimiento','datosDeNacimiento.actores_actorId = actores.actorId', 'left');
-                                    $this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
-                                    $this->db->join('direccionActor','direccionActor.actores_actorId = actores.actorId','left');
-                                    $this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
-                                    $this->db->join('alias','alias.actores_actorId = actores.actorId','left');
-                                    $this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
-                                    $this->db->where('actorId',$actorId);
-                                    $this->db->where('estadoActivo',1);
-						
-						$consulta = $this->db->get();
-						
-						/* Pasa la consulta a un cadena */
-						foreach ($consulta->result_array() as $row) {
-							$datos[$row['actorId']] = $row;
+						foreach ($estadoActivo->result_array() as $value) {
+							$es_activo = $value;
 						}
 						
-						/* Regresa la cadena al controlador*/
-						return $datos;
+						
+						/* Si el actor solicitado está activo*/
+						if($es_activo['estadoActivo'] == 1){
+							
+							/* Trae todos los datos de actores*/
+							$this->db->select('*');
+							$this->db->from('actores');
+							$this->db->where('actorId',$actorId);
+							$this->db->where('estadoActivo',1);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['actores'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de datosDeNacimiento */
+							$this->db->select('*');
+							$this->db->from('datosDeNacimiento');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['datosDeNacimiento'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoContacto */
+							$this->db->select('*');
+							$this->db->from('infoContacto');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoContacto'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de direccionActor */
+							$this->db->select('*');
+							$this->db->from('direccionActor');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['direccionActor'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoGralActor */
+							$this->db->select('*');
+							$this->db->from('infoGralActor');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoGralActor'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de alias */
+							$this->db->select('*');
+							$this->db->from('alias');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['alias'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de relacionActores */
+							$this->db->select('*');
+							$this->db->from('relacionActores');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['relacionActores'] = $row;
+								}
+							}
+													
+						}else{
+							
+							$datos = 'El actor solicitado no está en la base de datos';
+							return $datos;
+						} /* Fin if es_activo*/
+						
+						if ($datos->num_rows() > 0) {
+							/* Regresa la cadena al controlador*/
+							return $datos;
+						}else{
+							$datos = 'Aún no has agregado actores en la base de datos';
+							return $datos;
+						}
 						
 					break;
 					
 				/* Si es el actor es del tipo transmigrante*/	
 				case '2':
 					
-						$this->db->select('*');
+						$this->db->select('estadoActivo');
 						$this->db->from('actores');
-						$this->db->join('datosDeNacimiento','datosDeNacimiento.actores_actorId = actores.actorId', 'left');
-						$this->db->join('infoMigratoria','infoMigratoria.actores_actorId = actores.actorId','left');
-						$this->db->join('infoGralActor','infoGralActor.actores_actorId = actores.actorId','left');
-						$this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
-                                                $this->db->join('alias','alias.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
-						$this->db->where('estadoActivo',1);
 						
-						$consulta = $this->db->get();
-						
-						/* Pasa la consulta a un cadena */
-						foreach ($consulta->result_array() as $row) {
-							$datos[$row['actorId']] = $row;
+						$estadoActivo = $this->db->get();
+
+						foreach ($estadoActivo->result_array() as $value) {
+							$es_activo = $value;
 						}
 						
-						/* Regresa la cadena al controlador*/
-						return $datos;
+						
+						/* Si el actor solicitado está activo*/
+						if($es_activo['estadoActivo'] == 1){
+							
+							/* Trae todos los datos de actores*/
+							$this->db->select('*');
+							$this->db->from('actores');
+							$this->db->where('actorId',$actorId);
+							$this->db->where('estadoActivo',1);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['actores'] = $row;
+								}
+							}
+							
+														/* Trae todos los datos de datosDeNacimiento */
+							$this->db->select('*');
+							$this->db->from('datosDeNacimiento');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['datosDeNacimiento'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoMigratoria */
+							$this->db->select('*');
+							$this->db->from('infoMigratoria');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoMigratoria'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoContacto */
+							$this->db->select('*');
+							$this->db->from('infoContacto');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoContacto'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de direccionActor */
+							$this->db->select('*');
+							$this->db->from('direccionActor');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['direccionActor'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoGralActor */
+							$this->db->select('*');
+							$this->db->from('infoGralActor');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoGralActor'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de alias */
+							$this->db->select('*');
+							$this->db->from('alias');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['alias'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de relacionActores */
+							$this->db->select('*');
+							$this->db->from('relacionActores');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['relacionActores'] = $row;
+								}
+							}
+													
+						}else{
+							
+							$datos = 'El actor solicitado no está en la base de datos';
+							return $datos;
+						} /* Fin if es_activo*/
+						
+						if ($datos->num_rows() > 0) {
+							/* Regresa la cadena al controlador*/
+							return $datos;
+						}else{
+							$datos = 'Aún no has agregado actores en la base de datos';
+							return $datos;
+						}
 					
 					break;
 				
 				/* Si es el actor es del tipo colectivo*/
 				case '3':
 					
-						$this->db->select('*');
+						$this->db->select('estadoActivo');
 						$this->db->from('actores');
-						$this->db->join('infoContacto','infoContacto.actores_actorId = actores.actorId','left');
-						$this->db->join('infoGralActores','infoGralActores.actores_actorId = actores.actorId','left');
-						$this->db->join('relacionActores','relacionActores.actores_actorId = actores.actorId','left');
 						$this->db->where('actorId',$actorId);
-						$this->db->where('estadoActivo',1);
 						
-						$consulta = $this->db->get();
-						
-						/* Pasa la consulta a un cadena */
-						foreach ($consulta->result_array() as $row) {
-							$datos[$row['actorId']] = $row;
+						$estadoActivo = $this->db->get();
+
+						foreach ($estadoActivo->result_array() as $value) {
+							$es_activo = $value;
 						}
 						
-						/* Regresa la cadena al controlador*/
-						return $datos;
+						
+						/* Si el actor solicitado está activo*/
+						if($es_activo['estadoActivo'] == 1){
+							
+							/* Trae todos los datos de actores*/
+							$this->db->select('*');
+							$this->db->from('actores');
+							$this->db->where('actorId',$actorId);
+							$this->db->where('estadoActivo',1);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['actores'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoContacto */
+							$this->db->select('*');
+							$this->db->from('infoContacto');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoContacto'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de infoGralActor */
+							$this->db->select('*');
+							$this->db->from('infoGralActores');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['infoGralActores'] = $row;
+								}
+							}
+							
+							/* Trae todos los datos de relacionActores */
+							$this->db->select('*');
+							$this->db->from('relacionActores');
+							$this->db->where('actores_actorId',$actorId);
+							$consulta = $this->db->get();
+										
+							if ($consulta->num_rows() > 0){				
+								/* Pasa la consulta a un cadena */
+								foreach ($consulta->result_array() as $row) {
+									$datos['relacionActores'] = $row;
+								}
+							}
+													
+						}else{
+							
+							$datos = 'El actor solicitado no está en la base de datos';
+							return $datos;
+						} /* Fin if es_activo*/
+						
+						if ($datos->num_rows() > 0) {
+							/* Regresa la cadena al controlador*/
+							return $datos;
+						}else{
+							$datos = 'Aún no has agregado actores en la base de datos';
+							return $datos;
+						}
 						
 					break;
 
