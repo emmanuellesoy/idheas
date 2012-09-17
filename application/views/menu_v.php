@@ -169,7 +169,7 @@
 									</div>
 									
 									<div id="vistaDeFormCasos" class="Escondido">
-										<?php echo $vistaCasos?>
+										<?php echo $infoGral?>
 									</div>
 								</div>
 								

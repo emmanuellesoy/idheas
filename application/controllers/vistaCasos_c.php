@@ -12,7 +12,7 @@ public function __construct() {
 	
     }
 
-public function index()
+function index()
 	{
 				$anio=date("Y");  
 				$datosCasos['anioCaso']=range(1994, $anio);
@@ -35,7 +35,7 @@ public function index()
 				$data['id']= 'id="ActorIndv" ';
 
 
-				$data['listaCasos']=$this->load->view('casos/listaCasos_v',$data, true);
+				//$data['listaCasos']=$this->load->view('casos/listaCasos_v',$data, true);
 				$data['infoGral'] = $this->load->view('casos/formularioInfoGral_v', $data , true);
 				$data['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $data , true);
 				$data['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $data , true);
