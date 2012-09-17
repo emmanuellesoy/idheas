@@ -28,7 +28,7 @@
 <!------------Lista transmigrante-------------------->
 			
 			<div id="listaActorTrans" class="PruebaScorll">		
-                    <?php if(isset($listaActores['transmigrante']) != 'No hay actores en la base de datos '){ ?>
+                    <?php if(isset($listaActores['transmigrante']['mensaje']) == 'OK'){ ?>
 							<?php foreach($listaActores['transmigrante'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 2)">

@@ -28,7 +28,7 @@
 <!------------Lista colectivo-------------------->
 			
 			<div id="listaActorColect" class="PruebaScorll">
-                <?php if(isset($listaActores['colectivo']) != 'No hay actores en la base de datos '){ ?>
+                <?php if(isset($listaActores['colectivo']['mensaje']) == 'OK'){ ?>
 					<?php foreach($listaActores['colectivo'] as $index => $item):?> <!--muestra cada elemento de la lista-->
 					
 							<div id="elemento_<?=$item['actorId']; ?>" class="twelve columns borrar_select" onclick="mostarDatosListaElem(<?=$item['actorId']; ?>, 3)">
