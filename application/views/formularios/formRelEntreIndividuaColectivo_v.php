@@ -66,11 +66,12 @@
 
 	<body>
 
-		<form action="actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
+		<form action="<?=base_url(); ?>index.php/actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 			
 			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
 
-			<input type="hidden"  id="relacionActores_tipoRelacionInd" name="relacionActores_tipoRelacionInd" value=""/>
+			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value="2"/>
+			<input type="hidden"  id="relacionActores_tipoRelacionId" name="relacionActores_tipoRelacionInd" value=""/>
 			
 			<label>Persona</label>
 

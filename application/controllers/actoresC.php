@@ -8,13 +8,13 @@ class ActoresC extends CI_Controller {
             // Your own constructor code
        }
 
-	public function index(){
+	public function eliminarActor(){
 		
 		$this->load->view('formulario');
 		
 	}
 
-	public function agregarActor()
+	public function cEliminaActor()
 	{
 		
 		/*
@@ -23,17 +23,14 @@ class ActoresC extends CI_Controller {
 		 * un nuevo actor.
 		 */
 		 
-		/*foreach($_POST as $nombre_campo => $valor){ 
+		
    		
-			$datos[$nombre_campo] = $valor; 
+		$actorId = $this->input->post('actorId'); 
+
 		
-		}*/
-		
-		print_r($datos);
-		 
 		$this->load->model('actores_m', 'am');
-		 
-		$datos['agregado'] = $this->am->mAgregarActor($datos);
+		$this->am->mCambiaEstadoActivoActor($actorId);
+		
 	}
 	
 	

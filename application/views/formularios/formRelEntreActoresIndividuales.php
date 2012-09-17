@@ -72,6 +72,7 @@
 
 			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
 
+			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value="1"/>
 			<input type="hidden" id="relacionActores_actorRelacionadoId" name="relacionActores_actorRelacionadoId" value=" " />
 					<?=$tipoRelacion; ?>
 
