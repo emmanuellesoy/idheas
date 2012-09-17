@@ -40,20 +40,23 @@ class Actores_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
-                
-		$this->load->model('actores_m', 'am');
+                $datos['agregado'] = $this->actores_m->mAgregarActor($datos);
                 
                 $config['upload_path'] = './statics/actores_fotos';
                 
                 $config['file_name'] = $datos['agregado'];
 		
-                $config['allowed_types'] = 'jpg';
+                $config['allowed_types'] = 'jpeg';
 		
                 $config['max_size']	= '3000000';
 		
                 $this->load->library('upload', $config);
                 
-                $nombre_foto = base_url().'statics/actores_fotos'.$datos['agregado'].'jpeg';
+                echo print_r($this->upload->data('<pre>', '</pre>'));
+                
+                echo print_r($this->upload->display_errors());
+                
+                //$nombre_foto = base_url().'statics/actores_fotos'.$datos['agregado'].'jpeg';
                 
                 //$image = imagecreatefromjpeg($nombre_foto);
                 
@@ -66,10 +69,8 @@ class Actores_c extends CI_Controller {
                 //ob_end_clean();
                 
                 //$datos['tablas']['actores']['foto'] = $foto;
-		
-		$datos['agregado'] = $this->am->mAgregarActor($datos);
                 
-                redirect(base_url().'index.php/form_c');
+                //redirect(base_url().'index.php/form_c');
                 
 	}
 	
@@ -136,6 +137,75 @@ class Actores_c extends CI_Controller {
         $datos['carga_ajax'] = 1;
             
         $datos['datosActor'] = $this->actores_m->mTraeDatosActores($actorId, $tipoActorId);
+        
+        $data = $this->catalogos_m->mTraerDatosCatalogoPaises();
+        
+        if(isset($data['paisesCatalogo'][$datos['datosActor'][$actorId]['paisesCatalogo_paisId']]['nombre'])){
+        
+            $datos['datosActor'][$actorId]['paisesCatalogo_paisId'] = $data['paisesCatalogo'][--$datos['datosActor'][$actorId]['paisesCatalogo_paisId']]['nombre'];
+        
+        }
+        
+        if(isset($data['estadosCatalogo'][$datos['datosActor'][$actorId]['estadosCatalogo_estadoId']]['nombre'])){
+        
+            $datos['datosActor'][$actorId]['estadosCatalogo_estadoId'] = $data['estadosCatalogo'][--$datos['datosActor'][$actorId]['estadosCatalogo_estadoId']]['nombre'];
+        
+        }
+        
+        if(isset($data['municipiosCatalogo'][$datos['datosActor'][$actorId]['municipiosCatalogo_municipioId']]['nombre'])){
+        
+            $datos['datosActor'][$actorId]['municipiosCatalogo_municipioId'] = $data['municipiosCatalogo'][--$datos['datosActor'][$actorId]['municipiosCatalogo_municipioId']]['nombre'];
+        
+        }
+        
+        $data = $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
+        
+        if(isset($data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'])){
+        
+            $datos['datosActor'][$actorId]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'];
+        
+        }
+        
+        $data = $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');
+        
+        if(isset($data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'])){
+        
+            $datos['datosActor'][$actorId]['estadoCivil_estadoCivilId'] = $data['estadoCivil'][--$datos['datosActor'][$actorId]['estadoCivil_estadoCivilId']]['descripcion'];
+        
+        }
+        
+        $data = $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
+        
+        if(isset($data['gruposIndigenas'][--$datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId']]['descripcion'])){
+            
+            $datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId'] = $data['gruposIndigenas'][--$datos['datosActor'][$actorId]['gruposIndigenas_grupoIndigenaId']]['descripcion'];
+            
+        }
+        
+        $data = $data['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
+        
+        if(isset($data['ocupacionesCatalogo'][--$datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'])){
+        
+            $datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId'] = $data['ocupacionesCatalogo'][--$datos['datosActor'][$actorId]['ocupacionesCatalogo_ultimaOcupacionId']]['descripcion'];
+        
+        }
+        
+        
+        
+        
+        echo '<pre>';
+            print_r($datos['datosActor'][$actorId]);
+        echo '</pre>';
+        
+        $data['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
+        $data['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5);
+        $data['motivos']= array('Negocios' => 1, 'Trabajo' => 2, 'No se' => 3, 'Se acabo mi creatividad' => 4); 
+        $data['estancia']= array('Vacaional' => 1, 'Largo tiempo' => 2, 'No se' => 3, 'Permanente' => 4); 
+        $data['tipoDir']= array('Casa', 'Departamento', 'Hostal', 'Hotel'); 
+        $data['tipoActorColectivo']= $this->catalogos_m->mTraerDatosCatalogoNombre('tipoActorColectivo');
+        $data['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
+        $data['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
+        $data['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
         
         $datos['listaCasos'] = $this->casos_m->mTraerDatosCaso(1);
         
@@ -223,7 +293,7 @@ class Actores_c extends CI_Controller {
         
         $this->actores_m->mActualizaDatosActor($_POST['actores_actorId'],$datos);
         
-        redirect(base_url().'index.php/actores_c/traerEditar/'.$_POST['actores_actorId'].'/'.$_POST['actores_tipoActorId']);
+        redirect(base_url().'index.php/form_c');
         
     }
     
