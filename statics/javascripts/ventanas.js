@@ -48,13 +48,13 @@ function ventanaFuenteDoc(){
 
 function ventanaRelacionOtrosActoresEditar(idActor, relacionActoresId){
 	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c/index/'+idActor, 'Fuente documental', windowSizeArray);
+	window.open('relacionesEntreActores_c/index/'+idActor+'/'+relacionActoresId, 'Fuente documental', windowSizeArray);
 	};
 
 
 function ventanaRelacionOtrosActoresColEditar(idActor, relacionActoresId){
 	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
-	window.open('relacionesEntreActores_c/RelOtrosActores'+idActor+'/'+relacionActoresId, 'Relaciones con otros actores', windowSizeArray);
+	window.open('relacionesEntreActores_c/RelOtrosActores/'+idActor+'/'+relacionActoresId, 'Relaciones con otros actores', windowSizeArray);
 	};
 
 

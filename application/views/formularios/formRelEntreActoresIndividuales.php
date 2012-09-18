@@ -69,24 +69,27 @@
 	<div id="FormularioRelacionIndividuos">
 		<form action="<?=base_url(); ?>index.php/actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 
-
 			<input type="hidden" name="actorId" value="<?=$actorId;?>" />	
 
 			<input type="hidden"  id="tipoRelacionIndividualColectivoId" name="tipoRelacionIndividualColectivoId" value="1"/>
-			<input type="hidden" id="actorRelacionadoId" name="actorRelacionadoId" value=" " />
-					<?=$tipoRelacion; ?>
+			<input type="hidden" id="actorRelacionadoId" name="actorRelacionadoId" value="1" />
+			<input type="hidden" id="relacionActoresId" name="relacionActoresId" value="<?=$relacionActoresId?>" />
 
 			<div class="twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
 				<select id="relacionActores" name="actoresActorId">
-					<option > </option>
+					<?php if(isset($tipoRelacion)){ ?>
+						<?php foreach($tipoRelacion['relacionActoresCatalogo'] as $index => $item):?> 
+								<option value="<?php print_r($item['tipoRelacionId']); ?>"><?php print_r($item['nombre']); ?> </option>
+						<?php endforeach;?><!--Termina lista de los actores-->
+					<?php } ?>
 				</select>
 			</div>
 			<br /><br />
 			<label for="PerRelacionada">Persona Relacionada</label>
 
 						<div  id="listaPersonaRelacionada" class="casosScorll">
-								<?php if($listaActores['individual']){ ?>
+								<?php if(isset($listaActores['individual'])){ ?>
 								<?php foreach($listaActores['individual']  as $index => $item):?> <!--muestra cada elemento de la lista-->
 								
 										<div class="cambiarColor twelve columns" id="personaRelacionada<?=$item['actorId']?>" onclick="personaRelacionada('<?=$item['actorId']?>')">  <!--funcion interventor-->
@@ -118,71 +121,17 @@
 
 			<br /><br />
 			<div class="twelve columns">
-				<div class="six columns">
 				<label for="edad">Fecha inicial</label>
-					<select onclick="fechaInicialCasosRP(value)" >
-								<option  value="1" checked="checked" >fecha exacta</option>
-								<option  value="2">fecha aproximada</option>
-								<option  value="3">Se desconce el día</option>
-								<option  value="4">Se desconce el día y el mes</option>
-					</select>
-				</div>
-				
-				<div class="six columns">
 					<?php echo br(1);?>	
-					<p class="Escondido" id="fechaExactaVRP">
-						<input type="text" id="fechaExactaRP" placeholder="AAAA-MM-DD" />
 
-					</p>
+						<input type="text" id="fechaExactaRP" name="fechaInicial" <?=(isset($relaciones) ? 'value="'.$relaciones[$actorId]['fechaInicial'].'"' : ''); ?> placeholder="AAAA-MM-DD" />
 
-					<p class="Escondido" id="fechaAproxVRP">
-						<input type="text" id="fechaAproxRP" placeholder="AAAA-MM-DD" />
-
-					</p>
-
-					<p class="Escondido" id="fechaSinDiaVRP">
-						<input type="text" id="fechaSinDiaRP" placeholder="AAAA-MM-00" />
-
-					</p >
-
-					<p class="Escondido" id="fechaSinDiaSinMesVRP">
-						<input type="text" id="fechaSinDiaSinMesRP" placeholder="AAAA-00-00" />
-
-					</p>
-				</div>
-		</div> <!---termina opciones de fechaInicial---->
+			</div> <!---termina opciones de fechaInicial---->
 				
 			<div class="twelve columns" >
 					<label for="Termonio">Fecha término</label>
-				<div class="six columns">
-					<select onclick="fechaTerminalCasosRP(value)" >
-								<option  value="1" checked="checked" >fecha exacta</option>
-								<option  value="2">fecha aproximada</option>
-								<option  value="3">Se desconce el día</option>
-								<option  value="4">Se desconce el día y el mes</option>
-					</select>
-				</div>
-				<div class="six columns">
-					<p class="Escondido" id="fechaExactaV2RP">
-						<input type="text" id="fechaExacta2RP" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaExacta2RP" name="fechaTermino" <?=(isset($relaciones) ? 'value="'.$relaciones[$actorId]['fechaTermino'].'"' : ''); ?> placeholder="AAAA-MM-DD" />
 
-					</p>
-
-					<p class="Escondido" id="fechaAproxV2RP">
-						<input type="text" id="fechaAprox2RP" placeholder="AAAA-MM-DD" />
-
-					</p>
-
-					<p class="Escondido" id="fechaSinDiaV2RP">
-						<input type="text" id="fechaSinDia2RP"  placeholder="AAAA-MM-00" />
-
-					</p >
-
-					<p class="Escondido" id="fechaSinDiaSinMesV2RP">
-						<input type="text" id="fechaSinDiaSinMes2RP" placeholder="AAAA-00-00" />
-
-					</p>
-				</div>
 			</div> <!---termina opciones de fechaTermino-->
 			
 			<br /><br />
@@ -202,6 +151,7 @@
 						controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
 						footer: false,
 						xhtml: false,
+						content:<?=(isset($relaciones) ? 'value="'.$relaciones[$actorId]['comentarios'].'"' : ''); ?>,
 						bodyid: 'editor',
 						toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
 						resize: {cssclass: 'resize'}

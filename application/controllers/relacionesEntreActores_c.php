@@ -11,6 +11,7 @@ class relacionesEntreActores_c extends CI_Controller {
 
     function index($actorId=0, $relacionActoresId=0) /***Funcion que carga los detallaes del lugar***/
 	{
+		$data['relaciones'] = $this->actores_m->mTraerRelacionesActores($actorId);
 		$data['actorId']=$actorId;
 		$data['relacionActoresId']=$relacionActoresId;
 		$data['tipoRelacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');

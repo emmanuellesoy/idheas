@@ -150,7 +150,7 @@ class Actores_c extends CI_Controller {
 			
 			if($key == 'tipoRelacionId'){
 			
-				$relaciones[$actorId]['tipoRelacionId'] = $catalogosRelaciones['relacionActoresCatalogo'][--$value]['nombre'];	
+				$relaciones[$actorId]['nombre'] = $catalogosRelaciones['relacionActoresCatalogo'][--$value]['nombre'];	
 				
 			}
 			
@@ -324,7 +324,17 @@ class Actores_c extends CI_Controller {
 
         }
         
-        $this->actores_m->mRelacionaActores($_POST['actores_actorId'],$datos);
+        if(isset($_POST['relacionActoresId'])){
+
+            $this->actores_m->mActualizaDatosRelacionActor($_POST['relacionActoresId'],$datos);
+
+        } else {
+
+            $this->actores_m->mRelacionaActores($datos);
+
+        }
+
+        
         
     }
     
