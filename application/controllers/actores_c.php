@@ -142,27 +142,21 @@ class Actores_c extends CI_Controller {
         
         /***Traer Relaciones***/
         
-        $datos['relaciones'] = $this->actores_m->mTraerRelacionesActores($actorId);
-        
-        if(isset($datos['relaciones'])){
-            
-            $datos['catalogosRelaciones'] = $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');   
-            
-
-            
-            foreach($datos['relaciones'] as $values){
-                
-                foreach($values as $value){
-                    
-                    $datos['relaciones']['tipoRelacionId'] = $datos['catalogosRelaciones']['relacionActoresCatalogo'][$value['tipoRelacionId']]['nombre'];
-                    
-                }
-                
-            }
-            
-            $datos['relaciones']['tipoRelacionId'] = $datos['catalogosRelaciones'];
-            
-        }
+        $relaciones = $this->actores_m->mTraerRelacionesActores($actorId);
+		
+	 	$catalogosRelaciones = $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		
+		foreach($relaciones[$actorId] as $key => $value){
+			
+			if($key == 'tipoRelacionId'){
+			
+				$relaciones[$actorId]['tipoRelacionId'] = $catalogosRelaciones['relacionActoresCatalogo'][--$value]['nombre'];	
+				
+			}
+			
+		}
+		
+		$datos['relaciones'] = $relaciones;
         
         $infoGral=($tipoActorId == 3) ? 'infoGralActores' : 'infoGralActor';
         

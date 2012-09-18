@@ -10,7 +10,7 @@
 					<div class="twelve columns">
 						<div id="subPestanias" data-collapse>
 							<h2>Relacion con otros actores </h2>
-								<div>
+								<div>									
 									<table>
 										<thead>
 										  <tr>
@@ -23,15 +23,20 @@
 										  </tr>
 										</thead>
 										<tbody>
-										  <tr>
-											<td>Content</td>
-											<td>This is longer content</td>
-											<td>Content</td>
-											<td>Content</td>
-											<td>Content</td>
-											<td><input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresEditar('<?=$actorId ?>' , '<?=(isset($relacionActoresId)) ? $relacionActoresId : '' ; ?>')" />
-											<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
-										  </tr>
+											<?php $count = 0; ?>
+											<?php foreach ($relaciones as $relacion){ ?>
+												<tr>
+													<td><?php print_r($datosActor['actores']['nombre'].' '.$datosActor['actores']['apellidosSiglas']); ?></td>
+													<td><?php print_r($relacion['tipoRelacionId']); ?></td>
+													<td><?php print_r($relacion['actoresRelacionados'][$count]['nombre'].' '.$relacion['actoresRelacionados'][$count++]['apellidosSiglas']); ?></td>
+													<td><?php print_r($relacion['fechaInicial']); ?></td>
+													<td><?php print_r($relacion['fechaTermino']); ?></td>
+												 	<td>
+												 		<input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresEditar('<?=$actorId ?>' , '<?=(isset($relacionActoresId)) ? $relacionActoresId : '' ; ?>')" />
+	                                                   <input type="button" class="tiny button"  value="Eliminar" onclick="" />
+                                                   </td>
+												</tr>
+											<?php } ?>
 										</tbody>
 									</table>
 									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores('<?=$actorId ?>')" />
