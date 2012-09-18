@@ -33,7 +33,7 @@
 													<td><?php print_r($relacion['fechaInicial']); ?></td>
 													<td><?php print_r($relacion['fechaTermino']); ?></td>
 												 	<td>
-												 		<input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresEditar('<?=$actorId ?>' , '<?=$relacion['tipoRelacionId']; ?>')" />
+												 		<input type="button" class="tiny button"  value="Editar" onclick="ventanaRelacionOtrosActoresEditar('<?=$actorId ?>' , '<?=$relacion['relacionActoresId']; ?>')" />
 	                                                   <input type="button" class="tiny button"  value="Eliminar" onclick="" />
                                                    </td>
 												</tr>

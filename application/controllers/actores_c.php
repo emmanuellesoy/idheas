@@ -81,7 +81,7 @@ class Actores_c extends CI_Controller {
 	
 	public function listarActores(){
             
-                $tipoActorId = $this->input->post('tipoActorId');
+        $tipoActorId = $this->input->post('tipoActorId');
 		
 		$this->load->model('actores_m', 'am');
 		
@@ -314,27 +314,23 @@ class Actores_c extends CI_Controller {
         
         foreach($_POST as $campo => $valor){ 
    		
-            $pos = strpos($campo, '_');
-
-            $nombre_tabla = substr($campo, 0, $pos);
-
-            $nombre_campo = substr($campo, ++$pos);
-
-            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+			$datos[$campo] = $valor;
 
         }
-        
-        if(isset($_POST['relacionActoresId'])){
+
+        if(isset($_POST['relacionActoresId']) && $_POST['relacionActoresId'] != 0){
 
             $this->actores_m->mActualizaDatosRelacionActor($_POST['relacionActoresId'],$datos);
+
+            echo 'La relacion ha sido editada, por favor cierra la ventana';
 
         } else {
 
             $this->actores_m->mRelacionaActores($datos);
 
-        }
+            echo 'La relacion ha sido guardada, por favor cierra la ventana';
 
-        
+        }
         
     }
     

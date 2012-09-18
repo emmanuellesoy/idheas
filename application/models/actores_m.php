@@ -634,6 +634,14 @@
             return $datos;
 			
 		}/* Fin de mTraerRelacionActores */
+		
+		public function mActualizaDatosRelacionActor($relacionActoresId,$datosRelacion){
+			$this->db->where('relacionActoresId', $relacionActoresId);
+			$this->db->update('relacionActores',$datosRelacion);
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+		}/* Fin de mActualizaDatosRelacionActor*/
 	}
 	
 ?>

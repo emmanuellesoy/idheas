@@ -69,7 +69,7 @@
 	<div id="FormularioRelacionIndividuos">
 		<form action="<?=base_url(); ?>index.php/actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 
-			<input type="hidden" name="actorId" value="<?=$actorId;?>" />	
+			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
 
 			<input type="hidden"  id="tipoRelacionIndividualColectivoId" name="tipoRelacionIndividualColectivoId" value="1"/>
 			<input type="hidden" id="actorRelacionadoId" name="actorRelacionadoId" value="1" />
@@ -77,7 +77,7 @@
 
 			<div class="twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
-				<select id="relacionActores" name="actoresActorId">
+				<select id="relacionActores" name="tipoRelacionId">
 					<?php if(isset($tipoRelacion)){ ?>
 						<?php foreach($tipoRelacion['relacionActoresCatalogo'] as $index => $item):?> 
 								<option value="<?php print_r($item['tipoRelacionId']); ?>"><?php print_r($item['nombre']); ?> </option>
