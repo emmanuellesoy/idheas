@@ -81,7 +81,7 @@ class Actores_c extends CI_Controller {
 	
 	public function listarActores(){
             
-                $tipoActorId = $this->input->post('tipoActorId');
+        $tipoActorId = $this->input->post('tipoActorId');
 		
 		$this->load->model('actores_m', 'am');
 		
@@ -314,17 +314,13 @@ class Actores_c extends CI_Controller {
         
         foreach($_POST as $campo => $valor){ 
    		
-            $pos = strpos($campo, '_');
-
-            $nombre_tabla = substr($campo, 0, $pos);
-
-            $nombre_campo = substr($campo, ++$pos);
-
-            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+			$datos[$campo] = $valor;
 
         }
+
+		print_r($datos);
         
-        $this->actores_m->mRelacionaActores($_POST['actores_actorId'],$datos);
+        $this->actores_m->mRelacionaActores($datos);
         
     }
     
