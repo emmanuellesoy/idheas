@@ -533,7 +533,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaAproxRP').attr('name', ' ');
 			$('#fechaSinDiaRP').attr('name', ' ');
 			$('#fechaSinDiaSinMesRP').attr('name', ' ');
-			$('#fechaExactaRP').attr('name', 'relacionActores_fechaInicial');
+			$('#fechaExactaRP').attr('name', 'fechaInicial');
 			$("#fechaAproxVRP").hide();
 			$("#fechaSinDiaVRP").hide();
 			$("#fechaSinDiaSinMesVRP").hide();
@@ -547,7 +547,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaRP').attr('name', ' ');
 			$('#fechaSinDiaSinMesRP').attr('name', ' ');
 			$('#fechaExactaRP').attr('name', ' ');
-			$('#fechaAproxRP').attr('name', 'relacionActores_fechaInicial');
+			$('#fechaAproxRP').attr('name', 'fechaInicial');
 		  }
 		  else if (a=="3"){
 			$("#fechaAproxVRP").hide();
@@ -557,7 +557,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaSinMesRP').attr('name', ' ');
 			$('#fechaExactaRP').attr('name', ' ');
 			$('#fechaAproxRP').attr('name', ' ');
-			$('#fechaSinDiaRP').attr('name', 'relacionActores_fechaInicial');
+			$('#fechaSinDiaRP').attr('name', 'fechaInicial');
 		  }
 		  else if (a=="4"){;
 			$("#fechaAproxVRP").hide();
@@ -567,7 +567,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaExactaRP').attr('name', ' ');
 			$('#fechaAproxRP').attr('name', ' ');
 			$('#fechaSinDiaRP').attr('name', '');
-			$('#fechaSinDiaSinMesRP').attr('name', 'relacionActores_fechaInicial');
+			$('#fechaSinDiaSinMesRP').attr('name', 'fechaInicial');
 		  }
 	  
 	  }
@@ -579,7 +579,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaAprox2RP').attr('name', ' ');
 			$('#fechaSinDia2RP').attr('name', ' ');
 			$('#fechaSinDiaSinMes2RP').attr('name', ' ');
-			$('#fechaExacta2RP').attr('name', 'relacionActores_fechaTermino');
+			$('#fechaExacta2RP').attr('name', 'fechaTermino');
 			$("#fechaAproxV2RP").hide();
 			$("#fechaSinDiaV2RP").hide();
 			$("#fechaSinDiaSinMesV2RP").hide();
@@ -593,7 +593,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDia2RP').attr('name', ' ');
 			$('#fechaSinDiaSinMes2RP').attr('name', ' ');
 			$('#fechaExacta2RP').attr('name', ' ');
-			$('#fechaAprox2RP').attr('name', 'relacionActores_fechaTermino');
+			$('#fechaAprox2RP').attr('name', 'fechaTermino');
 		  }
 		  else if (a=="3"){
 			$("#fechaAproxV2RP").hide();
@@ -603,7 +603,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaSinDiaSinMes2RP').attr('name', ' ');
 			$('#fechaExacta2RP').attr('name', ' ');
 			$('#fechaAprox2RP').attr('name', ' ');
-			$('#fechaSinDia2RP').attr('name', 'relacionActores_fechaTermino');
+			$('#fechaSinDia2RP').attr('name', 'fechaTermino');
 		  }
 		  else if (a=="4"){;
 			$("#fechaAproxV2RP").hide();
@@ -613,7 +613,7 @@ function pestania2() {///Muestra/Esconde las opciones de casos de actor Colectiv
 			$('#fechaExacta2RP').attr('name', ' ');
 			$('#fechaAprox2RP').attr('name', ' ');
 			$('#fechaSinDia2RP').attr('name', '');
-			$('#fechaSinDiaSinMes2RP').attr('name', 'relacionActores_fechaTermino');
+			$('#fechaSinDiaSinMes2RP').attr('name', 'fechaTermino');
 		  }
 	  
 	  }

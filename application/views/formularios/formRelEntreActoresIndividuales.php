@@ -70,15 +70,15 @@
 		<form action="<?=base_url(); ?>index.php/actores_c/cRelacionaActores" method="post" accept-charset="utf-8">
 
 
-			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
+			<input type="hidden" name="actorId" value="<?=$actorId;?>" />	
 
-			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value="1"/>
-			<input type="hidden" id="relacionActores_actorRelacionadoId" name="relacionActores_actorRelacionadoId" value=" " />
+			<input type="hidden"  id="tipoRelacionIndividualColectivoId" name="tipoRelacionIndividualColectivoId" value="1"/>
+			<input type="hidden" id="actorRelacionadoId" name="actorRelacionadoId" value=" " />
 					<?=$tipoRelacion; ?>
 
 			<div class="twelve columns">
 				<label for="TipoRel">Tipo de relación</label>
-				<select id="relacionActores" name="relacionActores_actoresActorId">
+				<select id="relacionActores" name="actoresActorId">
 					<option > </option>
 				</select>
 			</div>
@@ -189,7 +189,7 @@
 			<div  id="pestania" data-collapse>
 				<h2 class="open">Comentarios</h2>
 				<div class="twelve columns">
-					<textarea id="TextoRelActores" style="width: 400px; height: 200px" wrap="hard"  name="relacionActores_comentarios"></textarea>
+					<textarea id="TextoRelActores" style="width: 400px; height: 200px" wrap="hard"  name="comentarios"></textarea>
 					<script>
 					var instance = new TINY.editor.edit('editor', {
 						id: 'TextoRelActores',
