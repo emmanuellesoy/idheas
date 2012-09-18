@@ -1,6 +1,9 @@
 <div id="RelacionEntreActores">
 	<fieldset>
 		<legend>Relacion entre actores </legend>
+
+<?= print_r($relaciones); ?>
+
 		<div class="twelve columns">
 
 			<div id="pestania" data-collapse>
@@ -40,6 +43,8 @@
 										</tbody>
 									</table>
 									<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaRelacionOtrosActores('<?=$actorId ?>')" />
+
+
 								</div>
 						</div>
 					</div>
