@@ -1021,6 +1021,21 @@ function detallesDelLugar(){
 
 /************************Prueba de comunicación Ajax***********************/
 
+function eliminarActor(actorId){
+	var uri = base_url+"index.php/actoresC/cEliminaActor/";
+	$.ajax({
+            url: uri,
+            method: 'post',
+            datatype: "html",
+            data: 'actorId='+actorId,
+            success: function(data){
+                $('.cargarDatosActor').html(data);
+                //$('#formCargInd').html(data);
+            }
+        });
+	
+}
+
 function mostarDatosListaElem(id, tipoActorId) {
     
     var uri = base_url+"index.php/actores_c/cTraerDatosActor/"+id+"/"+tipoActorId;

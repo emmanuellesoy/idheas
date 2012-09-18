@@ -604,11 +604,11 @@
 			if ($consulta->num_rows() > 0){				
 				/* Pasa la consulta a un cadena */
 				foreach ($consulta->result_array() as $row) {
-                                    $datos['relaciones'][$actorId] = $row;
-                                    $datos['relaciones'][$actorId]['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actorRelacionadoId'])->get()->result_array();
+                                    $relaciones[$actorId] = $row;
+                                    $relaciones[$actorId]['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actorRelacionadoId'])->get()->result_array();
 				}
                                 
-                                return $datos;
+                                return $relaciones;
 			}
 			
 			/* Regresa la cadena al controlador*/
@@ -625,7 +625,8 @@
 			if ($consulta->num_rows() > 0){				
 				/* Pasa la consulta a un cadena */
 				foreach ($consulta->result_array() as $row) {
-					$datos['actorRelacionadoId'] = $row;
+					$datos['citas'] = $row;
+					$datos['citas'][$actorId]['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actores_actorId'])->get()->result_array();
 				}
 			}
 			
