@@ -1,6 +1,9 @@
 <div id="RelacionEntreActores">
 	<fieldset>
 		<legend>Relacion entre actores </legend>
+
+<?= print_r($relaciones); ?>
+
 		<div class="twelve columns">
 
 			<div id="pestania" data-collapse>
@@ -11,8 +14,6 @@
 						<div id="subPestanias" data-collapse>
 							<h2>Relacion con otros actores </h2>
 								<div>
-
-									<?php if(isset)?>
 									<table>
 										<thead>
 										  <tr>
