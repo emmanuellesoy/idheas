@@ -22,7 +22,7 @@ class Casos_m extends CI_Model {
 		/* Obtine el Id del último caso insertado*/
 		$this->db->select_max('casoId');
 		$consulta = $this->db->get('casos');
-		
+		$ultimoId = $consulta;
 		/* Recorre el array $consulta para traer la cadena del actorId */
 		if($consulta->num_rows() > 0){
     		foreach ($consulta->result_array() as $row) {
@@ -47,7 +47,7 @@ class Casos_m extends CI_Model {
 		
 		
 		/* Regresa la cadena al controlador*/
-		return ($mensaje = 'Hecho');
+		return $ultimoId;
 		
 	}/* Fin de mAgregarCaso() */
 	
