@@ -1,31 +1,4 @@
 <html>
-	<head>
-		
-		<meta charset="utf-8" name="viewport" content="width=device-width" />
-
-		<title>i(dh)eas</title>
-		
-		  <!-- Estilo de la página CSS-->
-
-        <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
-		<!--Scripts foundation-->
-
-		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
-		
-		<!--Scripts jquery-->		
-		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/ventanas.js" ></script>
-		<!---script que hace posible el acordion---->
-		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
-
-	</head>
-	
 	<body>
 	
 		<!---Encabezado de la página---->

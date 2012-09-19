@@ -1,102 +1,273 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width" />
-
-		<title>i(dh)eas</title>
-		
-		  <!-- Estilo de la página CSS-->
-		
-		<link rel="stylesheet" href="http://localhost/idheas/statics/stylesheets/foundation.min.css">
-		<link type="text/css" rel="stylesheet" href="http://localhost/idheas/statics/stylesheets/app.css">
-		<link rel="stylesheet" href="http://localhost/idheas/statics/CSS/menu_v.css">
-		<link rel="stylesheet" href="http://localhost/idheas/statics/CSS/collapse.css">
-		<link rel="stylesheet" href="http://localhost/idheas/statics/CSS/tinyeditor.css">
-
-                <script type="text/javascript">var base_url = "<?=base_url(); ?>"</script>
-		<!--Scripts foundation-->
-		<script src="<?php echo base_url(); ?>statics/javascripts/modernizr.foundation.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/foundation.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/app.js" ></script>
-		
-		<!--Scripts jquery-->		
-		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/ventanas.js" ></script>
-		<!---script que hace posible el acordion-->
-		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
-		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
-
-	</head>
-
-	<body>
-	
-		<!---Encabezado de la página--->
-			<div class="twelve columns">
-			  <div class="panel" >
-			  <div div="logo" >
-				<?php echo img('statics/IMG/logo.png');?>
-			  </div>
-			  </div>
-			</div>
-		  <!---Termina el encabezado de la página-->
-		  
-		  <!--Contenido de la página-->
-			<div class="two columns">				
-
-			<dl class="nice vertical tabs">
-				  <dd class="active"><a href="#vertical1">Actores</a></dd>
-				  <dd><a href="#vertical2">Casos</a></dd>
-				  <dd><a href="#vertical3">Reporte</a></dd>
-				</dl>
+<div id="pestania" data-collapse>	
+	<h2>Casos</h2><!--título de la pestaña---->  
+	<div>
+		<div id="subPestanias" data-collapse>	
+  
+			<h2>Información general</h2><!--título de la pestaña---->  
+			<div>
+				<div id="casos_nombre">
+					<p>Nombre:</p>
+				</div>
+				<div id="casos_personasAfectadas">
+					<p>Personas Afectadas:</p>
+				</div>
+				<div id="casos_fechaInicial">
+					<p>Fecha inicial:</p>
+				</div>
+				<div id="casos_fechaTermino">
+					<p>Fecha término:</p>
+				</div>
+			 </div>
 				
-			</div>
-		
-			<div class="ten columns">
-				<ul class="tabs-content">
-				
-				  <li class="active" id="vertical1Tab"><!--Pestaña Actores Individuales---->
-					
+			<h2>Lugares</h2><!--título de la pestaña---->  
+				<div>
+					<table>
+						<thead>
+						  <tr>
+							<th>País</th>
+							<th>Estado</th>
+							<th>Municipio</th>
+							<th>Acción(es)</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>Content</td>
+							<td>This is longer content</td>
+							<td>Content</td>
+							<td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+						  </tr>
+						</tbody>
+					  </table>
+						  
+					</div><!--fin acordeon lugares-->
 
-				  </li> <!--Termina Pestaña Actores individuales---->
-				  
-				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes---->  
-				  
-								<div class="three columns">
-									<?php echo $listaCasos;?> <!---Se llama a la lista de casos---->
-								</div>
-								
-								
-								<div class="nine columns">
-									<div id="vistaDeCasos">
-										<?php echo $casos?>
-										<?php echo $casosNucleo?>
-										<?php echo $infoAdicional?>
-									</div>
-									
-									<div id="vistaDeFormCasos" class="Escondido">
-										<?php echo $vistaCasos?>
-									</div>
-								</div>
-								
-				  
-				  </li><!--Termina Pestaña Actores transmigrantes---->
-				  
-				  <li id="vertical3Tab"><!--Pestaña Actores Colectivos---->  
-				  
-									<p>Contenido de colectivos</p>
-									
-				  </li><!--Termina Pestaña Actores Colectivos---->
-				  
-				</ul>
-			  
-			</div>
-		<!--Termina el contenido de la página-->
-	
-	</body>
-	
+			<h2>Núcleo caso</h2><!--título de la pestaña---->  
+				<div>
+					<div id="subPestanias" data-collapse>
+						<h2>Derechos afectados y actos</h2>
+						<div>
+							<div>
+								<table>
+									<thead>
+									  <tr>
+										<th>Derecho humano</th>
+										<th>Acto</th>
+										<th>Fecha inicio</th>
+										<th>Fecha término</th>
+										<th>Acción(es)</th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr>
+										<td>Content</td>
+										<td>This is longer content</td>
+										<td>Content</td>
+										<td>Content</td>
+										<td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+									  </tr>
+									</tbody>
+								  </table>
+							</div>
+							  
+						</div>
+						<!--fin acordeon Derechos afectados y actos-->
+						<h2>Intervenciones</h2>
+						<div>
+							<div>
+								<table>
+									<thead>
+									  <tr>
+										<th>Receptor</th>
+										<th>Interventor</th>
+										<th>Tipo de intervención</th>
+										<th>Fecha</th>
+										<th>Acción(es)</th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr>
+										<td>Content</td>
+										<td>This is longer content</td>
+										<td>Content</td>
+										<td>Content</td>
+										<td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+									  </tr>
+									</tbody>
+								  </table>
+							</div>
+							  
+						</div>
+						<!--fin acordeon Intervenciones-->
+						<h2>Personas asociadas al caso</h2><!--título de la pestaña--->
+						<div>
+							<div class="twelve" id="subPestanias" data-collapse>	
+								  <h2>Victimas</h2><!--título de la pestaña--->
+								  <div>
+																				
+													<div class="six">		
+														<div class="PruebaScorll">		
+															<?php foreach($lista_casos as $index => $item):?> <!--muestra cada elemento de la lista-->
+															
+																	<div class="twelve columns" onclick="mostarDatosListaElem()">
+																		<div class="five columns"><!--imprimo imagenes-->
+																			<?php echo img($item['url']);?>
+																			<?php echo br(2);?>	
+																		</div>
+																		
+																		<div class="seven columns"><!--Imprimo nombres-->
+																				<?=$item['nombre']?>
+																				<?php echo br(2);?>	
+																		</div>
+																	</div>
+																	
+															<?php endforeach;?><!--Termina lista de los actores-->
+														</div>
+													</div>
+									  
+								  </div>
+								  <h2>Perpetradores</h2><!--título de la pestaña--->
+								  <div>
+									  
+									  
+														
+													<div class="six">		
+														<div class="PruebaScorll">		
+															<?php foreach($lista_casos as $index => $item):?> <!--muestra cada elemento de la lista-->
+															
+																	<div class="twelve columns" onclick="mostarDatosListaElem()">
+																		<div class="five columns"><!--imprimo imagenes-->
+																			<?php echo img($item['url']);?>
+																			<?php echo br(2);?>	
+																		</div>
+																		
+																		<div class="seven columns"><!--Imprimo nombres-->
+																				<?=$item['nombre']?>
+																				<?php echo br(2);?>	
+																		</div>
+																	</div>
+																	
+															<?php endforeach;?><!--Termina lista de los actores-->
+														</div>
+													</div>
+									  
+								  </div>
+								  <h2>Interventores</h2><!--título de la pestaña--->
+								  <div>
+									  
+									  
+														
+													<div class="six">		
+														<div class="PruebaScorll">		
+															<?php foreach($lista_casos as $index => $item):?> <!--muestra cada elemento de la lista-->
+															
+																	<div class="twelve columns" onclick="mostarDatosListaElem()">
+																		<div class="five columns"><!--imprimo imagenes-->
+																			<?php echo img($item['url']);?>
+																			<?php echo br(2);?>	
+																		</div>
+																		
+																		<div class="seven columns"><!--Imprimo nombres-->
+																				<?=$item['nombre']?>
+																				<?php echo br(2);?>	
+																		</div>
+																	</div>
+																	
+															<?php endforeach;?><!--Termina lista de los actores-->
+														</div>
+													</div>
+									  
+								  </div>
+								  <h2>Receptores</h2><!--título de la pestaña--->
+								  <div>
+									  
+									  
+														
+													<div class="six">		
+														<div class="PruebaScorll">		
+															<?php foreach($lista_casos as $index => $item):?> <!--muestra cada elemento de la lista-->
+															
+																	<div class="twelve columns" onclick="mostarDatosListaElem()">
+																		<div class="five columns"><!--imprimo imagenes-->
+																			<?php echo img($item['url']);?>
+																			<?php echo br(2);?>	
+																		</div>
+																		
+																		<div class="seven columns"><!--Imprimo nombres-->
+																				<?=$item['nombre']?>
+																				<?php echo br(2);?>	
+																		</div>
+																	</div>
+																	
+															<?php endforeach;?><!--Termina lista de los actores-->
+														</div>
+													</div>
+									  
+								  </div>
+								  <h2>Fuentes de información personal</h2><!--título de la pestaña--->
+								  <div>
+									  
+									  
+														
+													<div class="six">		
+														<div class="PruebaScorll">		
+															<?php foreach($lista_casos as $index => $item):?> <!--muestra cada elemento de la lista-->
+															
+																	<div class="twelve columns" onclick="mostarDatosListaElem()">
+																		<div class="five columns"><!--imprimo imagenes-->
+																			<?php echo img($item['url']);?>
+																			<?php echo br(2);?>	
+																		</div>
+																		
+																		<div class="seven columns"><!--Imprimo nombres-->
+																				<?=$item['nombre']?>
+																				<?php echo br(2);?>	
+																		</div>
+																	</div>
+																	
+															<?php endforeach;?><!--Termina lista de los actores-->
+														</div>
+													</div>
+									  
+								  </div>
+								  <h2>Fuente documental</h2><!--título de la pestaña--->
+								  <div>
+								  </div>
+							</div>
+						
+						</div>
 
-	</body>
-</html>
+					</div>
+				</div>
+
+			<h2>Relación entre casos</h2><!--título de la pestaña--->
+			<div>
+				<table>
+					<thead>
+					  <tr>
+						<th>Caso</th>
+						<th>Tipo de relación</th>
+						<th>Caso Relacionado</th>
+						<th>Fecha inicio</th>
+						<th>Fecha término</th>
+						<th>Acción(es)</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>Content</td>
+						<td>Content</td>
+						<td>Content</td>
+						<td>Content</td>
+						<td>Content</td>
+						<td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+					  </tr>
+					</tbody>
+				</table>
+							
+			</div>
+		</div>
+
+	</div>
+</div>
+	

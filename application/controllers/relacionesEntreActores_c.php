@@ -27,10 +27,11 @@ class relacionesEntreActores_c extends CI_Controller {
     function RelOtrosActores($actorId=0, $relacionActoresId=0) /**función que carga el seguimiento de casos**/
 	{
 		
-		$data['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
-		$data['listaActores'] = $this->actores_m->mTraerActores();
+		$data['relaciones'] = $this->actores_m->mTraerRelacionesActores($actorId);
 		$data['actorId']=$actorId;
 		$data['relacionActoresId']=$relacionActoresId;
+		$data['relacionActorIndCol']= $this->catalogos_m->mTraerDatosCatalogoNombre('relacionActoresCatalogo');
+		$data['listaActores'] = $this->actores_m->mTraerActores();
 		
 		$this->load->view('formularios/formRelEntreIndividuaColectivo_v',$data);
 	}
