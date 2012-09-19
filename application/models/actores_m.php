@@ -593,7 +593,43 @@
 			/* Regresa la cadena al controlador*/
             return ($mensaje = 'Hecho');
 		}
-
+		
+		
+		/* Este modelo actualiza las reacion actor-caso
+		 * @param  
+		 * 			$idsRelacion = arrar (
+		 * 							'casos_casoId' => '1'
+		 * 							'actores_actorId' => '1'
+		 * 							);
+		 * 			$datosRelacion
+		 * */
+		public function mActualizaDatosRelacionCasoActor($idsRelacion,$datosRelacion){
+			$this->db->where('casos_casoId', $idsRelacion['casos_casoId']);
+			$this->db->where('actores_actorId', $idsRelacion['actores_actorId']);
+			$this->db->update('casos_has_actores',$datosRelacion);
+			
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+		}
+		
+		/* Este modelo Elimina una relacion actor-caso
+		 * @param $idsRelacion = arrar (
+		 * 							'casos_casoId' => '1'
+		 * 							'actores_actorId' => '1'
+		 * 							);
+		 * */
+		public function mEliminaRelacionCasoActor($idsRelacion){
+			$this->db->where('casos_casoId', $idsRelacion['casos_casoId']);
+			$this->db->where('actores_actorId', $idsRelacion['actores_actorId']);
+			$this->db->delete('casos_has_actores');
+			/* Regresa la cadena al controlador*/
+			return ($mensaje = 'Hecho');
+		}
+		
+		
+		/* Este modelo Trae los datos de una relacion esntre actores
+		 * @param $actorId
+		 * */
 		public function mTraerRelacionesActores($actorId){
 			/* Trae todos los datos de relacionActores */
 			$this->db->select('*');
@@ -611,7 +647,10 @@
 			}
 			
 		}/* Fin de mTraerRelacionActores */
-
+		
+		/* Este modelo trae las citas hechas hacia el actorId 
+		 * @param $actorId
+		 * */
 		public function mTraerCitasActor($actorId){
 			/* Trae todos los datos de relacionActores */
 			$this->db->select('*');
@@ -632,6 +671,9 @@
 			
 		}/* Fin de mTraerRelacionActores */
 		
+		/* Actualiza los datos de una relacion Actor-Actor
+	 * @param $relacionActoresId $datosRelacion
+	 * */
 		public function mActualizaDatosRelacionActor($relacionActoresId,$datosRelacion){
 			$this->db->where('relacionActoresId', $relacionActoresId);
 			$this->db->update('relacionActores',$datosRelacion);

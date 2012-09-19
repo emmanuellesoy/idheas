@@ -210,6 +210,9 @@ class Casos_m extends CI_Model {
 			
 	}/* Fin de mTraeRelacionesCaso 	*/
 	
+	/* Actualiza los datos de una relacion caso-caso
+	 * @param $relacionId $datosRelacion
+	 * */
 	public function mActualizaDatosRelacionCaso($relacionId,$datosRelacion){
 		$this->db->where('relacionId', $relacionId);
 		$this->db->update('relacionCasos',$datosRelacion);
