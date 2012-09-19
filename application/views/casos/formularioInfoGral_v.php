@@ -1,5 +1,5 @@
 
-<?php $config=array('enctype'=>'image/jpeg'); echo form_open('actores_c/agregar_caso_c'); ?>
+<?php echo form_open(base_url().''); ?>
 
 	<div id="formularioInfoGral">
 		<div id="pestania" data-collapse>

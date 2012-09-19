@@ -103,10 +103,8 @@
 								
 								
 								<div class="nine columns">
-									<div id="vistaDeCasos">
-										<?php echo $casos?>
-										<?php echo $casosNucleo?>
-										<?php echo $infoAdicional?>
+									<div id="vistaDeFormularioCasos">
+									<?php echo $infoGral;?> 
 									</div>
 									
 								</div>

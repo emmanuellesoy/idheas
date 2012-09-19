@@ -70,8 +70,8 @@
 			
 			<input type="hidden" name="actores_actorId" value="<?=$actorId;?>" />	
 
-			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value="2"/>
-			<input type="hidden"  id="relacionActores_tipoRelacionId" name="relacionActores_tipoRelacionInd" value=""/>
+			<input type="hidden"  id="tipoRelacionIndividualColectivoId" name="tipoRelacionIndividualColectivoId" value="2"/>
+			<input type="hidden"  id="tipoRelacionId" name="tipoRelacionId" value="<?=$relacionActoresId?>"/>
 			
 			<label>Persona</label>
 
@@ -109,7 +109,7 @@
 			</div>
 
 			
-<input type="hidden" value="" id="relacionActores_actoresActorId" name="relacionActores_actoresActorId"/>
+			<input type="hidden" value="" id="relacionActores_actoresActorId" name="tipoRelacionId"/>
 			
 			<label>Tipo de relación</label>
 			<span id="tipoRelTexto"></span>
@@ -124,7 +124,7 @@
 				<ul>
 					<?php foreach($relacionActorIndCol as $relacionActor):?> 
 						<?php foreach($relacionActor as $row):?> 
-							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['notas'];?>','<?= $row['tipoRelacionId'];?> ')"><?php echo $row['notas'];?></li>
+							<li onclick="relacionIndCol('<?= $row['nombre'];?>','<?= $row['notas'];?>','<?= $row['tipoRelacionId'];?> ')"><?php echo $row['nombre'];?></li>
 								
 						<?php endforeach;?>
 					<?php endforeach;?>
@@ -134,7 +134,7 @@
 
 			
 			<label>Actor colectivo</label>
-			<input type="hidden"  id="relacionActores_tipoRelacionIndividualColectivoId" name="relacionActores_tipoRelacionIndividualColectivoId" value=""/>
+			<input type="hidden"  id="tipoRelacionIndividualColectivoId" name="tipoRelacionIndividualColectivoId" value=""/>
 
 			<div  id="listaPersonaRelacionada" class="casosScorll">
 					<?php if(isset($listaActores['colectivo'])){ ?>
@@ -227,7 +227,7 @@
 			<div  id="pestania" data-collapse>
 				<h2 class="open">Comentarios</h2>
 				<div class="twelve columns">
-					<textarea id="TextoRelActores" style="width: 400px; height: 200px" wrap="hard"  name="relacionActores_comentarios"></textarea>
+					<textarea id="TextoRelActores" style="width: 400px; height: 200px" wrap="hard"  name="comentarios"></textarea>
 					<script>
 					var instance = new TINY.editor.edit('editor', {
 						id: 'TextoRelActores',

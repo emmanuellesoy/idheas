@@ -84,15 +84,11 @@ public function index()
 				$datosCasos['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $DatosGenerales , true);
 				$datosCasos['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $DatosGenerales , true);
 				$datosCasos['intervencion'] = $this->load->view('casos/formularioIntervencion', $DatosGenerales , true);
-				$datosCasos['relacionCasos'] = $this->load->view('casos/formularioRelacionCasos_v', $DatosGenerales , true);
-				$datosCasos['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
-				$datosCasos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
 				$datosCasos['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
 				//TERMINA CARGA DE FORMULARIOS
 				
 				/*************************************************************************************/
 				//AGREGAR VISTAS A CASOS 
-				$data['listaCasos']=$this->load->view('casos/listaCasos_v',$datosCasos, true);
 				$data['vistaCasos']=$this->load->view('casos/principalCasos_v',$datosCasos, true);
 				
 				/*************************************************************************************/

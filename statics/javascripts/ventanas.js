@@ -9,6 +9,7 @@ function ventanaRelacionOtrosActores(idActor){
 
 
 function ventanaRelacionOtrosActoresCol(idActor){
+	alert(idActor);
 	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
 	window.open('relacionesEntreActores_c/RelOtrosActores/index/'+idActor, 'Relaciones con otros actores', windowSizeArray);
 	};

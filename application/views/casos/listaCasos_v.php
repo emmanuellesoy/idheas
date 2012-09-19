@@ -1,7 +1,7 @@
 <div id="listaCasos" name="listaCasos"><!--Lista de Actores---->
 
 	<ul class="button-group">
-		<li><input type="button" class="small button"  value="Agregar Caso" onclick="mostrarAgregarCasos()" /> </li>
+		<li><a href="<?php echo base_url(); ?>index.php/casos_c/mostrar_formulario"> <input type="button" class="small button"  value="Agregar Caso"  /> </a></li>
 		<li><input type="button" class="small button" value="Eliminar Caso" onclick="esconderCasos()" /> </li>
     </ul>
 
@@ -20,12 +20,11 @@
 			<div class="twelve columns">Nombre</div>
 			<?php echo br(2);?>	
 
-
 <!--*************Lista de casos*************-->
 				<div  id="listaCasos" class="PruebaScorll">
 		
-					<?php if(isset($listaCasos) != 'No hay casos en la base de datos '):?>
-                    <?php foreach($listaCasos  as $item):?> 
+					<?php if(isset($datosCaso) != 'No hay casos en la base de datos '):?>
+                    <?php foreach($datosCaso  as $item):?> 
 			
 							<div class="twelve columns" onclick="mostarDatosListaElem()">
 										<?=$item['nombre']?>
