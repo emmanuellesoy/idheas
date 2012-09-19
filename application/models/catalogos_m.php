@@ -192,7 +192,7 @@ class Catalogos_m extends CI_Model {
 						
 		/* Pasa la consulta a un cadena */
 		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN1Catalogo'][$row['tipoLugarN1Id']] = $row;
+			$datos['tipoLugarN1Catalogo'][$row['tipoLugarId']] = $row;
 		}
 		
 		/* Trae todos los datos de tipoLugarN2Catalogo */
