@@ -14,43 +14,59 @@ class Casos_c extends CI_Controller {
           
        }
        
-       public function index(){
-               $Lista['listaActores'] = $this->actores_m->mTraerActores();
-            $DatosGenerales['edad']= range(0,100);
-            $DatosGenerales['hijos']= range(0,20);
-            $DatosGenerales['intentos']= range(0,20);
-            $DatosGenerales['estadoCivil']= $this->catalogos_m->mTraerDatosCatalogoNombre('estadoCivil');;
-            $DatosGenerales['nacionalidad']= array('Mexicano' => 1, 'Salvadoreño' => 2, 'Colombiano' => 3, 'Argentino' => 4,'Frances' => 5); 
-            $DatosGenerales['grupoIndigena']= $this->catalogos_m->mTraerDatosCatalogoNombre('gruposIndigenas');
-            $DatosGenerales['escolaridad']= array('Primaria' => 1, 'Secundaria' => 2, 'Preparatoria' => 3, 'Carrera' => 4, 'Ninguna' => 5); 
-            $DatosGenerales['ultimaOcupacion']= $this->catalogos_m->mTraerDatosCatalogoNombre('ocupacionesCatalogo');
-            $DatosGenerales['lugares']= $this->catalogos_m->mTraerDatosCatalogoPaises();
-            $DatosGenerales['motivos']= array('Negocios' => 1, 'Trabajo' => 2, 'No se' => 3, 'Se acabo mi creatividad' => 4); 
-            $DatosGenerales['estancia']= array('Vacaional' => 1, 'Largo tiempo' => 2, 'No se' => 3, 'Permanente' => 4); 
-            $DatosGenerales['tipoDir']= array('Casa', 'Departamento', 'Hostal', 'Hotel'); 
-            $DatosGenerales['tipoActorColectivo']= $this->catalogos_m->mTraerDatosCatalogoNombre('tipoActorColectivo');
-            $DatosGenerales['actividad']= $this->catalogos_m->mTraerDatosCatalogoOcupacion();
-            $DatosGenerales['derechosAfectados']= $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
-            $DatosGenerales['actos']= $this->catalogos_m->mTraerDatosCatalogoActos();
-            $DatosGenerales['id']= 'id="ActorIndv" ';
-            $DatosGenerales['detalleLugar'] = $this->load->view('casos/formulariodetalleLugar_v', $DatosGenerales , true);
-            $datosCasos['actor'] = $this->load->view('casos/formularioActo_v', $DatosGenerales , true);
-            $datosCasos['infoGral'] = $this->load->view('casos/formularioInfoGral_v', $DatosGenerales , true);
-            $datosCasos['selPersona'] = $this->load->view('casos/formularioSelecPersonas_v', $DatosGenerales , true);
-            $datosCasos['fuenteDoc'] = $this->load->view('casos/formularioFuenteDoc_v', $DatosGenerales , true);
-            $datosCasos['fuentesInfoGral'] = $this->load->view('casos/formularioDetallesInfoPersonal_v', $DatosGenerales , true);
-            $datosCasos['intervencion'] = $this->load->view('casos/formularioIntervencion', $DatosGenerales , true);
-            $datosCasos['relacionCasos'] = $this->load->view('casos/formularioRelacionCasos_v', $DatosGenerales , true);
-            $datosCasos['ficha'] = $this->load->view('casos/formularioSeguimientoCaso_v', $DatosGenerales , true);
-            $datosCasos['casos'] = $this->load->view('casos/informacionGeneral_v', $DatosGenerales , true);
-            $datosCasos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $DatosGenerales , true);
-            $datosCasos['infoAdicional'] = $this->load->view('casos/infoAdicional_v', $DatosGenerales , true);
+       public function traerCatalogos(){
            
-           $this->load->view('casos/principalCasos_v', $datosCasos);
+           $catalogos = array('estadosCatalogo', 'estatusPerpetradorCatalogo', 'estatusVictimaCatalogo', 'gruposIndigenas', 'idiomaCatalogo', 'nivelConfiabilidadCatalogo', 'ocupacionesCatalogo', 'paisesCatalogo', 'relacionActoresCatalogo', 'tipoFuenteCatalogo', );
+
+            foreach($catalogos as $catalogo){
+
+                $datos[$catalogo] = $this->catalogos_m->mTraerDatosCatalogoNombre($catalogo);
+
+            }
+
+            $datos['actos'] = $this->catalogos_m->mTraerDatosCatalogoActos();
+
+            $datos['derechos'] = $this->catalogos_m->mTraerDatosCatalogoDerechosAfectados();
+
+            $datos['tipoIntervencion'] = $this->catalogos_m->mTraerDatosCatalogoTipoIntervencion();
+            
+            $datos['tipoLugar'] = $this->catalogos_m->mTraerDatosCatalogoTipoLugar();
+
+            $datos['tipoPerpetrador'] = $this->catalogos_m->mTraerDatosCatalogoTipoPerpetrador();
+
+            return($datos);
+
+       }
+       
+       public function mostrar_caso($casoId = 0){
+           
+           $datos['catalogos'] = $this->traerCatalogos();
+           
+           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
+           
+           
+           //Aqui va la vista general
+       }
+       
+       public function mostrar_formulario($casoId = 0){
+           
+           if($casoId == 0){
+               
+               $datos['action'] = 'agregar_caso';
+               
+           } else {
+               
+               $datos['action'] = 'editar_caso';
+               
+           }
+           
+           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
+           
+           //Aqui va el formulario para nuevo-editar
            
        }
        
-       public function cAgregarCaso(){
+       public function agregar_caso(){
            
            foreach($_POST as $campo => $valor){ 
    		
@@ -63,17 +79,18 @@ class Casos_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
-                
            
-           $expression = $this->casos_m->mAgregarCaso($datos);
+           $this->casos_m->mAgregarCaso($datos);
            
-           print_r($expression);
+           redirect(base_url.'index.php/casos_c/mostrar_caso/');
            
        }
        
-              public function cActualisaDatosCaso(){
+       public function editar_caso($casoId){
            
-           foreach($_POST as $campo => $valor){ 
+           if(isset($casoId) > 0){
+               
+               foreach($_POST as $campo => $valor){ 
    		
                     $pos = strpos($campo, '_');
                     
@@ -84,39 +101,14 @@ class Casos_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
+           
+            $this->casos_m->mActualisaDatosCaso($casoId, $datos);
+               
+           }
                 
-           
-           $expression = $this->casos_m->mActualisaDatosCaso($_POST['casos_casoId'] ,$datos);
-           
-           print_r($expression);
+           redirect(base_url.'index.php/casos_c/mostrar_caso/');
            
        }
-       
-       public function cCambiaEstadoActivoCaso(){
-           
-           $expression = $this->casos_m->mCambiaEstadoActivoCaso($_POST['casos_casoId']);
-           
-           print_r($expression);
-           
-       }
-       
-       public function cTraerDatosCaso(){
-           
-           $expression = $this->casos_m->mTraerDatosCaso();
-           
-           print_r($expression);
-           
-       }
-       
-       
-       public function cRelacionaCasoActor(){
-           
-           $datos = array('casoId' => $_POST['casoId'] , 'actorId' => $_POST['actorId']);
-           
-           $expression = $this->casos_m->mRelacionaCasoActor($datos);
-           
-       }
-       
     
 }
 
