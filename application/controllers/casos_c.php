@@ -44,7 +44,13 @@ class Casos_c extends CI_Controller {
            
            $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
            
-           
+        
+        $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
+        $datos['casos'] = $this->load->view('casos/informacionGeneral_v', '',true);
+        $datos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', '',true);
+        $datos['infoAdicional'] = $this->load->view('casos/infoAdicional_v','', true);
+
+        $this->load->view('casos/principalCasos_v',$datos);
            //Aqui va la vista general
        }
        
@@ -60,7 +66,10 @@ class Casos_c extends CI_Controller {
                
            }
            
-           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
+          $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
+          $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
+          $datos['infoGral'] = $this->load->view('casos/formularioInfoGral_v','', true);
+          $this->load->view('formularios/formularioCasosGeneral_v',$datos);
            
            //Aqui va el formulario para nuevo-editar
            

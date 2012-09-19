@@ -80,7 +80,7 @@
 
 			<dl class="nice vertical tabs">
 				  <dd class="active"><a href="#vertical1">Actores</a></dd>
-				  <dd><a href="#vertical2">Casos</a></dd>
+				  <dd><a href="<?php echo base_url(); ?>index.php/casos_c/mostrar_caso">Casos</a></dd>
 				  <dd><a href="#vertical3">Reporte</a></dd>
 				</dl>
 				
@@ -156,23 +156,6 @@
 				  
 				  <li id="vertical2Tab"><!--Pestaña Actores transmigrantes---->  
 				  
-								<div class="three columns">
-									<?php echo $listaCasos;?> <!---Se llama a la lista de casos---->
-								</div>
-								
-								
-								<div class="nine columns">
-									<div id="vistaDeCasos">
-										<?php echo $casos?>
-										<?php echo $casosNucleo?>
-										<?php echo $infoAdicional?>
-									</div>
-									
-									<div id="vistaDeFormCasos" class="Escondido">
-										<?php echo $infoGral?>
-									</div>
-								</div>
-								
 				  
 				  </li><!--Termina Pestaña Actores transmigrantes---->
 				  
