@@ -196,13 +196,25 @@ class Casos_m extends CI_Model {
 		
 		$consulta = $this->db->get();
 		
-		/* Pasa la consulta a un cadena */
-		foreach ($consulta->result_array() as $row) {
-			$datos[$row['casoId']] = $row;
-		}
+		if ($consulta->num_rows() > 0){				
+				/* Pasa la consulta a un cadena */
+				foreach ($consulta->result_array() as $row) {
+                    $relaciones[$casoId] = $row;
+                    $relaciones[$casoId]['casoIdB'] = $this->db->select('*')->from('casos')->where('casoId', $row['casoIdB'])->get()->result_array();
+				}
+				return $relaciones;
+			}
 		
 		/* Regresa la cadena al controlador*/
 		return $datos;
 			
 	}/* Fin de mTraeRelacionesCaso 	*/
+	
+	public function mActualizaDatosRelacionCaso($relacionId,$datosRelacion){
+		$this->db->where('relacionId', $relacionId);
+		$this->db->update('relacionCasos',$datosRelacion);
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+	}/* Fin de mActualizaDatosRelacionCaso */
 }

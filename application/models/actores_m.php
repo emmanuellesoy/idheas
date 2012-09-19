@@ -604,14 +604,11 @@
 			if ($consulta->num_rows() > 0){				
 				/* Pasa la consulta a un cadena */
 				foreach ($consulta->result_array() as $row) {
-                                    $relaciones[$actorId] = $row;
-                                    $relaciones[$actorId]['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actorRelacionadoId'])->get()->result_array();
+                    $relaciones[$actorId] = $row;
+                    $relaciones[$actorId]['actoresRelacionados'] = $this->db->select('nombre, apellidosSiglas')->from('actores')->where('actorId', $row['actorRelacionadoId'])->get()->result_array();
 				}
-                                
-                                return $relaciones;
+				return $relaciones;
 			}
-			
-			/* Regresa la cadena al controlador*/
 			
 		}/* Fin de mTraerRelacionActores */
 
