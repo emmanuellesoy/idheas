@@ -81,7 +81,7 @@
 			<div class="two columns">				
 
 			<dl class="nice vertical tabs">
-				  <dd ><a href="<?php echo base_url(); ?>index.php/form_c">Actores</a></dd>
+				  <dd ><a href="<?=base_url(); ?>index.php/form_c">Actores</a></dd>
 				  <dd class="active"><a href="<?php echo base_url(); ?>index.php/casos_c/mostrar_caso">Casos</a></dd>
 				  <dd><a href="#vertical3">Reporte</a></dd>
 				</dl>
