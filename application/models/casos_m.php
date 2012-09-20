@@ -56,29 +56,117 @@ class Casos_m extends CI_Model {
 	
 	public function mTraerDatosCaso($casoId){
 		
+		
+		/* Trae todos los datos de casos*/
 		$this->db->select('*');
 		$this->db->from('casos');
-		$this->db->join('infoCaso','infoCaso.casos_casoId = casos.casoId', 'left');
-		$this->db->join('fichas','fichas.casos_casoId = casos.casoId','left');
-		$this->db->join('lugares','lugares.casos_casoId = casos.casoId','left');
-		$this->db->join('nucleoCaso','nucleoCaso.casos_casoId = casos.casoId','left');
-		$this->db->join('relacionCasos','relacionCasos.casos_casoId = casos.casoId','left');
-		$this->db->join('intervenciones','intervenciones.casos_casoId = casos.casoId','left');
-		$this->db->join('actos','actos.casos_casoId = casos.casoId','left');
 		$this->db->where('casoId',$casoId);
-		
 		$consulta = $this->db->get();
-		if($consulta->num_rows() != 0){						
+					
+		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos[$row['casoId']] = $row;
+				$datos['casos'] = $row;
 			}
-			/* Regresa la cadena al controlador*/
+		}
+		
+		/* Trae todos los datos de infoCaso*/
+		$this->db->select('*');
+		$this->db->from('infoCaso');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['infoCaso'] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de fichas*/
+		$this->db->select('*');
+		$this->db->from('fichas');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['fichas'] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de lugares*/
+		$this->db->select('*');
+		$this->db->from('lugares');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['nucleoCaso'] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de nucleoCaso*/
+		$this->db->select('*');
+		$this->db->from('nucleoCaso');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['nucleoCaso'] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de relacionCasos*/
+		$this->db->select('*');
+		$this->db->from('relacionCasos');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['relacionCasos'] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de intervenciones*/
+		$this->db->select('*');
+		$this->db->from('intervenciones');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['intervenciones'] = $row;
+			}
+		}
+
+		/* Trae todos los datos de actos*/
+		$this->db->select('*');
+		$this->db->from('actos');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['actos'] = $row;
+			}
+		}
+		
+		if ($datos->num_rows() > 0) {
 			return $datos;
 		}else{
-			$datos = 'No hay casos en la base de datos';
-			return $datos;			
+			return $mensaje = 'No hay datos en la base de datos';
 		}
+		
 	}/* Fin de mTraer DatosCaso*/
 	
 	/* Este modelo actualiza los datos de un caso
