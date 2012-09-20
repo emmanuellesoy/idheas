@@ -68,7 +68,7 @@ class Casos_c extends CI_Controller {
            
           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
           $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
-          $datos['infoGral'] = $this->load->view('casos/formularioInfoGral_v','', true);
+          $datos['infoGral'] = $this->load->view('casos/formularioInfoGral_v',$datos, true);
           $this->load->view('formularios/formularioCasosGeneral_v',$datos);
            
            //Aqui va el formulario para nuevo-editar
