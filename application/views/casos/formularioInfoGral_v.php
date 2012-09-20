@@ -1,5 +1,5 @@
 
-<?php echo form_open(base_url().''); ?>
+<?php echo form_open('casos_c/'.$action); ?>
 
 	<div id="formularioInfoGral">
 		<div id="pestania" data-collapse>
@@ -56,7 +56,7 @@
 			<div class="twelve columns">
 					<label for="edad">Fecha término</label>
 				<div class="six columns">
-					<select onclick="fechaTerminalCasos(value)" name="caos_fechaTermino" >
+					<select onclick="fechaTerminalCasos(value)" name="casos_fechaTermino" >
 								<option  value="1" checked="checked" >fecha exacta</option>
 								<option  value="2">fecha aproximada</option>
 								<option  value="3">Se desconce el día</option>
