@@ -89,9 +89,9 @@ class Casos_c extends CI_Controller {
                         
                 }
            
-           $this->casos_m->mAgregarCaso($datos);
+           $casoId = $this->casos_m->mAgregarCaso($datos);
            
-           redirect(base_url.'index.php/casos_c/mostrar_caso/');
+           redirect(base_url.'index.php/casos_c/mostrar_caso/'.$casoId);
            
        }
        
@@ -115,7 +115,7 @@ class Casos_c extends CI_Controller {
                
            }
                 
-           redirect(base_url.'index.php/casos_c/mostrar_caso/');
+           redirect(base_url.'index.php/casos_c/mostrar_caso/'.$casoId);
            
        }
     
