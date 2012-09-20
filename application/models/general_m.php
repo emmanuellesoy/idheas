@@ -10,7 +10,7 @@ class General_m extends CI_Model {
 	    $this->load->database();
 	}
 	
-	public function llenaTabla($datos){
+	public function mLlenaTabla($datos){
 		foreach($datos['tablas'] as $key => $value){
 				$this->db->insert($key,$datos['tablas'][$key]);
 		}
