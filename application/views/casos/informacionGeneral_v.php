@@ -1,8 +1,10 @@
 <div id="pestania" data-collapse>
-	<h2>Información general</h2><!--título de la sub-pestaña--->  
+	<pre><?php print_r($datosCaso);?></pre>
+	<h2>Información general</h2><!--título de la sub-pestaña---->  
 	<div>
 		<div id="casos_nombre">
 	  		<p>Nombre:</p>
+          	<span id="casos_nombre"><?=(isset($datos['nombre'])) ? $datos['nombre'] : ''; ?></span>
 	  	</div>
 	  	<div id="casos_personasAfectadas">
 	  		<p>Personas Afectadas:</p>
