@@ -81,8 +81,29 @@ class Casos_m extends CI_Model {
 	/* Este modelo actualiza los datos de un caso
 	 * @param ($casoId, $datosCaso)
 	 * */
+	 
+	 public function mListaCasos(){
+	 	$this->db->select('casoId, nombre');
+		$this->db->from('casos');
 		
-	public function mActualisaDatosCaso($casoId,$datosCaso){
+		$consulta = $this->db->get();
+		
+		/* Pasa la consulta a un cadena */
+		if($consulta->num_rows() != 0){
+			foreach($consulta->result_array() as $key => $value){
+				$listaCasos[$value['casoId']] = $value;
+			}
+			/* Regresa la cadena al controlador */
+			return $listaActores;
+		}else{
+			return ($mensaje = 'Aún no tienes casos en la base de datos');
+		}
+		
+		
+		 
+	 }
+		
+	public function mActualizaDatosCaso($casoId,$datosCaso){
 		
 		$this->db->where('casoId', $casoId);
 		$this->db->update('casos',$datosCaso['tablas']['casos']);
