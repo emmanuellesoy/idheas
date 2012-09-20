@@ -66,7 +66,7 @@
 	
 <body>
 
-<form action="controllers/actores_c/agregarActor" method="post" accept-charset="utf-8">
+<form action='<?=base_url(); ?>index.php/casos_c/agregar_general' method="post" accept-charset="utf-8">
 		<div >
 		
 			<p class="four columns">

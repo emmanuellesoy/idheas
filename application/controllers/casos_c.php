@@ -6,7 +6,7 @@ class Casos_c extends CI_Controller {
            
           parent::__construct();
           
-          $this->load->model(array('casos_m', 'catalogos_m', 'actores_m', 'generla_m'));
+          $this->load->model(array('casos_m', 'catalogos_m', 'actores_m', 'general_m'));
           
             $this->load->helper(array('html', 'url'));					
             
@@ -14,21 +14,25 @@ class Casos_c extends CI_Controller {
           
        }
 
-       agregar_general(){
+       public function agregar_general(){
 
         foreach($_POST as $campo => $valor){ 
       
-                    $pos = strpos($campo, '_');
-                    
-                    $nombre_tabla = substr($campo, 0, $pos);
-                    
-                    $nombre_campo = substr($campo, ++$pos);
-                    
-                    $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
-                        
-                }
+            $pos = strpos($campo, '_');
+            
+            $nombre_tabla = substr($campo, 0, $pos);
+            
+            $nombre_campo = substr($campo, ++$pos);
+            
+            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
 
-        $this->general_m->mLlenaTabla($datos);
+        }
+
+        print_r($datos);
+
+        $mensaje = $this->general_m->llenaTabla($datos);
+
+        print_r($menasje);
 
        }
        
@@ -59,7 +63,7 @@ class Casos_c extends CI_Controller {
        public function mostrar_caso($casoId = 0){
            
            $datos['catalogos'] = $this->traerCatalogos();
-           
+           $datos['casoId']=$casoId;
            $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
            
         
@@ -72,6 +76,8 @@ class Casos_c extends CI_Controller {
            //Aqui va la vista general
        }
        
+
+
        public function mostrar_formulario($casoId = 0){
            
            if($casoId == 0){
@@ -106,14 +112,12 @@ class Casos_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
-           
-            print_r($datos);
 
            $casoId = $this->casos_m->mAgregarCaso($datos);
            
            $url = base_url().'index.php/casos_c/mostrar_caso/'.$casoId;
            
-           //redirect($url);
+           redirect($url);
            
        }
        

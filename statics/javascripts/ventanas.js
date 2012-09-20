@@ -63,8 +63,3 @@ function cerrarVentana(){
 	window.close();
 };
 
-
-function editarOpciones(){
-	var contenido= $('#observacionesCasos').html();
-	alert(contenido);
-}

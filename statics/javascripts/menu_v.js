@@ -1151,5 +1151,10 @@ function personaRelacionadaColectivoCol(idPersona){
 
 function recargarPagina(){
         location.reload("#vertical2");
-}
+};
     
+function mandarTexto(){
+	observaciones.post();
+	resumen.post();
+	descripcion.post();
+};

@@ -22,14 +22,15 @@ class Casos_m extends CI_Model {
 		/* Obtine el Id del último caso insertado*/
 		$this->db->select_max('casoId');
 		$consulta = $this->db->get('casos');
+
 		/* Recorre el array $consulta para traer la cadena del actorId */
 		if($consulta->num_rows() > 0){
     		foreach ($consulta->result_array() as $row) {
         		$ultimoCasoId = $row['casoId'];
     		}
-			return $ultimoCasoId;
+			
     	}
-		
+		print_r($ultimoCasoId);
 		/* Agrega el casoId al arreglo en el campo casos_casoId en las tablas...*/
 			
 		foreach($datosCaso['tablas'] as $key => $value){
@@ -37,6 +38,8 @@ class Casos_m extends CI_Model {
 				$datosCaso['tablas'][$key]['casos_casoId'] = $ultimoCasoId;
 			}
 		}
+
+
 		
 		/* Inserta en la BD los arrays */
 		foreach($datosCaso['tablas'] as $key => $value){
@@ -44,7 +47,7 @@ class Casos_m extends CI_Model {
 				$this->db->insert($key,$datosCaso['tablas'][$key]);
 			}
 		}
-		
+		return $ultimoCasoId;
 	}/* Fin de mAgregarCaso() */
 	
 	/* Este modelo trae los datos de un actor dependiendo de su id
@@ -81,8 +84,29 @@ class Casos_m extends CI_Model {
 	/* Este modelo actualiza los datos de un caso
 	 * @param ($casoId, $datosCaso)
 	 * */
+	 
+	 public function mListaCasos(){
+	 	$this->db->select('casoId, nombre');
+		$this->db->from('casos');
 		
-	public function mActualisaDatosCaso($casoId,$datosCaso){
+		$consulta = $this->db->get();
+		
+		/* Pasa la consulta a un cadena */
+		if($consulta->num_rows() != 0){
+			foreach($consulta->result_array() as $key => $value){
+				$listaCasos[$value['casoId']] = $value;
+			}
+			/* Regresa la cadena al controlador */
+			return $listaActores;
+		}else{
+			return ($mensaje = 'Aún no tienes casos en la base de datos');
+		}
+		
+		
+		 
+	 }
+		
+	public function mActualizaDatosCaso($casoId,$datosCaso){
 		
 		$this->db->where('casoId', $casoId);
 		$this->db->update('casos',$datosCaso['tablas']['casos']);

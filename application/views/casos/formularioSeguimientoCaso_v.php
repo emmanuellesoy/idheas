@@ -57,7 +57,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<!---script que hace posible el acordion--->
+		<!---script que hace posible el acordion---->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
@@ -65,25 +65,28 @@
 	</head>
 	
 <body>
-<div id="formularioDetallerLugar">
-	<div id="pestania" data-collapse >
-		<h2 class="open">Detalle de la información de seguimiento del caso</h2><!--título de la sub-pestaña-->  
-			<div>
-				<div class="twelve columns">
-					<div class="six columns">
-						<p>
-							<label for="clave">Clave</label>
-							<input type="text" id="fichas_fichaId" name="fichas_fichaId" value="" required />
-						</p>
-					</div>
-					<div class="six columns">
-						<p>
-							<label for="claveTitulo">Título</label>
-							<input type="text" id="fichas_titulo" name="fichas_titulo" value="" size="60"  />
 
-						</p>
+<form action='<?=base_url(); ?>index.php/casos_c/agregar_general' method="post" accept-charset="utf-8">
+
+	<div id="formularioDetallerLugar">
+		<div id="pestania" data-collapse >
+			<h2 class="open">Detalle de la información de seguimiento del caso</h2><!--título de la sub-pestaña-->  
+				<div>
+					<div class="twelve columns">
+						<div class="six columns">
+							<p>
+								<label for="clave">Clave</label>
+								<input type="text" id="fichas_fichaId" name="fichas_fichaId" value="" required />
+							</p>
+						</div>
+						<div class="six columns">
+							<p>
+								<label for="claveTitulo">Título</label>
+								<input type="text" id="fichas_titulo" name="fichas_titulo" value="" size="60"  />
+
+							</p>
+						</div>
 					</div>
-				</div>
 
 
 			<div class="twelve columns">
@@ -183,10 +186,10 @@
 			</div>	
 		</div>
 	
-	</div>
-</div>
-
+		</div>
 			<input class="medium button" type="submit" />
-<!-------------------Termina la parte de seguimiento del caso------------------------------------->
+	 </div>
+</form>
+	<!-------------------Termina la parte de seguimiento del caso-------------------------------------->
 </body>	
 </html>

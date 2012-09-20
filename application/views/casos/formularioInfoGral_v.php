@@ -33,22 +33,22 @@
 				<div class="six columns">
 					<?php echo br(1);?>	
 					<p class="Escondido" id="fechaExactaV">
-						<input type="text" id="fechaExacta"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaExacta"   placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaAproxV">
-						<input type="text" id="fechaAprox"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaAprox" placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaSinDiaV">
-						<input type="text" id="fechaSinDia"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+						<input type="text" id="fechaSinDia" placeholder="AAAA-MM-00" />
 
 					</p >
 
 					<p class="Escondido" id="fechaSinDiaSinMesV">
-						<input type="text" id="fechaSinDiaSinMes" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+						<input type="text" id="fechaSinDiaSinMes" placeholder="AAAA-00-00" />
 
 					</p>
 				</div>
@@ -65,22 +65,22 @@
 				</div>
 				<div class="six columns">
 					<p class="Escondido" id="fechaExactaV2">
-						<input type="text" id="fechaExacta2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaExacta2" placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaAproxV2">
-						<input type="text" id="fechaAprox2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaAprox2"  placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaSinDiaV2">
-						<input type="text" id="fechaSinDia2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+						<input type="text" id="fechaSinDia2"  placeholder="AAAA-MM-00" />
 
 					</p >
 
 					<p class="Escondido" id="fechaSinDiaSinMesV2">
-						<input type="text" id="fechaSinDiaSinMes2" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+						<input type="text" id="fechaSinDiaSinMes2" placeholder="AAAA-00-00" />
 
 					</p>
 				</div>
@@ -93,7 +93,7 @@
 					<div class="twelve columns">
 						<textarea id="infoCaso_descripcion" style="width: 400px; height: 200px" wrap="hard"  name="infoCaso_descripcion"></textarea>
 						<script>
-						var caso = new TINY.editor.edit('infoCaso_descripcion', {
+						var descripcion = new TINY.editor.edit('infoCaso_descripcion', {
 							id: 'infoCaso_descripcion',
 							width: 584,
 							height: 175,
@@ -168,6 +168,6 @@
 		</div><!--fin acordeon información general-->
 	</div>
 
-	<input class="small button" type="submit" />
+	<input class="small button" type="submit" onclick="mandarTexto()"/>
 </form>
 <!-------------------Termina primer pestaña------------------------------------->
