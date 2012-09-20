@@ -126,7 +126,7 @@
 													</div>
 									  
 								  </div>
-								  <h2>Perpetradores</h2><!--título de la pestaña--->
+								  <h2>Perpetradores</h2><!--título de la pestaña---->
 								  <div>
 									  
 									  

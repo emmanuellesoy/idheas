@@ -1,7 +1,7 @@
 
-	<pre><?php print_r($catalogos);?></pre>
+	<pre><?php print_r($datosCaso[$casoId]);?></pre>
 <div id="pestania" data-collapse>
-	<h2>Información general</h2><!--título de la sub-pestaña---->  
+	<h2 class="open">Información general </h2><!--título de la sub-pestaña---->  
 	<div>
 
 		<div id="casos_nombre">
@@ -92,11 +92,11 @@
 			            </thead>
 			            <tbody>
 			              <tr>
-			                <td>Content</td>
-			                <td>This is longer content</td>
-			                <td>Content</td>
-			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFicha()" /></td>
-			                <td><input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
+			                <td> <span id="infoCaso_fichaId"><?=(isset($datosCaso[$casoId]['fichaId'])) ? $datosCaso[$casoId]['fichaId'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_titulo"><?=(isset($datosCaso[$casoId]['titulo'])) ? $datosCaso[$casoId]['titulo'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_titulo"><?=(isset($datosCaso[$casoId]['fecha'])) ? $datosCaso[$casoId]['fecha'] : ''; ?></span> </td>
+			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFicha()" />
+			                	<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
 			              </tr>
 			            </tbody>
 			          </table>
