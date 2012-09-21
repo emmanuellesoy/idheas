@@ -67,7 +67,7 @@
 		<!-----------------Comienza la parte de fuentes de información personal ------------------------>
 		<div id="formularioFuenteInfoPer">
 		<div id="pestania" data-collapse>
-			<h2 class="twelve columns">Detalle de información personal</h2><!--título de la sub-pestaña--->  
+			<h2 class="twelve columns">Detalle de información personal</h2><!--título de la sub-pestaña---->  
 			<div>
 				<div class="twelve columns">
 					<div class="six columns">

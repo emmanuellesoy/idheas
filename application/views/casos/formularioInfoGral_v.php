@@ -11,11 +11,11 @@
 				
 				<p>
 					<label for="nombre">Nombre: </label>
-					<input type="text"  name="casos_nombre" value="<?php echo set_value('nombre'); ?>" size="30" maxlength="30" required />
+					<input type="text"  name="casos_nombre" required />
 				</p>
 				<p>
 					<label for="personas">Personas afectadas:</label>
-					<input type="number"  name="casos_personasAfectadas" value="<?php echo set_value('personas'); ?>" size="40" maxlength="60" />
+					<input type="number"  name="casos_personasAfectadas"  />
 				</p>
 						
 			</div>
@@ -33,22 +33,22 @@
 				<div class="six columns">
 					<?php echo br(1);?>	
 					<p class="Escondido" id="fechaExactaV">
-						<input type="text" id="fechaExacta"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaExacta"   placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaAproxV">
-						<input type="text" id="fechaAprox"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaAprox" placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaSinDiaV">
-						<input type="text" id="fechaSinDia"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+						<input type="text" id="fechaSinDia" placeholder="AAAA-MM-00" />
 
 					</p >
 
 					<p class="Escondido" id="fechaSinDiaSinMesV">
-						<input type="text" id="fechaSinDiaSinMes" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+						<input type="text" id="fechaSinDiaSinMes" placeholder="AAAA-00-00" />
 
 					</p>
 				</div>
@@ -65,22 +65,22 @@
 				</div>
 				<div class="six columns">
 					<p class="Escondido" id="fechaExactaV2">
-						<input type="text" id="fechaExacta2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaExacta2" placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaAproxV2">
-						<input type="text" id="fechaAprox2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-DD" />
+						<input type="text" id="fechaAprox2"  placeholder="AAAA-MM-DD" />
 
 					</p>
 
 					<p class="Escondido" id="fechaSinDiaV2">
-						<input type="text" id="fechaSinDia2"  value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-MM-00" />
+						<input type="text" id="fechaSinDia2"  placeholder="AAAA-MM-00" />
 
 					</p >
 
 					<p class="Escondido" id="fechaSinDiaSinMesV2">
-						<input type="text" id="fechaSinDiaSinMes2" value="<?php echo set_value('fecha'); ?>" placeholder="AAAA-00-00" />
+						<input type="text" id="fechaSinDiaSinMes2" placeholder="AAAA-00-00" />
 
 					</p>
 				</div>
@@ -91,10 +91,10 @@
 		  	<div id="subPestanias" data-collapse>
 				<h2 class="twelve columns">Descripción</h2>
 					<div class="twelve columns">
-						<textarea id="tinyeditor" style="width: 400px; height: 200px" wrap="hard"  name="infocaso_descripccion"></textarea>
+						<textarea id="infoCaso_descripcion" style="width: 400px; height: 200px" wrap="hard"  name="infoCaso_descripcion"></textarea>
 						<script>
-						var instance = new TINY.editor.edit('editor', {
-							id: 'tinyeditor',
+						var descripcion = new TINY.editor.edit('infoCaso_descripcion', {
+							id: 'infoCaso_descripcion',
 							width: 584,
 							height: 175,
 							cssclass: 'tinyeditor',
@@ -117,8 +117,9 @@
 					<div class="twelve columns">
 						<textarea id="infoCaso_resumen" style="width: 400px; height: 200px" wrap="hard"  name="infoCaso_resumen"></textarea>
 						<script>
-						var instance = new TINY.editor.edit('infoCaso_resumen', {
+						var resumen = new TINY.editor.edit('infoCaso_resumen', {
 							id: 'infoCaso_resumen',
+							name:'infoCaso_resumen',
 							width: 584,
 							height: 175,
 							cssclass: 'tinyeditor',
@@ -137,13 +138,13 @@
 
 		  	</div><!--fin acordeon observaciones-->
 
-		  	<div id="subPestanias" data-collapse>
+		  		<p id="mostrarObservaciones"> cxsadñjsoajdsañdjñklsjdsalk</p>
+		  	<div id="subPestanias" data-collapse onchange="editarOpciones()" >
 		  		<h2 class="twelve columns">Obsevaciones</h2>
-		  		
 				<div class="twelve columns">
 						<textarea id="infoCaso_observaciones" style="width: 400px; height: 200px" wrap="hard"  name="infoCaso_observaciones"></textarea>
 						<script>
-						var instance = new TINY.editor.edit('infoCaso_observaciones', {
+						var observaciones = new TINY.editor.edit('infoCaso_observaciones', {
 							id: 'infoCaso_observaciones',
 							width: 584,
 							height: 175,
@@ -154,7 +155,8 @@
 							controls: ['bold', 'italic', 'underline', '|', 'leftalign','centeralign', 'rightalign', 'blockjustify', '|', 'undo', 'redo'],
 							footer: false,
 							xhtml: false,
-							bodyid: 'editor',
+							content:'',
+							bodyid: 'obsevacionesCasos',
 							toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
 							resize: {cssclass: 'resize'}
 						});
@@ -166,6 +168,6 @@
 		</div><!--fin acordeon información general-->
 	</div>
 
-	<input class="small button" type="submit" />
+	<input class="small button" type="submit" onclick="mandarTexto()"/>
 </form>
 <!-------------------Termina primer pestaña------------------------------------->

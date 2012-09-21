@@ -6,17 +6,39 @@ class Casos_c extends CI_Controller {
            
           parent::__construct();
           
-          $this->load->model(array('casos_m', 'catalogos_m', 'actores_m'));
+          $this->load->model(array('casos_m', 'catalogos_m', 'actores_m', 'general_m'));
           
             $this->load->helper(array('html', 'url'));					
             
             $this->load->library('form_validation');
           
        }
+
+       public function agregar_general(){
+
+        foreach($_POST as $campo => $valor){ 
+      
+            $pos = strpos($campo, '_');
+            
+            $nombre_tabla = substr($campo, 0, $pos);
+            
+            $nombre_campo = substr($campo, ++$pos);
+            
+            $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
+
+        }
+
+        print_r($datos);
+
+        $mensaje = $this->general_m->llenaTabla($datos);
+
+        print_r($menasje);
+
+       }
        
        public function traerCatalogos(){
            
-           $catalogos = array('estadosCatalogo', 'estatusPerpetradorCatalogo', 'estatusVictimaCatalogo', 'gruposIndigenas', 'idiomaCatalogo', 'nivelConfiabilidadCatalogo', 'ocupacionesCatalogo', 'paisesCatalogo', 'relacionActoresCatalogo', 'tipoFuenteCatalogo', );
+           $catalogos = array('estadosCatalogo', 'estatusPerpetradorCatalogo', 'estatusVictimaCatalogo', 'gruposIndigenas', 'idiomaCatalogo', 'minicipios_catalogo', 'nivelConfiabilidadCatalogo', 'ocupacionesCatalogo', 'paisesCatalogo', 'relacionActoresCatalogo', 'tipoFuenteCatalogo', );
 
             foreach($catalogos as $catalogo){
 
@@ -43,19 +65,21 @@ class Casos_c extends CI_Controller {
        public function mostrar_caso($casoId = 0){
            
            $datos['catalogos'] = $this->traerCatalogos();
-           
+           $datos['casoId']=$casoId;
            $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
            
         
         $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
-        $datos['casos'] = $this->load->view('casos/informacionGeneral_v', '',true);
         $datos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', '',true);
         $datos['infoAdicional'] = $this->load->view('casos/infoAdicional_v','', true);
+        $datos['casos'] = $this->load->view('casos/informacionGeneral_v', $datos, true);
 
         $this->load->view('casos/principalCasos_v',$datos);
            //Aqui va la vista general
        }
        
+
+
        public function mostrar_formulario($casoId = 0){
            
            if($casoId == 0){
@@ -90,10 +114,10 @@ class Casos_c extends CI_Controller {
                     $datos['tablas'][$nombre_tabla][$nombre_campo] = $valor; 
                         
                 }
-           
+
            $casoId = $this->casos_m->mAgregarCaso($datos);
            
-           echo $url = base_url().'index.php/casos_c/mostrar_caso/'.$casoId;
+           $url = base_url().'index.php/casos_c/mostrar_caso/'.$casoId;
            
            redirect($url);
            

@@ -62,3 +62,4 @@ function ventanaRelacionOtrosActoresColEditar(idActor, relacionActoresId){
 function cerrarVentana(){
 	window.close();
 };
+
