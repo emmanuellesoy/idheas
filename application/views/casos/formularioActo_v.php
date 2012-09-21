@@ -71,9 +71,12 @@
 <!-------------------------Comienza la parte de Acto---------------------------->
 <div id="formularioCasoActo">
 	<div id="pestania" data-collapse>
-	<h2 class="open twelve columns">Acto</h2><!--título de la sub-pestaña--->  
+	<h2 class="open twelve columns">Acto</h2><!--título de la sub-pestaña---->  
 	<div>
 			<fieldset>
+
+                  <input type="hidden" value="<?=$casoId; ?>" name="lugares_casos_casoId" id="lugares_casos_casoId" />
+                  
 				  <legend>Información general</legend>
                     <p>
                         <label for="derecho">Derecho afectado</label>

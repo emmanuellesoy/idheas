@@ -2,6 +2,38 @@
 <div id="pestania" data-collapse>
 	<h2>Información adicional</h2><!--título de la sub-pestaña-->  
 	<div>
+
+		<div id="subPestanias" data-collapse>
+  		<h2>Fuente documental</h2>
+	  		<div>
+  				 <div>
+  				 	<table>
+			            <thead>
+			              <tr>
+			                <th>Nombre de fuente</th>
+			                <th>Tipo de fuente</th>
+			                <th>Actor reportado</th>
+			                <th>Fecha de publicación</th>
+			                <th>Fecha de acceso</th>
+			                <th>Acción(es)</th>
+			              </tr>
+			            </thead>
+			            <tbody>
+			              <tr>
+			                <td>Content</td>
+			                <td>This is longer content</td>
+			                <td>Content</td>
+			                <td>Content</td>
+			                <td>Content</td>
+			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="ventanaFuenteDoc(<?=$casoId; ?>)" /></td>
+			              </tr>
+			            </tbody>
+		          </table>
+		          <input type="button" class="[tiny, small, medium, large] button"  value="Nuevo" onclick="ventanaFuenteDoc(<?=$casoId; ?>)" />
+  				 </div>
+	  		</div>
+	  	</div><!--fin acordeon Fuente documental-->
+
 		<div id="subPestanias" data-collapse>
 	  		<h2>Fuentes de información</h2>
 	  		<div>
@@ -25,10 +57,11 @@
 							                <td>This is longer content</td>
 							                <td>Content</td>
 							                <td>Content</td>
-							                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
+							                <td><input type="button" class="small button"  value="Detalles" onclick="" /></td>
 							              </tr>
 							            </tbody>
 					          		</table>
+					          		<input type="button" class="small button"  value="nuevo" onclick="" />
 					  			</div>
 					  		</div>
 					  	</div><!--fin acordeon Fuentes de información personal-->

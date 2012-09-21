@@ -23,11 +23,15 @@ class casosInicia_c extends CI_Controller {
 	
 	
 	
-    function SeguimientoCaso() /**función que carga el seguimiento de casos**/
+    function SeguimientoCaso($casoId) /**función que carga el seguimiento de casos**/
 	{
 		$this->load->helper(array('html', 'url'));					
+
+                $DatosGenerales['lugares']= $this->catalogos_m->mTraerDatosCatalogoPaises();
+                
+                $DatosGenerales['casoId'] = $casoId; 
 		
-		$this->load->view('casos/formularioSeguimientoCaso_v');
+		$this->load->view('casos/formularioSeguimientoCaso_v', $DatosGenerales);
 	}
 
 /**Terminan las funciones que pertenecen a la parte de información general de la sección de casos**/	

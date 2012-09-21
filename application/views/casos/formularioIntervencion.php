@@ -1,4 +1,4 @@
-<!-------------------Comienza la parte de detalles del lugar------------------------------------->
+<!-------------------Comienza la parte de detalles del lugar------------------------------------>
 <html>
 
 	<head>
@@ -33,7 +33,7 @@
 		?>  
 		
 	
-<!---------Acordion css -------->		
+		<!---------Acordion css -------->		
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
@@ -57,7 +57,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
-		<!---script que hace posible el acordion--->
+		<!---script que hace posible el acordion-->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/tiny.editor.packed.js" ></script>
@@ -66,7 +66,6 @@
 	
 <body>
 	
-<form action="http://localhost/idheas/index.php/actores_c/agregarActor" method="post" accept-charset="utf-8">
 <!-----------------Comienza la parte de Intervención---------------------------->
 
 <form action='<?=base_url(); ?>index.php/casos_c/agregar_general' method="post" accept-charset="utf-8">
@@ -75,11 +74,11 @@
 	<h2 class="open twelve columns">Intervención</h2><!--título de la sub-pestaña-->  
 	<div>
 		
-		<fieldset class="twelve columns">
 			
 		<br /><br />		
 		
 			<fieldset>
+				<input type="hidden" value="<?=$casoId; ?>" name="lugares_casos_casoId" id="lugares_casos_casoId" />
 				  <legend>Información general</legend>
 					
 					<div class="six columns">
@@ -356,19 +355,14 @@
 								
 				</div>	  
 			</div><!--fin acordeon descripción-->
-	  	
-		</fieldset>	
-			
+	
+			<input class="medium button" type="submit" value="Guardar"/>		
 	</div>
 	
-			<input class="medium button" type="submit" value="Guardar"/>
 </div><!--fin acordeon información general-->
 </div>
 </form>
-<!-----------------------Termina la parte de Intervención----------------------->
+<!-----------------------Termina la parte de Intervención---------------------->
 
-
-
-</form>
 </body>
 </html>

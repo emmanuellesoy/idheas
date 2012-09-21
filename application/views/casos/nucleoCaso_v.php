@@ -26,7 +26,7 @@
 			              </tr>
 			            </tbody>
 			          </table>
-			    <input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDerAfectados()" />
+			    <input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDerAfectados(<?=$casoId; ?>)" />
 	  			</div>
 	  			  
 	  		</div>
@@ -58,7 +58,7 @@
 			              </tr> <?php } }?>
 			            </tbody>
 			          </table>
-				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaInterevenciones()" />	  
+				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaInterevenciones(<?=$casoId; ?>)" />	  
 	  			</div>
 	  			  
 	  		</div>

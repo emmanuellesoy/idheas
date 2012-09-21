@@ -1,3 +1,4 @@
+<pre><?php print_r($datosCaso['fuenteInfoPersonal'][1]['tipoFuenteCatalogo_tipoFuenteId'])?> </pre>
 <div id="pestania" data-collapse>
 	<h2 class="open">Información general </h2><!--título de la sub-pestaña---->  
 	<div>
@@ -69,6 +70,19 @@
 	  		</div>
 	  	</div><!--fin acordeon descripción-->
 	  	
+
+	  	<div id="subPestanias" data-collapse>
+	  		<h2>Resumen</h2>
+	  		<div>
+	  			<div id="infoCaso_resumen" class="panel">
+  					<p>
+          			<span id="infoCaso_resumen"><?=(isset($datosCaso['infoCaso']['resumen'])) ? $datosCaso['infoCaso']['resumen'] : ''; ?></span>
+  					</p>
+				</div>	  			  
+	  		</div>
+	  	</div><!--fin acordeon resumen-->
+	  	
+
 	  	<div id="subPestanias" data-collapse>
 	  		<h2>Obsevaciones</h2>
 	  		<div>
@@ -106,7 +120,7 @@
 			            </tbody>
 			          </table>
 	  			</div>
-	  		<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaFicha()" />	  
+	  		<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaFicha(<?=$casoId; ?>)" />	  
 	  				<!------------------------------ Termina tabla seguimiento del caso-------------------------------------->
 	  		</div>
 	  	</div><!--fin acordeon Seguimiento del caso-->
