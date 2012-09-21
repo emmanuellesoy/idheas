@@ -1,3 +1,4 @@
+<pre><?php print_r($datosCaso)?></pre>
 <div id="pestania" data-collapse>
 	<h2>Información adicional</h2><!--título de la sub-pestaña-->  
 	<div>
@@ -52,9 +53,9 @@
 			            </thead>
 			            <tbody>
 			              <tr>
-			                <td>Content</td>
-			                <td>This is longer content</td>
-			                <td>Content</td>
+			                <td> <span id="infoCaso_descripcion"><?=(isset($datosCaso['relacionCasos'][1]['casoIdB'])) ? $datosCaso['relacionCasos'][1]['casoIdB'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_descripcion"><?=(isset($datosCaso['relacionCasos'][1]['relacionId'])) ? $datosCaso['relacionCasos'][1]['relacionId'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_descripcion"><?=(isset($datosCaso['relacionCasos'][1]['relacionId'])) ? $datosCaso['relacionCasos'][1]['relacionId'] : ''; ?></span> </td>
 			                <td>Content</td>
 			                <td>Content</td>
 			                <td><input type="button" class="[tiny, small, medium, large] button"  value="Detalles" onclick="" /></td>
