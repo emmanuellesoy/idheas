@@ -38,6 +38,7 @@
 			              </tr>
 			            </thead>
 			            <tbody>
+			              <?php if(isset($datosCaso['lugares'])){ ?>
 			              <?php foreach ($datosCaso['lugares'] as $lugar) {
 			              	?><tr><?php
 			              	$indice = ($lugar['paisesCatalogo_paisId'] - 1) ?>
@@ -48,7 +49,7 @@
 			              	<td><?php print_r($catalogos['municipiosCatalogo']['municipiosCatalogo'][$indice]['nombre']); ?></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaDetalleLugar()" />
 			                	<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
-			              </tr><?php } ?>
+			              </tr><?php } ?><?php } ?>
 			            </tbody>
 			          </table>
 				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar()" />  
@@ -93,6 +94,7 @@
 			              </tr>
 			            </thead>
 			            <tbody>
+			              <?php if(isset($datosCaso['fichas'])){ ?>
 			              <?php foreach ($datosCaso['fichas'] as $seguimiento) {
 			              	?><tr>
 			                <td> <span id="infoCaso_fichaId"><?=(isset($seguimiento['fichaId'])) ? $seguimiento['fichaId'] : ''; ?></span> </td>
@@ -100,7 +102,7 @@
 			                <td> <span id="infoCaso_titulo"><?=(isset($seguimiento['fecha'])) ? $seguimiento['fecha'] : ''; ?></span></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFicha()" />
 			                	<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
-			              </tr><?php } ?>
+			              </tr><?php }} ?>
 			            </tbody>
 			          </table>
 	  			</div>

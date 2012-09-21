@@ -46,6 +46,7 @@
 			              </tr>
 			            </thead>
 			            <tbody>
+			              <?php if(isset($datosCaso['lugares'])){ ?>
 			              <?php foreach ($datosCaso['intervenciones'] as $inter) {?>
 			              	 <tr>
 			                <td><span id="descho_fichaId"><?=(isset($inter['receptorId'])) ? $inter['receptorId'] : ''; ?></span></td>
@@ -54,7 +55,7 @@
 			                <td><span id="descho_fichaId"><?=(isset($inter['fecha'])) ? $inter['fecha'] : ''; ?></span></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaInterevenciones()" />
 			                <input type="button" class="tiny button"  value="Eliminar" onclick="ventanaInterevenciones()" /></td>
-			              </tr> <?php } ?>
+			              </tr> <?php } }?>
 			            </tbody>
 			          </table>
 				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaInterevenciones()" />	  

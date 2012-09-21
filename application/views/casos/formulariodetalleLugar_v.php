@@ -97,7 +97,7 @@
 				</select>
 			</p>
 			
-			<input class="medium button" type="submit" />
+			<input class="medium button" type="submit" value="Guardar"/>
 		</div>
 </div>
 </body>

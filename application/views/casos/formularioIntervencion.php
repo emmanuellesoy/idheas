@@ -68,6 +68,8 @@
 	
 <form action="http://localhost/idheas/index.php/actores_c/agregarActor" method="post" accept-charset="utf-8">
 <!-----------------Comienza la parte de Intervención---------------------------->
+
+<form action='<?=base_url(); ?>index.php/casos_c/agregar_general' method="post" accept-charset="utf-8">
 <div id="formularioIntervencion">
 <div id="pestania" data-collapse>
 	<h2 class="open twelve columns">Intervención</h2><!--título de la sub-pestaña-->  
@@ -358,8 +360,11 @@
 		</fieldset>	
 			
 	</div>
+	
+			<input class="medium button" type="submit" value="Guardar"/>
 </div><!--fin acordeon información general-->
 </div>
+</form>
 <!-----------------------Termina la parte de Intervención----------------------->
 
 

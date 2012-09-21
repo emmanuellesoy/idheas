@@ -1050,6 +1050,7 @@ function mostarDatosListaElem(id, tipoActorId) {
                 //$('#formCargInd').html(data);
             }
         });
+    
     var action = base_url+'index.php/actores_c/traerEditar/'+id+'/'+tipoActorId;
 
     if(tipoActorId == 3){
