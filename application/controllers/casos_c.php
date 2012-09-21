@@ -58,6 +58,8 @@ class Casos_c extends CI_Controller {
             
             $datos['listaDeCasos']= $this->casos_m->mListaCasos();
 
+            $datos['listaDeCasos']= $this->casos_m->mListaCasos();
+            
             return($datos);
 
        }
@@ -144,6 +146,12 @@ class Casos_c extends CI_Controller {
            }
                 
            redirect(base_url().'index.php/casos_c/mostrar_caso/'.$casoId);
+           
+       }
+       
+       public function relacionar_datos_caso(){
+           
+           
            
        }
     

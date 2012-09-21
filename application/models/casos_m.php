@@ -161,7 +161,7 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
-		if ($datos != '') {
+		if (isset($datos)) {
 			return $datos;
 		}else{
 			return $mensaje = 'No hay datos en la base de datos';
