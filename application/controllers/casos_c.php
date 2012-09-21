@@ -94,6 +94,7 @@ class Casos_c extends CI_Controller {
                
            }
            
+           $datos['catalogos'] = $this->traerCatalogos();
           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
           $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
           $datos['infoGral'] = $this->load->view('casos/formularioInfoGral_v',$datos, true);

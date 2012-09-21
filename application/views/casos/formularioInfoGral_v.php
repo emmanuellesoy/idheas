@@ -138,7 +138,6 @@
 
 		  	</div><!--fin acordeon observaciones-->
 
-		  		<p id="mostrarObservaciones"> cxsadñjsoajdsañdjñklsjdsalk</p>
 		  	<div id="subPestanias" data-collapse onchange="editarOpciones()" >
 		  		<h2 class="twelve columns">Obsevaciones</h2>
 				<div class="twelve columns">
