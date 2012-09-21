@@ -161,6 +161,19 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
+		/* Trae todos los datos de fuenteInfoPersonal*/
+		$this->db->select('*');
+		$this->db->from('fuenteInfoPersonal');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['fuenteInfoPersonal'][$row['fuenteInfoPersonalId']] = $row;
+			}
+		}
+		
 		if (isset($datos)) {
 			return $datos;
 		}else{
@@ -168,7 +181,6 @@ class Casos_m extends CI_Model {
 		}
 		
 	}/* Fin de mTraer DatosCaso*/
-	
 	
 	public function mTraerDatosActo($actoId){
 		/* Trae todos los datos de derechoAfectado */
