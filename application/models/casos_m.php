@@ -185,7 +185,7 @@ class Casos_m extends CI_Model {
 				$listaCasos[$value['casoId']] = $value;
 			}
 			/* Regresa la cadena al controlador */
-			return $listaActores;
+			return $listaCasos;
 		}else{
 			return ($mensaje = 'Aún no tienes casos en la base de datos');
 		}

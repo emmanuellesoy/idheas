@@ -20,15 +20,13 @@
 			<div class="twelve columns">Nombre</div>
 			<?php echo br(2);?>	
 
-
-<pre><?php print_r($catalogos['listaDeCasos'])?></pre>
 <!--*************Lista de casos*************-->
 				<div  id="listaCasos" class="PruebaScorll">
 		
-					<?php if(isset($datosCaso) != 'No hay casos en la base de datos '):?>
-                    <?php foreach($datosCaso  as $item):?> 
+					<?php if(isset($catalogos['listaDeCasos']) == 'Aún no tienes casos en la base de datos'):?>
+                    <?php foreach($catalogos['listaDeCasos']  as $item):?> 
 			
-							<div class="twelve columns" onclick="mostarDatosListaElem()">
+							<div class="twelve columns" >
 										<?=$item['nombre']?>
 										<?php echo br(2);?>	
 							</div>
