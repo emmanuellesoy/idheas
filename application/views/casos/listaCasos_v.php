@@ -25,11 +25,9 @@
 		
 					<?php if(isset($catalogos['listaDeCasos']) == 'Aún no tienes casos en la base de datos'):?>
                     <?php foreach($catalogos['listaDeCasos']  as $item):?> 
-			
-							<div class="twelve columns" >
-										<?=$item['nombre']?>
-										<?php echo br(2);?>	
-							</div>
+			<div class="twelve columns" >
+                            <a href="<?=base_url(); ?>index.php/casos_c/mostrar_caso/<?=$item['casoId']; ?>"><?=$item['nombre']; ?></a>
+			</div>
 							
 					<?php endforeach;?>
 					<?php endif;?> 

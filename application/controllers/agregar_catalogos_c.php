@@ -479,7 +479,7 @@ class Agregar_catalogos_c extends CI_Controller {
                 
             $datos = explode('¬', $filaCatalogo);
                 
-            $filas['relacionActoresCatalogo'][trim($datos[0])] = array('tipoRelacionId' => trim($datos[0]), 'nombre' => trim($datos[1]), 'notas' => trim($datos[2]), 'nivel2' => trim($datos[3]), 'tipoDeRelacion' => trim($datos[4]));
+            $filas['relacionActoresCatalogo'][trim($datos[0])] = array('tipoRelacionId' => trim($datos[0]), 'nombre' => trim($datos[1]), 'notas' => trim($datos[2]), 'nivel2' => trim($datos[3]), 'tipoDeRelacionId' => trim($datos[4]));
 
         }
         

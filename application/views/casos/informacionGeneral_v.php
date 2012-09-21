@@ -52,7 +52,7 @@
 			              </tr><?php } ?><?php } ?>
 			            </tbody>
 			          </table>
-				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar()" />  
+				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar(<?=$casoId; ?>)" />  
 	  				<!------------------------------ Termina tabla lugares-------------------------------------->
 	  			</div>
 	  		</div>

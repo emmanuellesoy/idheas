@@ -1,4 +1,3 @@
-<!-------------------Comienza la parte de detalles del lugar------------------------------------->
 <html>
 
 	<head>
@@ -33,7 +32,7 @@
 		?>  
 		
 	
-<!---------Acordion css -------->		
+		<!---------Acordion css -------->		
 		<?php $link = array(
 			'href' => 'statics/CSS/collapse.css',
 			'rel' => 'stylesheet',
@@ -57,6 +56,7 @@
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/menu_v.js" ></script>
+		<script src="<?php echo base_url(); ?>statics/javascripts/ventanas.js" ></script>
 		<!---script que hace posible el acordion---->
 		<script src="<?php echo base_url(); ?>statics/javascripts/jquery.collapse.js" ></script>
 		<script src="<?php echo base_url(); ?>statics/javascripts/datepickerEsp.js" ></script>
@@ -64,42 +64,65 @@
 
 	</head>
 	
-<body>
 
-<form action='<?=base_url(); ?>index.php/casos_c/agregar_general' method="post" accept-charset="utf-8">
-		<div >
+	<body>
+	
+		<!---Encabezado de la página---->
+			<div class="twelve columns">
+			  <div class="panel" >
+			  <div div="logo" >
+				<?php echo img('statics/IMG/logo.png');?>
+			  </div>
+			  </div>
+			</div>
+		  <!---Termina el encabezado de la página-->
+		  
+		  <!--Contenido de la página-->
+			<div class="two columns">				
+
+			<dl class="nice vertical tabs">
+				  <dd ><a href="<?=base_url(); ?>index.php/form_c">Actores</a></dd>
+				  <dd class="active"><a href="<?=base_url(); ?>index.php/casos_c/mostrar_caso">Casos</a></dd>
+				  <dd><a href="#vertical3">Reporte</a></dd>
+				</dl>
+				
+			</div>
 		
-			<p class="four columns">
-				<label for="pais">País</label>
-				<select id="lugares_paisesCatalogo_paisId" name="lugares_paisesCatalogo_paisId">						
-				<?php foreach($lugares['paisesCatalogo'] as $key => $item):?> 
-						<option value="<?=$item['paisId']; ?>"><?=$item['nombre']; ?></option>
-				<?php endforeach;?>
-				</select>
+			<div class="ten columns">
+				<ul class="tabs-content">
+				
+				  <li id="vertical1Tab"><!--Pestaña Actores Individuales---->
+					
+				  </li>
 
-			</p>
-                        <input type="hidden" value="<?=$casoId; ?>" name="lugares_casos_casoId" id="lugares_casos_casoId" />
-			<p class="four columns">
-				<label for="estado">Estado</label>
-				<select id="lugares_estadosCatalogo_estadoId" name="lugares_estadosCatalogo_estadoId">
-				<?php foreach($lugares['estadosCatalogo'] as $key => $item):?> 
-						<option value="<?=$item['estadoId']; ?>"><?=$item['nombre']; ?></option>
-				<?php endforeach;?>
-				</select>
-			</p>
-
-			<p class="four columns">
-				<label for="municipio">Municipio</label>
-				<select id="lugares_municipiosCatalogo_municipioId" name="lugares_municipiosCatalogo_municipioId">						
-				<?php foreach($lugares['municipiosCatalogo'] as $key => $item):?> 
-						<option value="<?=$item['municipioId']; ?>"><?=$item['nombre']; ?></option>
-				<?php endforeach;?>
-				</select>
-			</p>
-			
-			<input class="medium button" type="submit" value="Guardar"/>
-		</div>
-</div>
-</body>
+				  <li class="active"  id="vertical2Tab"><!--Pestaña Actores transmigrantes---->  
+				  
+								<div class="three columns">
+									<?php echo $listaCasos;?> <!---Se llama a la lista de casos---->
+								</div>
+								
+								
+								<div class="nine columns">
+									<div id="vistaDeCasos">
+										
+									</div>
+									
+								</div>
+								
+				  
+				  </li><!--Termina Pestaña Actores transmigrantes---->
+				  
+				  <li id="vertical3Tab"><!--Pestaña Actores Colectivos---->  
+				  
+									<p>Contenido de colectivos</p>
+									
+				  </li><!--Termina Pestaña Actores Colectivos---->
+				  
+				</ul>
+			  
+			</div>
+		<!--Termina el contenido de la página-->
+	
+	</body>
+	
 </html>
-
