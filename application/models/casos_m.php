@@ -169,6 +169,41 @@ class Casos_m extends CI_Model {
 		
 	}/* Fin de mTraer DatosCaso*/
 	
+	
+	public function mTraerDatosActo($actoId){
+		/* Trae todos los datos de derechoAfectado */
+		$this->db->select('*');
+		$this->db->from('derechoAfectado');
+		$this->db->where('actos_actoId',$actoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['derechoAfectado'][$row['actos_actoId']] = $row;
+			}
+		}
+		
+		/* Trae todos los datos de victimas*/
+		$this->db->select('*');
+		$this->db->from('victimas');
+		$this->db->where('actos_actoId',$actoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['victimas'][$row['actos_actoId']] = $row;
+			}
+		}
+	
+		if (isset($datos)) {
+			return $datos;
+		}else{
+			return $mensaje = 'No hay datos en la base de datos';
+		}
+	}
+	
 	/* Este modelo actualiza los datos de un caso
 	 * @param ($casoId, $datosCaso)
 	 * */
@@ -189,7 +224,6 @@ class Casos_m extends CI_Model {
 		}else{
 			return ($mensaje = 'Aún no tienes casos en la base de datos');
 		}
-		
 		
 		 
 	 }
