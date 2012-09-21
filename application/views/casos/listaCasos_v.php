@@ -20,6 +20,8 @@
 			<div class="twelve columns">Nombre</div>
 			<?php echo br(2);?>	
 
+
+<pre><?php print_r($catalogos['listaDeCasos'])?></pre>
 <!--*************Lista de casos*************-->
 				<div  id="listaCasos" class="PruebaScorll">
 		

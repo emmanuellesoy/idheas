@@ -92,7 +92,7 @@ class Casos_m extends CI_Model {
 		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos['fichas'] = $row;
+				$datos['fichas'][$row['fichaId']] = $row;
 			}
 		}
 		
@@ -105,7 +105,7 @@ class Casos_m extends CI_Model {
 		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos['nucleoCaso'] = $row;
+				$datos['lugares'][$row['lugarId']] = $row;
 			}
 		}
 		
@@ -131,7 +131,7 @@ class Casos_m extends CI_Model {
 		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos['relacionCasos'] = $row;
+				$datos['relacionCasos'][$row['relacionId']] = $row;
 			}
 		}
 		
@@ -144,7 +144,7 @@ class Casos_m extends CI_Model {
 		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos['intervenciones'] = $row;
+				$datos['intervenciones'][$row['intervencionId']] = $row;
 			}
 		}
 
@@ -157,7 +157,7 @@ class Casos_m extends CI_Model {
 		if ($consulta->num_rows() > 0){				
 			/* Pasa la consulta a un cadena */
 			foreach ($consulta->result_array() as $row) {
-				$datos['actos'] = $row;
+				$datos['actos'][$row['actoId']] = $row;
 			}
 		}
 		

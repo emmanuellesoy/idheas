@@ -1,27 +1,25 @@
-
-	<pre><?php print_r($datosCaso[$casoId]);?></pre>
 <div id="pestania" data-collapse>
 	<h2 class="open">Información general </h2><!--título de la sub-pestaña---->  
 	<div>
 
 		<div id="casos_nombre">
 	  		<p>Nombre:
-          	<span id="casos_nombre"><?=(isset($datosCaso[$casoId]['nombre'])) ? $datosCaso[$casoId]['nombre'] : ''; ?></span>
+          	<span id="casos_nombre"><?=(isset($datosCaso['casos']['nombre'])) ? $datosCaso['casos']['nombre'] : ''; ?></span>
           	</p>
 	  	</div>
 	  	<div id="casos_personasAfectadas">
 	  		<p>Personas Afectadas:
-          	<span id="casos_pesonasAfectadas"><?=(isset($datosCaso[$casoId]['personasAfectadas'])) ? $datosCaso[$casoId]['personasAfectadas'] : ''; ?></span>
+          	<span id="casos_pesonasAfectadas"><?=(isset($datosCaso['casos']['personasAfectadas'])) ? $datosCaso['casos']['personasAfectadas'] : ''; ?></span>
           	</p>
 	  	</div>
 	  	<div id="casos_fechaInicial">
 	  		<p>Fecha inicial:
-          	<span id="casos_fechaInicial"><?=(isset($datosCaso[$casoId]['fechaInicial'])) ? $datosCaso[$casoId]['fechaInicial'] : ''; ?></span>
+          	<span id="casos_fechaInicial"><?=(isset($datosCaso['casos']['fechaInicial'])) ? $datosCaso['casos']['fechaInicial'] : ''; ?></span>
           	</p>
 	  	</div>
 	  	<div id="casos_fechaTermino">
 	  		<p>Fecha término:
-          	<span id="casos_fechaInicial"><?=(isset($datosCaso[$casoId]['fechaInicial'])) ? $datosCaso[$casoId]['fechaInicial'] : ''; ?></span>
+          	<span id="casos_fechaInicial"><?=(isset($datosCaso['casos']['fechaInicial'])) ? $datosCaso['casos']['fechaInicial'] : ''; ?></span>
           	</p>
 	  	</div>
 	  	
@@ -40,17 +38,21 @@
 			              </tr>
 			            </thead>
 			            <tbody>
-			              <tr>
-			                <td> <?=(isset($datosCaso[$casoId]['paisesCatalogo_paisId'])) ? $catalogos['paisesCatalogo']['paisesCatalogo'][--$datosCaso[$casoId]['paisesCatalogo_paisId']]['nombre'] : ''; ?> </td>
-			                <td> <?=(isset($datosCaso[$casoId]['estadosCatalogo_estadoId'])) ? $catalogos['estadosCatalogo']['estadosCatalogo'][--$datosCaso[$casoId]['estadosCatalogo_estadoId']]['nombre'] : ''; ?> </td>
-			                <td><?=(isset($datosCaso[$casoId]['municipiosCatalogo_municipioId'])) ? $catalogos['municipiosCatalogo']['municipiosCatalogo'][--$datosCaso[$casoId]['municipiosCatalogo_municipioId']]['nombre'] : ''; ?></td>
+			              <?php foreach ($datosCaso['lugares'] as $lugar) {
+			              	?><tr><?php
+			              	$indice = ($lugar['paisesCatalogo_paisId'] - 1) ?>
+			              	<td><?php print_r($catalogos['paisesCatalogo']['paisesCatalogo'][$indice]['nombre']); ?></td>
+			              	<?php $indice = ($lugar['estadosCatalogo_estadoId'] - 1) ?>
+			              	<td><?php print_r($catalogos['estadosCatalogo']['estadosCatalogo'][$indice]['nombre']); ?></td>
+			              	<?php $indice = ($lugar['municipiosCatalogo_municipioId'] - 1) ?>
+			              	<td><?php print_r($catalogos['municipiosCatalogo']['municipiosCatalogo'][$indice]['nombre']); ?></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaDetalleLugar()" />
-			                <input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
-			              </tr>
+			                	<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
+			              </tr><?php } ?>
 			            </tbody>
 			          </table>
-				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar()" />	  
-	  				<!------------------------------ Termina tabla lugare-------------------------------------->
+				<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaDetalleLugar()" />  
+	  				<!------------------------------ Termina tabla lugares-------------------------------------->
 	  			</div>
 	  		</div>
 	  	</div><!--fin acordeon lugares-->
@@ -60,7 +62,7 @@
 	  		<div>
 	  			<div id="infoCaso_descripcion" class="panel">
   					<p>
-          			<span id="infoCaso_descripcion"><?=(isset($datosCaso[$casoId]['descripcion'])) ? $datosCaso[$casoId]['descripcion'] : ''; ?></span>
+          			<span id="infoCaso_descripcion"><?=(isset($datosCaso['infoCaso']['descripcion'])) ? $datosCaso['infoCaso']['descripcion'] : ''; ?></span>
           			</p>
 				</div>	  			  
 	  		</div>
@@ -71,14 +73,14 @@
 	  		<div>
 	  			<div id="infoCaso_descripcion" class="panel">
   					<p>
-          			<span id="infoCaso_descripcion"><?=(isset($datosCaso[$casoId]['observaciones'])) ? $datosCaso[$casoId]['observaciones'] : ''; ?></span>
+          			<span id="infoCaso_descripcion"><?=(isset($datosCaso['infoCaso']['observaciones'])) ? $datosCaso['infoCaso']['observaciones'] : ''; ?></span>
   					</p>
 				</div>	  			  
 	  		</div>
 	  	</div><!--fin acordeon observaciones-->
 	  	
 	  	<div id="subPestanias" data-collapse>
-	  		<h2>Seguimiento del caso</h2>
+	  		<h2 class="open">Seguimiento del caso</h2>
 	  		<div>
 	  			<div>
 	  				<table>
@@ -91,17 +93,19 @@
 			              </tr>
 			            </thead>
 			            <tbody>
-			              <tr>
-			                <td> <span id="infoCaso_fichaId"><?=(isset($datosCaso[$casoId]['fichaId'])) ? $datosCaso[$casoId]['fichaId'] : ''; ?></span> </td>
-			                <td> <span id="infoCaso_titulo"><?=(isset($datosCaso[$casoId]['titulo'])) ? $datosCaso[$casoId]['titulo'] : ''; ?></span> </td>
-			                <td> <span id="infoCaso_titulo"><?=(isset($datosCaso[$casoId]['fecha'])) ? $datosCaso[$casoId]['fecha'] : ''; ?></span> </td>
+			              <?php foreach ($datosCaso['fichas'] as $seguimiento) {
+			              	?><tr>
+			                <td> <span id="infoCaso_fichaId"><?=(isset($seguimiento['fichaId'])) ? $seguimiento['fichaId'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_titulo"><?=(isset($seguimiento['titulo'])) ? $seguimiento['titulo'] : ''; ?></span> </td>
+			                <td> <span id="infoCaso_titulo"><?=(isset($seguimiento['fecha'])) ? $seguimiento['fecha'] : ''; ?></span></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaFicha()" />
 			                	<input type="button" class="tiny button"  value="Eliminar" onclick="" /></td>
-			              </tr>
+			              </tr><?php } ?>
 			            </tbody>
 			          </table>
 	  			</div>
 	  		<input type="button" class="tiny button"  value="Nuevo" onclick="ventanaFicha()" />	  
+	  				<!------------------------------ Termina tabla seguimiento del caso-------------------------------------->
 	  		</div>
 	  	</div><!--fin acordeon Seguimiento del caso-->
 	</div>

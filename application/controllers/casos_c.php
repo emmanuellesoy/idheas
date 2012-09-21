@@ -38,7 +38,7 @@ class Casos_c extends CI_Controller {
        
        public function traerCatalogos(){
            
-           $catalogos = array('estadosCatalogo', 'estatusPerpetradorCatalogo', 'estatusVictimaCatalogo', 'gruposIndigenas', 'idiomaCatalogo', 'minicipios_catalogo', 'nivelConfiabilidadCatalogo', 'ocupacionesCatalogo', 'paisesCatalogo', 'relacionActoresCatalogo', 'tipoFuenteCatalogo', );
+           $catalogos = array('estadosCatalogo', 'estatusPerpetradorCatalogo', 'estatusVictimaCatalogo', 'gruposIndigenas', 'idiomaCatalogo', 'municipiosCatalogo', 'nivelConfiabilidadCatalogo', 'ocupacionesCatalogo', 'paisesCatalogo', 'relacionActoresCatalogo', 'tipoFuenteCatalogo', );
 
             foreach($catalogos as $catalogo){
 
@@ -55,6 +55,8 @@ class Casos_c extends CI_Controller {
             $datos['tipoLugar'] = $this->catalogos_m->mTraerDatosCatalogoTipoLugar();
 
             $datos['tipoPerpetrador'] = $this->catalogos_m->mTraerDatosCatalogoTipoPerpetrador();
+            
+            $datos['listaDeCasos']= $this->casos_m->mListaCasos();
 
             return($datos);
 
@@ -68,8 +70,8 @@ class Casos_c extends CI_Controller {
            
         
         $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
-        $datos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', '',true);
-        $datos['infoAdicional'] = $this->load->view('casos/infoAdicional_v','', true);
+        $datos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $datos,true);
+        $datos['infoAdicional'] = $this->load->view('casos/infoAdicional_v',$datos, true);
         $datos['casos'] = $this->load->view('casos/informacionGeneral_v', $datos, true);
 
         $this->load->view('casos/principalCasos_v',$datos);
