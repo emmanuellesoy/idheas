@@ -174,6 +174,19 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
+		/* Trae todos los datos de fuenteInfoPersonal*/
+		$this->db->select('*');
+		$this->db->from('tipoFuenteDocumental');
+		$this->db->where('casos_casoId',$casoId);
+		$consulta = $this->db->get();
+					
+		if ($consulta->num_rows() > 0){				
+			/* Pasa la consulta a un cadena */
+			foreach ($consulta->result_array() as $row) {
+				$datos['tipoFuenteDocumental'][$row['tipoFuenteDocumentalId']] = $row;
+			}
+		}
+		
 		if (isset($datos)) {
 			return $datos;
 		}else{
