@@ -28,11 +28,14 @@ class Casos_c extends CI_Controller {
 
         }
 
-        print_r($datos);
+        $mensaje = $this->general_m->mLlenaTabla($datos);
 
-        $mensaje = $this->general_m->llenaTabla($datos);
-
-        print_r($menasje);
+        if(isset($mensaje)){
+            print_r($mensaje);
+        } else {
+            echo 'Pais insertado, por favor cierra la ventana';
+            
+        }
 
        }
        
@@ -65,18 +68,30 @@ class Casos_c extends CI_Controller {
        }
        
        public function mostrar_caso($casoId = 0){
-           
-           $datos['catalogos'] = $this->traerCatalogos();
-           $datos['casoId']=$casoId;
-           $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
-           
         
+        $datos['catalogos'] = $this->traerCatalogos();
+           
         $datos['listaCasos']=$this->load->view('casos/listaCasos_v',$datos, true);
+           
+        if($casoId == 0){
+            
+        $this->load->view('casos/index_caso',$datos);
+            
+        } else {
+        
+        $datos['casoId']=$casoId;
+        
+        $datos['datosCaso'] = $this->casos_m->mTraerDatosCaso($casoId);
+        
         $datos['casosNucleo'] = $this->load->view('casos/nucleoCaso_v', $datos,true);
+        
         $datos['infoAdicional'] = $this->load->view('casos/infoAdicional_v',$datos, true);
+        
         $datos['casos'] = $this->load->view('casos/informacionGeneral_v', $datos, true);
 
         $this->load->view('casos/principalCasos_v',$datos);
+            
+        }
            //Aqui va la vista general
        }
        

@@ -15,9 +15,9 @@ function ventanaRelacionOtrosActoresCol(idActor){
 	};
 
 
-function ventanaDetalleLugar(){
+function ventanaDetalleLugar(casoId){
 	  var windowSizeArray = [ "width=800,height=200" ];
-	window.open(base_url+'index.php/casosInicia_c', 'Detalles Lugar', windowSizeArray);
+	window.open(base_url+'index.php/casosInicia_c/index/'+casoId, 'Detalles Lugar', windowSizeArray);
 	};
 
 function ventanaFicha(){
