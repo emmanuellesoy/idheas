@@ -189,6 +189,20 @@ class Casos_m extends CI_Model {
 					}/*Fin foreach Victimas*/
 				}
 			}/*Fin foreach actos*/
+			
+			foreach ($datos['actos'] as $row) {
+				$this->db->select('*');
+				$this->db->from('derechoAfectado');
+				$this->db->where('actos_actoId', $row['actoId']);
+				$consulta = $this->db->get();
+				
+				if ($consulta->num_rows() > 0){				
+					/* Pasa la consulta a un cadena */
+					foreach ($consulta->result_array() as $row) {
+						$datos['derechoAfectado'][$row['derechoAfectadoCasoId']] = $row;
+					}
+				}
+			}/* Fin foreach de derechoAfectado*/
 		}
 		
 		
