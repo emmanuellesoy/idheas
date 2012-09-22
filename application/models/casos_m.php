@@ -70,6 +70,7 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
+		
 		/* Trae todos los datos de infoCaso*/
 		$this->db->select('*');
 		$this->db->from('infoCaso');
@@ -160,37 +161,36 @@ class Casos_m extends CI_Model {
 			foreach ($consulta->result_array() as $row) {
 				$datos['actos'][$row['actoId']] = $row;
 			}
+			
+			foreach ($datos['actos'] as $row) {
+				$this->db->select('*');
+				$this->db->from('victimas');
+				$this->db->where('actos_actoId', $row['actoId']);
+				$consulta = $this->db->get();
+				
+				if ($consulta->num_rows() > 0){				
+					/* Pasa la consulta a un cadena */
+					foreach ($consulta->result_array() as $row) {
+						$datos['victimas'][$row['victimaId']] = $row;
+					}
+				}
+			}
+	
+			foreach ($datos['victimas'] as $row) {
+				$this->db->select('*');
+				$this->db->from('perpetradores');
+				$this->db->where('victimas_victimaId', $row['victimaId']);
+				$consulta = $this->db->get();
+				
+				if ($consulta->num_rows() > 0){				
+					/* Pasa la consulta a un cadena */
+					foreach ($consulta->result_array() as $row) {
+						$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
+					}
+				}
+			}
 		}
-                
-
 		
-		foreach ($datos['actos'] as $row) {
-			$this->db->select('*');
-			$this->db->from('victimas');
-			$this->db->where('actos_actoId', $row['actoId']);
-			$consulta = $this->db->get();
-			
-			if ($consulta->num_rows() > 0){				
-				/* Pasa la consulta a un cadena */
-				foreach ($consulta->result_array() as $row) {
-					$datos['victimas'][$row['victimaId']] = $row;
-				}
-			}
-		}
-
-		foreach ($datos['victimas'] as $row) {
-			$this->db->select('*');
-			$this->db->from('perpetradores');
-			$this->db->where('victimas_victimaId', $row['victimaId']);
-			$consulta = $this->db->get();
-			
-			if ($consulta->num_rows() > 0){				
-				/* Pasa la consulta a un cadena */
-				foreach ($consulta->result_array() as $row) {
-					$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
-				}
-			}
-		}
 		
 		/* Trae todos los datos de fuenteInfoPersonal*/
 		$this->db->select('*');
@@ -278,7 +278,8 @@ class Casos_m extends CI_Model {
 			/* Regresa la cadena al controlador */
 			return $listaCasos;
 		}else{
-			return ($mensaje = 'Aún no tienes casos en la base de datos');
+			$mensaje = 'Aun no tienes casos en la base de datos';
+			return (isset($mensaje));
 		}
 		
 		 
