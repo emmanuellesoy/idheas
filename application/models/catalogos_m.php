@@ -22,13 +22,16 @@ class Catalogos_m extends CI_Model {
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
+		if ($consulta->num_rows() > 0){
+			foreach ($consulta->result_array() as $row) {
+				$datos[$nombreCatalogo][] = $row;
+			}
 		
-		foreach ($consulta->result_array() as $row) {
-			$datos[$nombreCatalogo][] = $row;
+			return $datos;
+		}else{
+			$mensaje = 'No hay datos en el catalogo'+$nombreCatalogo;
+			return (isset($mensaje));
 		}
-		
-		/* Regresa la cadena al controlador*/
-		return $datos;
 		
 	}/* Fin de mTraerDatosCatalogoNombre*/
 	
@@ -211,16 +214,16 @@ class Catalogos_m extends CI_Model {
 		$consulta = $this->db->get();
 						
 		/* Pasa la consulta a un cadena */
-		foreach ($consulta->result_array() as $row) {
-			$datos['tipoLugarN3Catalogo'][$row['tipoLugarN3Id']] = $row;
-		}
-		
-		if($datos != ''){
-			/* Regresa la cadena al controlador*/
+		if ($consulta->num_rows() > 0){
+			foreach ($consulta->result_array() as $row) {
+				$datos['tipoLugarN3Catalogo'][$row['tipoLugarN3Id']] = $row;
+			}
 			return $datos;
 		}else{
-			return ($mensaje = 'No hay datos en el catalogo tipoLugar');
+			$mensaje = 'No hay datos en el catalogo tipoLugar';
+			return (isset($mensaje));
 		}
+		
 	}/* Fin de mTraerDatosCatalogoTipoLugar*/
 	
 	/* Este modelo trae los datos de los catálogos Paises-Estados-Municipios */
