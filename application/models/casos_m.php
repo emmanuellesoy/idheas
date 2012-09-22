@@ -120,6 +120,7 @@ class Casos_m extends CI_Model {
 			foreach ($consulta->result_array() as $row) {
 				$datos['nucleoCaso'] = $row;
 			}
+			echo 'HOla';
 		}
 		
 		/* Trae todos los datos de relacionCasos*/

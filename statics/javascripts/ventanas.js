@@ -32,7 +32,6 @@ function ventanaDerAfectados(casoId){
 	};
 
 
-
 function ventanaInterevenciones(casoId){
 	  var windowSizeArray = [ "width=650,height=700,scrollbars=yes" ];
 	window.open(base_url+'index.php/casosNucleo_c/intervenciones/'+casoId, 'Intervenciones', windowSizeArray);

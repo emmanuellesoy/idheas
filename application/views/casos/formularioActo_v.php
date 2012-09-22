@@ -86,6 +86,7 @@
                         <div id="notasDerechoAfectado"></div>
                         
 			<?php echo br(2);?>
+			<pre><?php print_r($derechosAfectados)?></pre>
 			            <div  id="listaActorIndiv" class="casosScorll">	
                         <ul>
 							<?php foreach($derechosAfectados['derechosAfectadosN1Catalogos'] as $derechoAfectado):?> 

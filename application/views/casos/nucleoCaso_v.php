@@ -1,8 +1,8 @@
 <div id="pestania" data-collapse>
-	<h2>Núcleo caso</h2><!--título de la sub-pestaña---->  
+	<h2 class="open">Núcleo caso</h2><!--título de la sub-pestaña---->  
 	<div>
 	  	<div id="subPestanias" data-collapse>
-	  		<h2>Derechos afectados y actos</h2>
+	  		<h2 class="open">Derechos afectados y actos</h2>
 	  		<div>
 	  			<div>
 	  				<table>
@@ -17,8 +17,8 @@
 			            </thead>
 			            <tbody>
 			              <tr>
-			                <td><span id="descho_fichaId"><?=(isset($datosCaso['nucleoCaso'][1]['actoViolatorioId'])) ? $datosCaso['nucleoCaso'][1]['actoViolatorioId'] : ''; ?></span></td>
-			                <td><span id="descho_fichaId"><?=(isset($datosCaso['nucleoCaso'][1]['actoId'])) ? $datosCaso['nucleoCaso'][1]['actoId'] : ''; ?></span></td>
+			                <td><span id="descho_fichaId"><?=(isset($datosCaso['actos'][2]['actoViolatorioId'])) ? $datosCaso['actos'][2]['actoViolatorioId'] : ''; ?></span></td>
+			                <td><span id="descho_fichaId"><?=(isset($datosCaso['actos'][2]['actoViolatorioNivel'])) ? $datosCaso['actos'][2]['actoViolatorioNivel'] : ''; ?></span></td>
 			                <td><span id="descho_fichaId"><?=(isset($datosCaso['nucleoCaso']['fechaInicio'])) ? $datosCaso['nucleoCaso']['fechaInicio'] : ''; ?></span></td>
 			                <td><span id="descho_fichaId"><?=(isset($datosCaso['nucleoCaso']['fechaTermino'])) ? $datosCaso['nucleoCaso']['fechaTermino'] : ''; ?></span></td>
 			                <td><input type="button" class="tiny button"  value="Editar" onclick="ventanaDerAfectados()" />
@@ -66,3 +66,5 @@
 	</div>
 	  
 </div><!--fin acordeon Núcleo caso-->
+<pre><?php print_r($catalogos)?> </pre>
+<pre><?php print_r($datosCaso)?> </pre>

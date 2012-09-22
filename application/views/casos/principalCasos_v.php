@@ -104,9 +104,9 @@
 								
 								<div class="nine columns">
 									<div id="vistaDeCasos">
-										<?php echo $casos?>
+										<?php  //$casos?>
 										<?php echo $casosNucleo?>
-										<?php echo $infoAdicional?>
+										<?php  //$infoAdicional?>
 									</div>
 									
 								</div>
