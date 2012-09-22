@@ -160,25 +160,27 @@ class Casos_m extends CI_Model {
 				$datos['actos'][$row['actoId']] = $row;
 			}
 		}
+                
+
 		
-		foreach ($datos as $row) {
+		foreach ($datos['actos'] as $row) {
 			$this->db->select('*');
 			$this->db->from('victimas');
-			$this->db->where('actos_actoId',$datos['actos'][$row]['actoId']);
+			$this->db->where('actos_actoId', $row['actoId']);
 			$consulta = $this->db->get();
 			
 			if ($consulta->num_rows() > 0){				
 				/* Pasa la consulta a un cadena */
 				foreach ($consulta->result_array() as $row) {
-					$datos['actos']['victimas'][$row['victimaId']] = $row;
+					$datos['victimas'][$row['victimaId']] = $row;
 				}
 			}
 		}
 
-		foreach ($datos as $row) {
+		foreach ($datos['victimas'] as $row) {
 			$this->db->select('*');
 			$this->db->from('perpetradores');
-			$this->db->where('victimas_victmaId',$datos['victimas'][$row]['victimaId']);
+			$this->db->where('victimas_victimaId', $row['victimaId']);
 			$consulta = $this->db->get();
 			
 			if ($consulta->num_rows() > 0){				
