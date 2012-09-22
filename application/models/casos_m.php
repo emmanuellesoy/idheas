@@ -173,22 +173,22 @@ class Casos_m extends CI_Model {
 					foreach ($consulta->result_array() as $row) {
 						$datos['victimas'][$row['victimaId']] = $row;
 					}
+					
+					foreach ($datos['victimas'] as $row) {
+						$this->db->select('*');
+						$this->db->from('perpetradores');
+						$this->db->where('victimas_victimaId', $row['victimaId']);
+						$consulta = $this->db->get();
+						
+						if ($consulta->num_rows() > 0){				
+							/* Pasa la consulta a un cadena */
+							foreach ($consulta->result_array() as $row) {
+								$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
+							}
+						}
+					}/*Fin foreach Victimas*/
 				}
-			}
-	
-			foreach ($datos['victimas'] as $row) {
-				$this->db->select('*');
-				$this->db->from('perpetradores');
-				$this->db->where('victimas_victimaId', $row['victimaId']);
-				$consulta = $this->db->get();
-				
-				if ($consulta->num_rows() > 0){				
-					/* Pasa la consulta a un cadena */
-					foreach ($consulta->result_array() as $row) {
-						$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
-					}
-				}
-			}
+			}/*Fin foreach actos*/
 		}
 		
 		
@@ -318,6 +318,18 @@ class Casos_m extends CI_Model {
 			
 	}/* Fin de mCambiaEstadoActivoCaso */
 	
+	public function mEditaFicha($fichaId,$datos){
+		
+		$this->db->where('fichaId', $fichaId);
+		$this->db->update('fichas',$datos);
+		
+		$this->db->where('fichas_fichaId', $fichaId);
+		$this->db->update('registro',$datos);
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+	}
+	
 	/* Este modelo elimina una ficha relacionada a un caso
 	 * @param ($fichaId)
 	 * */
@@ -331,6 +343,32 @@ class Casos_m extends CI_Model {
 		return ($mensaje = 'Hecho');
 		
 	}/*Fin de mEliminaFichas*/
+	
+	/* Este modelo Edita un Acto
+	 * @param $actoId $datos
+	 * */
+	public function mEditarActo($actoId,$datos){
+		$this->db->where('actoId', $actoId);
+		$this->db->update('actos',$datos['tablas']['actos']);
+		
+		$this->db->where('actos_actoId', $actoId);
+		$this->db->update('derechoAfectado',$datos['tablas']['derechoAfectado']);
+		
+		$this->db->where('actos_actoId', $actoId);
+		$this->db->update('victimas',$datos['tablas']['victimas']);
+		
+		return ($mensaje = 'Hecho');
+	}
+	
+	public function mEditarIntervencion($intervencionId,$datos){
+		$this->db->where('intervencionId', $intervencionId);
+		$this->db->update('intervenciones',$datos['tablas']['intervenciones']);
+		
+		$this->db->where('intervenciones_intervencionId', $intervencionId);
+		$this->db->update('intervenidos',$datos['tablas']['intervenidos']);
+		
+		return ($mensaje = 'Hecho');
+	}
 	
 	/* Este modelo elimina la relacion en un caso de una intervención
 	 * @param ($intervencionId)
@@ -419,4 +457,46 @@ class Casos_m extends CI_Model {
 		/* Regresa la cadena al controlador*/
 		return ($mensaje = 'Hecho');
 	}/* Fin de mActualizaDatosRelacionCaso */
+	
+	/* Este modelo Edita una fuente documental
+	 * @param $datos
+	 * */
+	
+	public function mEditarFuenteDocumental($datos){
+		$this->db->where('tipoFuenteDocumentalId', $datos['tablas']['tipoFuenteDocumental']['tipoFuenteDocumentalId']);
+		$this->db->update('tipoFuenteDocumental',$datos['tablas']['tipoFuenteDocumental']);
+		
+		$this->db->where('tipoFuenteId',$datos['tablas']['tipoFuenteCatalogo']['tipoFuenteCatalogo_tipoFuenteId'] );
+		$this->db->update('tipoFuenteCatalogo',$datos['tablas']['tipoFuenteCatalogo']);
+		
+		$this->db->where('nivelConfiabilidadId',$datos['tablas']['nivelConfiabilidad']['nivelConfiabilidadCatalogo_nivelConfiabilidadId'] );
+		$this->db->update('nivelConfiabilidadCatalogo',$datos['tablas']['nivelConfiabilidad']);
+		
+		$this->db->where('idiomaId',$datos['tablas']['idiomaCatalogo']['idiomaCatalogo_idiomaId'] );
+		$this->db->update('idiomaCatalogo',$datos['tablas']['idiomaCatalogo']);
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+	}/* Fin de mEditarFuenteDocumental*/
+	
+	
+	/* Este modelo Edita una fuente personal
+	 * @param $datos
+	 * */
+	public function mEditarFuenteInfoPersonal($datos){
+		$this->db->where('fuenteInfoPersonalId', $datos['tablas']['fuenteInfoPersonal']['fuenteInfoPersonalId']);
+		$this->db->update('fuenteInfoPersonal',$datos['tablas']['fuenteInfoPersonal']);
+		
+		$this->db->where('tipoFuenteId',$datos['tablas']['tipoFuenteCatalogo']['tipoFuenteCatalogo_tipoFuenteId'] );
+		$this->db->update('tipoFuenteCatalogo',$datos['tablas']['tipoFuenteCatalogo']);
+		
+		$this->db->where('nivelConfiabilidadId',$datos['tablas']['nivelConfiabilidad']['nivelConfiabilidadCatalogo_nivelConfiabilidadId'] );
+		$this->db->update('nivelConfiabilidadCatalogo',$datos['tablas']['nivelConfiabilidad']);
+		
+		$this->db->where('idiomaId',$datos['tablas']['idiomaCatalogo']['idiomaCatalogo_idiomaId'] );
+		$this->db->update('idiomaCatalogo',$datos['tablas']['idiomaCatalogo']);
+		
+		/* Regresa la cadena al controlador*/
+		return ($mensaje = 'Hecho');
+	}/* Fin de mEditarFuenteInfoPersonal*/
 }
