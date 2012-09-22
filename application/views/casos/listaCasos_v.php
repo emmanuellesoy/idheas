@@ -23,7 +23,7 @@
 <!--*************Lista de casos*************-->
 				<div  id="listaCasos" class="PruebaScorll">
 		
-					<?php if(isset($catalogos['listaDeCasos']) == 'Aún no tienes casos en la base de datos'):?>
+					<?php if(isset($catalogos['listaDeCasos']) != 'Aún no tienes casos en la base de datos'):?>
                     <?php foreach($catalogos['listaDeCasos']  as $item):?> 
 			<div class="twelve columns" >
                             <a href="<?=base_url(); ?>index.php/casos_c/mostrar_caso/<?=$item['casoId']; ?>"><?=$item['nombre']; ?></a>
