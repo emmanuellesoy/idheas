@@ -161,7 +161,7 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
-		foreach ($datos as $row) {
+		foreach ($datos['actos'] as $row) {
 			$this->db->select('*');
 			$this->db->from('victimas');
 			$this->db->where('actos_actoId',$datos['actos'][$row]['actoId']);

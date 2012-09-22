@@ -215,9 +215,12 @@ class Catalogos_m extends CI_Model {
 			$datos['tipoLugarN3Catalogo'][$row['tipoLugarN3Id']] = $row;
 		}
 		
-		/* Regresa la cadena al controlador*/
-		return $datos;
-		
+		if($datos != ''){
+			/* Regresa la cadena al controlador*/
+			return $datos;
+		}else{
+			return ($mensaje = 'No hay datos en el catalogo tipoLugar');
+		}
 	}/* Fin de mTraerDatosCatalogoTipoLugar*/
 	
 	/* Este modelo trae los datos de los catálogos Paises-Estados-Municipios */
