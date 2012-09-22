@@ -278,8 +278,8 @@ class Casos_m extends CI_Model {
 			/* Regresa la cadena al controlador */
 			return $listaCasos;
 		}else{
-			$mensaje = 'Aun no tienes casos en la base de datos';
-			return (isset($mensaje));
+			$mensaje = 'ErrorSinDatos';
+			return ($mensaje);
 		}
 		
 		 
