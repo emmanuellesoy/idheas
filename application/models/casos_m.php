@@ -161,6 +161,34 @@ class Casos_m extends CI_Model {
 			}
 		}
 		
+		foreach ($datos as $row) {
+			$this->db->select('*');
+			$this->db->from('victimas');
+			$this->db->where('actos_actoId',$datos['actos'][$row]['actoId']);
+			$consulta = $this->db->get();
+			
+			if ($consulta->num_rows() > 0){				
+				/* Pasa la consulta a un cadena */
+				foreach ($consulta->result_array() as $row) {
+					$datos['actos']['victimas'][$row['victimaId']] = $row;
+				}
+			}
+		}
+
+		foreach ($datos as $row) {
+			$this->db->select('*');
+			$this->db->from('perpetradores');
+			$this->db->where('victimas_victmaId',$datos['victimas'][$row]['victimaId']);
+			$consulta = $this->db->get();
+			
+			if ($consulta->num_rows() > 0){				
+				/* Pasa la consulta a un cadena */
+				foreach ($consulta->result_array() as $row) {
+					$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
+				}
+			}
+		}
+		
 		/* Trae todos los datos de fuenteInfoPersonal*/
 		$this->db->select('*');
 		$this->db->from('fuenteInfoPersonal');
