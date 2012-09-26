@@ -509,6 +509,26 @@ class Agregar_catalogos_c extends CI_Controller {
         
     }
     
+    /*
+     * Funcion sin terminar.
+     */
+    
+    public function agregar_general($config){
+        
+        $archiv = read_file($config['archivo']);
+        
+        $filas = explode('&', $archivo);
+        
+        foreach($filas as $fila){
+            
+            $datos_fila = explode('¬', $fila);
+                
+            $config[];
+
+        }
+        
+    }
+    
     
     
 }
