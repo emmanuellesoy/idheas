@@ -10,8 +10,8 @@
         
         }
 		
-			public function reporteLargo($casoId){
-		
+			public function mReporteLargo(){
+				$casoId =1;
 		
 				/* Trae todos los datos de casos*/
 				$this->db->select('*');
@@ -181,7 +181,20 @@
 					return $mensaje = 'No hay datos en la base de datos';
 				}
 				
-			}/* Fin de mTraer DatosCaso*/
+			}/* Fin de mReporteLargo*/
+			
+			public function mReporteCorto($casoId){
+		
+		
+				/* Trae todos los datos de casos*/
+				$this->db->select('nombre');
+				$this->db->from('casos');
+				$this->db->where('casoId',$casoId);
+				$consulta = $this->db->get();
+							
+				
+				
+			}/* Fin de mReporteCorto*/
 			
 			
 	}
