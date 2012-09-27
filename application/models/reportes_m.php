@@ -77,7 +77,6 @@
 					foreach ($consulta->result_array() as $row) {
 						$datos['nucleoCaso'] = $row;
 					}
-					echo 'HOla';
 				}
 				
 				/* Trae todos los datos de intervenciones*/
@@ -92,7 +91,7 @@
 						$datos['intervenciones'][$row['intervencionId']] = $row;
 					}
 				}
-		
+				
 				/* Trae todos los datos de actos*/
 				$this->db->select('*');
 				$this->db->from('actos');
@@ -126,7 +125,7 @@
 								if ($consulta->num_rows() > 0){				
 									/* Pasa la consulta a un cadena */
 									foreach ($consulta->result_array() as $row) {
-										$datos['actos']['victimas']['perpetradores'][$row['perpetradorVitimaId']] = $row;
+										$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
 									}
 								}
 							}/*Fin foreach Victimas*/
@@ -148,38 +147,6 @@
 					}/* Fin foreach de derechoAfectado*/
 				}
 				
-				
-				/* Trae todos los datos de fuenteInfoPersonal*/
-				$this->db->select('*');
-				$this->db->from('fuenteInfoPersonal');
-				$this->db->where('casos_casoId',$casoId);
-				$consulta = $this->db->get();
-							
-				if ($consulta->num_rows() > 0){				
-					/* Pasa la consulta a un cadena */
-					foreach ($consulta->result_array() as $row) {
-						$datos['fuenteInfoPersonal'][$row['fuenteInfoPersonalId']] = $row;
-					}
-				}
-				
-				/* Trae todos los datos de fuenteInfoPersonal*/
-				$this->db->select('*');
-				$this->db->from('tipoFuenteDocumental');
-				$this->db->where('casos_casoId',$casoId);
-				$consulta = $this->db->get();
-							
-				if ($consulta->num_rows() > 0){				
-					/* Pasa la consulta a un cadena */
-					foreach ($consulta->result_array() as $row) {
-						$datos['tipoFuenteDocumental'][$row['tipoFuenteDocumentalId']] = $row;
-					}
-				}
-				
-				if (isset($datos)) {
-					return $datos;
-				}else{
-					return $mensaje = 'No hay datos en la base de datos';
-				}
 				
 			}/* Fin de mReporteLargo*/
 			
