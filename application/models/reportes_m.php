@@ -126,7 +126,7 @@
 								if ($consulta->num_rows() > 0){				
 									/* Pasa la consulta a un cadena */
 									foreach ($consulta->result_array() as $row) {
-										$datos['actos']['victimas']['perpetradores'][$row['perpetradorVictimaId']] = $row;
+										$datos['actos']['victimas']['perpetradores'][$row['perpetradorVitimaId']] = $row;
 									}
 								}
 							}/*Fin foreach Victimas*/
