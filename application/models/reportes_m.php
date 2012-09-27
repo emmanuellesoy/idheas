@@ -104,6 +104,21 @@
 						$datos['actos'][$row['actoId']] = $row;
 					}
 					
+					/*Trae todos los datos de derechosafectados*/
+					foreach ($datos['actos'] as $row) {
+						$this->db->select('*');
+						$this->db->from('derechoAfectado');
+						$this->db->where('actos_actoId', $row['actoId']);
+						$consulta = $this->db->get();
+						
+						if ($consulta->num_rows() > 0){				
+							/* Pasa la consulta a un cadena */
+							foreach ($consulta->result_array() as $row) {
+								$datos['derechoAfectado'][$row['derechoAfectadoCasoId']] = $row;
+							}
+						}
+					}/* Fin foreach de derechoAfectado*/
+					
 					foreach ($datos['actos'] as $row) {
 						$this->db->select('*');
 						$this->db->from('victimas');
@@ -130,23 +145,14 @@
 								}
 							}/*Fin foreach Victimas*/
 						}
-					}/*Fin foreach actos*/
-					
-					foreach ($datos['actos'] as $row) {
-						$this->db->select('*');
-						$this->db->from('derechoAfectado');
-						$this->db->where('actos_actoId', $row['actoId']);
-						$consulta = $this->db->get();
 						
-						if ($consulta->num_rows() > 0){				
-							/* Pasa la consulta a un cadena */
-							foreach ($consulta->result_array() as $row) {
-								$datos['derechoAfectado'][$row['derechoAfectadoCasoId']] = $row;
-							}
-						}
-					}/* Fin foreach de derechoAfectado*/
+					}/*Fin foreach actos*/
 				}
-				
+				if (isset($datos)) {
+					return $datos;
+				}else{
+					return $mensaje = 'No hay datos en la base de datos';
+				}
 				
 			}/* Fin de mReporteLargo*/
 			
